@@ -64,16 +64,16 @@ const Login = () => {
                 </Button>
               </div>
             </Form>
-            <hr />
+            
             <div>
               <GoogleButton
-                className="g-btn bg-amber-400 bg-opacity-30 rounded-3xl"
+                className="g-btn"
                 type="dark"
                 onClick={handleGoogleSignIn}
               />
             </div>
           </div>
-          <div className="p-4 box mt-3 text-center rounded-lg">
+          <div className="text-center rounded-lg">
             Don't have an account? <Link to="/signup" className="text-amber-400">Sign up</Link>
           </div>
         </div>

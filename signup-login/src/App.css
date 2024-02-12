@@ -58,19 +58,26 @@ body {
   height: 40px !important;
   line-height: 40px !important;
   font-size: 15px !important;
-  border-radius: 5px !important;
+  border-radius: 10px !important;
   background: rgba(255, 197, 51, 0.31) !important;
-  color: rgba(0, 0, 0, 0.54) !important;
+  color: rgba(0, 0, 0, 0.47) !important;
   font-weight: 600 !important;
   border: none !important;
+  transition: box-shadow 0.3s ease-in-out;
 }
 .g-btn > div,
 .g-btn > div > svg {
   width: 40px !important;
   height: 38px !important;
-  border-radius: 5px !important;
+  border-radius: 10px !important;
   background: transparent !important;
   border: none !important;
+  border-top: none !important;
+}
+
+.g-btn:hover {
+  box-shadow: none !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
 }
 
 .custom-shadow {
