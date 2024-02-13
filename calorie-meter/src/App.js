@@ -20,6 +20,6 @@ function App() {
       </header>
     </div>
   );
-}
+}//synccccc
 
 export default App;
