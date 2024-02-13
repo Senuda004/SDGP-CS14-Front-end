@@ -1,0 +1,128 @@
+.upper-background {
+    position: relative;
+    width: 100%;
+    height: 45vh; /* Set the height to 65% of the viewport height */
+   /* Replace 'path/to/your/image.jpg' with the path to your image */
+    background-size: cover; /* Cover the entire container with the background image */
+    background-position: top; /* Set the background image to start from the top */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    overflow: hidden; /* Hide overflow content */
+  }
+  
+  .upper-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity here */
+    backdrop-filter: blur(2px);
+  }
+  
+  .overlay-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white; /* Adjust the text color as needed */
+  }
+  
+  .contact-us-heading {
+    font-size: 80px;
+    margin-bottom: 0px;
+  }
+  
+  .contact-info {
+    margin-top: 20px;
+    display: flex; /* Use flexbox to align items horizontally */
+    justify-content: space-between; /* Distribute items evenly along the main axis */
+    width: 70%; /* Set width to 70% of the container */
+    margin: auto; /* Center the contact info horizontally */
+  }
+  
+  .contact-info p {
+    margin: 50px 50px;
+  }
+  
+
+.contact-container {
+  max-width: 650px;
+  margin: auto;
+  padding: 100px;
+}
+
+.contact-content {
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Target the email label */
+.contact-form label[for="email"] {
+  display: inline-block; /* Change label display to inline-block */
+  margin-bottom: 0; /* Remove bottom margin */
+}
+
+/* Target the email input field */
+.contact-form input[type="email"] {
+  width: calc(70% - 10px); /* Adjust width of the email input */
+  margin-right: 200px; /* Add right margin for spacing */
+}
+
+/* Target the first name input field */
+.contact-form input[type="text"][name="firstName"] {
+  width: calc(80% - 10px); /* Adjust width of the first name input */
+  margin-right: 120px; /* Add right margin for spacing */
+}
+
+/* Target the last name input field */
+.contact-form input[type="text"][name="lastName"] {
+  width: calc(100% - 10px); /* Adjust width of the last name input */
+}
+
+.contact-form {
+  margin-left: 10px; /* Align form a bit left */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+label {
+  font-weight: bold;
+}
+
+.form-control {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%; /* Adjust width of inputs */
+}
+
+textarea {
+  width: calc(100% - 10px); /* Adjust width of textarea */
+  margin-bottom: 20px; /* Add bottom margin for spacing */
+  margin-top: 10px;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
