@@ -1,0 +1,13 @@
+/* body {
+    background-color: #fafafa;
+    display: flex;
+    align-content: center;
+    width: 100% !important;
+    align-items: center;
+    height: 100vh;
+} */
+
+#root div{
+    box-sizing: border-box !important;
+
+}
