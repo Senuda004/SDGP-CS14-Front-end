@@ -16,57 +16,41 @@ const Contact = () => {
           <h2>Send us a message</h2>
           {/* Form */}
           <form className="contact-form" style={{ textAlign: "left" }}>
-            {/* First row: First Name and Last Name */}
-            <div className="form-row">
-              <div className="form-group">
-                <label htmlFor="firstName">First Name:</label>
+          
+          
+              <div className="input-box">
+                
                 <input
                   type="text"
+                  placeholder='Name'
                   id="firstName"
                   name="firstName"
                   className="form-control"
                   required
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="lastName">Last Name:</label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  className="form-control"
-                  required
-                />
-              </div>
-            </div>
+           
             {/* Second row: Email and Phone Number */}
-            <div className="form-row">
-              <div className="form-group">
-                <label htmlFor="email">Email:</label>
+          
+              <div className="input-box">
+
                 <input
                   type="email"
+                  placeholder='E-mail'
                   id="email"
                   name="email"
                   className="form-control"
                   required
                 />
-              </div>
-              <div className="form-group">
-                <label htmlFor="phone">Phone Number:</label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  className="form-control"
-                  required
-                />
-              </div>
+            
+              
             </div>
             {/* Message */}
-            <div className="form-group">
-              <label htmlFor="message">How can we help you?:</label>
+            <div className="input-box">
+
               <textarea
                 id="message"
+                placeholder='Message'
                 name="message"
                 className="form-control"
                 rows="6"
@@ -78,6 +62,14 @@ const Contact = () => {
           </form>
         </div>
       </div>
+
+      <div className='additional'>
+      <h2 className='new-title'>Get In Touch</h2>
+      <p>Feel free to reach out to us anytime! Whether you have questions or feedback, we're here to help. Our team is dedicated to providing you with the best support possible. Don't hesitate to contact us via email, phone, or by filling out the form next to this. We look forward to hearing from you!
+        
+      </p>
+      {/* Add any additional content here */}
+            </div>
     </div>
   );
 };

@@ -30,22 +30,11 @@
   }
   
   .contact-us-heading {
-    font-size: 80px;
+    font-size: 70px;
     margin-bottom: 0px;
   }
   
-  .contact-info {
-    margin-top: 20px;
-    display: flex; /* Use flexbox to align items horizontally */
-    justify-content: space-between; /* Distribute items evenly along the main axis */
-    width: 70%; /* Set width to 70% of the container */
-    margin: auto; /* Center the contact info horizontally */
-  }
-  
-  .contact-info p {
-    margin: 50px 50px;
-  }
-  
+
 
 .contact-container {
   max-width: 650px;
@@ -54,42 +43,29 @@
 }
 
 .contact-content {
-  background-color: #f9f9f9;
+  position:absolute;
+  top:50%;
+  left:60%;
+  transform: translate(-10%,10%);
+  background-color: #fff6c1;
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Target the email label */
-.contact-form label[for="email"] {
-  display: inline-block; /* Change label display to inline-block */
-  margin-bottom: 0; /* Remove bottom margin */
-}
-
-/* Target the email input field */
-.contact-form input[type="email"] {
-  width: calc(70% - 10px); /* Adjust width of the email input */
-  margin-right: 200px; /* Add right margin for spacing */
-}
-
-/* Target the first name input field */
-.contact-form input[type="text"][name="firstName"] {
-  width: calc(80% - 10px); /* Adjust width of the first name input */
-  margin-right: 120px; /* Add right margin for spacing */
-}
-
-/* Target the last name input field */
-.contact-form input[type="text"][name="lastName"] {
-  width: calc(100% - 10px); /* Adjust width of the last name input */
+  overflow: hidden;
 }
 
 .contact-form {
-  margin-left: 10px; /* Align form a bit left */
+  margin-left: 0px; /* Align form a bit left */
+  width: calc(100% - 0px); 
+  margin-right: 150px;
+  
 }
 
-.form-group {
-  margin-bottom: 20px;
+.form-group input{
+  width: 100%;
+  
 }
+
 
 .form-row {
   display: flex;
@@ -98,31 +74,144 @@
 
 label {
   font-weight: bold;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
 }
 
 .form-control {
-  padding: 8px;
+  padding: 7px;
   font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%; /* Adjust width of inputs */
+  border: 5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  width: 90%;
+  background:#fffdf0;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  outline: none;
+  font-size: 1em;
+
+}
+.input-box textarea::placeholder {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 13px;
+}
+
+.input-box input::placeholder{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 13px;
 }
 
 textarea {
   width: calc(100% - 10px); /* Adjust width of textarea */
   margin-bottom: 20px; /* Add bottom margin for spacing */
-  margin-top: 10px;
+  background-color:#352b0983;
 }
 
 .submit-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  padding: 9px 17px;
+  background-color: #ffcc23;
+  color: #000000;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
 .submit-button:hover {
-  background-color: #0056b3;
+  background-color: #ffffff;
+}
+
+
+
+.additional {
+  width: 40%; /* Adjust the width as needed */
+  padding: 1px;
+  margin-left: 180px; /* Add some right margin to separate from the form */
+  border-radius: 10px;
+  margin-top: -160px;
+}
+.additional h2 {
+  color: #333;
+  font-size: 47px;
+  font-family: sans-serif;
+}
+ .additional p{
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+ }
+
+ .contact-cards {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1000px; /* Adjust max-width as needed */
+  margin: auto; /* Center the contact info horizontally */
+  margin-top: 310px; /* Adjust top margin as needed */
+}
+
+.contact-info {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+  width: 250px; /* Set the desired width for the contact cards */
+  height: 100px;
+  transition: transform 0.2s ease-in-out; /* Define the transition property */
+
+}
+
+.contact-info:hover {
+  transform: translateY(-10px); /* Apply transform on hover */
+  background-color: rgb(255, 242, 127);
+}
+
+.contact-info img {
+  width: 30px; /* Adjust image size as needed */
+  height: auto;
+
+  margin-bottom: 10px; /* Add some space below the image */
+}
+
+.contact-info h2 {
+  margin: 7px 0; /* Adjust margin around title */
+}
+
+.contact-info p {
+  margin: 0; /* Remove default margin for paragraph */
+}
+
+
+/* Add media query for smaller screens */
+@media only screen and (max-width: 768px) {
+  .contact-content {
+    position: relative; /* Change position to relative for smaller screens */
+    top: 0; /* Reset top position */
+    left: 0; /* Reset left position */
+    transform: none; /* Reset transform */
+    width: 100%; /* Set width to 100% */
+    margin: 0; /* Reset margin */
+    padding: 50px 20px; /* Adjust padding for smaller screens */
+  }
+
+  .contact-form {
+    margin-right: 0; /* Remove right margin for smaller screens */
+  }
+
+  .additional {
+    width: 100%; /* Set width to 100% for smaller screens */
+    margin-left: 0; /* Remove left margin */
+    margin-top: 20px; /* Adjust top margin for smaller screens */
+  }
+
+  .contact-cards {
+    flex-direction: column; /* Change flex direction to column for smaller screens */
+    align-items: center; /* Center items horizontally */
+    margin-top: 20px; /* Adjust top margin for smaller screens */
+  }
+
+  .contact-info {
+    width: 90%; /* Set width to 90% for smaller screens */
+    margin: 10px 0; /* Adjust margin */
+  }
 }
