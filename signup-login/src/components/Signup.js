@@ -63,7 +63,7 @@ const Signup = () => {
         </div>
 
         {/* image */}
-        <div className="w-1/2">
+        <div className="w-20vh">
             <img src="https://i.ibb.co/vmDdxRr/Login-Page-PNG.png" alt="" />
         </div>
 
