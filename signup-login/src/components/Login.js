@@ -52,7 +52,7 @@ const Login = () => {
                 />
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Group className="mb-1" controlId="formBasicPassword">
                 <Form.Control
                   type="password"
                   placeholder="Password"
@@ -60,6 +60,10 @@ const Login = () => {
                   className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-amber-300 mb-5"
                 />
               </Form.Group>
+
+              <div className="relative text-right mb-5">
+                <Link to="/forgot-password" className="text-amber-400">Forgot Password?</Link>
+              </div>
 
               <div className="d-grid h-10 p-4 bg-amber-400 rounded-lg gap-[5px] mb-4 overflow-hidden hover:transform hover:scale-105 transition-transform duration-300 text-white text-center">
                 <Button type="Submit" className="border-none relative bottom-2 font-semibold text-center active:bg-amber-400 focus:bg-amber-400 custom-button-hover">
