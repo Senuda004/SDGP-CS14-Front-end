@@ -2,21 +2,18 @@
 import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { useUserAuth } from "../context/UserAuthContext";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [error, setError] = useState("");
-  const { resetPassword } = useUserAuth();
+  const { resetPassword, message, error } = useUserAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
     try {
       await resetPassword(email);
-      setMessage("Password reset email sent. Check your inbox.");
     } catch (err) {
-      setError(err.message);
+      // Note: The error handling logic is moved to the UserAuthContext
     }
   };
 
@@ -42,6 +39,11 @@ const ForgotPassword = () => {
                 <Button type="submit" className="border-none relative bottom-2 font-semibold text-center active:bg-amber-400 focus:bg-amber-400 custom-button-hover">
                   Reset Password
                 </Button>
+              </div>
+
+              {/* Back to Login button */}
+              <div className="text-center">
+                <Link to="/" className="text-amber-400">Back to Login</Link>
               </div>
             </Form>
           </div>
