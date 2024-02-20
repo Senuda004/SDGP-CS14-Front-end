@@ -10,6 +10,15 @@ const Home = () => {
         { title: "AI Chatbot", src: "https://i.ibb.co/L8CVzd2/bot-1.png", gap: true},
     ];
 
+    const handleLogOut = () => {
+        // Clear session or authentication information
+        // clear tokens from local storage
+        localStorage.removeItem('token');
+    
+        // Redirect to the login page
+        window.location.href = '/';
+    };
+
     return (
         <>
             <div className='flex'>
@@ -38,6 +47,12 @@ const Home = () => {
                             </li>
                         ))}
                     </ul>
+
+                    <div>
+                        <button className="bg-amber-400 text-white w-full rounded-md p-2 mt-10" onClick={handleLogOut}>
+                            Log Out
+                        </button>
+                    </div>
                  
                 </div>
                 <div className='p-7 text-2xl font-semibold flex-1 h-screen'>
