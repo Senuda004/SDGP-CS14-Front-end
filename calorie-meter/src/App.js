@@ -1,18 +1,18 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import CircBar from './components/CircBar';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        
-        <p>
-          Here is the calorie meter
-        </p>
-       
-      </header>
+    
+          <h1>Calorie Meter</h1>
+          <CircBar/>
+          
+
     </div>
   );
-}//synccccc
+}
 
 export default App;
