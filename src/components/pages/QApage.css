@@ -1,0 +1,18 @@
+.qa-container {
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    background-color: rgb(245, 188, 1);
+    padding: 20px;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 50px;
+}
+
+.question {
+    margin-bottom: 40px;
+    margin-left: 10px;
+}
