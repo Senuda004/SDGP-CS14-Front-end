@@ -7,6 +7,7 @@ import { UserAuthContextProvider } from './context/UserAuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Home from './components/Home';
 import ForgotPassword from './components/ForgotPassword';
+import AiChatbot from './components/AiChatbot';
 
 function App() {
   return (
