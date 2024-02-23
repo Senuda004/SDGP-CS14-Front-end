@@ -27,7 +27,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       </div>
 
       <ul className="pt-6">
-        <Link to="/">
+        <Link to="/dashboard">
             <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-500 text-sm font-semibold items-center gap-x-4 border-2 border-amber-400 ${Menus[0].gap ? "mt-9" : "mt-2"} ${0 === 0 && "bg-light-white"}`}>
                 <img src={Menus[0].src} width={23} />
                 <span className={`${!isOpen && "hidden"} origin-left duration-200 pl-5`}>
@@ -36,7 +36,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             </li>
         </Link>
         
-        <Link to="ai-chatbot">
+        <Link to="/calorie-meter">
             <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-500 text-sm font-semibold items-center gap-x-4 border-2 border-amber-400 ${Menus[1].gap ? "mt-9" : "mt-2"} ${1 === 0 && "bg-light-white"}`}>
                 <img src={Menus[1].src} width={23} />
                 <span className={`${!isOpen && "hidden"} origin-left duration-200 pl-5`}>
@@ -45,14 +45,14 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             </li>
         </Link>
         
-        <a href="">
+        <Link to="/ai-chatbot">
             <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-500 text-sm font-semibold items-center gap-x-4 border-2 border-amber-400 ${Menus[2].gap ? "mt-9" : "mt-2"} ${2 === 0 && "bg-light-white"}`}>
                 <img src={Menus[2].src} width={23} />
                 <span className={`${!isOpen && "hidden"} origin-left duration-200 pl-5`}>
                     {Menus[2].title}
                 </span>
             </li>
-        </a>
+        </Link>
         
       </ul>
 
