@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
+  const location = useLocation();
+
   const Menus = [
     { title: "Dashboard", src: "https://i.ibb.co/n7FkLbR/home.png" },
     { title: "Calorie Meter", src: "https://i.ibb.co/7z639nV/calories-1.png", gap: true },
@@ -28,7 +30,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
       <ul className="pt-6">
         <Link to="/dashboard">
-            <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-500 text-sm font-semibold items-center gap-x-4 border-2 border-amber-400 ${Menus[0].gap ? "mt-9" : "mt-2"} ${0 === 0 && "bg-light-white"}`}>
+            <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-500 text-sm font-semibold items-center gap-x-4 border-2 border-amber-400 ${Menus[0].gap ? "mt-9" : "mt-2"} ${0 === 0 && "bg-light-white"} ${location.pathname === '/dashboard' ? "bg-amber-50" : ""}`}>
                 <img src={Menus[0].src} width={23} />
                 <span className={`${!isOpen && "hidden"} origin-left duration-200 pl-5`}>
                     {Menus[0].title}
@@ -37,7 +39,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         </Link>
         
         <Link to="/calorie-meter">
-            <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-500 text-sm font-semibold items-center gap-x-4 border-2 border-amber-400 ${Menus[1].gap ? "mt-9" : "mt-2"} ${1 === 0 && "bg-light-white"}`}>
+            <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-500 text-sm font-semibold items-center gap-x-4 border-2 border-amber-400 ${Menus[1].gap ? "mt-9" : "mt-2"} ${1 === 0 && "bg-light-white"} ${location.pathname === '/calorie-meter' ? "bg-amber-50" : ""}`}>
                 <img src={Menus[1].src} width={23} />
                 <span className={`${!isOpen && "hidden"} origin-left duration-200 pl-5`}>
                     {Menus[1].title}
@@ -46,7 +48,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         </Link>
         
         <Link to="/ai-chatbot">
-            <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-500 text-sm font-semibold items-center gap-x-4 border-2 border-amber-400 ${Menus[2].gap ? "mt-9" : "mt-2"} ${2 === 0 && "bg-light-white"}`}>
+            <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-500 text-sm font-semibold items-center gap-x-4 border-2 border-amber-400 ${Menus[2].gap ? "mt-9" : "mt-2"} ${2 === 0 && "bg-light-white"} ${location.pathname === '/ai-chatbot' ? "bg-amber-50" : ""}`}>
                 <img src={Menus[2].src} width={23} />
                 <span className={`${!isOpen && "hidden"} origin-left duration-200 pl-5`}>
                     {Menus[2].title}
