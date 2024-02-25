@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <>
       <div className='flex'>
-        <Sidebar isOpen={open} toggleSidebar={toggleSidebar} />
+        <Sidebar isOpen={open} toggleSidebar={toggleSidebar}/>
 
         <div className='p-7 text-2xl font-semibold flex-1 h-screen'>
           <Routes>

@@ -20,7 +20,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   };
 
   return (
-    <div className={`${isOpen ? "w-72" : "w-20"} duration-300 h-screen custom-shadow-home relative p-5`}>
+    <div className={`${isOpen ? "w-72" : "w-20"} h-screen duration-300  custom-shadow-home relative p-5`}>
       <img src="https://www.svgrepo.com/show/494008/back.svg" alt="Icon" className={`absolute cursor-pointer right-[-14px] top-8 w-8 p-1 border-2 border-black rounded-full bg-white ${!isOpen && "rotate-180"}`} onClick={toggleSidebar} />
 
       <div className='flex gap-x-4 items-center'>
@@ -30,7 +30,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
       <ul className="pt-6">
         <Link to="/dashboard">
-            <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-500 text-sm font-semibold items-center gap-x-4 border-2 border-amber-400 ${Menus[0].gap ? "mt-9" : "mt-2"} ${0 === 0 && "bg-light-white"} ${location.pathname === '/dashboard' ? "bg-amber-50" : ""}`}>
+            <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-500 text-sm font-semibold items-center gap-x-4 border-2 border-amber-400 ${Menus[0].gap ? "mt-9" : "mt-2"} ${0 === 0 && "bg-light-white"} ${location.pathname === '/dashboard' ? "bg-amber-100" : ""}`}>
                 <img src={Menus[0].src} width={23} />
                 <span className={`${!isOpen && "hidden"} origin-left duration-200 pl-5`}>
                     {Menus[0].title}
@@ -39,7 +39,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         </Link>
         
         <Link to="/calorie-meter">
-            <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-500 text-sm font-semibold items-center gap-x-4 border-2 border-amber-400 ${Menus[1].gap ? "mt-9" : "mt-2"} ${1 === 0 && "bg-light-white"} ${location.pathname === '/calorie-meter' ? "bg-amber-50" : ""}`}>
+            <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-500 text-sm font-semibold items-center gap-x-4 border-2 border-amber-400 ${Menus[1].gap ? "mt-9" : "mt-2"} ${1 === 0 && "bg-light-white"} ${location.pathname === '/calorie-meter' ? "bg-amber-100" : ""}`}>
                 <img src={Menus[1].src} width={23} />
                 <span className={`${!isOpen && "hidden"} origin-left duration-200 pl-5`}>
                     {Menus[1].title}
@@ -48,7 +48,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         </Link>
         
         <Link to="/ai-chatbot">
-            <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-500 text-sm font-semibold items-center gap-x-4 border-2 border-amber-400 ${Menus[2].gap ? "mt-9" : "mt-2"} ${2 === 0 && "bg-light-white"} ${location.pathname === '/ai-chatbot' ? "bg-amber-50" : ""}`}>
+            <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-500 text-sm font-semibold items-center gap-x-4 border-2 border-amber-400 ${Menus[2].gap ? "mt-9" : "mt-2"} ${2 === 0 && "bg-light-white"} ${location.pathname === '/ai-chatbot' ? "bg-amber-100" : ""}`}>
                 <img src={Menus[2].src} width={23} />
                 <span className={`${!isOpen && "hidden"} origin-left duration-200 pl-5`}>
                     {Menus[2].title}
