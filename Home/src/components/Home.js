@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import AiChatbot from './AiChatbot';
 import Dashboard from './Dashboard';
@@ -7,11 +7,17 @@ import CalorieMeter from './CalorieMeter';
 import './Home.css';
 
 const Home = () => {
+  const location = useLocation();
   const [open, setOpen] = useState(true);
 
   const toggleSidebar = () => {
     setOpen(!open);
   };
+
+  // Check if the current path is "/home" before rendering the component
+  if (location.pathname === '/' || location.pathname === '/signup' || location.pathname === '/forgot-password') {
+    return null;
+  }
 
   return (
     <>
