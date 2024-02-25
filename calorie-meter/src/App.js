@@ -1,17 +1,26 @@
 //import logo from './logo.svg';
 import './App.css';
 import CircBar from './components/CircBar';
+import CircularBarCode from './components/CircularBarCode';
+
+
+
 
 
 function App() {
   return (
     <div className="App">
-    
-          <h1>Calorie Meter</h1>
-          <CircBar/>
+          <div className='topHed'><span>Calorie Meter</span></div>
+         
+            <div> <CircBar/></div>
           
-
+         
+          
+          
+          
     </div>
+    
+    
   );
 }
 
