@@ -10,9 +10,8 @@ import CircularBarCode from './components/CircularBarCode';
 function App() {
   return (
     <div className="App">
-          <div className='topHed'><span>Calorie Meter</span></div>
-         
-            <div> <CircBar/></div>
+      <CircBar/>
+      
           
          
           
