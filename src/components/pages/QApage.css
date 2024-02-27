@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-* {
+.QApage {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -41,8 +41,8 @@
   font-size: 1.6rem;
 }
 
-.active,
-.accordion:hover {
+.QApage .active,
+.QApage.accordion:hover {
   background-color: #f1f7f5;
 }
 .panel {
