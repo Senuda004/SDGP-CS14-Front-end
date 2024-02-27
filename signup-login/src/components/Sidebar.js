@@ -20,7 +20,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   };
 
   return (
-    <div className={`${isOpen ? "w-72" : "w-20"} h-screen duration-300  custom-shadow-home relative p-5`}>
+    <div className={`${isOpen ? "w-72" : "w-20"} h-[200vh] duration-300  custom-shadow-home p-5 relative`}>
       <img src="https://www.svgrepo.com/show/494008/back.svg" alt="Icon" className={`absolute cursor-pointer right-[-14px] top-8 w-8 p-1 border-2 border-black rounded-full bg-white ${!isOpen && "rotate-180"}`} onClick={toggleSidebar} />
 
       <div className='flex gap-x-4 items-center'>
