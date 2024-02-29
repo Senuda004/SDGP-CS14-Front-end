@@ -1,5 +1,7 @@
 import React from 'react';
 import './circBar.css';
+import CircularProgressBar from './CircularBarProgress'
+
 
 export default function CircBar() {
   const scrollToSection = (sectionId) => {
@@ -22,12 +24,14 @@ export default function CircBar() {
       </div>    
       <div id='calMeter' className='calMeter'>
         Set your Goal
+        <CircularProgressBar/>
       </div>
       <div id='trackInt' className='trackInt'>
         Track your daily intake
       </div>
       <div id='VeiwSpro' className='VeiwSpro'>
         View Scanned Products
+       
       </div>
       <div id='getTip' className='getTip'>
         Get Tips

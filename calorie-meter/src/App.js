@@ -1,19 +1,36 @@
 //import logo from './logo.svg';
 import './App.css';
 import CircBar from './components/CircBar';
-import CircularBarCode from './components/CircularBarCode';
-//commment
+import ProductList from './components/ProductList';
+import React, { useEffect, useState } from 'react';
+
+
+
+const App = () => {
+  const [productsData, setProductsData] = useState(null);
+
+  useEffect(() => {
+    // Fetch the product data from the data.json file in the public folder
+    fetch('/productList.json')
+      .then(response => response.json())
+      .then(data => setProductsData(data))
+      .catch(error => console.error('Error fetching product data:', error));
+  }, []);
 
 
 
 
-function App() {
+
   return (
     <div className="App">
-      <CircBar/>
       
+      
+      <CircBar/>
+      {productsData && <ProductList products={productsData.products} />}
           
-         
+      <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
           
           
           
@@ -24,3 +41,4 @@ function App() {
 }
 
 export default App;
+
