@@ -14,7 +14,7 @@ function Card(){
                 <div className="contact-info">
                 <img className="phone-card" src ={phone}alt="phone"></img>
                 <h2 className='title'>Phone</h2>
-                <p className='text'>+947653214</p>
+                <p className='text'>+9476 321 4072</p>
                 </div>
 
                 <div className="contact-info">

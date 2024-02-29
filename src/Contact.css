@@ -1,3 +1,9 @@
+body{
+  margin:0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 .contact-container {
   max-width: 650px;
   margin: auto;
@@ -6,11 +12,11 @@
 
 .contact-content {
   position:absolute;
-  top:17%;
+  top:15%;
   left:60%;
   transform: translate(-10%,10%);
   background-color: #fff6c1;
-  padding: 40px;
+  padding: 50px;
   border-radius: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -36,14 +42,45 @@ label {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
 }
 
+.contact-info img {
+  width: 25px; /* Adjust image size as needed */
+  height: auto;
+  margin-right: 15px;
+}
+
+.contact-content img{
+    width: 23px; /* Adjust image size as needed */
+    height: 24px;
+    margin-top: 25px;
+   margin-right: 10px;
+}
+
+.message{
+  display: flex;
+  font-size: 18px;
+  margin-top: -10px;
+}
+
+.background-cover {
+  position: absolute;
+  top: -305px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./Assets/bg.svg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1; /* Ensure the background cover is behind other content */
+}
+
 .form-control {
-  padding: 9px;
+  padding: 10px;
   font-size: 16px;
   border: 5px solid rgba(255, 255, 255, 0.25);
   border-radius: 10px;
   width: 90%;
   background:#fffdf0;
-  margin-top: 10px;
+  margin-top: 1px;
   margin-bottom: 15px;
   outline: none;
   font-size: 1em;
@@ -88,13 +125,15 @@ textarea {
 }
 .additional h2 {
   color: #333;
-  font-size: 55px;
+  font-size: 57px;
   font-family: sans-serif;
 }
  .additional p{
+  margin-top: 80px;
   font-size: 16px;
   color: #666;
   line-height: 1.5;
+  white-space: pre-wrap;
  }
  .contact-cards {
   display: flex;
@@ -110,17 +149,17 @@ textarea {
   display: flex; /* Display content horizontally */
   align-items: center; /* Center content vertically */
   padding: 15px;
-  border: 1px solid hsl(0, 0%, 80%);
+  border: 1px solid hsl(48, 100%, 50%);
   border-radius: 10px;
-  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+  box-shadow: 3px 3px 3px #fff6c1;
   width: 360px; /* Set the desired width for the contact cards */
   margin-bottom: 20px; /* Add space between cards */
-  transition: transform 0.3s ease-in-out; /* Define the transition property */
+  transition: transform 0.2s ease-in-out; /* Define the transition property */
   height: 25px;
 }
 
 .contact-info:hover {
-  transform: translateY(-8px); /* Apply transform on hover */
+  transform: translateY(-5px); /* Apply transform on hover */
   background-color: rgb(255, 242, 127);
 }
 
@@ -157,8 +196,8 @@ textarea {
 }
 
 .icon img {
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
   transition: transform 0.3s ease-in-out;
 }
@@ -166,8 +205,6 @@ textarea {
 .icon:hover img {
   transform: scale(1.1);
 }
-
-
 
 .socials {
   margin-top: 100px;
@@ -181,39 +218,101 @@ textarea {
   font-size: 45px;
   font-family: sans-serif ;
 }
+.map{
+  overflow: hidden;
+  padding-bottom: 40%;
+  position: relative;
+  height: 0;
+}
+.map iframe{
 
+  top: 30px;
+  border: 0;
+  height: 65%;
+  width: 100%;
+  position:absolute;
+}
 
+.map-title h2{
+  font-family: sans-serif;
+  text-align: center;
+  margin-top: 100px;
+  font-size: 40px;
+ 
+}
 
-/* Add media query for smaller screens */
-@media only screen and (max-width: 768px) {
-  .contact-content {
-    position: relative; /* Change position to relative for smaller screens */
-    top: 0; /* Reset top position */
-    left: 0; /* Reset left position */
-    transform: none; /* Reset transform */
-    width: 100%; /* Set width to 100% */
-    margin: 0; /* Reset margin */
-    padding: 50px 20px; /* Adjust padding for smaller screens */
-  }
+.chat {
+  position: absolute;
+  top: 90%; /* Adjust as needed */
+  left: 55%; /* Align to the left side of the page */
+  width: 50%; /* Adjust the width as needed */
+  padding: 20px; /* Add padding for spacing */
+  box-sizing: border-box; /* Include padding in the width calculation */
+}
 
-  .contact-form {
-    margin-right: 0; /* Remove right margin for smaller screens */
-  }
+.chat h3 {
+  font-family: sans-serif;
+  font-size: 40px;
+  margin-bottom: 10px; /* Add some bottom margin for spacing */
+}
 
-  .additional {
-    width: 100%; /* Set width to 100% for smaller screens */
-    margin-left: 0; /* Remove left margin */
-    margin-top: 20px; /* Adjust top margin for smaller screens */
-  }
+.chat p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+}
+ 
+.middle{
+  position: absolute;
+  top: 111%;
+  left: 55.7%;
+  text-align: center;
+}
 
-  .contact-cards {
-    flex-direction: column; /* Change flex direction to column for smaller screens */
-    align-items: center; /* Center items horizontally */
-    margin-top: 20px; /* Adjust top margin for smaller screens */
-  }
+a.btn{
+  background: none;
+  border: 2px solid hsl(48, 100%, 50%);
+  font-family: sans-serif;
+  padding: 6px 18px;
+  text-decoration: none;
+  color: #000000;
+  margin: 10px;
+  cursor: pointer;
+  position: relative;
+}
 
-  .contact-info {
-    width: 90%; /* Set width to 90% for smaller screens */
-    margin: 10px 0; /* Adjust margin */
-  }
+a.btn:hover{
+  color:#000000;
+}
+
+a.btn::before{
+  content:"";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: hsl(48, 100%, 50%);
+  z-index: -1;
+  transition: transform 0.5s;
+  transform-origin: 0 0;
+  transition-timing-function: cubic-bezier(0.5,1.6,0.4,0.7);
+}
+a.btn::before{
+  transform: scaleX(0);
+}
+a.btn:hover::before{
+  transform:scaleY(1);
+}
+
+/* CSS for revealing elements on scroll */
+.socials, .chat, .middle {
+  opacity: 0; /* Initially hide the elements */
+  transform: translateY(20px); /* Move the elements down initially */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Add smooth transition */
+}
+
+.socials.reveal, .chat.reveal, .middle.reveal {
+  opacity: 1; /* Reveal the elements */
+  transform: translateY(0); /* Move the elements to their original position */
 }
