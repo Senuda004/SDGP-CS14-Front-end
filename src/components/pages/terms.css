@@ -1,12 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
 
-:root {
-  --primary-clr: #856505;
-  --white: #fff;
-  --text-clr: #464646;
-  --tabs-list-bg-clr: #dfc8fd;
-  --btn-hvr: #FFBF00;
-}
 
 * {
   margin: 0;
@@ -18,33 +11,29 @@
 
 body{
   font-size: 14px;
-  color: var(--text-clr);
+  color: #ffffffbe;
 }
 
-.flex_align_justify{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.wrapper{
-  min-height: 100vh;
-  padding: 0 20px;
+.waveImage {
+  width: 100%;
+  height: 150px;
 }
 
 .tc_wrap{
   width: 800px;
   max-width: 100%;
   height: 500px;
-  background: rgb(228, 212, 143);
+  background: rgba(0, 0, 0, 0.781);
   display: flex;
   border-radius: 8px;
   overflow: hidden;
+  margin-left: 300px;
+  margin-top: 20px;
 }
 
 .tc_wrap .tabs_list{
   width: 200px;
-  background: #ebbc95;
+  background: #00000056;
   height: 100%;
 }
 
@@ -56,7 +45,7 @@ body{
 
 .tc_wrap .tabs_content .tab_head,
 .tc_wrap .tabs_content .tab_foot{
-  color: var(--primary-clr);
+  color: #FFBF00;
   padding: 25px 0;
   height: 70px;
 }
@@ -91,14 +80,14 @@ body{
   right: -20px;
   width: 2px;
   height: 100%;
-  background: var(--primary-clr);
+  background: #FFBF00;
   opacity: 0;
   transition: all 0.5s ease;
 }
 
 .tc_wrap .tabs_list ul li.active,
 .tc_wrap .tabs_list ul li:hover{
-  color: var(--primary-clr);
+  color: #FFBF00;
 }
 
 .tc_wrap .tabs_list ul li.active:before{
@@ -108,7 +97,7 @@ body{
 .tc_wrap .tabs_content .tab_body .tab_item h3{
   padding-top: 10px;
   margin-bottom: 10px;
-  color: var(--primary-clr);
+  color: #FFBF00;
 }
 
 .tc_wrap .tabs_content .tab_body .tab_item p{

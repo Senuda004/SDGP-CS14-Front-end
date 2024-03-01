@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './terms.css';  
+import waveImage from '../images/wave.png';
 
 const TermsAndConditions = () => {
   const [activeTab, setActiveTab] = useState('tab_item_1');
@@ -9,7 +10,8 @@ const TermsAndConditions = () => {
   };
 
   return (
-    <div className="wrapper flex_align_justify">
+    <div className="wrapperr flex_align_justify">
+      <img src={waveImage} alt="wave" className="waveImage" />
       <div className="tc_wrap">
         <div className="tabs_list">
           <ul>
