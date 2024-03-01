@@ -3,6 +3,15 @@
     flex-direction: column;
 }
 
+/* Media query for small screens */
+@media screen and (max-width: 768px) {
+    .contar {
+        width: 100%; /* Full width on small screens */
+        margin-left: 0px;
+        
+    }
+}
+
 /* Common styles for buttons */
 .btn {
     display: flex;
@@ -37,9 +46,9 @@
 
 /* Media query for small screens */
 @media screen and (max-width: 768px) {
-    .btn {
+    .intro {
         width: 100%; /* Full width on small screens */
-        margin-left: 0;
+        margin-left: 15px;
         margin-top: 10px; /* Adjust as needed */
     }
 }
@@ -95,3 +104,74 @@
         font-size: 45px; /* Adjust as needed */
     }
 }
+
+/*ProductList css*/
+/* Media query for small screens */
+@media screen and (max-width: 768px) {
+    .main {
+        width: 100%; /* Full width on small screens */
+        margin-left: 15px;
+        margin-top: 10px; /* Adjust as needed */
+    }
+}
+
+.product-list{
+   
+    width: 600px;
+   
+    height: 40px;
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 200px;
+   
+}
+.product-card{
+    width: 400px;
+    background-color: #eeece8;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 200px;
+    border: 2px solid #9480B9;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow for a subtle effect */
+    transition: box-shadow 0.3s ease; /* Smooth transition on hover (optional) */
+}
+.product-card img{
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    transition: transform 0.2s;           
+}
+
+.product-card:hover {
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) */
+}
+.details{
+    width: 150px;
+    height: 100px;
+    
+    background-color: wheat;
+}
+.details h1{
+    font-weight: bold;
+    color: #d2970d;
+    margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+    .product-card {
+      width: 100%; /* Set width to 100% for smaller screens */
+      margin-right: 0; /* Remove right margin on smaller screens */
+    }
+  }
+  @media (max-width: 768px) {
+    .product-card {
+      width: 100%; /* Set width to 100% for smaller screens */
+      margin-right: 0; /* Remove right margin on smaller screens */
+    }
+  }

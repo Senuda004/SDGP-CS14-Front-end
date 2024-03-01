@@ -1,6 +1,7 @@
 import React from 'react';
 import './circBar.css';
-import CircularProgressBar from './CircularBarProgress'
+import CircularProgressBar from './CircularBarProgress';
+import NutriDetail from './NutriDetail';
 
 
 export default function CircBar() {
@@ -25,9 +26,13 @@ export default function CircBar() {
       <div id='calMeter' className='calMeter'>
         Set your Goal
         <CircularProgressBar/>
+        
+        
       </div>
       <div id='trackInt' className='trackInt'>
         Track your daily intake
+        <NutriDetail/>
+        
       </div>
       <div id='VeiwSpro' className='VeiwSpro'>
         View Scanned Products
