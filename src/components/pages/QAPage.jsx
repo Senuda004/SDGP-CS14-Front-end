@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import "./QApage.css";
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import waveImage from '../images/wave.png';
+
 
 const QAPage = () => {
   useEffect(() => {
@@ -10,8 +12,8 @@ const QAPage = () => {
 
     for (i = 0; i < acc.length; i++) {
       acc[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        this.parentElement.classList.toggle("active");
+        this.classList.toggle("activee");
+        this.parentElement.classList.toggle("activee");
 
         var panel = this.nextElementSibling;
 
@@ -25,6 +27,10 @@ const QAPage = () => {
   }, []); 
   return (
     <div className="wrapper">
+      <div>
+        <img src={waveImage} alt="wave" className="waveImage" />
+      </div>
+
       <h1>Frequently Asked Questions</h1>
 
       <div className="faq">
