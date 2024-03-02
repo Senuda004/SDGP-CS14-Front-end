@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './circBar.css';
-import CircularProgressBar from './CircularBarProgress';
-import NutriDetail from './NutriDetail';
+
+import CircularProgressBar from './CircularProgressBar';
 
 
 export default function CircBar() {
@@ -11,6 +11,30 @@ export default function CircBar() {
       section.scrollIntoView({ behavior: 'smooth' });
     }
   };
+  const [goal, setGoal] = useState(2000);
+  const [consumed, setConsumed] = useState(0);
+  const [inputGoal, setInputGoal] = useState(''); // State to hold the input value
+  
+
+  const handleConsumedChange = (newConsumed) => {
+    const updatedConsumed = Math.max(0, Math.min(newConsumed, goal));
+    setConsumed(updatedConsumed);
+  };
+
+  const handleInputChange = (event) => {
+    setInputGoal(event.target.value);
+  };
+
+
+  const handleSetGoal = () => {
+    const newGoal = parseInt(inputGoal, 10) || 0; // Convert input to integer or default to 0
+    setGoal(newGoal);
+    const updatedConsumed = Math.max(0, Math.min(newGoal, goal));
+    setConsumed(updatedConsumed);
+    
+  };
+
+ 
 
   return (
     <div>
@@ -25,13 +49,17 @@ export default function CircBar() {
       </div>    
       <div id='calMeter' className='calMeter'>
         Set your Goal
-        <CircularProgressBar/>
+        
         
         
       </div>
       <div id='trackInt' className='trackInt'>
         Track your daily intake
-        <NutriDetail/>
+        <div>
+          <input type="number" value={inputGoal} onChange={handleInputChange} placeholder="Set your goal" />
+          <button className='cbtn' onClick={handleSetGoal}>Set Goal</button>
+          <CircularProgressBar goal={goal} consumed={consumed} onConsumedChange={handleConsumedChange} />
+        </div>  
         
       </div>
       <div id='VeiwSpro' className='VeiwSpro'>

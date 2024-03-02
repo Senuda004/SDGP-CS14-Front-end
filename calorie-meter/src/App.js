@@ -3,6 +3,8 @@ import './App.css';
 import CircBar from './components/CircBar';
 import ProductList from './components/ProductList';
 import React, { useEffect, useState } from 'react';
+import Progressbar from './components/Progressbar';
+
 
 
 
@@ -17,21 +19,14 @@ const App = () => {
       .catch(error => console.error('Error fetching product data:', error));
   }, []);
 
-
-
-
-
+  
   return (
     <div className="App">
       
       
       <CircBar/>
       {productsData && <ProductList products={productsData.products} />}
-          
-      
-    
-          
-          
+     
           
     </div>
     
@@ -40,4 +35,5 @@ const App = () => {
 }
 
 export default App;
+
 

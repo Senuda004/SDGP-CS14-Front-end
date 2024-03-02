@@ -9,6 +9,19 @@ const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
 
   const circumference = 2 * Math.PI * radius;
   const progressOffset = ((goal - normalizedProgress) / goal) * circumference;
+  
+  // Calculate the percentage of progress
+  const progressPercentage = (consumed / goal) * 100;
+
+  // Determine stroke color based on progress percentage
+  let strokeColor;
+  if (progressPercentage < 33) {
+    strokeColor = 'red';
+  } else if (progressPercentage < 66) {
+    strokeColor = 'blue';
+  } else {
+    strokeColor = 'green';
+  }
 
   return (
     <div>
@@ -26,7 +39,7 @@ const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="green"
+          stroke={strokeColor}
           strokeWidth={strokeWidth}
           strokeDasharray={circumference}
           strokeDashoffset={progressOffset}
@@ -40,43 +53,13 @@ const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
 
       </svg>
       <div style={{ textAlign: 'center' }}>
-        <button onClick={() => onConsumedChange(consumed - 100)}>Deduct 100 kcal</button>
+        <button className='cbtn' style={{width:'250px'}}onClick={() => onConsumedChange(consumed - 100)}>Deduct 100 kcal</button>
         <div>{consumed}/{goal} kcal</div>
-        <button onClick={() => onConsumedChange(consumed + 100)}>Add 100 kcal</button>
+        <button  className='cbtn' style={{width:'250px'}} onClick={() => onConsumedChange(consumed + 100)}>Add 100 kcal</button>
       </div>
     </div>
   );
 };
 
-const App = () => {
-  const [goal, setGoal] = useState(2000);
-  const [consumed, setConsumed] = useState(0);
-  const [inputGoal, setInputGoal] = useState(''); // State to hold the input value
 
-  const handleConsumedChange = (newConsumed) => {
-    const updatedConsumed = Math.max(0, Math.min(newConsumed, goal));
-    setConsumed(updatedConsumed);
-  };
-
-  const handleInputChange = (event) => {
-    setInputGoal(event.target.value);
-  };
-
-
-  const handleSetGoal = () => {
-    const newGoal = parseInt(inputGoal, 10) || 0; // Convert input to integer or default to 0
-    setGoal(newGoal);
-    const updatedConsumed = Math.max(0, Math.min(newGoal, goal));
-    setConsumed(updatedConsumed);
-  };
-
-  return (
-    <div>
-      <input type="number" value={inputGoal} onChange={handleInputChange} placeholder="Set your goal" />
-      <button onClick={handleSetGoal}>Set Goal</button>
-      <CircularProgressBar goal={goal} consumed={consumed} onConsumedChange={handleConsumedChange} />
-    </div>
-  );
-};
-
-export default App;
+export default CircularProgressBar;
