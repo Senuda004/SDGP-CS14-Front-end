@@ -29,6 +29,7 @@ body{
   overflow: hidden;
   margin-left: 300px;
   margin-top: 20px;
+  margin-bottom: 50px;
 }
 
 .tc_wrap .tabs_list{
@@ -116,4 +117,24 @@ body{
     border-radius: 25px;
   cursor: pointer;
   transition: all 0.5s ease;
+}
+
+@media only screen and (max-width: 900px) {
+  .tc_wrap {
+    margin-left: 15px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .tc_wrap {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .tabs_list ul {
+    padding: 20px;
+  }
 }
