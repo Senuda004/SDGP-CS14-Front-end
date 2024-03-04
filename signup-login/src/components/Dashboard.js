@@ -5,6 +5,7 @@ import axios from 'axios';
 const Dashboard = () => {
   const webcamRef = useRef(null);
   const [capturedPhoto, setCapturedPhoto] = useState(null);
+  const [identifiedItem, setIdentifiedItem] = useState(null);
 
   const takePhoto = async () => {
     if (webcamRef.current) {
@@ -29,8 +30,13 @@ const Dashboard = () => {
               image_path: saveResponse.data.file_path,
             });
 
+            const detectedObject = predictResponse.data.detected_object;
+
             // Process the response and update the UI accordingly
             console.log('Identified object:', predictResponse.data.detected_object);
+
+            // Update the state with the identified item name
+            setIdentifiedItem(detectedObject);
           } catch (predictError) {
             console.error('Error predicting with saved image:', predictError);
           }
@@ -58,6 +64,14 @@ const Dashboard = () => {
         <div>
           <h2>Captured Photo</h2>
           <img src={capturedPhoto} alt="Captured" style={{ maxWidth: '100%' }} />
+        </div>
+      )}
+
+      {/* Display identified item */}
+      {identifiedItem && (
+        <div>
+          <h2>Identified Item</h2>
+          <p>Identified item: {identifiedItem}</p>
         </div>
       )}
     </div>
