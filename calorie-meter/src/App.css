@@ -4,6 +4,7 @@
 /* Default styles for larger screens */
 .App {
     font-family: 'Poppins', sans-serif;
+    
 }
 
 .circularBar {
@@ -19,22 +20,3 @@
         0px 0px 6px 3px #423b2b; /* Left */
 }
 
-/* Media queries for responsive design */
-@media screen and (max-width: 768px) {
-    .circularBar {
-        width: 80%; /* Adjust as needed */
-        height: auto; /* Allow height to adjust proportionally */
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 20px; /* Adjust as needed */
-        padding-top: 20px; /* Adjust as needed */
-    }
-}
-
-/* Additional media queries for larger screens if needed */
-@media screen and (min-width: 1200px) {
-    .circularBar {
-        width: 400px; /* Adjust as needed */
-        height: 400px; /* Adjust as needed */
-    }
-}

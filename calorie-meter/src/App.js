@@ -3,7 +3,7 @@ import './App.css';
 import CircBar from './components/CircBar';
 import ProductList from './components/ProductList';
 import React, { useEffect, useState } from 'react';
-import Progressbar from './components/Progressbar';
+
 
 
 

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './circBar.css';
-
 import CircularProgressBar from './CircularProgressBar';
 
 
@@ -11,6 +10,8 @@ export default function CircBar() {
       section.scrollIntoView({ behavior: 'smooth' });
     }
   };
+  // circular bar functions
+  
   const [goal, setGoal] = useState(2000);
   const [consumed, setConsumed] = useState(0);
   const [inputGoal, setInputGoal] = useState(''); // State to hold the input value
@@ -48,26 +49,33 @@ export default function CircBar() {
         </div>
       </div>    
       <div id='calMeter' className='calMeter'>
-        Set your Goal
-        
+        <h1>Set your Goal</h1>
+        <div className='setgoalContainer'>
+            <div className='inputContr'>
+            <h3 id=''>Set your daily calorie goal</h3>
+              <input className='userInput' type="number" value={inputGoal} onChange={handleInputChange} placeholder="Enter here" />
+              <p>Kcal</p>
+              <button id='setGoalbtn' className='cbtn' onClick={handleSetGoal}>Set Goal</button>
+           </div>
+         
+          <div className='circBar'>
+            <CircularProgressBar id='circle' goal={goal} consumed={consumed} onConsumedChange={handleConsumedChange} />
+          </div>
+        </div>  
         
         
       </div>
       <div id='trackInt' className='trackInt'>
-        Track your daily intake
-        <div>
-          <input type="number" value={inputGoal} onChange={handleInputChange} placeholder="Set your goal" />
-          <button className='cbtn' onClick={handleSetGoal}>Set Goal</button>
-          <CircularProgressBar goal={goal} consumed={consumed} onConsumedChange={handleConsumedChange} />
-        </div>  
+      <h1>Track your daily intake</h1>
+        
         
       </div>
       <div id='VeiwSpro' className='VeiwSpro'>
-        View Scanned Products
+      <h1>View Scanned Products</h1>
        
       </div>
       <div id='getTip' className='getTip'>
-        Get Tips
+        <h1>Get Tips</h1>
       </div>
     </div>    
   );

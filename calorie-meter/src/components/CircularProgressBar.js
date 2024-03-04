@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
-  const [size, setSize] = useState(200); // Size of the circle
-  const [strokeWidth, setStrokeWidth] = useState(10); // Width of the progress bar
+  const [size, setSize] = useState(300); // Size of the circle
+  const [strokeWidth, setStrokeWidth] = useState(20); // Width of the progress bar
   const [radius, setRadius] = useState(size / 2 - strokeWidth / 2); // Radius of the circle
   const normalizedProgress = consumed > goal ? goal : consumed; // Adjust progress based on the goal
  
@@ -31,7 +31,7 @@ const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="#ddd"
+          stroke="#EFD38D"
           strokeWidth={strokeWidth}
         />
         <circle
@@ -52,9 +52,9 @@ const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
         </text>
 
       </svg>
-      <div style={{ textAlign: 'center' }}>
+      <div className='addDuctBtns'style={{ textAlign: 'center' }}>
         <button className='cbtn' style={{width:'250px'}}onClick={() => onConsumedChange(consumed - 100)}>Deduct 100 kcal</button>
-        <div>{consumed}/{goal} kcal</div>
+        <div id='count'>{consumed}/{goal} kcal</div>
         <button  className='cbtn' style={{width:'250px'}} onClick={() => onConsumedChange(consumed + 100)}>Add 100 kcal</button>
       </div>
     </div>
