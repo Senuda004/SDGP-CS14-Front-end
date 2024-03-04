@@ -7,15 +7,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'tailwindcss/tailwind.css';
 import Home from './components/Home';
+import { UserAuthContextProvider } from './context/UserAuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-      <Home />
-    </BrowserRouter>
+    <UserAuthContextProvider>
+      <BrowserRouter>
+        <App />
+        <Home />
+      </BrowserRouter>
+    </UserAuthContextProvider>
   </React.StrictMode>
 );
 

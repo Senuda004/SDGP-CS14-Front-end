@@ -5,6 +5,7 @@ import AiChatbot from './AiChatbot';
 import Dashboard from './Dashboard';
 import CalorieMeter from './CalorieMeter';
 import './Home.css';
+import ProtectedRoute from './ProtectedRoute';
 
 const Home = () => {
   const location = useLocation();
@@ -26,9 +27,9 @@ const Home = () => {
 
         <div className='p-7 text-2xl font-semibold flex-1 h-screen'>
           <Routes>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/calorie-meter" element={<CalorieMeter />} />
-            <Route path="/ai-chatbot" element={<AiChatbot />} />
+            <Route path="/dashboard" element={<ProtectedRoute component={Dashboard} />} />
+            <Route path="/calorie-meter" element={<ProtectedRoute component={CalorieMeter} />} />
+            <Route path="/ai-chatbot" element={<ProtectedRoute component={AiChatbot} />} />
           </Routes>
         </div>
       </div>
