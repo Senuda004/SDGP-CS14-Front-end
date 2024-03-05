@@ -153,7 +153,41 @@ Are there any foods or ingredients that you prefer to avoid or limit in your die
 
 
           {/* Select option 2 */}
-          {/*   */}
+          {/* <FormField
+            control={form.control}
+            name="health_goal"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Select you health goal</FormLabel>
+                <Select 
+                     onValueChange={field.onChange}
+
+                   >
+                <FormControl>
+                
+                    <SelectTrigger className="w-[200px]">
+                      <SelectValue placeholder="Select your age group" />
+                    </SelectTrigger>
+                    </FormControl>
+                    <SelectContent  >
+                      <SelectItem value="None">None</SelectItem>
+                      <SelectItem value="Weight Loss">Weight Loss</SelectItem>
+                      <SelectItem value="18-24">Muscle Gain</SelectItem>
+                      <SelectItem value="35-44">Energy Boost</SelectItem>
+                      <SelectItem value="45-54">Digestive Health</SelectItem>
+                     
+                    
+                    </SelectContent>
+                  
+               
+                </Select>
+                <FormDescription>
+                  Select the appropriate age group you belong to
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          /> */}
       
       {/* Input question 1 */}
       <FormField
