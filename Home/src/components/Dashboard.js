@@ -7,6 +7,7 @@ import Webcam from 'react-webcam';
 import axios from 'axios';
 
 
+
 const Dashboard = () => {
   const webcamRef = useRef(null);
   const [capturedPhoto, setCapturedPhoto] = useState(null);
