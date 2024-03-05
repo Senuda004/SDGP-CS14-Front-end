@@ -35,6 +35,12 @@
     --radius: 0.5rem;
   }
  
+  .hero {
+    background: url("./components/Login\ Page\ IMG.svg");
+    background-position: center;
+    background-size: cover;
+  }
+
   .dark {
     --background: 224 71.4% 4.1%;
     --foreground: 210 20% 98%;

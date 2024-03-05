@@ -33,16 +33,9 @@ import { Select ,
 // Creating a form schema, validating form on client side
 const formSchema = z.object({
  
-    username: z.string().min(2, {
-      message: "You must enter atleast 10 charahcters minimum for nutrimate to evaluate your health profile efficiently.",
-    }),
-
-    password: z.string().min(6, {
-        message: "Password must be at least 6 characters.",
-      }),
     
     health_conditions: z.string().min(10, {
-        message: " You must enter atleast 10 characters.",
+        message: " You must enter atleast 10 characters minimum for nutrimate to evaluate your health profile efficiently.",
       }),
      dietary_preferences: z.string().min(10, {
         message: " You must enter atleast 10 characters.",
@@ -51,6 +44,9 @@ const formSchema = z.object({
         message: " You must enter atleast 10 characters.",
       }),
       age_group: z.string().min(1, {
+        message: " You must select an item",
+      }),
+      health_goal: z.string().min(1, {
         message: " You must select an item",
       }),
       // age_group:z
@@ -77,6 +73,7 @@ function HealthQuiz() {
           username: "",
           password:"",
           age_group:"",
+          health_goal:"",
 
         },
       });
@@ -91,35 +88,37 @@ function HealthQuiz() {
     }
 
 
-/*
-
-MCQ TYPE
-Dietary Restrictions: Options such as "None", "Vegetarian", "Vegan", "Gluten-Free", "Dairy-Free", etc.
-Chronic Health Conditions: Options like "None", "Diabetes", "High Blood Pressure", "Celiac Disease", "Food Allergies"
-
-Health Goals: Choices including "Weight Loss", "Muscle Gain", "Energy Boost", "Digestive Health"
-Dietary Preferences: Options like "Low-Carb", "High-Protein", "Plant-Based", "Whole Foods", etc.
-
-Input type 
-"Do you have any specific health conditions or medical diagnoses, or have  you have been diagnosed with illnesses before? If so, please provide details
-
-Do you have any specific dietary preferences or restrictions? Please tell us about your dietary preferences
-
-Are there any foods or ingredients that you prefer to avoid or limit in your diet? Please provide details
-*/ 
     return ( 
-    <div >
-        <h1> Health quiz page</h1>
+    <div  className="container max-w-2xl lg:px-0 mx-auto    ">
+        {/* <section className="py-32 flex justify-center items-center rounded-xl shadow-sm shadow-gray-900 border-white hero">
+      <div>
+       
+        <h1 className="pt-12 text-amber-400 text-center  text-xl"> Lets get started by setting up your health profile 🧑‍⚕️</h1>
+
+        <h2 className="pt-6 text-amber-400 text-center ">To  do this please spare a few minutes answering the health quiz 🍃</h2>
+      </div>
+    </section>
+        */}
+
+        <div>
+       
+       <h1 className="pt-12 text-amber-400 text-center  text-xl"> Lets get started by setting up your health profile 🧑‍⚕️</h1>
+
+       <h2 className="pt-6 text-amber-400 text-center ">To  do this please spare a few minutes answering the health quiz 🍃</h2>
+     </div>
+      
     <Form {...form}  >
 
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
       
       {/* Selection box  */}
       <FormField
+         
             control={form.control}
             name="age_group"
+
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="pt-10" >
                 <FormLabel>Select your Age group</FormLabel>
                 <Select 
                      onValueChange={field.onChange}
@@ -150,14 +149,14 @@ Are there any foods or ingredients that you prefer to avoid or limit in your die
               </FormItem>
             )}
           />
-
+          
 
           {/* Select option 2 */}
-          {/* <FormField
+          <FormField
             control={form.control}
             name="health_goal"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="pt-10" >
                 <FormLabel>Select you health goal</FormLabel>
                 <Select 
                      onValueChange={field.onChange}
@@ -166,15 +165,15 @@ Are there any foods or ingredients that you prefer to avoid or limit in your die
                 <FormControl>
                 
                     <SelectTrigger className="w-[200px]">
-                      <SelectValue placeholder="Select your age group" />
+                      <SelectValue placeholder="Select a  health group" />
                     </SelectTrigger>
                     </FormControl>
                     <SelectContent  >
                       <SelectItem value="None">None</SelectItem>
                       <SelectItem value="Weight Loss">Weight Loss</SelectItem>
-                      <SelectItem value="18-24">Muscle Gain</SelectItem>
-                      <SelectItem value="35-44">Energy Boost</SelectItem>
-                      <SelectItem value="45-54">Digestive Health</SelectItem>
+                      <SelectItem value="Muscle Gain">Muscle Gain</SelectItem>
+                      <SelectItem value="Energy Boost">Energy Boost</SelectItem>
+                      <SelectItem value="Digestive Health">Digestive Health</SelectItem>
                      
                     
                     </SelectContent>
@@ -182,19 +181,19 @@ Are there any foods or ingredients that you prefer to avoid or limit in your die
                
                 </Select>
                 <FormDescription>
-                  Select the appropriate age group you belong to
+                  Select an appropriate health goal
                 </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
-          /> */}
+          />
       
       {/* Input question 1 */}
       <FormField
             control={form.control}
             name="health_conditions"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="pt-10">
                 <FormLabel>Do you have any specific health conditions or medical diagnoses, or have  you have been diagnosed with illnesses before? If so, please provide details.</FormLabel>
                 <FormControl>
                   <Textarea
@@ -216,7 +215,7 @@ Are there any foods or ingredients that you prefer to avoid or limit in your die
             control={form.control}
             name="dietary_preferences"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="pt-10">
                 <FormLabel>Do you have any specific dietary preferences or restrictions? Please tell us about your dietary preferences.</FormLabel>
                 <FormControl>
                   <Textarea
@@ -240,7 +239,7 @@ Are there any foods or ingredients that you prefer to avoid or limit in your die
             control={form.control}
             name="food_avoidance"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="pt-10">
                 <FormLabel>Are there any foods or ingredients that you prefer to avoid or limit in your diet? Please provide details</FormLabel>
                 <FormControl>
                   <Textarea
@@ -258,46 +257,8 @@ Are there any foods or ingredients that you prefer to avoid or limit in your die
 
 
 
-        <FormField
-          control={form.control}
-          name="username"
-          render={({ field }) => (
-            // First form
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input placeholder="shadcn" {...field} />
-              </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
-              <FormMessage />
 
-           
-            </FormItem>
-          )}
-        />
-
-    <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-                // First form
-                <FormItem>
-                <FormLabel>password</FormLabel>
-                <FormControl>
-                    <Input placeholder="shadcn" {...field} />
-                </FormControl>
-                <FormDescription>
-                    This is your public display name.
-                </FormDescription>
-                <FormMessage />
-
-            
-                </FormItem>
-            )}
-            />
-        <Button type="submit">Submit</Button>
+        <Button type="submit" className="bg-amber-400">Proceed</Button>
       </form>
     </Form>
 
