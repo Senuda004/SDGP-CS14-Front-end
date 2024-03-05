@@ -112,7 +112,7 @@ function HealthQuiz() {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
       
       {/* Selection box  */}
-      <FormField
+      {/* <FormField
          
             control={form.control}
             name="age_group"
@@ -149,7 +149,7 @@ function HealthQuiz() {
               </FormItem>
             )}
           />
-          
+           */}
 
           {/* Select option 2 */}
           <FormField

@@ -1,6 +1,6 @@
 
 
-// import { Button } from '../components_shadcn/ui/button';
+import { Button } from '../components_shadcn/ui/button';
 
 import React, { useRef, useState } from 'react';
 import Webcam from 'react-webcam';
