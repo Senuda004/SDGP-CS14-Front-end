@@ -1,12 +1,12 @@
-<<<<<<< HEAD
-import React from 'react';
+
+
 // import { Button } from '../components_shadcn/ui/button';
-=======
+
 import React, { useRef, useState } from 'react';
 import Webcam from 'react-webcam';
 import axios from 'axios';
 
->>>>>>> 47a541a4686f7379532bbebfec1c30f869d65830
+
 const Dashboard = () => {
   const webcamRef = useRef(null);
   const [capturedPhoto, setCapturedPhoto] = useState(null);
@@ -51,13 +51,8 @@ const Dashboard = () => {
   return (
     <div>
       <h1>Dashboard Page</h1>
-<<<<<<< HEAD
-      
-    </div>
-  )
-}
-=======
->>>>>>> 47a541a4686f7379532bbebfec1c30f869d65830
+
+
 
       {/* Webcam feed */}
       <Webcam ref={webcamRef} screenshotFormat="image/jpeg" />
