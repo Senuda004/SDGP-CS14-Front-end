@@ -22,8 +22,6 @@ const App = () => {
   
   return (
     <div className="App">
-      
-      
       <CircBar/>
       {productsData && <ProductList products={productsData.products} />}
      
