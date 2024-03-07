@@ -2,6 +2,7 @@ import React,{useRef} from 'react';
 import emailjs from '@emailjs/browser';
 import './Contact.css'; // Import corresponding CSS file
 import message from './Assets/msg.png';
+import wave from './Assets/bg.svg';
 
 const Contact = () => {
   const form= useRef();
@@ -27,7 +28,9 @@ const Contact = () => {
 
   return (
     <div>
-      <div className="background-cover"></div> {/* Add a div for the background cover */}
+      <div className="background-cover">
+        <img src={wave} alt="wave"/>
+      </div> {/* Add a div for the background cover */}
       <div className="contact-container">
         <div className="contact-content">
           <div className="message">

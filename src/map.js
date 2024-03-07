@@ -1,10 +1,14 @@
 import { Divide } from "lucide-react";
 import "./Contact.css";
+import insta from "./Assets/address.png"
 
 function Map(){
     return(
         <>
         <div class="map-title">
+        <div class="find-us">
+            <img className="Instagram" src ={insta}alt="insta"></img>
+            </div>
             <h2>Where to find us</h2>
 
         </div>
