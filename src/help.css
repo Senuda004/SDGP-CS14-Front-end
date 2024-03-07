@@ -1,13 +1,38 @@
+body{
+  font-family: "Poppins";
+}
+
 .background-cover {
   position: absolute;
-  top: -305px;
+  top: 0px;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-image: url('./Assets/bg.svg');
   background-size: cover;
   background-position: center;
   z-index: -1; /* Ensure the background cover is behind other content */
+}
+
+.background-cover img{
+  width: 100%;
+  height: auto;
+  max-height: 700x; /* Set maximum height */
+}
+
+.additional-pic img{
+  width: 100%;
+  height: auto;
+  max-height: 300x; /* Set maximum height */
+}
+
+.additional-pic {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 61%;
+  width: 25%; /* Set initial width */
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
 }
 
 .additional {
@@ -19,41 +44,49 @@
 .additional h1 {
   color: #333;
   font-size: 52px;
-  font-family: sans-serif;
-  margin-bottom: 100px;
+  font-family:"Poppins";
+  margin-bottom: 10px;
 
 }
 .additional h2 {
   color: #333;
   font-size: 36px;
-  font-family: sans-serif;
-
 }
 
 .additional h3 {
   font-family:sans-serif;
   color: #333;
-  font-size: 30px;
+  font-size: 27px;
   margin-top: 100px;
+}
 
-}.card-row {
-  display: flex;
+.intro p{
+  font-size: 15px;
+  line-height: 1.5;
+  margin-top: 30px;
+  margin-right: 480px;
+}
+.card-row {
+  display: grid;
   justify-content: center; /* Center items horizontally */
-  flex-wrap: wrap; /* Allow items to wrap to the next row */
+
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust the minimum and maximum width of each card */
+  gap: 20px; /* Adjust the gap between cards */
 }
 
 .card {
-  width: calc(35% - 60px); /* Reduce space between cards */
-  height: 160px; /* Square shape */
-  padding: 50px;
-  margin-bottom: 35px; /* Add vertical gap */
-  margin-right: 20px; /* create space between cards */
-  margin-top: 40px;
+  width: calc(80% - 50px); /* Reduce space between cards */
+  height: auto; /* Square shape */
+  padding: 28px;
+  margin-right: 25px; /* create space between cards */
+  margin-top: 220px;
+  margin-bottom: -170px;
   border-radius: 10px;
   background-color: #fff6c1bd;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.137);
   cursor: pointer;
   transition: transform 0.3s ease-in-out; /* Add transition */
+  animation: slideInUp 1s forwards; /* Apply the animation */
 }
 
 
@@ -71,6 +104,7 @@
   color: #666;
   font-size: 16px;
   line-height: 1.5;
+  text-align:justify;
 }
 
 .intro{
@@ -78,49 +112,118 @@
   line-height: 1.5;
 }
 
-.chat-bot{
-  position: relative;
-  top: 15%;
-  right: 540px;
-  text-align: center;
-}
-a.btn{
-  background: none;
-  border: 2px solid hsl(48, 100%, 50%);
-  font-family: sans-serif;
-  padding: 6px 18px;
-  text-decoration: none;
+ a{
+  display: inline-block;
+  padding: 6px 16px;
+  background-color: #FFC107;
   color: #000000;
-  margin: 10px;
-  cursor: pointer;
-  position: relative;
+  text-decoration: none;
+  border: 2px solid #000000; /* Dark blue border */
+  border-radius: 18px;
+  margin-left: 0px;
+  margin-top:5px ;
 }
 
-a.btn:hover{
-  color:#000000;
+
+ a:hover {
+  background-color: #fdd867;
 }
 
-a.btn::before{
-  content:"";
+.intro{
+  font-size: 15px;
+}
+
+/* Styles for the card title and icon container */
+.card-title {
+  display: flex;
+  align-items: center; /* Align items vertically */
+}
+
+.card-title h4 {
+  margin-right: 10px; /* Add space between the title and icons */
+  font-size: 23px;
+}
+
+.sub-heading h2{
+  margin-top: 150px;
+  margin-bottom: -150px;
+  animation: slideInUp 1s forwards; /* Apply the animation */
+}
+
+/* Styles for the icons */
+.icon {
+  width: 25px; /* Set the width of the icons */
+ margin-bottom: -22px;
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 12px; /* Add space between icons */
+  
+}
+
+.submit-form {
   position: relative;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: hsl(48, 100%, 50%);
-  z-index: -1;
-  transition: transform 0.5s;
-  transform-origin: 0 0;
-  transition-timing-function: cubic-bezier(0.5,1.6,0.4,0.7);
+  height: auto;
+  width: 80%;
+  left: 80%;
+  transform: translateX(-85%);
+  padding: 32px 20px;
+  background-color: #FFC107;
+  color: #000000;
+  text-decoration: none;
+  border: 0px solid #000000; /* Dark blue border */
+  border-radius: 15px;
+  margin-top: 250px;
+
 }
-a.btn::before{
-  transform: scaleX(0);
-}
-a.btn:hover::before{
-  transform:scaleY(1);
-}
-@media only screen and (max-width: 768px) {
+
+@media only screen and (max-width: 900px) {
   .card {
     width: calc(100% - 20px);
   }
+
+ .additional h1 {
+    font-size: 2.5rem;
+  }
+
+  .additional h2 {
+    font-size: 1.9rem;
+    margin-top: 60px;
+    margin-bottom: -150px;
+  }
+
+  .additional h3 {
+    font-size: 1.5rem;
+  }
+
+  .additional p {
+    font-size: 0.875rem;
+  }
+  .email-button {
+    margin-top: 10px; /* Adjust margin as needed */
+    display: block;
+  }
+
+  .intro p{
+    margin-top: 30px;
+    margin-right: 0px;
+    text-align: justify;
+  }
+  .additional-pic img{
+    display: none;
+  }
+a{
+    padding: 4px 14px;
+    font-size: 15px;
+
 }
+
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px); /* Start from 50px below */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Slide up to original position */
+  }
+}}
