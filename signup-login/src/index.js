@@ -8,8 +8,12 @@ import reportWebVitals from './reportWebVitals';
 import 'tailwindcss/tailwind.css';
 import Home from './components/Home';
 import { UserAuthContextProvider } from './context/UserAuthContext';
+import Modal from 'react-modal';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// Set the app element for react-modal
+Modal.setAppElement('#root');
 
 root.render(
   <React.StrictMode>
