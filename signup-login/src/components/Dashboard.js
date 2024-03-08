@@ -95,13 +95,13 @@ const Dashboard = () => {
             alignItems: 'center',
             justifyContent: 'center',
             width: '100vh',
-            height: '70vh',
+            height: '75vh',
             marginLeft: 'auto',
             marginRight: 'auto',
             marginTop: '50px',
             background: 'white',
             borderRadius: '20px',
-            border: `2px solid ${identifiedItem ? 'green' : 'red'}`, // Border color based on identification
+            border: `3px solid ${firstPhotoTaken && identifiedItem ? 'green' : 'red'}`, // Border color based on identification
           },
           overlay: {
             backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -115,7 +115,8 @@ const Dashboard = () => {
             <img src={capturedPhoto} alt="Captured" style={{ maxWidth: '100%' }} className='rounded-xl m-auto'/>
             {/* Retake photo button */}
             <button onClick={retakePhoto} className='bg-amber-400 text-white w-32 rounded-md p-2 mb-3 mt-4 font-semibold'>Retake Photo</button>
-            
+            {/* Proceed photo button */}
+            <button onClick={closeModal} className='bg-amber-400 text-white w-32 rounded-md p-2 mb-3 mt-4 ml-5 font-semibold'>Proceed</button>
           </div>
         ) : (
           <>
