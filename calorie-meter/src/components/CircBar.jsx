@@ -29,6 +29,11 @@ export default function CircBar() {
 
   const handleSetGoal = () => {
     const newGoal = parseInt(inputGoal, 10) || 0; // Convert input to integer or default to 0
+    if (isNaN(newGoal) || newGoal <= 0) {
+      // Display error alert if the input is not a positive number
+      alert('Please enter a valid positive number for your goal.');
+      return;
+    }
     setGoal(newGoal);
     const updatedConsumed = Math.max(0, Math.min(newGoal, goal));
     setConsumed(updatedConsumed);
@@ -53,7 +58,7 @@ export default function CircBar() {
         <div className='setgoalContainer'>
             <div className='inputContr'>
             <h3 id=''>Set your daily calorie goal</h3>
-              <input className='userInput' type="number" value={inputGoal} onChange={handleInputChange} placeholder="Enter here" />
+              <input className='userInput' type="number" value={inputGoal} onChange={handleInputChange} placeholder="Enter here" required />
               <p>Kcal</p>
               <button id='setGoalbtn' className='cbtn' onClick={handleSetGoal}>Set Goal</button>
            </div>
