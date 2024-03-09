@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Blog from './components/pages/Blog.jsx';
+import Blog from './components/Blog.jsx';
+import './App.css';
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/blog" element={<Blog />} />
-      </Routes>
-    </Router>
+    
+   <div className='App'>
+    <Blog/>
+   </div>
     
   );
 };
