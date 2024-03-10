@@ -3,8 +3,9 @@ import './App.css';
 import CircBar from './components/CircBar';
 
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import DetailsPage from './components/DetailsPage';
+
 
 
 
@@ -16,6 +17,7 @@ const App = () => {
     <div className="App">
       <CircBar/>
       <DetailsPage/> 
+      
           
     </div>
     

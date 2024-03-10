@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './circBar.css';
 import CircularProgressBar from './CircularProgressBar';
+import DetailsPage from './DetailsPage';
+import FetchTips from './FetchTips';
 
 
 export default function CircBar() {
@@ -48,8 +50,7 @@ export default function CircBar() {
       <div className='contar'>
         <div className='topHed'><span>Calorie Meter</span></div>
         <div className='intro'> 
-          <div><button className='btn' id="cusmMargin1" onClick={() => scrollToSection('calMeter')}><span>Set your goal</span></button></div>
-          <div><button className='btn' id="cusmMargin2" onClick={() => scrollToSection('trackInt')}><span>Track progress</span></button></div>
+          <div><button className='btn' id="cusmMargin1" onClick={() => scrollToSection('calMeter')}><span>Set & Track your Progress</span></button></div>
           <div><button className='btn' id="cusmMargin3" onClick={() => scrollToSection('VeiwSpro')}><span>View Scanned products</span></button></div>
           <div><button className='btn' id="cusmMargin4" onClick={() => scrollToSection('getTip')}><span>Get tips</span></button></div>
         </div>
@@ -71,17 +72,18 @@ export default function CircBar() {
         
         
       </div>
-      <div id='trackInt' className='trackInt'>
-      <h1>Track your daily intake</h1>
-        
-        
-      </div>
+      
       <div id='VeiwSpro' className='VeiwSpro'>
       <h1>View Scanned Products</h1>
+        <div className='prduct-list-display'>
+         
+        </div>
+         
        
       </div>
       <div id='getTip' className='getTip'>
-        <h1>Get Tips</h1>
+        <h1>Weight loss Tips</h1>
+        <FetchTips/>
       </div>
     </div>    
   );

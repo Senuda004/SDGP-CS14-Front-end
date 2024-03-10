@@ -102,7 +102,7 @@
     color: transparent;
     font-size: 35px;
     font-weight: bold;
-    height: auto;
+  
     transition: font-size 0.3s ease; /* Adding transition for font size */
     
 }

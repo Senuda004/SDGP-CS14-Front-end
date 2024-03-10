@@ -1,0 +1,46 @@
+.main-contr{
+    padding-left: 50px;
+}
+
+
+.tips-container {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 50px;
+}
+.tip-card::before{
+    content: "";
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: #FFC533;
+    border: 3px solid #332A14;
+    color: rgb(165, 34, 7);
+    border-radius: 50%;
+    
+    transition: all 0.3s ease;
+}
+
+.tip-card {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding-left: 80px;
+    border-radius: 80px;
+    width: 500px;
+    margin-bottom: 50px;
+    margin-right: 198px; /* Adjust the margin-right to increase space between columns */
+}
+
+
+
+.tip-topic {
+    margin-top: 5px;
+    font-weight: bold;
+    color: rgb(106, 51, 3);
+}
+
+.tip-description {
+    margin-top: 10px;
+}
