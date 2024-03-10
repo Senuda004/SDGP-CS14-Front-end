@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react'; // Add the missing import statement for useEffect
 import Webcam from 'react-webcam';
 import axios from 'axios';
 import Modal from 'react-modal';
@@ -12,6 +12,29 @@ const Dashboard = () => {
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
+  const [foodData, setFoodData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Replace 'http://localhost:5000/api/fooddata' with the correct URL
+    const apiUrl = 'http://localhost:5000/api/fooddata';
+
+    // Fetch data from your backend API endpoint
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(apiUrl);
+        console.log('API Response:', response.data);
+        setFoodData(response.data);
+      } catch (error) {
+        console.error('Error fetching food data:', error);
+      } finally {
+        setLoading(false); // Set loading to false regardless of success or failure
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const takePhoto = async () => {
     if (webcamRef.current) {
@@ -154,6 +177,24 @@ const Dashboard = () => {
           ) : (
             <p>Object Not Identified. Please retake!</p>
           )}
+        </div>
+      )}
+
+      {/* Display fetched food data or loading message */}
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <div>
+          <h2>Food Data:</h2>
+          <ul>
+            {foodData.map((foodItem) => (
+              <li key={foodItem._id}>
+                <p>Name: {foodItem.name}</p>
+                <p>Calories: {foodItem.calories}</p>
+                {/* Add other fields as needed */}
+              </li>
+            ))}
+          </ul>
         </div>
       )}
 

@@ -1,6 +1,7 @@
+// db.js
 const mongoose = require('mongoose');
 
-const connectionUri = 'mongodb+srv://nutrimatecs14:blablabla@nutrimate-db.cy528h9.mongodb.net/?retryWrites=true&w=majority&appName=Nutrimate-DB';
+const connectionUri = 'mongodb+srv://nutrimatecs14:nutrimatesdgp@nutrimate-db.cy528h9.mongodb.net/?retryWrites=true&w=majority&appName=Nutrimate-DB';
 
 mongoose.connect(connectionUri, { useNewUrlParser: true, useUnifiedTopology: true });
 
