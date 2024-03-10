@@ -1,0 +1,53 @@
+{
+    "tipsData":[
+        {
+            "id":"card1",
+            "image":"",
+            "topic":"Reduce the Intake of Carbs",
+            "description":"Rice contains a lot of calories and carbohydrates in it.Reducing the intake of rice can reduce weight largely. If you want to lose weight, it is essential to reduce these carbohydrates intake to a greater extent."
+
+        
+        },
+        {
+            "id":"card2",
+            "topic":"Increase Protein Intake",
+            "image":"",
+            "description":"Protein is a muscle builder that can effectively reduce the fat in our body. It can also convert the loose fat into muscles. Increase the intake of protein and replace carbohydrates food with protein food."
+
+        
+        },
+        {
+            "id":"card3",
+            "topic":"Proper Exercise",
+            "image":"",
+            "description":"Be physically active. Working out is very important to lose weight and to stay fit. You can start with simple exercises like skipping, walking. jogging, swimming, cardio workout or try yoga. Following a regular exercise rotine will also help you in a long run."
+
+        
+        },
+        {
+            "id":"card4",
+            "topic":"Increase Fiber Intake",
+            "image":"",
+            "description":"Having food with soluble fibers is a great way to reduce weight. Consuming foods that contain soluble fibers will help you shed weight by reducing the bad cholesterol in your body. They keep your stomach full for a longer time and this prevents overeating."
+
+        
+        },
+        {
+            "id":"card5",
+            "topic":"Increase Water Intake",
+            "image":"",
+            "description":"Water is a very important factor in any weight reduction program. Consumption of water cleanses the toxins from the body through urine. Drink about 4 to 5 liters of water every day."
+        
+        },
+        {
+            "id":"card6",
+            "topic":"Avoid Junk Food",
+            "image":"",
+            "description":"Steer clear from junk foods. Junk foods like pizza, burgers, sausages, etc. do not contain any nutritive value. All they offer is fat and added weight. Junk food is the most common factor for putting on weight."
+
+        
+        }
+    
+
+    ]
+}

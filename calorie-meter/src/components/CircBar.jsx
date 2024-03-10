@@ -10,6 +10,7 @@ export default function CircBar() {
       section.scrollIntoView({ behavior: 'smooth' });
     }
   };
+  
   // circular bar functions
   
   const [goal, setGoal] = useState(2000);
