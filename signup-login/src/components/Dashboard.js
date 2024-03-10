@@ -189,8 +189,8 @@ const Dashboard = () => {
           <ul>
             {foodData.map((foodItem) => (
               <li key={foodItem._id}>
-                <p>Name: {foodItem.name}</p>
-                <p>Calories: {foodItem.calories}</p>
+                <p>Product Name: {foodItem['Product Name']}</p>
+                <p>Brand: {foodItem.Brand}</p>
                 {/* Add other fields as needed */}
               </li>
             ))}

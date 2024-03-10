@@ -2,8 +2,8 @@
 const mongoose = require('../config/db');
 
 const foodSchema = new mongoose.Schema({
-  name: String,
-  calories: Number,
+  ProductName: String,
+  Brand: String,
 });
 
 const FoodModel = mongoose.model('Food', foodSchema, 'Food-Data');
