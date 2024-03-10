@@ -16,6 +16,7 @@ const Blog = () => {
   const [newPostImageUrl, setNewPostImageUrl] = useState('');
   const [showAddTab, setShowAddTab] = useState(false);
 
+
   const handleAddPost = () => {
     if (newPostTitle && newPostContent && newPostImageUrl) {
       const newPost = {
