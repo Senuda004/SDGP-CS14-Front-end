@@ -1,18 +1,27 @@
-import React, { useState } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import AiChatbot from './AiChatbot';
 import Dashboard from './Dashboard';
 import CalorieMeter from './CalorieMeter';
-import './Home.css';
+import NotFound from './NotFound'; // Import your custom 404 page component
+import ProtectedRoute from './ProtectedRoute';
 
 const Home = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [open, setOpen] = useState(true);
 
   const toggleSidebar = () => {
     setOpen(!open);
   };
+
+  useEffect(() => {
+    // Redirect to "/not-found" if the current path doesn't match any specified routes
+    if (!['/dashboard', '/calorie-meter', '/ai-chatbot', '/', '/signup', '/forgot-password'].includes(location.pathname)) {
+      navigate('/not-found');
+    }
+  }, [location.pathname, navigate]);
 
   // Check if the current path is "/home" before rendering the component
   if (location.pathname === '/' || location.pathname === '/signup' || location.pathname === '/forgot-password') {
@@ -24,12 +33,19 @@ const Home = () => {
       <div className='flex'>
         <Sidebar isOpen={open} toggleSidebar={toggleSidebar}/>
 
-        <div className='p-7 text-2xl font-semibold flex-1 h-screen'>
+        <div className={`p-7 text-2xl font-semibold flex-1 h-screen ${location.pathname === '/not-found' ? 'hidden' : ''}`}>
           <Routes>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/calorie-meter" element={<CalorieMeter />} />
-            <Route path="/ai-chatbot" element={<AiChatbot />} />
+            <Route path="/dashboard" element={<ProtectedRoute component={Dashboard} />} />
+            <Route path="/calorie-meter" element={<ProtectedRoute component={CalorieMeter} />} />
+            <Route path="/ai-chatbot" element={<ProtectedRoute component={AiChatbot} />} />
+            {/* Full-screen Not Found page without the sidebar */}
+            <Route path="/not-found" element={<NotFound />} />
           </Routes>
+        </div>
+
+        {/* Full-screen Not Found page */}
+        <div className={`p-7 text-2xl font-semibold flex-1 h-screen bg-amber-400 ${location.pathname === '/not-found' ? '' : 'hidden'}`}>
+          <NotFound />
         </div>
       </div>
     </>
