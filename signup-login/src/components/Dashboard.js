@@ -2,6 +2,10 @@ import React, { useRef, useState, useEffect } from 'react'; // Add the missing i
 import Webcam from 'react-webcam';
 import axios from 'axios';
 import Modal from 'react-modal';
+import { nutriScore } from 'nutri-score';
+import NutritionForm from './NutritionForm';
+import NutriCard from './NutriCard';
+
 
 const Dashboard = () => {
   const webcamRef = useRef(null);
@@ -15,6 +19,8 @@ const Dashboard = () => {
 
   const [foodData, setFoodData] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  
 
   useEffect(() => {
     // Replace 'http://localhost:5000/api/fooddata' with the correct URL
@@ -98,6 +104,87 @@ const Dashboard = () => {
     // Set first photo taken back to false
     setFirstPhotoTaken(false);
   };
+
+
+  ///////////////// Nutritional Information section Logic/////////////////////////////
+   
+
+  const [FoodInfo,SetFoodInfo] = useState({});
+  //managing current state of nutri grade
+  const [grade,setGrade] = useState("");
+  //Managing state for current score
+  const [score,setScore] = useState(0);
+  
+
+    // Adding the user food data values to our food data array
+    function addUserFoodData(userFoodData){
+      console.log(userFoodData);
+      
+      SetFoodInfo( (prevValues)=>{
+          return{...prevValues ,userFoodData }
+      });
+
+      const grade = calculateNutriGrade(userFoodData);
+      const score = calculateNutriScore(userFoodData);
+
+      setGrade(grade);
+      // Gives error as type required is number
+      setScore(score);
+      
+  }
+  
+    // Function to get the nutritional  Grade of the user inputed values
+    function calculateNutriGrade(values){
+      const nutriGrade = nutriScore.calculateClass(values);
+      // console.log("The final grade is : " + nutriGrade);  
+      return nutriGrade;     
+     
+  }
+
+  // Function to get the Nutritional Score of the user inputed values
+  function calculateNutriScore(values){
+      const nutritionalScore = nutriScore.calculate(values)
+      console.log("The grade is :" + nutritionalScore);
+      return nutritionalScore;    
+  }
+
+  function NutritionalGradeImage(grade){
+    switch (grade){
+        case "A":
+            return  "./Grade A.svg"
+            break;
+
+        case "B":
+            return  "./Grade B.svg"
+            break;
+
+        case "C":
+            return  "./Grade C.svg"
+            break;   
+            
+        case "D":
+            return  "./Grade D.svg"
+            break; 
+
+        case "E":
+            return  "./Grade E.svg"
+            break; 
+
+        default:
+            return "./Main.svg"
+    }
+    
+
+}
+
+
+   
+
+
+
+
+  
+
 
   return (
     <div>
@@ -197,6 +284,24 @@ const Dashboard = () => {
           </ul>
         </div>
       )}
+
+      {/*  Displaying  NutriScore front end  */}
+
+      <div>
+      <NutritionForm
+            onAdd = {addUserFoodData}
+            />
+       <NutriCard 
+                image = {NutritionalGradeImage(grade)}
+                score = {score}
+           
+            
+            />
+
+           
+
+
+      </div>
 
     </div>
   );
