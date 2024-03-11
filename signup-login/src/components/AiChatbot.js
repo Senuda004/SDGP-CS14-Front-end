@@ -9,3 +9,4 @@ const AiChatbot = () => {
 };
 
 export default AiChatbot;
+

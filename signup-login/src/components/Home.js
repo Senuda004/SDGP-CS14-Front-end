@@ -6,7 +6,7 @@ import Dashboard from './Dashboard';
 import CalorieMeter from './CalorieMeter';
 import NotFound from './NotFound'; // Import your custom 404 page component
 import ProtectedRoute from './ProtectedRoute';
-
+import HealthQuiz from './HealthQuiz';
 const Home = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const Home = () => {
 
   useEffect(() => {
     // Redirect to "/not-found" if the current path doesn't match any specified routes
-    if (!['/dashboard', '/calorie-meter', '/ai-chatbot', '/', '/signup', '/forgot-password'].includes(location.pathname)) {
+    if (!['/dashboard', '/calorie-meter', '/ai-chatbot', '/', '/signup', '/forgot-password',"/health-quiz"].includes(location.pathname)) {
       navigate('/not-found');
     }
   }, [location.pathname, navigate]);
@@ -38,6 +38,8 @@ const Home = () => {
             <Route path="/dashboard" element={<ProtectedRoute component={Dashboard} />} />
             <Route path="/calorie-meter" element={<ProtectedRoute component={CalorieMeter} />} />
             <Route path="/ai-chatbot" element={<ProtectedRoute component={AiChatbot} />} />
+            {/* Health quiz route needs update */}
+            {/* <Route path="/health-quiz" element={<HealthQuiz/>}  /> */}
             {/* Full-screen Not Found page without the sidebar */}
             <Route path="/not-found" element={<NotFound />} />
           </Routes>
