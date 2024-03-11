@@ -19,57 +19,91 @@
     justify-content: space-between;
     background-color: rgb(250, 250, 249);
     color: black;
-    width: 300px;
-    height: 50px;
-    border: none;
-    border-radius: 30px;
+    width: 400px;
+    height: 100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
     padding: 0 15px;
-    margin-left: 5%; /* Adjust as needed */
-    margin-top: 5vh; /* Adjust as needed */
+    margin-left:150px; 
+    margin-top: 80px; 
     cursor: pointer;
     position: relative;
     transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    font-weight: bold;
 }
-
-.btn::before {
+.btn::before{
     content: "";
     display: block;
-    width: 50px;
-    height: 50px;
-    background-color: #FFC533;
-    border: 3px solid #332A14;
-    color: rgb(165, 34, 7);
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
-    margin-left: -50px;
     transition: all 0.3s ease;
+    margin-left: -120px;
+    margin-top: 0px; 
+}
+#cusmMargin1 span{
+    color: rgb(4, 2, 32);
+    margin-right: 55px;
+   
+}
+#cusmMargin3 span{
+    color: rgb(4, 2, 32);
+    margin-right: 85px;
+}
+#cusmMargin4 span{
+    color: rgb(4, 2, 32);
+    margin-right: 115px;
 }
 
+#cusmMargin1::before {
+    background-image: url('https://blog.vantagecircle.com/content/images/2023/10/Arrows-Striking-its-Goal-representing-Goal-setting-for-employees.png');
+    background-size: cover;
+    background-position: center; /* Set background position to center */
+}
+
+#cusmMargin3::before{
+    background-image: url('https://media.istockphoto.com/id/1291965350/vector/tiny-people-checking-application-form-for-employment.jpg?s=612x612&w=0&k=20&c=MGVUBdQaimSQYZnZM-1HCBO1NrfaXTUz3mVKREpAp18=');
+    background-size: cover;
+    background-position: center; /* Set background position to center */
+}
+
+#cusmMargin4::before{
+    background-image: url('https://media.istockphoto.com/id/1257933320/vector/tips-and-creative-ideas-vector-concept-metaphor.jpg?s=612x612&w=0&k=20&c=OwR5VQitCw3MiaTUoRoqMWh_u_kOQ9LXxjPY2HkdSuw=');
+    background-size: cover;
+    background-position: center; /* Set background position to center */
+}
 /* Media query for small screens */
 @media screen and (max-width: 768px) {
     .intro {
         width: 100%; /* Full width on small screens */
         margin-left: 15px;
-        margin-top: 10px; /* Adjust as needed */
+        margin-top: 10px; 
     }
 }
 
 /* Hover effect for buttons */
 .btn:hover {
-    background-color: #ffd700;
-}
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    width: 410px;
+    height: 110px;
 
-.btn:hover::before {
-    width: 60px;
-    height: 60px;
-    margin-left: -60px;
-    background-color: rgb(250, 250, 249);
 }
 
 /* Styles for other sections 
 .contar {
     background: linear-gradient(#302b1e, #39311E, #332A14, #06070b);
+}*/
+
+.displayFlex{
+    display: flex;
 }
-*/
+.displayFlex img{
+    width: 400;
+    height: 400px;
+    margin-left: 55px;
+    margin-top: 80px;
+}
 
 .topHed {
     background-color: #FFC533;
@@ -92,6 +126,11 @@
 
 .intro{
     height: 600px;
+    
+}
+.topHed img{
+    width: 100px;
+    height: 100px;
 }
 
 .calMeter,
