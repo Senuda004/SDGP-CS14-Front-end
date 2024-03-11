@@ -3,6 +3,7 @@ import Webcam from 'react-webcam';
 import axios from 'axios';
 import Modal from 'react-modal';
 
+
 const Dashboard = () => {
   const webcamRef = useRef(null);
   const [capturedPhoto, setCapturedPhoto] = useState(null);
