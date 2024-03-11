@@ -2,25 +2,28 @@
     "tipsData":[
         {
             "id":"card1",
+            "topic":"Proper Exercise",
             "image":"",
-            "topic":"Reduce the Intake of Carbs",
-            "description":"Rice contains a lot of calories and carbohydrates in it.Reducing the intake of rice can reduce weight largely. If you want to lose weight, it is essential to reduce these carbohydrates intake to a greater extent."
-
+            "description":"Stay fit and shed weight by incorporating simple exercises like skipping, walking, jogging, swimming, or yoga into your routine consistently."
+           
+           
+            
         
         },
         {
             "id":"card2",
             "topic":"Increase Protein Intake",
             "image":"",
-            "description":"Protein is a muscle builder that can effectively reduce the fat in our body. It can also convert the loose fat into muscles. Increase the intake of protein and replace carbohydrates food with protein food."
+            "description":"Protein builds muscle, aids fat reduction, and can convert excess fat into muscle. Boost protein intake and swap out carbs for protein-rich foods to support weight loss."
 
         
         },
         {
             "id":"card3",
-            "topic":"Proper Exercise",
+            "topic":"Avoid Junk Food",
             "image":"",
-            "description":"Be physically active. Working out is very important to lose weight and to stay fit. You can start with simple exercises like skipping, walking. jogging, swimming, cardio workout or try yoga. Following a regular exercise rotine will also help you in a long run."
+            "description":"Avoid junk foods like pizza, burgers, and sausages as they lack nutritional value, contribute to weight gain, and offer only excess fat."
+            
 
         
         },
@@ -28,24 +31,21 @@
             "id":"card4",
             "topic":"Increase Fiber Intake",
             "image":"",
-            "description":"Having food with soluble fibers is a great way to reduce weight. Consuming foods that contain soluble fibers will help you shed weight by reducing the bad cholesterol in your body. They keep your stomach full for a longer time and this prevents overeating."
+            "description":"Support weight loss by choosing foods high in soluble fibers, which reduce bad cholesterol, promote fullness, and prevent overeating."
 
         
         },
         {
             "id":"card5",
-            "topic":"Increase Water Intake",
-            "image":"",
-            "description":"Water is a very important factor in any weight reduction program. Consumption of water cleanses the toxins from the body through urine. Drink about 4 to 5 liters of water every day."
+            "topic":"Reduce the Intake of Carbs",
+            "description":"Reducing rice intake, high in calories and carbohydrates, is crucial for weight loss as it helps cut overall carb consumption."
+            
         
         },
         {
             "id":"card6",
-            "topic":"Avoid Junk Food",
-            "image":"",
-            "description":"Steer clear from junk foods. Junk foods like pizza, burgers, sausages, etc. do not contain any nutritive value. All they offer is fat and added weight. Junk food is the most common factor for putting on weight."
-
-        
+            "topic":"Increase Water Intake",
+            "description":"Water is crucial for weight loss as it flushes toxins through urine. Aim for 4-5 liters daily to support your weight reduction efforts."
         }
     
 

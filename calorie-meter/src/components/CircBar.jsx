@@ -52,7 +52,7 @@ export default function CircBar() {
         <div className='intro'> 
           <div><button className='btn' id="cusmMargin1" onClick={() => scrollToSection('calMeter')}><span>Set & Track your Progress</span></button></div>
           <div><button className='btn' id="cusmMargin3" onClick={() => scrollToSection('VeiwSpro')}><span>View Scanned products</span></button></div>
-          <div><button className='btn' id="cusmMargin4" onClick={() => scrollToSection('getTip')}><span>Get tips</span></button></div>
+          <div><button className='btn' id="cusmMargin4" onClick={() => scrollToSection('getTip')}><span>Weight loss Tips</span></button></div>
         </div>
       </div>    
       <div id='calMeter' className='calMeter'>
