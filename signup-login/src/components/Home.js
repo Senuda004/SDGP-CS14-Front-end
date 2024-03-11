@@ -39,7 +39,7 @@ const Home = () => {
             <Route path="/calorie-meter" element={<ProtectedRoute component={CalorieMeter} />} />
             <Route path="/ai-chatbot" element={<ProtectedRoute component={AiChatbot} />} />
             {/* Health quiz route needs update */}
-            {/* <Route path="/health-quiz" element={<HealthQuiz/>}  /> */}
+            <Route path="/health-quiz" element={<HealthQuiz/>}  />
             {/* Full-screen Not Found page without the sidebar */}
             <Route path="/not-found" element={<NotFound />} />
           </Routes>
