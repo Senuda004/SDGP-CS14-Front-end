@@ -5,14 +5,6 @@
     flex-direction: column;
 }
 
-/* Media query for small screens */
-@media screen and (max-width: 768px) {
-    .contar {
-        width: 100%; /* Full width on small screens */
-        margin-left: 0px;
-        
-    }
-}
 
 
 /* Apply the Oswald font to your elements */
@@ -140,14 +132,6 @@
 
 
 
-/* Media query for small screens */
-@media screen and (max-width: 768px) {
-    .intro {
-        width: 100%; /* Full width on small screens */
-        margin-left: 15px;
-        margin-top: 10px; 
-    }
-}
 
 /* Hover effect for buttons */
 .btn:hover {
@@ -420,4 +404,83 @@ input::placeholder {
     margin-top: -200px;
     margin-left: 500px;
 
+}
+@media screen and (max-width: 768px) {
+    .resposiveCon{
+        width: 100%; 
+        
+    }
+    .CircBar {
+        margin-left: 5%;
+    }
+    #wPic {
+        display: block; /* Ensure the image is displayed as a block element */
+        width: 300px;
+
+    }
+    .intro {
+        width: 100%; /* Full width on small screens */
+        margin-left: 15px;
+        margin-top: 10px; }
+
+    .menuIcon {
+        margin-left: 5%;
+        margin-top: 10px;
+    }
+
+    .addDuctBtns {
+        margin-top: 20px;
+        margin-left: 5%;
+    }
+
+    .userInput {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .inputContr {
+        width: 90%;
+        margin: 50px auto;
+    }
+
+    .setgoalContainer {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .welcome {
+        margin-left: 5%;
+    }
+
+    .topHed span {
+        font-size: 30px;
+    }
+
+    .intro {
+        flex-direction: column;
+        height: auto;
+    }
+    .displayFlex{
+        width: 100%;
+    }
+
+    .displayFlex img {
+        width: 100%;
+        
+        
+    }
+
+    .product-list {
+        width: 90%;
+        margin: 50px auto;
+    }
+
+    .product-card {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .progress-bar p {
+        font-size: 12px;
+    }
 }

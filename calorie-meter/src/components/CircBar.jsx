@@ -44,7 +44,7 @@ export default function CircBar() {
   };
 
   return (
-    <div >
+    <div className='resposiveCon'>
       <div className='contar'>
         <div className='topHed'><span>Calorie Meter</span></div>
           <div className='displayFlex'>
