@@ -207,7 +207,7 @@ const Dashboard = () => {
         />
         )}
       </div>
-      
+     
 
       {/* Open Modal Button */}
       <button onClick={openModal} className='bg-amber-400 text-white w-1/2 rounded-md p-2 mt-10'>Scan using camera</button>

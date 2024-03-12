@@ -2,6 +2,7 @@
 const mongoose = require('../config/db');
 
 const userSchema = new mongoose.Schema({
+  uid: { type: String, required: true },
   health_conditions: String,
   dietary_preferences: String,
   food_avoidance: String,

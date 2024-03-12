@@ -46,10 +46,11 @@ router.post('/healthquiz', async (req, res) => {
   try {
     // Extract the health quiz answers from the request body
     console.log(req.body)
-    const { health_conditions, dietary_preferences, food_avoidance, age_group, health_goal } = req.body;
+    const { uid,health_conditions, dietary_preferences, food_avoidance, age_group, health_goal } = req.body;
 
     // Create a new user instance with the health quiz answers
     const user = new User({
+      uid,
       health_conditions,
       dietary_preferences,
       food_avoidance,
