@@ -18,6 +18,8 @@ const Home = () => {
   };
   
 
+  // Our route is oriteceted, but we are retruning null as we already rendered aicahtbot to avoid refresh whn gone to ai chatbot
+  // This implementation is just protected route compoenent requires  an compoenent but we give it a null component to avoid errora
   const EmptyComponent =()=>{
     return(
       <div>
@@ -44,6 +46,7 @@ const Home = () => {
         <Sidebar isOpen={open} toggleSidebar={toggleSidebar}/>
 
         <div className={`p-7 text-2xl font-semibold flex-1 h-screen ${location.pathname === '/not-found' ? 'hidden' : ''}`}>
+        
         {/* This is where we actually render ai chatbot and not in routes- purpose is to not to relaod Iframe */}
         <div hidden={loc.pathname !== "/ai-chatbot"}>
         <AiChatbot />
@@ -53,7 +56,7 @@ const Home = () => {
        
             <Route path="/dashboard" element={<ProtectedRoute component={Dashboard} />} />
             <Route path="/calorie-meter" element={<ProtectedRoute component={CalorieMeter} />} />
-            {/* {Retrun an empty compoenent  */}
+            {/* {return an empty compoenent as above we are return the ai chatbot componenet this is just for protected routes  */}
             <Route path="/ai-chatbot" element={<ProtectedRoute component={EmptyComponent} />} />
             {/* Health quiz route needs update */}
             <Route path="/health-quiz" element={<HealthQuiz/>}  />
