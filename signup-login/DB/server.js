@@ -20,6 +20,9 @@ db.once('open', () => {
   console.log('Connected to MongoDB:', db.name);
 });
 
+// Middleware to parse JSON in request body
+app.use(express.json());
+
 // Use the foodRoutes for /api
 app.use('/api', foodRoutes);
 

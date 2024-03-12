@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 import { nutriScore } from 'nutri-score';
 import NutritionForm from './NutritionForm';
 import NutriCard from './NutriCard';
-
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const Dashboard = () => {
   const webcamRef = useRef(null);
@@ -13,6 +13,15 @@ const Dashboard = () => {
   const [identifiedItem, setIdentifiedItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [firstPhotoTaken, setFirstPhotoTaken] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (authUser) => {
+      setUser(authUser);
+    });
+    return () => unsubscribe();
+  }, []);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -188,7 +197,17 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h1>Dashboard Page</h1>
+      <div className='flex justify-between'>
+        <h1>Dashboard Page</h1>
+        {user && user.photoURL && (
+        <img
+          src={user.photoURL}
+          alt="User's Photo"
+          style={{ width: '60px', height: '60px', borderRadius: '50%', marginLeft: '10px' }}
+        />
+        )}
+      </div>
+      
 
       {/* Open Modal Button */}
       <button onClick={openModal} className='bg-amber-400 text-white w-1/2 rounded-md p-2 mt-10'>Scan using camera</button>
@@ -276,7 +295,7 @@ const Dashboard = () => {
           <ul>
             {foodData.map((foodItem) => (
               <li key={foodItem._id}>
-                <p>Product Name: {foodItem['Product Name']}</p>
+                <p>Product Name: {foodItem['Name']}</p>
                 <p>Brand: {foodItem.Brand}</p>
                 {/* Add other fields as needed */}
               </li>
