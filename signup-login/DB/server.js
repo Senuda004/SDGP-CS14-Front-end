@@ -10,6 +10,10 @@ const PORT = process.env.PORT || 5000;
 // Enable CORS for all routes
 app.use(cors());
 
+// Middleware to parse JSON bodies
+app.use(express.json());
+
+
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://nutrimatecs14:nutrimatesdgp@nutrimate-db.cy528h9.mongodb.net/?retryWrites=true&w=majority&appName=Nutrimate-DB', { useNewUrlParser: true, useUnifiedTopology: true });
 

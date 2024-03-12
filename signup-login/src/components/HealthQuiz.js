@@ -49,10 +49,7 @@ const formSchema = z.object({
       health_goal: z.string().min(1, {
         message: " You must select an item",
       }),
-      // age_group:z
-      // .string({
-      //   required_error: "Please select an email to display.",
-      // }),
+      
       
 
 
