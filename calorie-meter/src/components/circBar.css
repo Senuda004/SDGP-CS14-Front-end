@@ -24,7 +24,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 50px;
     padding: 0 15px;
-    margin-left:150px; 
+    margin-left:280px; 
     margin-top: 80px; 
     cursor: pointer;
     position: relative;
@@ -32,6 +32,23 @@
     transition: all 0.3s ease;
     font-weight: bold;
 }
+#cusmMargin1 span{
+    color: rgb(4, 2, 32);
+    /*margin-right: 55px;*/
+    margin-left: 56px;
+   
+}
+#cusmMargin3 span{
+    color: rgb(4, 2, 32);
+    /*margin-right: 85px;*/
+    margin-left: 86px;
+}
+#cusmMargin4 span{
+    color: rgb(4, 2, 32);
+   /* margin-right: 115px;*/
+   margin-left: 118px;
+}
+/*
 .btn::before{
     content: "";
     display: block;
@@ -42,37 +59,25 @@
     margin-left: -120px;
     margin-top: 0px; 
 }
-#cusmMargin1 span{
-    color: rgb(4, 2, 32);
-    margin-right: 55px;
-   
-}
-#cusmMargin3 span{
-    color: rgb(4, 2, 32);
-    margin-right: 85px;
-}
-#cusmMargin4 span{
-    color: rgb(4, 2, 32);
-    margin-right: 115px;
-}
 
 #cusmMargin1::before {
     background-image: url('https://blog.vantagecircle.com/content/images/2023/10/Arrows-Striking-its-Goal-representing-Goal-setting-for-employees.png');
     background-size: cover;
-    background-position: center; /* Set background position to center */
-}
+    background-position: center; 
 
 #cusmMargin3::before{
     background-image: url('https://media.istockphoto.com/id/1291965350/vector/tiny-people-checking-application-form-for-employment.jpg?s=612x612&w=0&k=20&c=MGVUBdQaimSQYZnZM-1HCBO1NrfaXTUz3mVKREpAp18=');
     background-size: cover;
-    background-position: center; /* Set background position to center */
+    background-position: center; 
 }
 
 #cusmMargin4::before{
     background-image: url('https://media.istockphoto.com/id/1257933320/vector/tips-and-creative-ideas-vector-concept-metaphor.jpg?s=612x612&w=0&k=20&c=OwR5VQitCw3MiaTUoRoqMWh_u_kOQ9LXxjPY2HkdSuw=');
     background-size: cover;
-    background-position: center; /* Set background position to center */
-}
+    background-position: center; 
+}*/
+
+
 /* Media query for small screens */
 @media screen and (max-width: 768px) {
     .intro {
@@ -93,16 +98,17 @@
 /* Styles for other sections 
 .contar {
     background: linear-gradient(#302b1e, #39311E, #332A14, #06070b);
-}*/
-
+}
+*/
 .displayFlex{
     display: flex;
 }
 .displayFlex img{
-    width: 400;
-    height: 400px;
-    margin-left: 55px;
-    margin-top: 80px;
+    width: 650px;
+    height: 600px;
+    margin-top: 2px;
+    
+   
 }
 
 .topHed {
@@ -128,10 +134,7 @@
     height: 600px;
     
 }
-.topHed img{
-    width: 100px;
-    height: 100px;
-}
+
 
 .calMeter,
 .trackInt,

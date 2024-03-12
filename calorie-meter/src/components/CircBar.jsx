@@ -50,12 +50,13 @@ export default function CircBar() {
       <div className='contar'>
         <div className='topHed'><span>Calorie Meter</span></div>
           <div className='displayFlex'>
+            <img src='https://i.ibb.co/9WBV9MV/piccc-removebg.png'alt='bgpic' ></img>
             <div className='intro'> 
               <div><button className='btn' id="cusmMargin1" onClick={() => scrollToSection('calMeter')}><span>Set Goal & Track your Progress</span></button></div>
               <div><button className='btn' id="cusmMargin3" onClick={() => scrollToSection('VeiwSpro')}><span>View Scanned products</span></button></div>
               <div><button className='btn' id="cusmMargin4" onClick={() => scrollToSection('getTip')}><span>Weight loss Tips</span></button></div>
             </div>
-            <img src='https://i.ibb.co/54ZDPMK/bgpicc-removebg.png'alt='bgpic'></img>
+            
           </div> 
       </div>    
       <div id='calMeter' className='calMeter'>
