@@ -20,7 +20,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   };
 
   return (
-    <div className={`${isOpen ? "w-72" : "w-20"} h-[200vh] duration-300  custom-shadow-home p-5 relative`}>
+    <div className={`${isOpen ? "w-72" : "w-20"} h-[220vh] duration-300  custom-shadow-home p-5 relative`}>
       <img src="https://www.svgrepo.com/show/494008/back.svg" alt="Icon" className={`absolute cursor-pointer right-[-14px] top-8 w-8 p-1 border-2 border-black rounded-full bg-white ${!isOpen && "rotate-180"}`} onClick={toggleSidebar} />
 
       <div className='flex gap-x-4 items-center'>
@@ -59,8 +59,9 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       </ul>
 
       <div>
-        <button className="bg-amber-400 text-white w-full rounded-md p-2 mt-10" onClick={handleLogOut}>
-          Log Out
+        <button className="flex bg-amber-400 text-white w-full rounded-md p-2 mt-10" onClick={handleLogOut}>
+          <img src="https://i.ibb.co/9yn08Ny/logout-1.png" className={`w-6`} />
+          <span className={`${!isOpen && "hidden"} origin-left pl-16`}>Log Out</span>
         </button>
       </div>
     </div>
