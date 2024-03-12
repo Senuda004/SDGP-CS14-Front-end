@@ -1,0 +1,55 @@
+.posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Adjusted to fit three articles per row */
+    gap: 25px; /* Add gap between posts */
+    padding: 40px; /* Add padding to the container */
+    margin: auto; /* Center the grid */
+    margin-top: 70px;
+    max-width: 100%; /* Prevent posts from overflowing horizontally */
+    overflow-x: hidden;
+
+  }
+  .postTitle {
+    /* Your existing styles */
+    margin-top: 10px; /* Adjust the margin-top value as needed */
+    margin-bottom: -12px; /* Adjust the margin-bottom value as needed */
+    cursor: pointer;
+  }
+
+.categoryButtons {
+  margin-top: -40px; /* Adds space between buttons and posts */
+  margin-right: 10px; /* Adds space between buttons */
+  position:absolute;
+}
+
+
+.post {
+  margin-bottom: 20px; /* Adds space between posts */
+  border: 1px solid #ccc; /* Adds a border around each post */
+  padding: 20px; /* Adds padding inside each post */
+  width: 80%; /* Adjusts the width of the posts */
+}
+
+
+.postInfo {
+  margin-top: 10px; /* Adds space between image and post info */
+}
+
+.postDesc {
+  margin-top: 10px; /* Adds space between post info and description */
+}
+
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+    .posts {
+      display: flex;
+      flex-wrap: wrap; /* Allow posts to wrap to the next line */
+      justify-content: center; /* Center the posts horizontally */
+    }
+  
+    .post {
+      flex: 1 1 200px; /* Make posts display inline with a fixed width of 200px */
+      margin: 10px; /* Add margin between posts */
+    }
+  }

@@ -1,16 +1,15 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Blog from './components/Blog.jsx';
-import './App.css';
-const App = () => {
-  return (
-    
-   <div className='App'>
-    <Blog/>
-   </div>
-    
-  );
-};
+import Home from "./pages/bloghome/BlogHome";
+import { BrowserRouter as Router, Route ,Routes} from "react-router-dom";
 
+function App() {
+
+  return (
+    <Router>
+        <Routes>
+          <Route path="/" exact element={<Home></Home>}></Route> 
+        </Routes>
+      </Router>
+  );
+}
 
 export default App;
