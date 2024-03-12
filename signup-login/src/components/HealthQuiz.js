@@ -4,7 +4,7 @@
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 
-
+import axios from "axios"
 
 import { useForm } from "react-hook-form"
 
@@ -49,10 +49,7 @@ const formSchema = z.object({
       health_goal: z.string().min(1, {
         message: " You must select an item",
       }),
-      // age_group:z
-      // .string({
-      //   required_error: "Please select an email to display.",
-      // }),
+      
       
 
 
@@ -84,6 +81,19 @@ function HealthQuiz() {
         // Do something with the form values.
         // ✅ This will be type-safe and validated.
         console.log(values);
+
+        // Post the answers to our Database
+        // Make a POST request to your backend API endpoint
+
+        // Make a POST request to your backend API endpoint
+    axios.post('http://localhost:5000/api/healthquiz', values)
+    .then(response => {
+        console.log('Health quiz answers saved successfully');
+    })
+    .catch(error => {
+        console.error('Error saving health quiz answers:', error);
+    });
+    
     }
 
 
