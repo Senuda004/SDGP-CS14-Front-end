@@ -104,7 +104,9 @@ function HealthQuiz() {
 
         const data = {
           // Copy everything in healthform and add uid
-          
+          ...values,
+          // storing userId 
+          uid: userId.uid,
         }
 
   
@@ -113,7 +115,7 @@ function HealthQuiz() {
         // Make a POST request to your backend API endpoint
 
         // Make a POST request to your backend API endpoint
-    axios.post('http://localhost:5000/api/healthquiz', values)
+    axios.post('http://localhost:5000/api/healthquiz', data)
     .then(response => {
         console.log('Health quiz answers saved successfully');
     })
