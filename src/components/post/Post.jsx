@@ -11,9 +11,7 @@ export default function Post({ id, img, title, category, date, description }) {
       <div className="postInfo">
         <div className="postCategories">
           <span className="postCategory">
-            <Link className="link" to="/posts?category=Drinks">
-              {category}
-            </Link>
+            {category} {/* Removed the <Link> element */}
           </span>
         </div>
         <span className="postTitle">
@@ -24,7 +22,10 @@ export default function Post({ id, img, title, category, date, description }) {
         <hr />
         <span className="postDate">{date}</span>
       </div>
-      <p className="postDesc">{description}</p>
+      {/* Wrap the description inside a Link */}
+      <Link to={`/post/${id}`} className="postLink">
+        <p className="postDesc">{description}</p>
+      </Link>
     </div>
   );
 }

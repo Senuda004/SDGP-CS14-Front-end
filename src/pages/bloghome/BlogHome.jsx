@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'; // Assuming you're using useLocation in Homepage.jsx
+import { useLocation } from 'react-router-dom'; 
 import Posts from "../../components/posts/Posts"; 
 import Header from "../../components/header/Header";
 

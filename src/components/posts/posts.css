@@ -34,10 +34,12 @@
 .postInfo {
   margin-top: 10px; /* Adds space between image and post info */
 }
-
-.postDesc {
-  margin-top: 10px; /* Adds space between post info and description */
+.postImg:hover {
+  opacity: 0.9; /* Adjust the opacity value as needed */
 }
+
+
+
 
 
 /* Media query for smaller screens */
