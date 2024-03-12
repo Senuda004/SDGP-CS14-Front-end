@@ -81,6 +81,21 @@ const Dashboard = () => {
   
             // Update the state with the identified item name
             setIdentifiedItem(detectedObject);
+
+            //After successfull identified object we store value in database
+             // Store the identified item in the database
+          try {
+            const saveScannedItemResponse = await axios.post('http://localhost:5000/api/saveScannedItem', {
+              uid: user.uid, // Assuming user.uid is the UID of the current user
+              scannedItem: detectedObject,
+            });
+            console.log('Scanned item saved:', saveScannedItemResponse.data);
+          } catch (saveScannedItemError) {
+            console.error('Error saving scanned item:', saveScannedItemError);
+          }
+
+
+
   
             // Update first photo taken state
             setFirstPhotoTaken(true);
@@ -113,6 +128,8 @@ const Dashboard = () => {
     // Set first photo taken back to false
     setFirstPhotoTaken(false);
   };
+
+  
 
 
   ///////////////// Nutritional Information section Logic/////////////////////////////
@@ -194,7 +211,6 @@ const Dashboard = () => {
 
   
 
-
   return (
     <div>
       <div className='flex justify-between'>
@@ -202,7 +218,7 @@ const Dashboard = () => {
         {user && user.photoURL && (
         <img
           src={user.photoURL}
-          alt="User's Photo"
+          alt="User's profile"
           style={{ width: '60px', height: '60px', borderRadius: '50%', marginLeft: '10px' }}
         />
         )}
