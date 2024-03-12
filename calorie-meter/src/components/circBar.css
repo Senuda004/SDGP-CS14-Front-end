@@ -24,7 +24,6 @@
     text-align: center;
     line-height: 3.5; /* Adjust the line spacing as needed */
     letter-spacing: 2px; /* Adjust the word spacing as needed */
-    
     font-weight: 550;
 }
 
@@ -34,15 +33,21 @@
    
     
 }
- .wbtn{
+.wbtn{
     width: 150px;
     height: 50px;
     background-color: #FFC533;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     color: #06070b;
     font-size: 15px;
     border-radius: 50px;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
+    transition: all 0.8s ease;
+}
+.wbtn:hover{
+    background-color:#06070b;
+    color: rgb(250, 250, 249);
 }
 /* Common styles for buttons */
 .btn {
@@ -55,43 +60,84 @@
     border-radius: 40px;
     margin-left:70px; 
     margin-top: 100px;
-    
     cursor: pointer;
     position: relative;
     transition: background-color 0.3s ease;
     transition: all 0.8s ease;
     font-weight: bold;
-    color: rgb(4, 2, 32);
+    color:#555249;
 }
 .setDiv p{
     font-weight: 300;
     margin-top: 50px;
-    padding-bottom: 230px;
+   
 }
 .veiwDiv p{
     font-weight: 300;
     margin-top: 50px;
-    padding-bottom: 250px;
+    padding-bottom: 20px;
 }
 .getDiv p{
     font-weight: 300;
     margin-top: 48px;
-    padding-bottom: 260px;
+    
 }
 
-.getDiv p::after{
+.setDiv p::after {
     content: '';
+    display: block;
+    width: 200px;
+    height: 200px;
+    background-image: url('https://i.ibb.co/jWzGrwp/pic2-removebg-preview.png');
+    background-size: cover;
+    margin-left: 90px;
+    margin-top: 50px;
+    transition: opacity 0.3s ease; /* Add a smooth transition for opacity */
+    
+}
+
+.setDiv p:hover::after {
+    width: 210px;
+    height: 210px;
 }
 
 
-#cusmMargin3 span{
-    margin-left: 6px;
+.veiwDiv p:hover::after {
+    width: 210px;
+    height: 210px;
 }
-#cusmMargin4 span{
-    color: rgb(4, 2, 32);
-   /* margin-right: 115px;*/
-   margin-left: 18px;
+.veiwDiv p::after {
+    content: '';
+    display: block;
+    width: 200px;
+    height: 200px;
+    background-image: url('https://i.ibb.co/DfQFkGs/pic3-removebg-preview.png');
+    background-size: cover;
+    margin-left: 90px;
+    margin-top: 50px;
+    opacity: 0; /* Start with 0 opacity to hide the image initially */
+    transition: opacity 0.3s ease; /* Add a smooth transition for opacity */
+    opacity: 5; 
 }
+
+.getDiv p:hover::after {
+    width: 210px;
+    height: 210px;
+}
+.getDiv p::after {
+    content: '';
+    display: block;
+    width: 200px;
+    height: 220px;
+    background-image: url('https://i.ibb.co/8Mgqh4Z/pic4-removebg-preview.png');
+    background-size: cover;
+    margin-left: 90px;
+    margin-top: 75px;
+    opacity: 0; /* Start with 0 opacity to hide the image initially */
+    transition: opacity 0.3s ease; /* Add a smooth transition for opacity */
+    opacity: 5; 
+}
+
 
 
 /* Media query for small screens */
@@ -105,17 +151,16 @@
 
 /* Hover effect for buttons */
 .btn:hover {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-   
-    height: 520px;
+    color: #ffffff;
+    background: linear-gradient(#8f783d,#1e1d13);
 
 }
 
 /* Styles for other sections */
 .contar {
-    background: linear-gradient(#06070b, #716340);
+    background: linear-gradient(#06070b, #322c1c,#8c7a49,#ffffff);
    /* box-shadow: 0 10px 4px #716340; /* Adjust the shadow color and intensity */
-    height: 500px;
+    height: 580px;
     width: auto;
 }
 
@@ -123,9 +168,9 @@
     display: flex;
 }
 .displayFlex img{
-    width: 650px;
-    
-    margin-top: 2px;
+    width: 500px;
+    padding-right: 60px;
+    margin-top: 35px;
 }
 
 .topHed {
@@ -150,7 +195,7 @@
 .intro{
     height: 600px;
     display: flex;
-    margin-top: 40px;
+    margin-top: -10px;
 }
 .calMeter
 {

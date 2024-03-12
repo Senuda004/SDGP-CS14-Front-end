@@ -72,6 +72,8 @@
     margin-bottom: 50px;
     margin-right: 130px; /* Adjust the margin-right to increase space between columns */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    
+
     cursor: pointer;
 }
 
@@ -81,6 +83,7 @@
     font-weight: bold;
     font-size: 16px;
     color: rgb(118, 57, 4);
+    
 }
 
 .tip-description {

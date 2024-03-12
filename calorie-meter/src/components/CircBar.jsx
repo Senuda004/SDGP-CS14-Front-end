@@ -52,13 +52,13 @@ export default function CircBar() {
               <p>Embrace holistic health with a tool that effortlessly manages and optimizes your daily <span>Calorie intake.</span></p>
               <button className='wbtn' onClick={()=> scrollToSection('scrollTobtn')}><span>Explore</span></button>
             </div>
-            <img src='' alt='pic' id='wPic'></img>
+            <img src='https://i.ibb.co/PtPwVg5/Free-Vector-Presentation-concept-illustration-removebg-preview.png' alt='pic' id='wPic'></img>
           </div> 
            
         <div className='intro' id='scrollTobtn'> 
           <div className='setDiv'>
             <button className='btn' id="cusmMargin1" onClick={() => scrollToSection('calMeter')}><span>Set Goal & Track your Progress</span><p>Tailor daily calorie goals to your unique needs,
-               guiding you toward your health objectivesn & Track your calorie intake in real-time, ensuring you stay on course throughout the day effortlessly.</p></button></div>
+               guiding you toward your health objectivesn & Track your calorie intake in real-time, ensuring you stay on course throughout the day effortlessly.</p> </button></div>
                
           <div className='veiwDiv'><button className='btn' id="cusmMargin3" onClick={() => scrollToSection('VeiwSpro')}><span>View Scanned products</span>
           <p>Instantly access nutritional details, calorie counts, and more for scanned items. Make informed choices effortlessly, keeping your health goals in focus.</p>
