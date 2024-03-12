@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); /*Import poping*/
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap'); /*Import Ubuntu*/
 .CircBar {
     display: flex;
     flex-direction: column;
@@ -12,70 +14,84 @@
     }
 }
 
+
+/* Apply the Oswald font to your elements */
+.welcome {
+    color: rgb(250, 250, 249);
+    margin-top: 50px;
+    font-size: 23px;
+    margin-left: 50px;
+    text-align: center;
+    line-height: 3.5; /* Adjust the line spacing as needed */
+    letter-spacing: 2px; /* Adjust the word spacing as needed */
+    
+    font-weight: 550;
+}
+
+
+.welcome p span{
+   color:#ffd700;
+   
+    
+}
+ .wbtn{
+    width: 150px;
+    height: 50px;
+    background-color: #FFC533;
+    color: #06070b;
+    font-size: 15px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
 /* Common styles for buttons */
 .btn {
-    display: flex;
-    align-items: center;
     justify-content: space-between;
     background-color: rgb(250, 250, 249);
     color: black;
     width: 400px;
-    height: 100px;
+    height: 500px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    border-radius: 50px;
-    padding: 0 15px;
-    margin-left:280px; 
-    margin-top: 80px; 
+    border-radius: 40px;
+    margin-left:70px; 
+    margin-top: 100px;
+    
     cursor: pointer;
     position: relative;
     transition: background-color 0.3s ease;
-    transition: all 0.3s ease;
+    transition: all 0.8s ease;
     font-weight: bold;
-}
-#cusmMargin1 span{
     color: rgb(4, 2, 32);
-    /*margin-right: 55px;*/
-    margin-left: 56px;
-   
 }
+.setDiv p{
+    font-weight: 300;
+    margin-top: 50px;
+    padding-bottom: 230px;
+}
+.veiwDiv p{
+    font-weight: 300;
+    margin-top: 50px;
+    padding-bottom: 250px;
+}
+.getDiv p{
+    font-weight: 300;
+    margin-top: 48px;
+    padding-bottom: 260px;
+}
+
+.getDiv p::after{
+    content: '';
+}
+
+
 #cusmMargin3 span{
-    color: rgb(4, 2, 32);
-    /*margin-right: 85px;*/
-    margin-left: 86px;
+    margin-left: 6px;
 }
 #cusmMargin4 span{
     color: rgb(4, 2, 32);
    /* margin-right: 115px;*/
-   margin-left: 118px;
+   margin-left: 18px;
 }
-/*
-.btn::before{
-    content: "";
-    display: block;
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    margin-left: -120px;
-    margin-top: 0px; 
-}
-
-#cusmMargin1::before {
-    background-image: url('https://blog.vantagecircle.com/content/images/2023/10/Arrows-Striking-its-Goal-representing-Goal-setting-for-employees.png');
-    background-size: cover;
-    background-position: center; 
-
-#cusmMargin3::before{
-    background-image: url('https://media.istockphoto.com/id/1291965350/vector/tiny-people-checking-application-form-for-employment.jpg?s=612x612&w=0&k=20&c=MGVUBdQaimSQYZnZM-1HCBO1NrfaXTUz3mVKREpAp18=');
-    background-size: cover;
-    background-position: center; 
-}
-
-#cusmMargin4::before{
-    background-image: url('https://media.istockphoto.com/id/1257933320/vector/tips-and-creative-ideas-vector-concept-metaphor.jpg?s=612x612&w=0&k=20&c=OwR5VQitCw3MiaTUoRoqMWh_u_kOQ9LXxjPY2HkdSuw=');
-    background-size: cover;
-    background-position: center; 
-}*/
 
 
 /* Media query for small screens */
@@ -90,25 +106,26 @@
 /* Hover effect for buttons */
 .btn:hover {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    width: 410px;
-    height: 110px;
+   
+    height: 520px;
 
 }
 
-/* Styles for other sections 
+/* Styles for other sections */
 .contar {
-    background: linear-gradient(#302b1e, #39311E, #332A14, #06070b);
+    background: linear-gradient(#06070b, #716340);
+   /* box-shadow: 0 10px 4px #716340; /* Adjust the shadow color and intensity */
+    height: 500px;
+    width: auto;
 }
-*/
+
 .displayFlex{
     display: flex;
 }
 .displayFlex img{
     width: 650px;
-    height: 600px;
-    margin-top: 2px;
     
-   
+    margin-top: 2px;
 }
 
 .topHed {
@@ -132,9 +149,13 @@
 
 .intro{
     height: 600px;
-    
+    display: flex;
+    margin-top: 40px;
 }
-
+.calMeter
+{
+    margin-top: 700px;
+}
 
 .calMeter,
 .trackInt,
@@ -146,7 +167,6 @@
     color: #FFC533;
     font-size: 35px;
     font-weight: bold;
-  
     transition: font-size 0.3s ease; /* Adding transition for font size */
     
 }
