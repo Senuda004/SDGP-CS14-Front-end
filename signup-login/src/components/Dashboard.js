@@ -202,7 +202,7 @@ const Dashboard = () => {
         {user && user.photoURL && (
         <img
           src={user.photoURL}
-          alt="User's Photo"
+          alt="Photo"
           style={{ width: '60px', height: '60px', borderRadius: '50%', marginLeft: '10px' }}
         />
         )}
