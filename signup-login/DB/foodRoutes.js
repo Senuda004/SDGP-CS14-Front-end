@@ -5,6 +5,31 @@ const FoodModel = require('./models/foodModel');
 
 const User = require("./models/userModel")
 
+
+
+// get the recent scanned item from databse
+// Endpoint to get scanned items for a specific user
+router.get('/scannedItems/:uid', async (req, res) => {
+  try {
+    const { uid } = req.params;
+
+    // Find the user with the given uid
+    const user = await User.findOne({ uid });
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Return the scanned items for the user
+    res.status(200).json(user.scanned_items);
+  } catch (error) {
+    console.error('Error fetching scanned items:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
+
 //  endpoint for fetching food data
 router.get('/fooddata', async (req, res) => {
   try {
@@ -95,7 +120,6 @@ router.post('/saveScannedItem', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-
 
 
 
