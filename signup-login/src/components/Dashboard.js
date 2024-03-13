@@ -132,7 +132,7 @@ const Dashboard = () => {
   
 
 
-  ///////////////// Nutritional Information section Logic/////////////////////////////
+  ///////////////// Nutritional Information section Logic /////////////////////
    
 
   const [FoodInfo,SetFoodInfo] = useState({});
