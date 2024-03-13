@@ -14,6 +14,10 @@ const Dashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [firstPhotoTaken, setFirstPhotoTaken] = useState(false);
   const [user, setUser] = useState(null);
+    // State to store reecenet scanned item TO GET NUTRITIONAL GRADE OF scanned item from camera
+    const [recentScannedItem, setRecentScannedItem] = useState(null);
+    const[scannedItemData , setRecentScannedItemData] = useState({});
+
 
   useEffect(() => {
     const auth = getAuth();
@@ -29,8 +33,7 @@ const Dashboard = () => {
   const [foodData, setFoodData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  
-
+ 
   useEffect(() => {
     // Replace 'http://localhost:5000/api/fooddata' with the correct URL
     const apiUrl = 'http://localhost:5000/api/fooddata';
@@ -78,7 +81,8 @@ const Dashboard = () => {
   
             // Process the response and update the UI accordingly
             console.log('Identified object:', detectedObject);
-  
+
+          
             // Update the state with the identified item name
             setIdentifiedItem(detectedObject);
 
@@ -129,8 +133,242 @@ const Dashboard = () => {
     setFirstPhotoTaken(false);
   };
 
+  const fetchRecentScannedItem = async () => {
+    try {
+      const response = await axios.get(`http://localhost:5000/api/foodInformation/${user.uid}`);
+      console.log('Recent Scanned Item:', response.data);
+      setRecentScannedItem(response.data);
+
+
+        //  Destricturing values in recent scanned item
+   
+   if (response.data !== null){
+   
+        const {
+    energy,
+    saturated_fat,
+    sugar,
+    fibers,
+    proteins,
+    sodium,
+    veg_fruit
+    } = response.data;
+
+    console.log("proteins " + proteins);
+
+    // get the recent score of the user
+    const recentGrade = calculateNutriGrade({
+      energy: energy,
+      fibers: fibers,
+      fruit_percentage: veg_fruit,
+      proteins: proteins,
+      saturated_fats:saturated_fat,
+      sodium:sodium,
+      sugar:  sugar
+
+    })
+
+    const recentScore = calculateNutriScore({
+      energy: energy,
+      fibers: fibers,
+      fruit_percentage: veg_fruit,
+      proteins: proteins,
+      saturated_fats:saturated_fat,
+      sodium:sodium,
+      sugar:  sugar
+
+    })
+
+
+
+
+   
+  // Setting the scanned item in the format to be sent to the nutrition library class
+  //  setRecentScannedItemData({
+  //   energy: energy,
+  //   fibers: fibers,
+  //   fruit_percentage: veg_fruit,
+  //   proteins: proteins,
+  //   saturated_fats:saturated_fat,
+  //   sodium:sodium,
+  //   sugar:  sugar
+  // });
+  
+  // // const recentGrade = calculateNutriGrade(scannedItemData);
+  // const recenetScore = calculateNutriScore(scannedItemData);
+  setGrade(recentGrade);
+  // Gives error as type required is number
+  setScore(recentScore);
+}
   
 
+
+
+    } catch (error) {
+      console.error('Error fetching recent scanned item:', error);
+    }
+
+
+  };
+  
+  useEffect(() => {
+    if (user) {
+      fetchRecentScannedItem();
+    }
+  }, [user]);
+
+  
+
+ 
+
+  // //  Destricturing values in recent scanned item
+  //  const {
+  //   energy,
+  //   saturated_fat,
+  //   sugar,
+  //   fibers,
+  //   proteins,
+  //   sodium,
+  //   veg_fruit
+  //   } = recentScannedItem;
+
+   
+  // // Setting the scanned item in the format to be sent to the nutrition library class
+  //  setRecentScannedItemData({
+  //   energy: energy,
+  //   fibers: fibers,
+  //   fruit_percentage: veg_fruit,
+  //   proteins: proteins,
+  //   saturated_fats:saturated_fat,
+  //   sodium:sodium,
+  //   sugar:  sugar
+  // });
+  
+  // calculateNutriGrade(scannedItemData);
+  // calculateNutriScore(scannedItemData)
+
+
+  // console.log("scanned item: " + {recentScannedItem} );
+
+  const fetchRecentScannedItem = async () => {
+    try {
+      const response = await axios.get(`http://localhost:5000/api/foodInformation/${user.uid}`);
+      console.log('Recent Scanned Item:', response.data);
+      setRecentScannedItem(response.data);
+
+
+        //  Destricturing values in recent scanned item
+   
+   if (response.data !== null){
+   
+        const {
+    energy,
+    saturated_fat,
+    sugar,
+    fibers,
+    proteins,
+    sodium,
+    veg_fruit
+    } = response.data;
+
+    console.log("proteins " + proteins);
+
+    // get the recent score of the user
+    const recentGrade = calculateNutriGrade({
+      energy: energy,
+      fibers: fibers,
+      fruit_percentage: veg_fruit,
+      proteins: proteins,
+      saturated_fats:saturated_fat,
+      sodium:sodium,
+      sugar:  sugar
+
+    })
+
+    const recentScore = calculateNutriScore({
+      energy: energy,
+      fibers: fibers,
+      fruit_percentage: veg_fruit,
+      proteins: proteins,
+      saturated_fats:saturated_fat,
+      sodium:sodium,
+      sugar:  sugar
+
+    })
+
+
+
+
+   
+  // Setting the scanned item in the format to be sent to the nutrition library class
+  //  setRecentScannedItemData({
+  //   energy: energy,
+  //   fibers: fibers,
+  //   fruit_percentage: veg_fruit,
+  //   proteins: proteins,
+  //   saturated_fats:saturated_fat,
+  //   sodium:sodium,
+  //   sugar:  sugar
+  // });
+  
+  // // const recentGrade = calculateNutriGrade(scannedItemData);
+  // const recenetScore = calculateNutriScore(scannedItemData);
+  setGrade(recentGrade);
+  // Gives error as type required is number
+  setScore(recentScore);
+}
+  
+
+
+
+    } catch (error) {
+      console.error('Error fetching recent scanned item:', error);
+    }
+
+
+  };
+  
+  useEffect(() => {
+    if (user) {
+      fetchRecentScannedItem();
+    }
+  }, [user]);
+
+  
+
+ 
+
+  // //  Destricturing values in recent scanned item
+  //  const {
+  //   energy,
+  //   saturated_fat,
+  //   sugar,
+  //   fibers,
+  //   proteins,
+  //   sodium,
+  //   veg_fruit
+  //   } = recentScannedItem;
+
+   
+  // // Setting the scanned item in the format to be sent to the nutrition library class
+  //  setRecentScannedItemData({
+  //   energy: energy,
+  //   fibers: fibers,
+  //   fruit_percentage: veg_fruit,
+  //   proteins: proteins,
+  //   saturated_fats:saturated_fat,
+  //   sodium:sodium,
+  //   sugar:  sugar
+  // });
+  
+  // calculateNutriGrade(scannedItemData);
+  // calculateNutriScore(scannedItemData)
+
+
+  // console.log("scanned item: " + {recentScannedItem} );
+
+  
+  
 
   ///////////////// Nutritional Information section Logic /////////////////////
    
@@ -161,8 +399,9 @@ const Dashboard = () => {
   
     // Function to get the nutritional  Grade of the user inputed values
     function calculateNutriGrade(values){
+   
       const nutriGrade = nutriScore.calculateClass(values);
-      // console.log("The final grade is : " + nutriGrade);  
+      console.log("The  grade is : " + nutriGrade);  
       return nutriGrade;     
      
   }
@@ -170,7 +409,7 @@ const Dashboard = () => {
   // Function to get the Nutritional Score of the user inputed values
   function calculateNutriScore(values){
       const nutritionalScore = nutriScore.calculate(values)
-      console.log("The grade is :" + nutritionalScore);
+      console.log("The score is :" + nutritionalScore);
       return nutritionalScore;    
   }
 
@@ -303,10 +542,10 @@ const Dashboard = () => {
       )}
 
       {/* Display fetched food data or loading message */}
-      {loading ? (
+      {/* {loading ? (
         <p>Loading...</p>
-      ) : (
-        <div>
+      ) : ( */}
+        {/* <div>
           <h2>Food Data:</h2>
           <ul>
             {foodData.map((foodItem) => (
@@ -314,11 +553,12 @@ const Dashboard = () => {
                 <p>Product Name: {foodItem['Name']}</p>
                 <p>Brand: {foodItem.Brand}</p>
                 {/* Add other fields as needed */}
-              </li>
+              {/* </li>
             ))}
           </ul>
-        </div>
-      )}
+   
+        </div> */}
+      {/* )} */} 
 
       {/*  Displaying  NutriScore front end  */}
 

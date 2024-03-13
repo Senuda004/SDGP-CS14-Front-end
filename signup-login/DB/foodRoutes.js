@@ -7,7 +7,7 @@ const User = require("./models/userModel")
 
 
 
-// get the recent scanned item from databse
+// get the  scanned items from databse
 // Endpoint to get scanned items for a specific user
 router.get('/scannedItems/:uid', async (req, res) => {
   try {
@@ -24,6 +24,30 @@ router.get('/scannedItems/:uid', async (req, res) => {
     res.status(200).json(user.scanned_items);
   } catch (error) {
     console.error('Error fetching scanned items:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
+// Get the current scanned item
+router.get('/latestScannedItem/:uid', async (req, res) => {
+  try {
+    const { uid } = req.params;
+
+    // Find the user with the given uid
+    const user = await User.findOne({ uid });
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Get the latest scanned item
+    const latestScannedItem = user.scanned_items[user.scanned_items.length - 1];
+
+    // Return the latest scanned item
+    res.status(200).json({ latestScannedItem });
+  } catch (error) {
+    console.error('Error fetching latest scanned item:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
@@ -122,6 +146,35 @@ router.post('/saveScannedItem', async (req, res) => {
 });
 
 
+// Endpoint to get food information for a scanned item
+router.get('/foodInformation/:uid', async (req, res) => {
+  try {
+    const { uid } = req.params;
 
+    // Find the user with the given uid
+    const user = await User.findOne({ uid });
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Get the latest scanned item
+    const scannedItem = user.scanned_items[user.scanned_items.length - 1];
+    console.log(scannedItem);
+
+    // Find the corresponding food information from the FoodData collection
+    const foodInformation = await FoodModel.findOne({ product_name: scannedItem});
+
+    if (!foodInformation) {
+      return res.status(404).json({ error: 'Food information not found' });
+    }
+
+    // Return the food information
+    res.status(200).json(foodInformation);
+  } catch (error) {
+    console.error('Error fetching food information:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 module.exports = router;
