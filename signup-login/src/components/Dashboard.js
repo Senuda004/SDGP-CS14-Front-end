@@ -303,10 +303,10 @@ const Dashboard = () => {
       )}
 
       {/* Display fetched food data or loading message */}
-      {loading ? (
+      {/* {loading ? (
         <p>Loading...</p>
-      ) : (
-        <div>
+      ) : ( */}
+        {/* <div>
           <h2>Food Data:</h2>
           <ul>
             {foodData.map((foodItem) => (
@@ -314,11 +314,12 @@ const Dashboard = () => {
                 <p>Product Name: {foodItem['Name']}</p>
                 <p>Brand: {foodItem.Brand}</p>
                 {/* Add other fields as needed */}
-              </li>
+              {/* </li>
             ))}
           </ul>
-        </div>
-      )}
+   
+        </div> */}
+      {/* )} */} 
 
       {/*  Displaying  NutriScore front end  */}
 

@@ -146,6 +146,35 @@ router.post('/saveScannedItem', async (req, res) => {
 });
 
 
+// Endpoint to get food information for a scanned item
+router.get('/foodInformation/:uid', async (req, res) => {
+  try {
+    const { uid } = req.params;
 
+    // Find the user with the given uid
+    const user = await User.findOne({ uid });
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Get the latest scanned item
+    const scannedItem = user.scanned_items[user.scanned_items.length - 1];
+    console.log(scannedItem);
+
+    // Find the corresponding food information from the FoodData collection
+    const foodInformation = await FoodModel.findOne({ product_name: scannedItem});
+
+    if (!foodInformation) {
+      return res.status(404).json({ error: 'Food information not found' });
+    }
+
+    // Return the food information
+    res.status(200).json(foodInformation);
+  } catch (error) {
+    console.error('Error fetching food information:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 module.exports = router;
