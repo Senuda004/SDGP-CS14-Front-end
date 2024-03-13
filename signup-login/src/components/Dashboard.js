@@ -14,9 +14,19 @@ const Dashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [firstPhotoTaken, setFirstPhotoTaken] = useState(false);
   const [user, setUser] = useState(null);
-    // State to store reecenet scanned item TO GET NUTRITIONAL GRADE OF scanned item from camera
-    const [recentScannedItem, setRecentScannedItem] = useState(null);
-    const[scannedItemData , setRecentScannedItemData] = useState({});
+
+  // State to store reecenet scanned item TO GET NUTRITIONAL GRADE OF scanned item from camera
+  const [recentScannedItem, setRecentScannedItem] = useState(null);
+  const[scannedItemData , setRecentScannedItemData] = useState({});
+
+  // State for the new modal
+  const [isNutritionModalOpen, setIsNutritionModalOpen] = useState(false);
+
+  // Function to open the new modal
+  const openNutritionModal = () => setIsNutritionModalOpen(true);
+
+  // Function to close the new modal
+  const closeNutritionModal = () => setIsNutritionModalOpen(false);
 
 
   useEffect(() => {
@@ -462,12 +472,33 @@ const Dashboard = () => {
         />
         )}
       </div>
+
+      <div className="flex justify-between w-[800px] h-[154px] bg-amber-400 bg-opacity-20 rounded-[30px] border-2 border-amber-400 m-auto" >
+        <div className='flex flex-col relative top-10 left-14 gap-3 align-middle'>
+          <div className="text-center text-black text-opacity-75 text-xl font-semibold font-['Roboto'] leading-[21px]">Hello {user && user.displayName && (user.displayName)}</div>
+          <div className="text-yellow-500 text-sm font-medium font-['Roboto'] leading-[21px]">Please scan a food item using your camera<br/>or enter the ingredients manually to see a score</div>
+        </div>
+        
+        <img className="w-[238px] h-[260px] relative bottom-20 right-9" src="https://i.ibb.co/G3kYNBc/6357895-removebg-preview.png" />
+      </div>
      
 
       {/* Open Modal Button */}
-      <button onClick={openModal} className='bg-amber-400 text-white w-1/2 rounded-md p-2 mt-10'>Scan using camera</button>
+      {/* <button onClick={openModal} className='bg-amber-400 text-white w-1/2 rounded-md p-2 mt-10'>Scan using camera</button> */}
+      <div className='flex justify-evenly m-auto relative top-12'>
+        <div onClick={openModal} className="w-[320px] h-[400px] bg-white rounded-[30px] custom-shadow-home cursor-pointer flex justify-center items-center align-middle flex-col gap-10">
+          <img className="w-[200px] h-[200px] relative" src="https://i.ibb.co/Q7Wzg2N/3484567-removebg-preview.png" />
+          <h3 className='font-medium text-[18px]'>Scan using camera</h3>
+        </div>   
 
-      {/* Modal for displaying everything */}
+        <div onClick={openNutritionModal} className="w-[320px] h-[400px] bg-white rounded-[30px] custom-shadow-home cursor-pointer flex justify-center items-center align-middle flex-col gap-10">
+          <img className="w-[215px] h-[215px] relative" src="https://i.ibb.co/74DPzs4/62356-removebg-preview.png" />
+          <h3 className='font-medium text-[18px]'>Enter ingredients manually</h3>
+        </div>
+      </div>
+      
+
+      {/* Modal for displaying take photo */}
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
@@ -530,7 +561,7 @@ const Dashboard = () => {
         <button onClick={closeModal} className='absolute top-2 right-8 bg-amber-400 text-white w-20 rounded-md p-2 mt-10 font-semibold'>Close</button>
       </Modal>
 
-      {/* Display identified item */}
+      {/* Display identified item
       {firstPhotoTaken && (
         <div>
           {identifiedItem ? (
@@ -539,7 +570,7 @@ const Dashboard = () => {
             <p>Object Not Identified. Please retake!</p>
           )}
         </div>
-      )}
+      )} */}
 
       {/* Display fetched food data or loading message */}
       {/* {loading ? (
@@ -562,7 +593,7 @@ const Dashboard = () => {
 
       {/*  Displaying  NutriScore front end  */}
 
-      <div>
+      {/* <div>
       <NutritionForm
             onAdd = {addUserFoodData}
             />
@@ -573,10 +604,39 @@ const Dashboard = () => {
             
             />
 
-           
+      </div> */}
 
-
-      </div>
+      {/* Modal for displaying manual enter food score */}
+      <Modal
+        isOpen={isNutritionModalOpen}
+        onRequestClose={closeNutritionModal}
+        contentLabel="Nutrition Modal"
+        style={{
+          content: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100vh',
+            height: '75vh',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            marginTop: '50px',
+            background: 'white',
+            borderRadius: '20px',
+            border: '4px solid #FFC533', 
+          },
+          overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          },
+        }}
+      >
+        <div>
+          <NutritionForm onAdd={addUserFoodData} />
+          <NutriCard image={NutritionalGradeImage(grade)} score={score} />
+        </div>
+        <button onClick={closeNutritionModal} className='absolute top-2 right-8 bg-amber-400 text-white w-20 rounded-md p-2 mt-10 font-semibold'>Close</button>
+      </Modal>
 
     </div>
   );
