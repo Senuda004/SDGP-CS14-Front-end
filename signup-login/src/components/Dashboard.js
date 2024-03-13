@@ -29,8 +29,7 @@ const Dashboard = () => {
   const [foodData, setFoodData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  
-
+ 
   useEffect(() => {
     // Replace 'http://localhost:5000/api/fooddata' with the correct URL
     const apiUrl = 'http://localhost:5000/api/fooddata';
@@ -78,7 +77,8 @@ const Dashboard = () => {
   
             // Process the response and update the UI accordingly
             console.log('Identified object:', detectedObject);
-  
+
+          
             // Update the state with the identified item name
             setIdentifiedItem(detectedObject);
 
@@ -128,6 +128,41 @@ const Dashboard = () => {
     // Set first photo taken back to false
     setFirstPhotoTaken(false);
   };
+
+   // State to store reecenet scanned item TO GET NUTRITIONAL GRADE OF scanned item from camera
+   const [recentScannedItem, setRecentScannedItem] = useState(null);
+
+  //  Destricturing values in recent scanned item
+   const {
+    energy,
+    saturated_fat,
+    sugar,
+    fibers,
+    proteins,
+    sodium,
+    veg_fruit
+    } = recentScannedItem;
+
+   const[scannedItemData , setRecentScannedItemData] = useState({});
+    
+
+  const fetchRecentScannedItem = async () => {
+    try {
+      const response = await axios.get(`http://localhost:5000/api/foodInformation/${user.uid}`);
+      console.log('Recent Scanned Item:', response.data);
+      setRecentScannedItem(response.data);
+    } catch (error) {
+      console.error('Error fetching recent scanned item:', error);
+    }
+  };
+  
+  useEffect(() => {
+    if (user) {
+      fetchRecentScannedItem();
+    }
+  }, [user]);
+
+  console.log("scanned item: " + {recentScannedItem} );
 
   
 
