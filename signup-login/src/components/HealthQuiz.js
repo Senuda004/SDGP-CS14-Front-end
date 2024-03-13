@@ -1,12 +1,16 @@
 "use client"
 // MAKING THIS A CLIENT SIDE COMPOENENT
 
+import { useState ,useEffect} from "react"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 
 import axios from "axios"
 
 import { useForm } from "react-hook-form"
+
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+
 
 // Importing the buttons and UI compoenents from shadcn UI
 import { Button } from "../components_shadcn/ui/button"
@@ -58,7 +62,23 @@ const formSchema = z.object({
 
 
 
+
+
 function HealthQuiz() {
+
+  const [userId, setUserId] = useState(null);
+
+
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (authUser) => {
+      setUserId(authUser);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  console.log("userId:"+userId.uid);
+
 
     const form = useForm({
         resolver: zodResolver(formSchema),
@@ -82,11 +102,20 @@ function HealthQuiz() {
         // ✅ This will be type-safe and validated.
         console.log(values);
 
+        const data = {
+          // Copy everything in healthform and add uid
+          ...values,
+          // storing userId 
+          uid: userId.uid,
+        }
+
+  
+
         // Post the answers to our Database
         // Make a POST request to your backend API endpoint
 
         // Make a POST request to your backend API endpoint
-    axios.post('http://localhost:5000/api/healthquiz', values)
+    axios.post('http://localhost:5000/api/healthquiz', data)
     .then(response => {
         console.log('Health quiz answers saved successfully');
     })
