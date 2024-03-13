@@ -14,6 +14,10 @@ const Dashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [firstPhotoTaken, setFirstPhotoTaken] = useState(false);
   const [user, setUser] = useState(null);
+    // State to store reecenet scanned item TO GET NUTRITIONAL GRADE OF scanned item from camera
+    const [recentScannedItem, setRecentScannedItem] = useState(null);
+    const[scannedItemData , setRecentScannedItemData] = useState({});
+
 
   useEffect(() => {
     const auth = getAuth();
@@ -129,11 +133,18 @@ const Dashboard = () => {
     setFirstPhotoTaken(false);
   };
 
-   // State to store reecenet scanned item TO GET NUTRITIONAL GRADE OF scanned item from camera
-   const [recentScannedItem, setRecentScannedItem] = useState(null);
+  const fetchRecentScannedItem = async () => {
+    try {
+      const response = await axios.get(`http://localhost:5000/api/foodInformation/${user.uid}`);
+      console.log('Recent Scanned Item:', response.data);
+      setRecentScannedItem(response.data);
 
-  //  Destricturing values in recent scanned item
-   const {
+
+        //  Destricturing values in recent scanned item
+   
+   if (response.data !== null){
+   
+        const {
     energy,
     saturated_fat,
     sugar,
@@ -141,19 +152,63 @@ const Dashboard = () => {
     proteins,
     sodium,
     veg_fruit
-    } = recentScannedItem;
+    } = response.data;
 
-   const[scannedItemData , setRecentScannedItemData] = useState({});
-    
+    console.log("proteins " + proteins);
 
-  const fetchRecentScannedItem = async () => {
-    try {
-      const response = await axios.get(`http://localhost:5000/api/foodInformation/${user.uid}`);
-      console.log('Recent Scanned Item:', response.data);
-      setRecentScannedItem(response.data);
+    // get the recent score of the user
+    const recentGrade = calculateNutriGrade({
+      energy: energy,
+      fibers: fibers,
+      fruit_percentage: veg_fruit,
+      proteins: proteins,
+      saturated_fats:saturated_fat,
+      sodium:sodium,
+      sugar:  sugar
+
+    })
+
+    const recentScore = calculateNutriScore({
+      energy: energy,
+      fibers: fibers,
+      fruit_percentage: veg_fruit,
+      proteins: proteins,
+      saturated_fats:saturated_fat,
+      sodium:sodium,
+      sugar:  sugar
+
+    })
+
+
+
+
+   
+  // Setting the scanned item in the format to be sent to the nutrition library class
+  //  setRecentScannedItemData({
+  //   energy: energy,
+  //   fibers: fibers,
+  //   fruit_percentage: veg_fruit,
+  //   proteins: proteins,
+  //   saturated_fats:saturated_fat,
+  //   sodium:sodium,
+  //   sugar:  sugar
+  // });
+  
+  // // const recentGrade = calculateNutriGrade(scannedItemData);
+  // const recenetScore = calculateNutriScore(scannedItemData);
+  setGrade(recentGrade);
+  // Gives error as type required is number
+  setScore(recentScore);
+}
+  
+
+
+
     } catch (error) {
       console.error('Error fetching recent scanned item:', error);
     }
+
+
   };
   
   useEffect(() => {
@@ -162,10 +217,41 @@ const Dashboard = () => {
     }
   }, [user]);
 
-  console.log("scanned item: " + {recentScannedItem} );
-
   
 
+ 
+
+  // //  Destricturing values in recent scanned item
+  //  const {
+  //   energy,
+  //   saturated_fat,
+  //   sugar,
+  //   fibers,
+  //   proteins,
+  //   sodium,
+  //   veg_fruit
+  //   } = recentScannedItem;
+
+   
+  // // Setting the scanned item in the format to be sent to the nutrition library class
+  //  setRecentScannedItemData({
+  //   energy: energy,
+  //   fibers: fibers,
+  //   fruit_percentage: veg_fruit,
+  //   proteins: proteins,
+  //   saturated_fats:saturated_fat,
+  //   sodium:sodium,
+  //   sugar:  sugar
+  // });
+  
+  // calculateNutriGrade(scannedItemData);
+  // calculateNutriScore(scannedItemData)
+
+
+  // console.log("scanned item: " + {recentScannedItem} );
+
+  
+  
 
   ///////////////// Nutritional Information section Logic/////////////////////////////
    
@@ -196,8 +282,9 @@ const Dashboard = () => {
   
     // Function to get the nutritional  Grade of the user inputed values
     function calculateNutriGrade(values){
+   
       const nutriGrade = nutriScore.calculateClass(values);
-      // console.log("The final grade is : " + nutriGrade);  
+      console.log("The  grade is : " + nutriGrade);  
       return nutriGrade;     
      
   }
@@ -205,7 +292,7 @@ const Dashboard = () => {
   // Function to get the Nutritional Score of the user inputed values
   function calculateNutriScore(values){
       const nutritionalScore = nutriScore.calculate(values)
-      console.log("The grade is :" + nutritionalScore);
+      console.log("The score is :" + nutritionalScore);
       return nutritionalScore;    
   }
 
