@@ -133,83 +133,83 @@ const Dashboard = () => {
     setFirstPhotoTaken(false);
   };
 
-  const fetchRecentScannedItem = async () => {
-    try {
-      const response = await axios.get(`http://localhost:5000/api/foodInformation/${user.uid}`);
-      console.log('Recent Scanned Item:', response.data);
-      setRecentScannedItem(response.data);
+//   const fetchRecentScannedItem = async () => {
+//     try {
+//       const response = await axios.get(`http://localhost:5000/api/foodInformation/${user.uid}`);
+//       console.log('Recent Scanned Item:', response.data);
+//       setRecentScannedItem(response.data);
 
 
-        //  Destricturing values in recent scanned item
+//         //  Destricturing values in recent scanned item
    
-   if (response.data !== null){
+//    if (response.data !== null){
    
-        const {
-    energy,
-    saturated_fat,
-    sugar,
-    fibers,
-    proteins,
-    sodium,
-    veg_fruit
-    } = response.data;
+//         const {
+//     energy,
+//     saturated_fat,
+//     sugar,
+//     fibers,
+//     proteins,
+//     sodium,
+//     veg_fruit
+//     } = response.data;
 
-    console.log("proteins " + proteins);
+//     console.log("proteins " + proteins);
 
-    // get the recent score of the user
-    const recentGrade = calculateNutriGrade({
-      energy: energy,
-      fibers: fibers,
-      fruit_percentage: veg_fruit,
-      proteins: proteins,
-      saturated_fats:saturated_fat,
-      sodium:sodium,
-      sugar:  sugar
+//     // get the recent score of the user
+//     const recentGrade = calculateNutriGrade({
+//       energy: energy,
+//       fibers: fibers,
+//       fruit_percentage: veg_fruit,
+//       proteins: proteins,
+//       saturated_fats:saturated_fat,
+//       sodium:sodium,
+//       sugar:  sugar
 
-    })
+//     })
 
-    const recentScore = calculateNutriScore({
-      energy: energy,
-      fibers: fibers,
-      fruit_percentage: veg_fruit,
-      proteins: proteins,
-      saturated_fats:saturated_fat,
-      sodium:sodium,
-      sugar:  sugar
+//     const recentScore = calculateNutriScore({
+//       energy: energy,
+//       fibers: fibers,
+//       fruit_percentage: veg_fruit,
+//       proteins: proteins,
+//       saturated_fats:saturated_fat,
+//       sodium:sodium,
+//       sugar:  sugar
 
-    })
+//     })
 
 
 
 
    
-  // Setting the scanned item in the format to be sent to the nutrition library class
-  //  setRecentScannedItemData({
-  //   energy: energy,
-  //   fibers: fibers,
-  //   fruit_percentage: veg_fruit,
-  //   proteins: proteins,
-  //   saturated_fats:saturated_fat,
-  //   sodium:sodium,
-  //   sugar:  sugar
-  // });
+//   // Setting the scanned item in the format to be sent to the nutrition library class
+//   //  setRecentScannedItemData({
+//   //   energy: energy,
+//   //   fibers: fibers,
+//   //   fruit_percentage: veg_fruit,
+//   //   proteins: proteins,
+//   //   saturated_fats:saturated_fat,
+//   //   sodium:sodium,
+//   //   sugar:  sugar
+//   // });
   
-  // // const recentGrade = calculateNutriGrade(scannedItemData);
-  // const recenetScore = calculateNutriScore(scannedItemData);
-  setGrade(recentGrade);
-  // Gives error as type required is number
-  setScore(recentScore);
-}
+//   // // const recentGrade = calculateNutriGrade(scannedItemData);
+//   // const recenetScore = calculateNutriScore(scannedItemData);
+//   setGrade(recentGrade);
+//   // Gives error as type required is number
+//   setScore(recentScore);
+// }
   
 
 
 
-    } catch (error) {
-      console.error('Error fetching recent scanned item:', error);
-    }
+//     } catch (error) {
+//       console.error('Error fetching recent scanned item:', error);
+//     }
 
 
-  };
+//   };
   
   useEffect(() => {
     if (user) {
