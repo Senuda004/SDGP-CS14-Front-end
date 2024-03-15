@@ -4,6 +4,10 @@ const mongoose = require('mongoose');
 const foodRoutes = require('./foodRoutes');
 const cors = require('cors'); // Import the cors middleware
 
+// require and read env file
+require("dotenv").config();
+
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -15,7 +19,7 @@ app.use(express.json());
 
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://nutrimatecs14:nutrimatesdgp@nutrimate-db.cy528h9.mongodb.net/?retryWrites=true&w=majority&appName=Nutrimate-DB', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_CONNECTION_KEY, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
 
@@ -32,4 +36,7 @@ app.use('/api', foodRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+  // console.log(process.env.OPENAI_API_KEY);
+  // console.log(process.env.MONGODB_CONNECTION_KEY)
+
 });
