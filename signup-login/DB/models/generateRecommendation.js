@@ -17,11 +17,13 @@ require("dotenv").config();
 
 
 
-async function generateRecommendation(){
+async function generateRecommendation(healthQuiz,recentScan){
    
     
 
-    const content = `Role: Cocacola , User Description : I am advised not to take any sugary drinks, i am 35 years old , i am looking for sugar free drinks ro any sugar free foods`
+    // const content = `Role: Cocacola , User Description : I am advised not to take any sugary drinks, i am 35 years old , i am looking for sugar free drinks ro any sugar free foods`
+    
+    const content = "Role: "+  recentScan + ", User Description : " + healthQuiz
 
     //  const content = `Role: {munche cream cracker } , User Description : {}`
 
