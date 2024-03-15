@@ -6,7 +6,7 @@ export default function DataBackend() {
 
   useEffect(() => {
     // Fetch data from the backend when the component mounts
-    axios.get('http://localhost:5000/api/caldata')
+    axios.get('http://localhost:5000/api/caloriemeter')
       .then(response => {
         if (response.status === 200) {
           console.log('Data fetched successfully:', response.data);

@@ -48,31 +48,13 @@ export default function CircBar() {
     <div className='resposiveCon'>
       <div className='contar'>
         <div className='topHed'><span>Calorie Meter</span></div>
-          <div className='displayFlex'>
             <div className='welcome'>
-              <p>Embrace holistic health with a tool that effortlessly manages and optimizes your daily <span>Calorie intake.</span></p>
-              <button className='wbtn' onClick={()=> scrollToSection('scrollTobtn')}><span>Explore</span></button>
+              <p>Welcome to NutriMate Calorie Meter! Easily manage and optimize your daily Calorie intake for holistic health.</p>
             </div>
-            <img src='https://i.ibb.co/PtPwVg5/Free-Vector-Presentation-concept-illustration-removebg-preview.png' alt='pic' id='wPic'></img>
-          </div> 
-           
-        <div className='intro' id='scrollTobtn'> 
-          <div className='setDiv'>
-            <button className='btn' id="cusmMargin1" onClick={() => scrollToSection('calMeter')}><span>Set Goal & Track your Progress</span><p>Tailor daily calorie goals to your unique needs,
-               guiding you toward your health objectivesn & Track your calorie intake in real-time, ensuring you stay on course throughout the day effortlessly.</p> </button></div>
-               
-          <div className='veiwDiv'><button className='btn' id="cusmMargin3" onClick={() => scrollToSection('VeiwSpro')}><span>View Scanned products</span>
-          <p>Instantly access nutritional details, calorie counts, and more for scanned items. Make informed choices effortlessly, keeping your health goals in focus.</p>
-          </button></div>
-          
-          <div className='getDiv'><button className='btn' id="cusmMargin4" onClick={() => scrollToSection('getTip')}><span>Weight loss Tips</span>
-          <p>Get General tips for burning calories, seamlessly integrating wellness into your daily routine.</p>
-          </button></div>
-        </div>
+            <div className='Wpic'><img src='https://i.ibb.co/PtPwVg5/Free-Vector-Presentation-concept-illustration-removebg-preview.png' alt='pic' id='Wpic'/></div>
       </div>  
-       
       <div id='calMeter' className='calMeter'>
-        <h1>Set your Goal</h1>
+     
         <div className='setgoalContainer'>
             <div className='inputContr'>
             <h3 id=''>Set your daily calorie goal</h3>
@@ -87,7 +69,8 @@ export default function CircBar() {
             <p>Updated Consumed: {goal - consumed}</p>
           </div>
         </div>  
-      </div>
+      </div> 
+ 
       
       <div id='VeiwSpro' className='VeiwSpro'>
       <h1>View Scanned Products</h1>
@@ -97,6 +80,14 @@ export default function CircBar() {
         <h1>Weight loss Tips</h1>
         <FetchTips/>
       </div>
+      <div className='intro' id='scrollTobtn'> 
+          <div className='setDiv'>
+            <button className='btn' id="cusmMargin1" onClick={() => scrollToSection('calMeter')}><span>Set Goal & Track your Progress</span></button></div>
+          <div className='veiwDiv'><button className='btn' id="cusmMargin3" onClick={() => scrollToSection('VeiwSpro')}><span>View Scanned products</span>
+          </button></div>
+          <div className='getDiv'><button className='btn' id="cusmMargin4" onClick={() => scrollToSection('getTip')}><span>Weight loss Tips</span>
+          </button></div>
+        </div>
       
     </div>    
   );

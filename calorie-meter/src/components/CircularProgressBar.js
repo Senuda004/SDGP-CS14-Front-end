@@ -48,7 +48,7 @@ const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
         />
         <text x="50%" y="50%" textAnchor="middle" fontSize="20">
           <tspan x="50%" dy="-0.8em" fontWeight="bold">{goal} kcal</tspan>
-          <tspan x="50%" dy="1.5em">is remaining</tspan>
+          <tspan x="50%" dy="1.5em">Daily goal</tspan>
         </text>
 
       </svg>

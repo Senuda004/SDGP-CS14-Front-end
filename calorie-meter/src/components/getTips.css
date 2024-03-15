@@ -63,7 +63,7 @@
     
 }
 .tip-card {
-    border: 1px solid #ccc;
+    
     margin: 10px;
     padding-left: 80px;
     border-radius: 80px;
@@ -71,7 +71,7 @@
     height: 150px;
     margin-bottom: 50px;
     margin-right: 130px; /* Adjust the margin-right to increase space between columns */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px #FFC533;
     
 
     cursor: pointer;
