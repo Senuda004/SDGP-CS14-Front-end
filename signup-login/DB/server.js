@@ -3,6 +3,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const foodRoutes = require('./foodRoutes');
 const cors = require('cors'); // Import the cors middleware
+const { getIdTokenResult } = require('firebase/auth');
+const { generateRecommendation } = require('./models/generateRecommendation');
+
+
+
+
+
 
 // require and read env file
 require("dotenv").config();
