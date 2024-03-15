@@ -592,18 +592,19 @@ const Dashboard = () => {
 
       {/*  Displaying  NutriScore front end  */}
 
-     <div>
-      {/**<NutritionForm
+      {/* <div>
+      <NutritionForm
             onAdd = {addUserFoodData}
-            />**/}
+            />
        <NutriCard 
                 image = {NutritionalGradeImage(grade)}
                 score = {score}
+                className = "relative mt-10"
            
             
             />
 
-      </div> 
+      </div> */}
 
       {/* Modal for displaying manual enter food score */}
       <Modal

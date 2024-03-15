@@ -30,13 +30,13 @@ const Home = () => {
 
   useEffect(() => {
     // Redirect to "/not-found" if the current path doesn't match any specified routes
-    if (!['/dashboard', '/calorie-meter', '/ai-chatbot', '/', '/signup', '/forgot-password',"/health-quiz"].includes(location.pathname)) {
+    if (!['/dashboard', '/calorie-meter', '/ai-chatbot', '/', '/signup', '/forgot-password',"/health-quiz", "/hero"].includes(location.pathname)) {
       navigate('/not-found');
     }
   }, [location.pathname, navigate]);
 
   // Check if the current path is "/home" before rendering the component
-  if (location.pathname === '/' || location.pathname === '/signup' || location.pathname === '/forgot-password') {
+  if (location.pathname === '/' || location.pathname === '/signup' || location.pathname === '/forgot-password' || location.pathname === "/hero" || location.pathname === "/health-quiz") {
     return null;
   }
 

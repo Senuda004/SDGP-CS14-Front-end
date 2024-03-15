@@ -10,6 +10,7 @@ import ForgotPassword from './components/ForgotPassword';
 import AiChatbot from './components/AiChatbot';
 import Dashboard from './components/Dashboard';
 import HealthQuiz from './components/HealthQuiz';
+import HeroComponent from './components/landing';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
               <Route path="/" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
-              
+              <Route path="/hero" element={<HeroComponent />} />
             </Routes>  
           </UserAuthContextProvider>
         </Col>
