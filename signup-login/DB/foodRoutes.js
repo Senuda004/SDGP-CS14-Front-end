@@ -120,7 +120,6 @@ router.post('/healthquiz', async (req, res) => {
 
 
 // Endpoint to save scanned item to the database 
-
 router.post('/saveScannedItem', async (req, res) => {
   try {
     // Extract uid and scannedItem from request body
@@ -134,7 +133,11 @@ router.post('/saveScannedItem', async (req, res) => {
     }
 
     // Add the scannedItem to the user's scanned_items array
-    user.scanned_items.push(scannedItem);
+    // user.scanned_items.push(scannedItem);
+    // Add the scannedItem to the user's scanned_items array
+    user.scanned_items.push({ name: scannedItem, rating: '' });
+
+ 
 
     // Save the updated user document back to the database
     const savedUser = await user.save();
@@ -164,7 +167,8 @@ router.get('/foodInformation/:uid', async (req, res) => {
     console.log(scannedItem);
 
     // Find the corresponding food information from the FoodData collection
-    const foodInformation = await FoodModel.findOne({ product_name: scannedItem});
+    // const foodInformation = await FoodModel.findOne({ product_name: scannedItem});
+     const foodInformation = await FoodModel.findOne({ product_name: scannedItem.name});
 
     if (!foodInformation) {
       return res.status(404).json({ error: 'Food information not found' });
@@ -172,9 +176,37 @@ router.get('/foodInformation/:uid', async (req, res) => {
 
     // Return the food information
     res.status(200).json(foodInformation);
+
+    // User health quiz answers
+    const foodPreference = user.food_avoidance;
+    const healthCondition = user.health_conditions;
+    const dietaryPreference = user.dietary_preferences;
+    const foodAvoidance = user.food_avoidance;
+    const ageGroup = user.age_group;
+    const healthGoal =user.health_goal
+
+    // Going to store all the users health answers and feed it to our LLM model
+    const HealthProfile = "I fall between age group of " + ageGroup + ", in terms of my health conditions : " + healthCondition
+    + ". When it comes to food that I should avoid: " + foodAvoidance + " and the food i usually prefer " + foodPreference +
+    ". When it comes to my dietary preference " + dietaryPreference + ".My health goal is to improve " + healthGoal;
+
+
+
+    
+
+    console.log(HealthProfile);
+
+
     // Get the recommendation
-    const recommendation = await generateRecommendation();
-    console.log(recommendation);
+    const recommendation = await generateRecommendation(HealthProfile, scannedItem.name);
+
+    console.log("the recomnedation is " +recommendation);
+
+
+        // Store the rating in the database
+    // Update the rating for the latest scanned item
+    user.scanned_items[user.scanned_items.length - 1].rating = recommendation;
+    await user.save();
    
   } catch (error) {
     console.error('Error fetching food information:', error);
