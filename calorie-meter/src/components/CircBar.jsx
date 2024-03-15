@@ -6,6 +6,7 @@ import FetchTips from './FetchTips';
 
 
 export default function CircBar() {
+  //welcome section
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -68,7 +69,8 @@ export default function CircBar() {
           <p>Get General tips for burning calories, seamlessly integrating wellness into your daily routine.</p>
           </button></div>
         </div>
-      </div>    
+      </div>  
+       
       <div id='calMeter' className='calMeter'>
         <h1>Set your Goal</h1>
         <div className='setgoalContainer'>
@@ -81,24 +83,21 @@ export default function CircBar() {
          
           <div className='circBar'>
             <CircularProgressBar id='circle' goal={goal} consumed={consumed} onConsumedChange={handleConsumedChange} />
+            <p>Remaining Calories: {consumed}</p>
+            <p>Updated Consumed: {goal - consumed}</p>
           </div>
         </div>  
-        
-        
       </div>
       
       <div id='VeiwSpro' className='VeiwSpro'>
       <h1>View Scanned Products</h1>
-        <div className='prduct-list-display'>
-         
-        </div>
-         
-       
       </div>
+      
       <div id='getTip' className='getTip'>
         <h1>Weight loss Tips</h1>
         <FetchTips/>
       </div>
+      
     </div>    
   );
 }
