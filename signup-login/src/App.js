@@ -9,7 +9,6 @@ import Home from './components/Home';
 import ForgotPassword from './components/ForgotPassword';
 import AiChatbot from './components/AiChatbot';
 import Dashboard from './components/Dashboard';
-import HealthQuiz from './components/HealthQuiz';
 import HeroComponent from './components/landing';
 
 function App() {

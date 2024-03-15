@@ -5,12 +5,12 @@ const HeroComponent = () => {
 
     return (
         <div className="bg-gray-50">
-            <header className="relative z-10 py-4 md:py-6" x-data="{expanded: false}">
+            <header className="relative z-10 py-4 md:py-6 lg:pt-2" x-data="{expanded: false}">
                 <div className="container px-4 mx-auto sm:px-6 lg:px-8">
                     <div className="relative flex items-center justify-between">
                         <div className="flex-shrink-0">
                             <a href="#" title="" className="flex rounded outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2">
-                                <img className="w-auto h-8" src="https://cdn.rareblocks.xyz/collection/clarity/images/logo.svg" alt="" />
+                                <img className="w-auto h-28" src="https://i.ibb.co/HGZkXHv/Nutri-mate-logo.png" alt="" />
                             </a>
                         </div>
 
@@ -33,16 +33,16 @@ const HeroComponent = () => {
                         <div className="hidden md:flex md:items-center md:justify-center md:space-x-10 md:absolute md:inset-y-0 md:left-1/2 md:-translate-x-1/2 lg:space-x-16">
                             <a href="#" title="" className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Features </a>
 
-                            <a href="#" title="" className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Pricing </a>
+                            <a href="#" title="" className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Team </a>
 
-                            <a href="#" title="" className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Support </a>
+                            <a href="#" title="" className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Pricing </a>
                         </div>
 
                         <div className="hidden md:flex">
                             <a
                                 href="#"
                                 title=""
-                                className="inline-flex items-center justify-center px-6 py-3 text-base font-bold leading-7 text-white transition-all duration-200 bg-gray-900 border border-transparent rounded hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                                className="inline-flex items-center justify-center px-6 py-3 text-base font-bold leading-7 text-white transition-all duration-200 bg-amber-400 border border-transparent rounded hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
                                 role="button"
                             >
                                 Try for free
@@ -73,46 +73,25 @@ const HeroComponent = () => {
                 </div>
             </header>
 
-            <section className="relative py-12 sm:py-16 lg:pb-40">
+            <section className="relative py-12 sm:py-16 lg:pb-0">
                 <div className="absolute bottom-0 right-0 overflow-hidden">
                     <img className="w-full h-auto origin-bottom-right transform scale-150 lg:w-auto lg:mx-auto lg:object-cover lg:scale-75" src="https://cdn.rareblocks.xyz/collection/clarity/images/hero/1/background-pattern.png" alt="" />
                 </div>
 
                 <div className="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 gap-y-4 lg:items-center lg:grid-cols-2 xl:grid-cols-2">
-                        <div className="text-center xl:col-span-1 lg:text-left md:px-16 lg:px-0 xl:pr-20">
-                            <h1 className="text-4xl font-bold leading-tight text-gray-900 sm:text-5xl sm:leading-tight lg:text-6xl lg:leading-tight font-pj">An editor that helps you write clean codes.</h1>
-                            <p className="mt-2 text-lg text-gray-600 sm:mt-6 font-inter">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula massa in enim luctus. Rutrum arcu.</p>
+                        <div className="text-center xl:col-span-1 lg:text-left md:px-16 lg:px-0 xl:pr-20 relative lg:bottom-24">
+                            <h1 className="text-4xl font-bold leading-tight text-amber-400 sm:text-5xl sm:leading-tight lg:text-5xl lg:leading-tight font-pj">Transforming dietary decisions - Nutri Mate: Your Health Companion</h1>
+                            <p className="mt-2 text-lg text-gray-600 sm:mt-6 font-inter">Unlock Nutri Mate's tools for free! Sign up now to revolutionize your dietary decisions and enhance your well-being journey.</p>
 
                             <a href="#" title="" className="inline-flex px-8 py-4 mt-8 text-lg font-bold text-white transition-all duration-200 bg-gray-900 border border-transparent rounded sm:mt-10 font-pj hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900" role="button">
-                                Try our free editor
+                                Try our free tools
                             </a>
 
-                            <div className="mt-8 sm:mt-16">
-                                <div className="flex items-center justify-center lg:justify-start">
-                                    {[...Array(5)].map((_, index) => (
-                                        <svg key={index} className="w-5 h-5 text-[#FDB241]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                            <path
-                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                            />
-                                        </svg>
-                                    ))}
-                                </div>
-
-                                <blockquote className="mt-6">
-                                    <p className="text-lg font-bold text-gray-900 font-pj">Best code editor in market!</p>
-                                    <p className="mt-3 text-base leading-7 text-gray-600 font-inter">Consectetur adipiscing elit. Vehicula massa in enim luctus. Rutrum arcu, aliquam nulla tincidunt gravida. Cursus convallis dolor semper pretium ornare.</p>
-                                </blockquote>
-
-                                <div className="flex items-center justify-center mt-3 lg:justify-start">
-                                    <img className="flex-shrink-0 object-cover w-6 h-6 overflow-hidden rounded-full" src="https://cdn.rareblocks.xyz/collection/clarity/images/hero/1/avatar-female.png" alt="" />
-                                    <p className="ml-2 text-base font-bold text-gray-900 font-pj">Denny Jones</p>
-                                </div>
-                            </div>
                         </div>
 
                         <div className="xl:col-span-1">
-                            <img className="w-full mx-auto" src="https://cdn.rareblocks.xyz/collection/clarity/images/hero/1/illustration.png" alt="" />
+                            <img className="w-full mx-auto relative bottom-24" src="https://i.ibb.co/grDgsxG/i-Phone-15-nutrimate.png" alt="" />
                         </div>
                     </div>
                 </div>
@@ -121,76 +100,51 @@ const HeroComponent = () => {
             <section className="py-12 bg-white sm:py-16 lg:py-20">
                 <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="text-center">
-                        <h2 className="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl xl:text-5xl font-pj">Make every step user-centric</h2>
-                        <p className="mt-4 text-base leading-7 text-gray-600 sm:mt-8 font-pj">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h2 className="text-3xl font-bold leading-tight text-amber-400 sm:text-4xl xl:text-5xl font-pj">Discover Nutri Mate's Innovative Features</h2>
+                        <p className="mt-4 text-base leading-7 text-gray-600 sm:mt-8 font-pj">Unlock Your Wellness Journey: Explore Nutri Mate's Cutting-Edge Features</p>
                     </div>
 
                     <div className="grid grid-cols-1 mt-10 text-center sm:mt-16 sm:grid-cols-2 sm:gap-x-12 gap-y-12 md:grid-cols-3 md:gap-0 xl:mt-24">
-                        {/* Support */}
-                        <div className="md:p-8 lg:p-14">
-                            <svg className="mx-auto" width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M45 29V23C45 10.85 35.15 1 23 1C10.85 1 1 10.85 1 23V29" stroke="#161616" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M13 29H1V41C1 43.209 2.791 45 5 45H13V29Z" fill="#D4D4D8" stroke="#161616" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M45 29H33V45H41C43.209 45 45 43.209 45 41V29Z" fill="#D4D4D8" stroke="#161616" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                            <h3 className="mt-12 text-xl font-bold text-gray-900 font-pj">Support</h3>
-                            <p className="mt-5 text-base text-gray-600 font-pj">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        {/* Food Scanning */}
+                        <div className="md:p-8 lg:p-14 flex flex-col items-center">
+                            <img src="https://i.ibb.co/3YSLcNJ/camera.png" alt="Food Scanning Icon" className=' w-20'/>
+                            <h3 className="mt-12 text-xl font-bold text-amber-400 font-pj">Food Scanning</h3>
+                            <p className="mt-5 text-base text-gray-600 font-pj">Instantly scan food items with your device's camera for quick nutritional insights.</p>
                         </div>
 
-                        {/* Sales */}
-                        <div className="md:p-8 lg:p-14 md:border-l md:border-gray-200">
-                            <svg className="mx-auto" width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M27 27H19V45H27V27Z" stroke="#161616" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M9 37H1V45H9V37Z" fill="#D4D4D8" stroke="#161616" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M45 17H37V45H45V17Z" fill="#D4D4D8" stroke="#161616" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M5 17L15 7L23 15L37 1" stroke="#161616" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M28 1H37V10" stroke="#161616" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                            <h3 className="mt-12 text-xl font-bold text-gray-900 font-pj">Sales</h3>
-                            <p className="mt-5 text-base text-gray-600 font-pj">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        {/* AI Chatbot */}
+                        <div className="md:p-8 lg:p-14 md:border-l md:border-amber-200 flex flex-col items-center">
+                            <img src="https://i.ibb.co/Pg104dk/chatbot.png" alt="AI Chatbot icon" className=' w-20'/>
+                            <h3 className="mt-12 text-xl font-bold text-amber-400 font-pj">AI Chatbot</h3>
+                            <p className="mt-5 text-base text-gray-600 font-pj">Get personalized answers to your food-related queries through interactive chat with our AI assistant.</p>
                         </div>
 
-                        {/* Onboarding */}
-                        <div className="md:p-8 lg:p-14 md:border-l md:border-gray-200">
-                            <svg className="mx-auto" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                d="M9.66667 25H6C3.23858 25 1 27.2386 1 30V37C1 39.7614 3.23858 42 6 42H36C38.7614 42 41 39.7614 41 37V30C41 27.2386 38.7614 25 36 25H31.8333C30.2685 25 29 26.2685 29 27.8333C29 29.3981 27.7315 30.6667 26.1667 30.6667H15.3333C13.7685 30.6667 12.5 29.3981 12.5 27.8333C12.5 26.2685 11.2315 25 9.66667 25Z"
-                                fill="#D4D4D8"
-                                />
-                                <path d="M9 9H33" stroke="#161616" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M9 17H33" stroke="#161616" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M1 25H13V31H29V25H41" stroke="#161616" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M37 1H5C2.79086 1 1 2.79086 1 5V37C1 39.2091 2.79086 41 5 41H37C39.2091 41 41 39.2091 41 37V5C41 2.79086 39.2091 1 37 1Z" stroke="#161616" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                            <h3 className="mt-12 text-xl font-bold text-gray-900 font-pj">Onboarding</h3>
-                            <p className="mt-5 text-base text-gray-600 font-pj">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        {/* Calorie Meter */}
+                        <div className="md:p-8 lg:p-14 md:border-l md:border-amber-200 flex flex-col items-center">
+                            <img src="https://i.ibb.co/jJhc3jG/calories-2.png" alt="Calorie meter icon" className=' w-20'/>
+                            <h3 className="mt-12 text-xl font-bold text-amber-400 font-pj">Calorie Meter</h3>
+                            <p className="mt-5 text-base text-gray-600 font-pj">Set and track your calorie goals effortlessly to achieve your desired health outcomes.</p>
                         </div>
 
-                        {/* Product */}
-                        <div className="md:p-8 lg:p-14 md:border-t md:border-gray-200">
-                            <svg className="mx-auto" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                {/* SVG paths */}
-                            </svg>
-                            <h3 className="mt-12 text-xl font-bold text-gray-900 font-pj">Product</h3>
-                            <p className="mt-5 text-base text-gray-600 font-pj">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        {/* Nutri Score */}
+                        <div className="md:p-8 lg:p-14 md:border-t md:border-amber-200 flex flex-col items-center">
+                            <img src="https://i.ibb.co/CWJkbhw/speedometer.png" alt="Nutri score icon" className=' w-20'/>
+                            <h3 className="mt-12 text-xl font-bold text-amber-400 font-pj">Nutri Score</h3>
+                            <p className="mt-5 text-base text-gray-600 font-pj">Receive Nutri Mate's comprehensive nutritional grading for better food choices and health management.</p>
                         </div>
 
-                        {/* Quality */}
-                        <div className="md:p-8 lg:p-14 md:border-l md:border-gray-200 md:border-t">
-                            <svg className="mx-auto" width="46" height="42" viewBox="0 0 46 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                {/* SVG paths */}
-                            </svg>
-                            <h3 className="mt-12 text-xl font-bold text-gray-900 font-pj">Quality</h3>
-                            <p className="mt-5 text-base text-gray-600 font-pj">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        {/* Blog */}
+                        <div className="md:p-8 lg:p-14 md:border-l md:border-amber-200 md:border-t flex flex-col items-center">
+                            <img src="https://i.ibb.co/5Mc2V0x/blog.png" alt="Blog icon" className=' w-20'/>
+                            <h3 className="mt-12 text-xl font-bold text-amber-400 font-pj">Blog Page</h3>
+                            <p className="mt-5 text-base text-gray-600 font-pj">Explore and engage with informative blogs covering a wide range of health and nutrition topics.</p>
                         </div>
 
-                        {/* Result */}
-                        <div className="md:p-8 lg:p-14 md:border-l md:border-gray-200 md:border-t">
-                            <svg className="mx-auto" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                {/* SVG paths */}
-                            </svg>
-                            <h3 className="mt-12 text-xl font-bold text-gray-900 font-pj">Result</h3>
-                            <p className="mt-5 text-base text-gray-600 font-pj">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        {/* Health Quiz */}
+                        <div className="md:p-8 lg:p-14 md:border-l md:border-amber-200 md:border-t flex flex-col items-center">
+                            <img src="https://i.ibb.co/c2RqPMx/brain.png" alt="Health quiz icon" className=' w-20'/>
+                            <h3 className="mt-12 text-xl font-bold text-amber-400 font-pj">Health Quiz</h3>
+                            <p className="mt-5 text-base text-gray-600 font-pj">Complete a tailored health assessment to receive personalized recommendations based on your unique health profile.</p>
                         </div>
                     </div>
                 </div>
@@ -199,33 +153,48 @@ const HeroComponent = () => {
             <section className="py-12 bg-white sm:py-16 lg:py-20">
     <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl xl:text-5xl font-pj">Our Investors & Board of Directors</h2>
+            <h2 className="text-3xl font-bold text-amber-400 sm:text-4xl xl:text-5xl font-pj">Our Team</h2>
         </div>
 
-        <div className="grid max-w-6xl grid-cols-1 px-20 mx-auto mt-12 text-center sm:px-0 sm:grid-cols-2 md:mt-20 gap-x-8 md:grid-cols-4 gap-y-12 lg:gap-x-16 xl:gap-x-20">
-            <div>
-                <img className="object-cover w-32 h-32 mx-auto rounded-full lg:w-44 lg:h-44 grayscale filter" src="https://cdn.rareblocks.xyz/collection/clarity/images/team/1/team-member-1.png" alt="" />
-                <p className="mt-5 text-lg font-bold text-gray-900 sm:text-xl sm:mt-8 font-pj">Jerome Bell</p>
-                <p className="mt-2 text-base font-normal text-gray-600 font-pj">Co founder, Chairman, Executive Director</p>
+        <br /><br />
+
+        <div className="flex flex-col justify-around items-center gap-10">
+            <div className='flex flex-row gap-[18vh]'>
+                <div>
+                    <img className="object-cover w-32 h-32 mx-auto rounded-full lg:w-44 lg:h-44 grayscale filter" src="https://cdn.rareblocks.xyz/collection/clarity/images/team/1/team-member-1.png" alt="" />
+                    <p className="mt-5 text-lg font-bold text-amber-400 sm:text-xl sm:mt-8 font-pj">Dulneth Bernard</p>
+                    <p className="mt-2 text-base font-normal text-gray-600 font-pj">Developer</p>
+                </div>
+
+                <div>
+                    <img className="object-cover w-32 h-32 mx-auto rounded-full lg:w-44 lg:h-44 grayscale filter" src="https://cdn.rareblocks.xyz/collection/clarity/images/team/1/team-member-2.png" alt="" />
+                    <p className="mt-5 text-lg font-bold text-amber-400 sm:text-xl sm:mt-8 font-pj">Senuda Perera</p>
+                    <p className="mt-2 text-base font-normal text-gray-600 font-pj">Developer</p>
+                </div>
             </div>
 
-            <div>
-                <img className="object-cover w-32 h-32 mx-auto rounded-full lg:w-44 lg:h-44 grayscale filter" src="https://cdn.rareblocks.xyz/collection/clarity/images/team/1/team-member-2.png" alt="" />
-                <p className="mt-5 text-lg font-bold text-gray-900 sm:text-xl sm:mt-8 font-pj">Jerome Bell</p>
-                <p className="mt-2 text-base font-normal text-gray-600 font-pj">Co founder, Chairman, Executive Director</p>
-            </div>
+            <br />
+            
+            <div className="flex flex-row gap-[18vh]">
+                <div>
+                    <img className="object-cover w-32 h-32 mx-auto rounded-full lg:w-44 lg:h-44 grayscale filter" src="https://cdn.rareblocks.xyz/collection/clarity/images/team/1/team-member-4.png" alt="" />
+                    <p className="mt-5 text-lg font-bold text-amber-400 sm:text-xl sm:mt-8 font-pj">Anuththara Kannangara</p>
+                    <p className="mt-2 text-base font-normal text-gray-600 font-pj">Developer</p>
+                </div>
 
-            <div>
-                <img className="object-cover w-32 h-32 mx-auto rounded-full lg:w-44 lg:h-44 grayscale filter" src="https://cdn.rareblocks.xyz/collection/clarity/images/team/1/team-member-3.png" alt="" />
-                <p className="mt-5 text-lg font-bold text-gray-900 sm:text-xl sm:mt-8 font-pj">Jerome Bell</p>
-                <p className="mt-2 text-base font-normal text-gray-600 font-pj">Co founder, Chairman, Executive Director</p>
-            </div>
+                <div>
+                    <img className="object-cover w-32 h-32 mx-auto rounded-full lg:w-44 lg:h-44 grayscale filter" src="https://cdn.rareblocks.xyz/collection/clarity/images/team/1/team-member-2.png" alt="" />
+                    <p className="mt-5 text-lg font-bold text-amber-400 sm:text-xl sm:mt-8 font-pj">Movindu Jayathilake</p>
+                    <p className="mt-2 text-base font-normal text-gray-600 font-pj">Developer</p>
+                </div>
 
-            <div>
-                <img className="object-cover w-32 h-32 mx-auto rounded-full lg:w-44 lg:h-44 grayscale filter" src="https://cdn.rareblocks.xyz/collection/clarity/images/team/1/team-member-4.png" alt="" />
-                <p className="mt-5 text-lg font-bold text-gray-900 sm:text-xl sm:mt-8 font-pj">Jerome Bell</p>
-                <p className="mt-2 text-base font-normal text-gray-600 font-pj">Co founder, Chairman, Executive Director</p>
+                <div>
+                    <img className="object-cover w-32 h-32 mx-auto rounded-full lg:w-44 lg:h-44 grayscale filter" src="https://cdn.rareblocks.xyz/collection/clarity/images/team/1/team-member-3.png" alt="" />
+                    <p className="mt-5 text-lg font-bold text-amber-400 sm:text-xl sm:mt-8 font-pj">Induranga Ekanayake</p>
+                    <p className="mt-2 text-base font-normal text-gray-600 font-pj">Developer</p>
+                </div>
             </div>
+   
         </div>
 
         <div className="mt-12 sm:mt-16">
@@ -257,19 +226,7 @@ const HeroComponent = () => {
             </svg>
         </div>
 
-        <div className="max-w-3xl mx-auto mt-12 space-y-8 sm:space-y-0 sm:flex sm:items-center sm:justify-center sm:mt-16 sm:gap-x-16">
-            <div>
-                <img className="w-auto mx-auto h-11" src="https://cdn.rareblocks.xyz/collection/clarity/images/team/1/logo-waverio.svg" alt="" />
-            </div>
-
-            <div>
-                <img className="w-auto mx-auto h-11" src="https://cdn.rareblocks.xyz/collection/clarity/images/team/1/logo-squarestone.svg" alt="" />
-            </div>
-
-            <div>
-                <img className="w-auto mx-auto h-11" src="https://cdn.rareblocks.xyz/collection/clarity/images/team/1/logo-creaty.svg" alt="" />
-            </div>
-        </div>
+        
     </div>
 </section>
 

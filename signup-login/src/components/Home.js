@@ -7,6 +7,7 @@ import CalorieMeter from './CalorieMeter';
 import NotFound from './NotFound'; // Import your custom 404 page component
 import ProtectedRoute from './ProtectedRoute';
 import HealthQuiz from './HealthQuiz';
+
 const Home = () => {
   const location = useLocation();
   const navigate = useNavigate();
