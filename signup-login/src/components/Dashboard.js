@@ -465,7 +465,6 @@ const Dashboard = () => {
 
 
 
-
   
 
   return (
@@ -601,11 +600,10 @@ const Dashboard = () => {
 
       {/*  Displaying  NutriScore front end  */}
 
-      <div className = " mt-32">
-      {/* <NutritionForm
+      {/* <div>
+      <NutritionForm
             onAdd = {addUserFoodData}
-            /> */}
-            <h2>Scanned item nutri score:</h2>
+            />
        <NutriCard 
                 image = {NutritionalGradeImage(grade)}
                 score = {score}
@@ -614,7 +612,7 @@ const Dashboard = () => {
             
             />
 
-      </div>
+      </div> */}
 
       {/* Modal for displaying manual enter food score */}
       <Modal

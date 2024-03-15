@@ -3,7 +3,8 @@ const express = require('express');
 const router = express.Router();
 const FoodModel = require('./models/foodModel');
 
-const User = require("./models/userModel")
+const User = require("./models/userModel");
+const { generateRecommendation } = require('./models/generateRecommendation');
 
 
 
@@ -171,6 +172,10 @@ router.get('/foodInformation/:uid', async (req, res) => {
 
     // Return the food information
     res.status(200).json(foodInformation);
+    // Get the recommendation
+    const recommendation = await generateRecommendation();
+    console.log(recommendation);
+   
   } catch (error) {
     console.error('Error fetching food information:', error);
     res.status(500).json({ error: 'Internal Server Error' });
