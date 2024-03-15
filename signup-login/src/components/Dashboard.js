@@ -14,6 +14,7 @@ const Dashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [firstPhotoTaken, setFirstPhotoTaken] = useState(false);
   const [user, setUser] = useState(null);
+  const [photoURL, setPhotoURL] = useState(null);
 
   // State to store reecenet scanned item TO GET NUTRITIONAL GRADE OF scanned item from camera
   const [recentScannedItem, setRecentScannedItem] = useState(null);
@@ -36,6 +37,13 @@ const Dashboard = () => {
     });
     return () => unsubscribe();
   }, []);
+
+  useEffect(() => {
+    if (user && user.photoURL) {
+      // If user and user.photoURL exist, set the photoURL state
+      setPhotoURL(user.photoURL);;
+    }
+  }, [user]);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -464,9 +472,9 @@ const Dashboard = () => {
     <div>
       <div className='flex justify-between'>
         <h1>Dashboard Page</h1>
-        {user && user.photoURL && (
+        {photoURL && (
         <img
-          src={user.photoURL}
+          src={photoURL}
           alt="Photo"
           style={{ width: '60px', height: '60px', borderRadius: '50%', marginLeft: '10px' }}
         />
