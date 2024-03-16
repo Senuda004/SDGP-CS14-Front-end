@@ -74,7 +74,7 @@
   /* Media query for smaller screens */
 @media screen and (max-width: 768px) {
     .writeImg {
-      margin-left: 20px;
+      margin-left: 0;
       width: 100%;
     }
     .writeIcon {
@@ -90,7 +90,6 @@
   
     .writeInput,
     .writeText {
-      width: 100%;
       height: 150px;
     }
   
