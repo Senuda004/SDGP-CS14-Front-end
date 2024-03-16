@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Post from '../post/Post'
 import './posts.css'
 
@@ -61,11 +62,15 @@ export default function Posts() {
 
     return(
         <div className="posts">
+  
       {/* Buttons to filter posts by category */}
       <div className='categoryButtons'>
         <button onClick={() => setSelectedCategory('All')}>All</button>
         <button onClick={() => setSelectedCategory('Biscuits')}>Biscuits</button>
         <button onClick={() => setSelectedCategory('Drinks')}>Drinks</button>
+        <Link to="/write">
+          <button className="addPostButton">Add Post</button>
+        </Link> 
       </div>
       {/* Render posts based on the selected category */}
       {filteredPosts.map(post => (
@@ -78,7 +83,7 @@ export default function Posts() {
           description={post.description}
         />
       ))}
-    </div>
+      </div>
 
   );
 }
