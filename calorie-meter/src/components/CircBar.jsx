@@ -3,6 +3,7 @@ import './circBar.css';
 import CircularProgressBar from './CircularProgressBar';
 import DetailsPage from './DetailsPage';
 import FetchTips from './FetchTips';
+import axios from 'axios';
 
 
 export default function CircBar() {
@@ -38,11 +39,27 @@ export default function CircBar() {
       alert('Please enter a valid positive number for your goal.');
       return;
     }
+    axios.post('http://localhost:5000/api/caldata', {
+      goal: newGoal
+    })
+    .then(response => {
+      if (response.status === 201) {
+        console.log('Goal set successfully:', response.data);
+        // Optionally, update the UI or perform other actions upon successful storage of the goal
+      } else {
+        console.error('Unexpected status code:', response.status);
+      }
+    })
+    .catch(error => {
+      console.error('Error setting goal:', error);
+    });
+  
     setGoal(newGoal);
     const updatedConsumed = Math.max(0, Math.min(newGoal, goal));
     setConsumed(updatedConsumed);
     
   };
+  
 
   return (
     <div className='resposiveCon'>
