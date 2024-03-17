@@ -1,9 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
+import { motion } from 'framer-motion';
 
 const HeroComponent = () => {
     const [expanded, setExpanded] = useState(false);
     const [email, setEmail] = useState('');
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+          const scrollTop = window.scrollY;
+          const isVisible = scrollTop > 200; // Threshold
+          setIsVisible(isVisible);
+        };
+    
+        window.addEventListener('scroll', handleScroll);
+    
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
+      }, []);
+    
 
     const scrollToSection = (id) => {
         const element = document.getElementById(id);
@@ -65,8 +82,9 @@ const HeroComponent = () => {
     }
 
     return (
+
         <div className="bg-gray-50">
-            <header className="relative z-10 py-4 md:py-6 lg:pt-2" x-data="{expanded: false}">
+            <header className="relative z-10 py-4 md:py-6 lg:pt-2" x-data="{expanded: false}" id='header'>
                 <div className="container px-4 mx-auto sm:px-6 lg:px-8">
                     <div className="relative flex items-center justify-between">
                         <div className="flex-shrink-0">
@@ -158,9 +176,11 @@ const HeroComponent = () => {
                         </div>
                     </div>
                 </div>
+
+                <img src="https://i.ibb.co/1RqyqSg/up-arrow.png" alt="to top" className=' w-9 fixed right-4 bottom-11 cursor-pointer' onClick={(e) => { e.preventDefault(); scrollToSection('header'); }}/>
             </section>
 
-            <section className="py-12 bg-white sm:py-16 lg:py-20" id='features'>
+            <motion.section initial={{ opacity: 0, y: 20 }} animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }} transition={{ duration: 0.5, ease: 'easeInOut' }} className="py-12 bg-white sm:py-16 lg:py-20" id='features'>
                 <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="text-center">
                         <h2 className="text-3xl font-bold leading-tight text-amber-400 sm:text-4xl xl:text-5xl font-pj">Discover Nutri Mate's Innovative Features</h2>
@@ -211,9 +231,9 @@ const HeroComponent = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </motion.section>
 
-            <section className="py-12 bg-white sm:py-16 lg:py-20" id='team'>
+            <motion.section initial={{ opacity: 0, y: 20 }} animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }} transition={{ duration: 0.5, ease: 'easeInOut' }} className="py-12 bg-white sm:py-16 lg:py-20" id='team'>
     <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="text-center">
             <h2 className="text-3xl font-bold text-amber-400 sm:text-4xl xl:text-5xl font-pj">Our Team</h2>
@@ -291,7 +311,7 @@ const HeroComponent = () => {
 
         
     </div>
-</section>
+</motion.section>
 
 <section className="py-10 bg-white sm:py-16 lg:py-24" id='pricing'>
     <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
