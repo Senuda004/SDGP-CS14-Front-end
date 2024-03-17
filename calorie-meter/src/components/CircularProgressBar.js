@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
-  const [size, setSize] = useState(300); // Size of the circle
-  const [strokeWidth, setStrokeWidth] = useState(20); // Width of the progress bar
+  const [size, setSize] = useState(430); // Size of the circle
+  const [strokeWidth, setStrokeWidth] = useState(25); // Width of the progress bar
   const [radius, setRadius] = useState(size / 2 - strokeWidth / 2); // Radius of the circle
   const normalizedProgress = consumed > goal ? goal : consumed; // Adjust progress based on the goal
  
@@ -31,7 +31,7 @@ const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="#EFD38D"
+          stroke="#D9D9D9"
           strokeWidth={strokeWidth}
         />
         <circle
@@ -46,7 +46,7 @@ const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
           strokeLinecap="round"
           transform={`rotate(-90 ${size / 2} ${size / 2})`}
         />
-        <text x="50%" y="50%" textAnchor="middle" fontSize="20">
+        <text x="50%" y="50%" textAnchor="middle" fontSize="25" fill='black'>
           <tspan x="50%" dy="-0.8em" fontWeight="bold">{goal} kcal</tspan>
           <tspan x="50%" dy="1.5em">Daily goal</tspan>
         </text>

@@ -15,8 +15,8 @@ const App = () => {
   return (
     <div className="App">
       <CircBar/>
-      <DetailsPage/> 
-      <DataBackend/>
+      {/*<DetailsPage/> */}
+      {/*<DataBackend/>*/}
       
           
     </div>

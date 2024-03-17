@@ -6,9 +6,10 @@
 }
 /*Apply the Oswald font to your elements */
 .welcome {
-    color: rgb(16, 16, 14);
+    color: rgb(248, 248, 248);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 80px;
-    background-color: #f2c746;
+    background-color: #29414D;
     border-radius: 40px;
     flex-wrap: wrap;
     font-size: 20px;
@@ -17,7 +18,7 @@
     padding-right: 76px;
     text-align: center;
     font-weight: 550;
-    height: 100px;
+    height: 150px;
     width: 800px;
       /* New properties */
       display: flex;
@@ -31,10 +32,10 @@
     flex-wrap: wrap;
 }
 .Wpic{
-    width: 300px;
-    height: 300px;
-    margin-top: -190px;
-    margin-left: 980px;
+    width: 350px;
+    height: 350px;
+    margin-top: -200px;
+    margin-left: 950px;
     z-index: -1; /* Ensures the background image stays behind the content */
 }
 
@@ -127,11 +128,20 @@
 }
 
 .topHed {
+   
+    background-image: url('https://i.ibb.co/6tRQXt2/s1.png');
+    background-size:contain;
+    
+    margin-top: 10px;
+    background-repeat: no-repeat; /* Adjust as needed */
+}
+.topHed span{
     margin-left: 5%;
-   padding-top: 10px;
-    font-weight: bold;
-    font-size: 24px; /* Adjust as needed */
-    white-space: pre;
+    padding-top: 10px;
+     font-weight: bold;
+     font-size: 24px; /* Adjust as needed */
+     white-space: pre;
+
 }
 
 .intro{
@@ -140,16 +150,7 @@
 }
 
 
-.trackInt h1,
-.VeiwSpro h1,
-.getTip h1 {
-    margin-left: 30px;
-    margin-top: 18px;
-}
 
-.calMeter{
-    background-image: url('');
-}
 
 /* Media query for larger screens */
 @media screen and (min-width: 1200px) {
@@ -167,6 +168,7 @@
         margin-top: 10px; /* Adjust as needed */
     }
 }
+/*Product details */
 
 .product-list{
    
@@ -237,6 +239,20 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
     margin-left: 350px;
     margin-top: 10px;
  }
+ 
+
+ /*Cal meter CSS*/
+
+.calMeter{
+    background-image: url('');
+    margin-top: -220px;
+    background-size: cover; /* Adjust as needed */
+    margin-bottom: 500px;
+    background-position: center; /* Adjust as needed*/ 
+    background-repeat:no-repeat; /* Adjust as needed*/
+}
+
+
  .cbtn{   
     background-color: rgb(23, 23, 2);
     color: rgb(255, 251, 251);
@@ -255,15 +271,16 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
     color: #06070b;
 }
 .inputContr{
-    width: 400px;
+    width: 300px;
     height: 350px;
     background-color: rgb(255, 251, 251);
     margin-top: 70px;
-    margin-left: 140px;
+    margin-left: -240px;
     border-radius: 50px;
     box-shadow:
         0px 0px 6px 3px #FFC533, /* Bottom */
         0px 0px 6px 3px #FFC533; /* Left */ 
+        
 }
 input::placeholder {
     color: rgb(255, 251, 251);
@@ -311,31 +328,43 @@ input::placeholder {
     background-color: #FFC533;
     color: rgb(26, 24, 24);
 }
-.setgoalContainer{
-    margin-top: 30px;
-    margin-left: 4px;
+.setgoalContainer {
+    display: flex;
+    margin-top: 160px;
+    
     padding-top: 8px;
     font-size: 15px;
-    height: 500px;
-    background-color: rgb(255, 251, 251);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    
     border-radius: 40px;
 }
+.goalpic{
+    margin-left: 80px;
+    margin-top: 150px;
+    width: 300px;
+    height: 300px;
+}
+
 .circBar{
-    margin-left: 660px;
-    height: 400px;
-    width: 400px;
+    margin-left: 280px;
     padding-top:50px;
     border-radius: 50px;
-    padding-left: 50px;
     display: flex;
-    margin-top: -380px;
-    
+    margin-top: 128px;
+}
+.bar{
+    margin-left: 280px;
+}
+.setgoalContainer p{
+    color: #fe2e46;
+    margin-left: 50px;
 }
 #count{
     color:rebeccapurple;
 }
-
+.addDuctBtns{
+    background-color: #a5f3a5;
+    margin-top: 200px;
+}
 
 @media screen and (max-width: 768px) {
     .resposiveCon{
@@ -415,4 +444,10 @@ input::placeholder {
     .progress-bar p {
         font-size: 12px;
     }
+}
+/*View products*/
+
+.VeiwSpro{
+    background-color: #f2c746;
+    margin-top: 70px;
 }

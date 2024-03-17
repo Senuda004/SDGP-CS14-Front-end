@@ -95,19 +95,22 @@ export default function CircBar() {
       <div id='calMeter' className='calMeter'>
      
         <div className='setgoalContainer'>
+          <img src='https://i.ibb.co/jWzGrwp/pic2-removebg-preview.png' alt='pic'className='goalpic'/>
+          <div className='circBar'>
+            
             <div className='inputContr'>
             <h3 id=''>Set your daily calorie goal</h3>
               <input className='userInput' type="number" value={inputGoal} onChange={handleInputChange} placeholder="Enter here" required />
               <p>Kcal</p>
               <button id='setGoalbtn' className='cbtn' onClick={handleSetGoal}>Set Goal</button>
            </div>
-         
-          <div className='circBar'>
-            <CircularProgressBar id='circle' goal={goal} consumed={consumed} onConsumedChange={handleConsumedChange} />
-            <p>Remaining Calories: {consumed}</p>
-            <p>Updated Consumed: {goal - consumed}</p>
+              <CircularProgressBar id='circle' goal={goal} consumed={consumed} onConsumedChange={handleConsumedChange} className='bar' />
           </div>
-        </div>  
+          
+        </div> 
+        <p>Remaining Calories: {consumed}</p>
+            <p>Updated Consumed: {goal - consumed}</p> 
+        
       </div> 
  
       
@@ -126,7 +129,7 @@ export default function CircBar() {
           </button></div>
           <div className='getDiv'><button className='btn' id="cusmMargin4" onClick={() => scrollToSection('getTip')}><span>Weight loss Tips</span>
           </button></div>
-        </div>
+      </div>
       
     </div>    
   );
