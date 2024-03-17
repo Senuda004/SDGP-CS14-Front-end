@@ -1,7 +1,68 @@
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 
 const HeroComponent = () => {
     const [expanded, setExpanded] = useState(false);
+    const [email, setEmail] = useState('');
+
+    const scrollToSection = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth'});
+        }
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        // Send email using EmailJS
+        emailjs.send('service_eeaq2ya', 'template_vntbenw', { email }, 'uuUGZWkEfmgIzSfp8')
+          .then((response) => {
+            console.log('Email sent successfully:', response);
+            // Handle success (e.g., show a success message)
+          }, (error) => {
+            console.error('Error sending email:', error);
+            // Handle error (e.g., show an error message)
+          });
+    
+        // Clear input field after submission
+        setEmail('');
+      };
+
+    const [faq, setFaq] = useState([
+        {
+            question: 'What makes Nutri Mate unique?',
+            answer: 'Nutri Mate uses <a href="#" title="" class="text-amber-400 transition-all duration-200 hover:underline">cutting-edge technology</a> to scan food ingredients instantly, providing tailored health assessments. ',
+            open: true
+        },
+        {
+            question: 'How does Nutri Mate help users?',
+            answer: 'Nutri Mate simplifies food selection with its <a href="#" title="" class="text-amber-400 transition-all duration-200 hover:underline">Ingredient Scanner and AI Chatbot,</a> offering real-time recommendations.  ',
+            open: false
+        },
+        {
+            question: 'Can Nutri Mate accommodate various dietary restrictions?',
+            answer: 'Yes! Nutri Mate\'s <a href="#" title="" class="text-amber-400 transition-all duration-200 hover:underline">Ingredient Scanner and Recommendations</a> consider individual dietary preferences and restrictions, ensuring personalized guidance for each user.',
+            open: false
+        },
+        {
+            question: 'How does Nutri Mate incorporate calorie tracking into its features?',
+            answer: 'Nutri Mate offers a comprehensive <a href="#" title="" class="text-amber-400 transition-all duration-200 hover:underline">Calorie Meter,</a> empowering users to set and achieve their calorie goals while providing insights into their nutritional intake.',
+            open: false
+        }
+    ]);
+
+    const toggleFaq = (index) => {
+        setFaq(faq.map((item, i) => {
+            if (i === index) {
+                item.open = !item.open;
+            } else {
+                item.open = false;
+            }
+
+            return item;
+        }));
+    }
 
     return (
         <div className="bg-gray-50">
@@ -31,11 +92,13 @@ const HeroComponent = () => {
                         </div>
 
                         <div className="hidden md:flex md:items-center md:justify-center md:space-x-10 md:absolute md:inset-y-0 md:left-1/2 md:-translate-x-1/2 lg:space-x-16">
-                            <a href="#" title="" className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Features </a>
+                            <a href="#" title="" className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 " onClick={(e) => { e.preventDefault(); scrollToSection('features'); }}> Features </a>
 
-                            <a href="#" title="" className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Team </a>
+                            <a href="#" title="" className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 " onClick={(e) => { e.preventDefault(); scrollToSection('team'); }}> Team </a>
 
-                            <a href="#" title="" className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Pricing </a>
+                            <a href="#" title="" className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 " onClick={(e) => { e.preventDefault(); scrollToSection('pricing'); }}> Pricing </a>
+
+                            <a href="#" title="" className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 " onClick={(e) => { e.preventDefault(); scrollToSection('faq'); }}> FAQ </a>
                         </div>
 
                         <div className="hidden md:flex">
@@ -97,7 +160,7 @@ const HeroComponent = () => {
                 </div>
             </section>
 
-            <section className="py-12 bg-white sm:py-16 lg:py-20">
+            <section className="py-12 bg-white sm:py-16 lg:py-20" id='features'>
                 <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="text-center">
                         <h2 className="text-3xl font-bold leading-tight text-amber-400 sm:text-4xl xl:text-5xl font-pj">Discover Nutri Mate's Innovative Features</h2>
@@ -150,7 +213,7 @@ const HeroComponent = () => {
                 </div>
             </section>
 
-            <section className="py-12 bg-white sm:py-16 lg:py-20">
+            <section className="py-12 bg-white sm:py-16 lg:py-20" id='team'>
     <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="text-center">
             <h2 className="text-3xl font-bold text-amber-400 sm:text-4xl xl:text-5xl font-pj">Our Team</h2>
@@ -161,13 +224,13 @@ const HeroComponent = () => {
         <div className="flex flex-col justify-around items-center gap-10">
             <div className='flex flex-row gap-[18vh]'>
                 <div>
-                    <img className="object-cover w-32 h-32 mx-auto rounded-full lg:w-44 lg:h-44 grayscale filter" src="https://cdn.rareblocks.xyz/collection/clarity/images/team/1/team-member-1.png" alt="" />
+                    <img className="object-cover w-32 h-32 mx-auto rounded-full lg:w-44 lg:h-44 grayscale filter" src="https://i.ibb.co/pRp7Sw1/Dulneth.jpg" alt="" />
                     <p className="mt-5 text-lg font-bold text-amber-400 sm:text-xl sm:mt-8 font-pj">Dulneth Bernard</p>
                     <p className="mt-2 text-base font-normal text-gray-600 font-pj">Developer</p>
                 </div>
 
                 <div>
-                    <img className="object-cover w-32 h-32 mx-auto rounded-full lg:w-44 lg:h-44 grayscale filter" src="https://cdn.rareblocks.xyz/collection/clarity/images/team/1/team-member-2.png" alt="" />
+                    <img className="object-cover w-32 h-32 mx-auto rounded-full lg:w-44 lg:h-44 grayscale filter" src="https://i.ibb.co/Jvf9dXf/Me.jpg" alt="" />
                     <p className="mt-5 text-lg font-bold text-amber-400 sm:text-xl sm:mt-8 font-pj">Senuda Perera</p>
                     <p className="mt-2 text-base font-normal text-gray-600 font-pj">Developer</p>
                 </div>
@@ -177,19 +240,19 @@ const HeroComponent = () => {
             
             <div className="flex flex-row gap-[18vh]">
                 <div>
-                    <img className="object-cover w-32 h-32 mx-auto rounded-full lg:w-44 lg:h-44 grayscale filter" src="https://cdn.rareblocks.xyz/collection/clarity/images/team/1/team-member-4.png" alt="" />
+                    <img className="object-cover w-32 h-32 mx-auto rounded-full lg:w-44 lg:h-44 grayscale filter" src="https://i.ibb.co/9rHQGWX/Anuththara.jpg" alt="" />
                     <p className="mt-5 text-lg font-bold text-amber-400 sm:text-xl sm:mt-8 font-pj">Anuththara Kannangara</p>
                     <p className="mt-2 text-base font-normal text-gray-600 font-pj">Developer</p>
                 </div>
 
                 <div>
-                    <img className="object-cover w-32 h-32 mx-auto rounded-full lg:w-44 lg:h-44 grayscale filter" src="https://cdn.rareblocks.xyz/collection/clarity/images/team/1/team-member-2.png" alt="" />
+                    <img className="object-cover w-32 h-32 mx-auto rounded-full lg:w-44 lg:h-44 grayscale filter" src="https://i.ibb.co/j4TrN4X/Movindu.jpg" alt="" />
                     <p className="mt-5 text-lg font-bold text-amber-400 sm:text-xl sm:mt-8 font-pj">Movindu Jayathilake</p>
                     <p className="mt-2 text-base font-normal text-gray-600 font-pj">Developer</p>
                 </div>
 
                 <div>
-                    <img className="object-cover w-32 h-32 mx-auto rounded-full lg:w-44 lg:h-44 grayscale filter" src="https://cdn.rareblocks.xyz/collection/clarity/images/team/1/team-member-3.png" alt="" />
+                    <img className="object-cover w-32 h-32 mx-auto rounded-full lg:w-44 lg:h-44 grayscale filter" src="https://i.ibb.co/XJ35S5P/Induranga.jpg" alt="" />
                     <p className="mt-5 text-lg font-bold text-amber-400 sm:text-xl sm:mt-8 font-pj">Induranga Ekanayake</p>
                     <p className="mt-2 text-base font-normal text-gray-600 font-pj">Developer</p>
                 </div>
@@ -230,11 +293,11 @@ const HeroComponent = () => {
     </div>
 </section>
 
-<section className="py-10 bg-white sm:py-16 lg:py-24">
+<section className="py-10 bg-white sm:py-16 lg:py-24" id='pricing'>
     <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="max-w-xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-black lg:text-5xl sm:text-5xl">Pricing &amp; Plans</h2>
-            <p className="mt-4 text-lg leading-relaxed text-gray-600">Amet minim mollit non deserunt ullam co est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
+            <h2 className="text-4xl font-bold text-amber-400 lg:text-5xl sm:text-5xl">Pricing &amp; Plans</h2>
+            <p className="mt-4 text-lg leading-relaxed text-gray-600">Discover the Perfect Plan to Embark on Your Wellness Journey - Tailored Options to Fit Your Health Goals and Budget</p>
         </div>
 
         <div className="hidden mt-16 lg:block">
@@ -251,19 +314,19 @@ const HeroComponent = () => {
 
                         <th className="px-4 py-8 text-center">
                             <span className="text-base font-medium text-blue-600"> Team </span>
-                            <p className="mt-6 text-6xl font-bold">$99</p>
+                            <p className="mt-6 text-6xl font-bold">$5</p>
                             <p className="mt-2 text-base font-normal text-gray-500">Per month</p>
                         </th>
 
                         <th className="px-4 py-8 text-center bg-gray-900 rounded-t-xl">
                             <span className="px-4 py-2 text-base font-medium text-white bg-blue-600 rounded-full"> Popular </span>
-                            <p className="mt-6 text-6xl font-bold text-white">$150</p>
+                            <p className="mt-6 text-6xl font-bold text-white">$10</p>
                             <p className="mt-2 text-base font-normal text-gray-200">Per month</p>
                         </th>
 
                         <th className="px-4 py-8 text-center">
                             <span className="text-base font-medium text-blue-600"> Enterprise </span>
-                            <p className="mt-6 text-6xl font-bold">$490</p>
+                            <p className="mt-6 text-6xl font-bold">$15</p>
                             <p className="mt-2 text-base font-normal text-gray-500">Per month</p>
                         </th>
                     </tr>
@@ -431,7 +494,7 @@ const HeroComponent = () => {
                             </a>
                         </td>
 
-                        <td className="px-4 py-6 text-center text-white bg-yellow-500 rounded-b-xl">
+                        <td className="px-4 py-6 text-center text-white bg-amber-400 rounded-b-xl">
                             <a href="#" title="" className="inline-flex items-center font-semibold text-white">
                                 Get Started
                                 <svg className="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -658,15 +721,49 @@ const HeroComponent = () => {
             </div>
         </div>
     </div>
-</section>         
+</section>
 
-<section className="py-10 bg-gray-50 sm:pt-16 lg:pt-24">
+<section className="py-10 bg-gray-50 sm:py-16 lg:py-24" id='faq'>
+                <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+                    <div className="max-w-3xl mx-auto text-center">
+                        <h2 className="text-3xl font-bold leading-tight text-amber-400 sm:text-4xl lg:text-5xl">Frequently Asked Questions</h2>
+                        <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600">Get quick answers to common questions about Nutri Mate</p>
+                    </div>
+
+                    <div className="max-w-3xl mx-auto mt-8 space-y-4 md:mt-16">
+                        {faq.map((item, index) => (
+                            <div key={index} className="transition-all duration-200 bg-white border border-gray-200 cursor-pointer hover:bg-gray-50">
+                                <button type="button" className="flex items-center justify-between w-full px-4 py-5 sm:p-6" onClick={() => toggleFaq(index)}>
+                                    <span className="flex text-lg font-semibold text-black"> {item.question} </span>
+
+                                    <svg className={`w-6 h-6 text-amber-400 ${item.open ? 'rotate-180' : ''}`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+
+                                <div className={`${item.open ? 'block' : 'hidden'} px-4 pb-5 sm:px-6 sm:pb-6`}>
+                                    <p dangerouslySetInnerHTML={{ __html: item.answer }}></p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* <p className="text-center text-gray-600 textbase mt-9">Didn’t find the answer you are looking for? <a href="#" title="" className="font-medium text-amber-400 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline">Contact our support</a></p> */}
+                </div>
+            </section>
+
+<section className="py-10 bg-gray-50 sm:pt-16 lg:pt-24" id='footer'>
     <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         <div className="grid grid-cols-2 md:col-span-3 lg:grid-cols-6 gap-y-16 gap-x-12">
             <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
-                <img className="w-auto h-9" src="https://cdn.rareblocks.xyz/collection/celebration/images/logo.svg" alt="" />
+                <div className='flex flex-row'>
+                    <img className=" w-32 relative bottom-10" src="https://i.ibb.co/HGZkXHv/Nutri-mate-logo.png" alt="" />
 
-                <p className="text-base leading-relaxed text-gray-600 mt-7">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
+                    <h4 className='text-xl relative top-2 font-medium'>Nutri Mate</h4>
+                </div>
+                
+
+                <p className="text-base leading-relaxed text-gray-600 mt-7 relative bottom-10">Connect with Nutri Mate to access the latest in wellness tips, news, and exclusive offers. Join our vibrant community today!</p>
 
                 <ul className="flex items-center space-x-3 mt-9">
                     <li>
@@ -718,20 +815,17 @@ const HeroComponent = () => {
 
                 <ul className="mt-6 space-y-4">
                     <li>
-                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> About </a>
+                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-amber-400 focus:text-amber-400"> Features </a>
                     </li>
 
                     <li>
-                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Features </a>
+                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-amber-400 focus:text-amber-400"> Team </a>
                     </li>
 
                     <li>
-                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Works </a>
+                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-amber-400 focus:text-amber-400"> Pricing </a>
                     </li>
 
-                    <li>
-                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Career </a>
-                    </li>
                 </ul>
             </div>
 
@@ -740,42 +834,32 @@ const HeroComponent = () => {
 
                 <ul className="mt-6 space-y-4">
                     <li>
-                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Customer Support </a>
+                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-amber-400 focus:text-amber-400"> FAQ </a>
                     </li>
 
-                    <li>
-                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Delivery Details </a>
-                    </li>
-
-                    <li>
-                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Terms & Conditions </a>
-                    </li>
-
-                    <li>
-                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Privacy Policy </a>
-                    </li>
                 </ul>
             </div>
 
             <div className="col-span-2 md:col-span-1 lg:col-span-2 lg:pl-8">
                 <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">Subscribe to newsletter</p>
 
-                <form action="#" method="POST" className="mt-6">
+                <form action="#" method="POST" className="mt-6" onSubmit={handleSubmit}>
                     <div>
                         <label for="email" className="sr-only">Email</label>
-                        <input type="email" name="email" id="email" placeholder="Enter your email" className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" />
+                        <input type="email" name="email" id="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} required className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" />
                     </div>
 
-                    <button type="submit" className="inline-flex items-center justify-center px-6 py-4 mt-3 font-semibold text-white transition-all duration-200 bg-blue-600 rounded-md hover:bg-blue-700 focus:bg-blue-700">Subscribe</button>
+                    <button type="submit" className="inline-flex items-center justify-center px-6 py-4 mt-3 font-semibold text-white transition-all duration-200 bg-amber-400 rounded-md hover:bg-gray-700 focus:bg-gray-900">Subscribe</button>
                 </form>
             </div>
         </div>
 
         <hr className="mt-16 mb-10 border-gray-200" />
 
-        <p className="text-sm text-center text-gray-600">© Copyright 2021, All Rights Reserved by Postcraft</p>
+        <p className="text-sm text-center text-gray-600">© Copyright 2024, All Rights Reserved by Nutri Mate</p>
     </div>
 </section>
+
         </div>
     )
 }
