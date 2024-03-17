@@ -17,12 +17,12 @@ export default function Posts() {
             title:"Red Bull",
             category: "Drinks",
             date:"1 hour ago",
-            description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda officia architecto deserunt deleniti? Labore ipsum aspernatur magnam fugiat, reprehenderit praesentium blanditiis quos cupiditate ratione atque, exercitationem quibusdam, reiciendis odio laboriosam?"
+            description:"Lorem ipsum dolor sit amet, "
 
         },
         {
             id:2,
-            img:"https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+            img:"https://i.ibb.co/BBvjL55/steve-johnson.jpg",
             title:"Red Bull",
             category: "Biscuits",
             date:"2 hour ago",
@@ -53,9 +53,90 @@ export default function Posts() {
             title:"Red Bull",
             category: "Biscuits",
             date:"2 days ago",
+            description:"Lorem ipsum dolor sit amet, "
+
+        },
+        {
+          id:6,
+          img:"https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+          title:"Red Bull",
+          category: "Drinks",
+          date:"2 days ago",
+          description:"Lorem ipsum dolor sit amet,"
+
+      },
+      {
+            id:7,
+            img:"https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+            title:"Red Bull",
+            category: "Biscuits",
+            date:"2 days ago",
             description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda officia architecto deserunt deleniti? Labore ipsum aspernatur magnam fugiat, reprehenderit praesentium blanditiis quos cupiditate ratione atque, exercitationem quibusdam, reiciendis odio laboriosam?"
 
-        }
+        },
+        {
+          id:8,
+          img:"https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+          title:"Red Bull",
+          category: "Biscuits",
+          date:"2 days ago",
+          description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda officia architecto deserunt deleniti? Labore ipsum aspernatur magnam fugiat, reprehenderit praesentium blanditiis quos cupiditate ratione atque, exercitationem quibusdam, reiciendis odio laboriosam?"
+
+      },
+      {
+        id:9,
+        img:"https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+        title:"Red Bull",
+        category: "Biscuits",
+        date:"2 days ago",
+        description:"Lorem ipsum dolor sit amet,"
+
+    },
+    {
+      id:10,
+      img:"https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      title:"Red Bull",
+      category: "Biscuits",
+      date:"2 days ago",
+      description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda officia architecto deserunt deleniti? Labore ipsum aspernatur magnam fugiat, reprehenderit praesentium blanditiis quos cupiditate ratione atque, exercitationem quibusdam, reiciendis odio laboriosam?"
+
+  },
+  {
+    id:11,
+    img:"https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    title:"Red Bull",
+    category: "Biscuits",
+    date:"2 days ago",
+    description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda officia architecto deserunt deleniti? Labore ipsum aspernatur magnam fugiat, reprehenderit praesentium blanditiis quos cupiditate ratione atque, exercitationem quibusdam, reiciendis odio laboriosam?"
+
+},
+{
+  id:12,
+  img:"https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+  title:"Red Bull",
+  category: "Biscuits",
+  date:"2 days ago",
+  description:" reiciendis odio laboriosam?"
+
+},
+{
+  id:13,
+  img:"https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+  title:"Red Bull",
+  category: "Biscuits",
+  date:"2 days ago",
+  description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda officia architecto deserunt deleniti? Labore ipsum aspernatur magnam fugiat, reprehenderit praesentium blanditiis quos cupiditate ratione atque, exercitationem quibusdam, reiciendis odio laboriosam?"
+
+},
+{
+  id:14,
+  img:"https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+  title:"Red Bull",
+  category: "Biscuits",
+  date:"2 days ago",
+  description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda officia architecto deserunt deleniti? Labore ipsum aspernatur magnam fugiat, reprehenderit praesentium blanditiis quos cupiditate ratione atque, exercitationem quibusdam, reiciendis odio laboriosam?"
+
+}
     ];
 
     const filteredPosts= selectedCategory=='All' ? postsData : postsData.filter(post => post.category === selectedCategory);
@@ -82,6 +163,7 @@ export default function Posts() {
         category={post.category}
         date={post.date}
         description={post.description}
+        
       />
       
       ))}

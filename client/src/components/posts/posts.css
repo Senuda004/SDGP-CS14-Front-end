@@ -1,20 +1,19 @@
 .posts {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Adjusted to fit three articles per row */
-    gap: 25px; /* Add gap between posts */
-    padding: 40px; /* Add padding to the container */
-    margin: auto; /* Center the grid */
-    margin-top: 70px;
-    max-width: 100%; /* Prevent posts from overflowing horizontally */
-    overflow-x: hidden;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust the column size */
+  grid-auto-rows: minmax(100px, auto); /* Set minimum row height */
+  grid-gap: 10px; /* Adjust the gap between grid items */
+  padding: 30px; /* Add padding to the grid */
+  margin: 0; /* Remove margin */
+  margin-top: 70px; /* Add margin top */
+  max-width: 100%; /* Prevent posts from overflowing horizontally */
+  overflow-x: hidden; /* Hide horizontal overflow */
+}
 
-  }
-  .postTitle {
-    /* Your existing styles */
-    margin-top: 10px; /* Adjust the margin-top value as needed */
-    margin-bottom: -12px; /* Adjust the margin-bottom value as needed */
-    cursor: pointer;
-  }
+.post:nth-child(3n + 1) {
+  grid-column: span 2; /* Make every first post in a row span two columns */
+}
+
 
 .categoryButtons {
   margin-top: -40px; /* Adds space between buttons and posts */
@@ -22,28 +21,26 @@
   position:absolute;
 }
 
-
 .post {
-  margin-bottom: 20px; /* Adds space between posts */
+  margin-bottom: 5px; /* Adds space between posts */
   border: 1px solid #ccc; /* Adds a border around each post */
-  padding: 20px; /* Adds padding inside each post */
-  width: 80%; /* Adjusts the width of the posts */
+  padding: 0px; /* Adds padding inside each post */
+  width: 100%; /* Adjusts the width of the posts */
 }
-
 
 .postInfo {
-  margin-top: 10px; /* Adds space between image and post info */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 5px; /* Add margin to the top and bottom, and 0 margin to the left and right */
 }
+
 .postImg:hover {
   opacity: 0.9; /* Adjust the opacity value as needed */
 }
 
-
-
-
-
 /* Media query for smaller screens */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .posts {
       display: flex;
       flex-wrap: wrap; /* Allow posts to wrap to the next line */
