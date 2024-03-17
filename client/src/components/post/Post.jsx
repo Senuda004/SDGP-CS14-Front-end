@@ -5,7 +5,7 @@ import './post.css';
 export default function Post({ id, img, title, category, date, description }) {
   return (
     <div className="post">
-      <Link to={`/post/${id}`} className="postLink">
+      <Link to={`/post/${id}`} className="postLink"> {/* Use the id prop */}
         <img className="postImg" src={img} alt="" />
       </Link>
       <div className="postInfo">

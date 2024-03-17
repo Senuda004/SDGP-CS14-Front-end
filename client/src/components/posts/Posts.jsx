@@ -75,13 +75,15 @@ export default function Posts() {
       {/* Render posts based on the selected category */}
       {filteredPosts.map(post => (
         <Post
-          key={post.id}
-          img={post.img}
-          title={post.title}
-          category={post.category}
-          date={post.date}
-          description={post.description}
-        />
+        key={post.id}
+        id={post.id} // Pass the id property
+        img={post.img}
+        title={post.title}
+        category={post.category}
+        date={post.date}
+        description={post.description}
+      />
+      
       ))}
       </div>
 
