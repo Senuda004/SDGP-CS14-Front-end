@@ -3,7 +3,8 @@ import './circBar.css';
 import CircularProgressBar from './CircularProgressBar';
 import DetailsPage from './DetailsPage';
 import FetchTips from './FetchTips';
-import axios from 'axios';
+import axios from 'axios'; // Import Axios for making HTTP requests
+
 
 
 export default function CircBar() {
@@ -20,7 +21,7 @@ export default function CircBar() {
   const [goal, setGoal] = useState(2000);
   const [consumed, setConsumed] = useState(0);
   const [inputGoal, setInputGoal] = useState(''); // State to hold the input value
-  
+  const [uid, setUid] = useState(''); // State to hold the user ID, you need to set this value when the user logs in or is authenticated
 
   const handleConsumedChange = (newConsumed) => {
     const updatedConsumed = Math.max(0, Math.min(newConsumed, goal));
@@ -32,33 +33,54 @@ export default function CircBar() {
   };
 
 
-  const handleSetGoal = () => {
+ /* const handleSetGoal = () => {
     const newGoal = parseInt(inputGoal, 10) || 0; // Convert input to integer or default to 0
     if (isNaN(newGoal) || newGoal <= 0) {
       // Display error alert if the input is not a positive number
       alert('Please enter a valid positive number for your goal.');
       return;
     }
-    axios.post('http://localhost:5000/api/caldata', {
-      goal: newGoal
-    })
-    .then(response => {
-      if (response.status === 201) {
-        console.log('Goal set successfully:', response.data);
-        // Optionally, update the UI or perform other actions upon successful storage of the goal
-      } else {
-        console.error('Unexpected status code:', response.status);
-      }
-    })
-    .catch(error => {
-      console.error('Error setting goal:', error);
-    });
-  
+    
     setGoal(newGoal);
     const updatedConsumed = Math.max(0, Math.min(newGoal, goal));
     setConsumed(updatedConsumed);
     
+  };*/
+  const handleSetGoal = () => {
+    const newGoal = parseInt(inputGoal, 10) || 0;
+    if (isNaN(newGoal) || newGoal <= 0) {
+      alert('Please enter a valid positive number for your goal.');
+      return;
+    }
+    
+    setGoal(newGoal);
+    const updatedConsumed = Math.max(0, Math.min(newGoal, goal));
+    setConsumed(updatedConsumed);
+
+    // Get current date
+    const currentDate = new Date().toISOString();
+    
+    // Create an object with the data to be saved
+    const data = {
+      uid: uid,
+      goal: newGoal,
+      consumed: updatedConsumed,
+      date: currentDate
+    };
+
+    // Send a POST request to your backend API to save the data to MongoDB
+    axios.post('http://localhost:5000/api/caldata', data)
+      .then(response => {
+        console.log('Data saved successfully:', response.data);
+        alert('Daily goal added successfully ')
+        // You can perform additional actions here if needed
+      })
+      .catch(error => {
+        console.error('Error saving data:', error);
+        // Handle error
+      });
   };
+
   
 
   return (
