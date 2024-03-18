@@ -94,25 +94,24 @@ export default function CircBar() {
             <hr/>
       </div>  
        <div className='mainCal'>
-        
           <div className='setgoalContainer'>
             {/* <img src='https://i.ibb.co/jWzGrwp/pic2-removebg-preview.png' alt='pic'className='goalpic'/>*/} 
             <div className='circBar'>
                   <CircularProgressBar id='circle' goal={goal} consumed={consumed} onConsumedChange={handleConsumedChange} className='bar' />
               </div>
               <div className='inputContr'>
-                  <h3 id=''>Set your daily calorie goal</h3>
                   <input className='userInput' type="number" value={inputGoal} onChange={handleInputChange} placeholder="Enter here" required />
                   <p>Kcal</p>
                   <button id='setGoalbtn' className='cbtn' onClick={handleSetGoal}>Set Goal</button>
+                  <div className='history'>
+                    <img src="https://i.ibb.co/8MD2SN7/picx-removebg-preview.png" alt="historyPic" />
+                  <button id='addBtn' className='abtn' onClick={handleSetGoal}>Add product</button>
+                  <button id='historyBtn' className='hbtn' onClick={handleSetGoal}>View history</button>  
+                  </div>
               </div>
-          </div> 
-          
-            
-            <p>Remaining Calories: {consumed}</p>
-                <p>Updated Consumed: {goal - consumed}</p> 
-            
-          
+              <p>c</p>
+              <p>u</p>
+          </div>           
       </div>  
  
       

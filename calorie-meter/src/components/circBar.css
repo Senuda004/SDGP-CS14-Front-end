@@ -6,6 +6,8 @@
 }
 .contar{
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
+    display: flex;
+    height: auto;
 }
 /*Apply the Oswald font to your elements */
 .welcome {
@@ -13,36 +15,25 @@
     box-shadow:
     0px 0px 6px 3px #FFC533, /* Bottom */
     0px 0px 6px 3px #FFC533; /* Left */
-    margin-top: 80px;
+    margin-top: 200px;
     background-color: #ffffff;
-    border-radius: 40px;
-    flex-wrap: wrap;
+    border-radius: 80px;
+    height: 140px;
     font-size: 20px;
-    margin-left: 280px;
-    padding-left: 10px;
-    padding-right: 76px;
+    padding-top: 40px;
     text-align: center;
     font-weight: 550;
-    height: 150px;
-    width: 800px;
-      /* New properties */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-    
-    
+    margin-left: -190px;
 }
-.welcome p{
-    flex-wrap: wrap;
-}
+
 .Wpic{
-    width: 350px;
-    height: 350px;
-    margin-top: -200px;
-    margin-left: 950px;
-    z-index: -1; /* Ensures the background image stays behind the content */
+    width: auto;
+    height: auto;
+    margin-top: 20px;
+    margin-left: -100px;
+    z-index: 1; /* Ensures the background image stays behind the content */
 }
+
 hr {
     border: none; /* Remove default border */
     border-top: 1px solid #FFC533; /* Set border color and width */
@@ -67,101 +58,25 @@ hr {
     font-weight: bold;
     color:#555249;
 }
-.setDiv p{
-    font-weight: 300;
-    margin-top: 50px;
-   
-}
-.veiwDiv p{
-    font-weight: 300;
-    margin-top: 50px;
-    padding-bottom: 20px;
-}
-.getDiv p{
-    font-weight: 300;
-    margin-top: 48px;
-    
-}
-
-.setDiv p::after {
-    content: '';
-    display: block;
-    width: 200px;
-    height: 200px;
-    background-image: url('https://i.ibb.co/jWzGrwp/pic2-removebg-preview.png');
-    background-size: cover;
-    margin-left: 90px;
-    margin-top: 50px;
-    transition: opacity 0.3s ease; /* Add a smooth transition for opacity */
-    
-}
-
-.setDiv p:hover::after {
-    width: 210px;
-    height: 210px;
-}
-
-
-.veiwDiv p:hover::after {
-    width: 210px;
-    height: 210px;
-}
-.veiwDiv p::after {
-    content: '';
-    display: block;
-    width: 200px;
-    height: 200px;
-    background-image: url('https://i.ibb.co/DfQFkGs/pic3-removebg-preview.png');
-    background-size: cover;
-    margin-left: 90px;
-    margin-top: 50px;
-    opacity: 0; /* Start with 0 opacity to hide the image initially */
-    transition: opacity 0.3s ease; /* Add a smooth transition for opacity */
-    opacity: 5; 
-}
-
-.getDiv p:hover::after {
-    width: 210px;
-    height: 210px;
-}
-.getDiv p::after {
-    content: '';
-    display: block;
-    width: 200px;
-    height: 220px;
-    background-image: url('https://i.ibb.co/8Mgqh4Z/pic4-removebg-preview.png');
-    background-size: cover;
-    margin-left: 90px;
-    margin-top: 75px;
-    opacity: 0; /* Start with 0 opacity to hide the image initially */
-    transition: opacity 0.3s ease; /* Add a smooth transition for opacity */
-    opacity: 5; 
-}
-
+/*
 .topHed {
-   
     background-image: url('https://i.ibb.co/6tRQXt2/s1.png');
     background-size:contain;
-    
     margin-top: 10px;
-    background-repeat: no-repeat; /* Adjust as needed */
-}
+    background-repeat: no-repeat; /* Adjust as needed 
+}*/
 .topHed span{
     margin-left: 5%;
     padding-top: 10px;
      font-weight: bold;
      font-size: 24px; /* Adjust as needed */
      white-space: pre;
-
 }
 
 .intro{
     display: flex;
     margin-top: -10px;
 }
-
-
-
 
 /* Media query for larger screens */
 @media screen and (min-width: 1200px) {
@@ -177,16 +92,14 @@ hr {
         width: 100%; /* Full width on small screens */
         margin-left: 15px;
         margin-top: 10px; /* Adjust as needed */
+        font-size: small;
     }
 }
 /*Product details */
 
 .product-list{
-   
     width: 600px;
-   
     height: 40px;
-    
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -235,13 +148,7 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
       margin-right: 0; /* Remove right margin on smaller screens */
     }
   }
-  @media (max-width: 768px) {
-    .product-card {
-      width: 100%; /* Set width to 100% for smaller screens */
-      margin-right: 0; /* Remove right margin on smaller screens */
-    }
-  }
-
+/*Details*/
   .progress-bar p{
     font-size: 8px;
    
@@ -255,17 +162,19 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
  /*Cal meter CSS*/
 
 .mainCal{
-    background-image: url('https://i.ibb.co/LJ971pz/s4.png');
-    margin-top: 200px;
+    background-image: url('https://i.ibb.co/n6czcSX/s7.png');
+    margin-top: 250px;
     background-size: contain; /* Adjust as needed */
-   
-
     background-position: center; /* Adjust as needed*/ 
     background-repeat:no-repeat; /* Adjust as needed*/
+    width: auto;
+    height: auto;
+    margin-left: 20px;
 }
 .mainCal::after {
     content: 'Set your daily Calorie Goal'; /* Required for pseudo-elements */
     padding-left: 65px;
+    color: rgb(24, 24, 24);
     font-weight: bold;
     font-size: 20px;
     padding-top: 80px;
@@ -276,78 +185,77 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
     border-radius: 50%; /* Makes it a circle */
     position: absolute; /* Position the circle */
     margin-left: -420px;
-    margin-top: -520px; /* Adjust vertical position */
+    margin-top: -700px; /* Adjust vertical position */
     left: calc(50% - 150px); /* Adjust horizontal position */
     transform: translateY(-50%); /* Center vertically */
     z-index: 1; /* Ensure it's above the background */
-   
-     
     box-shadow:
         0px 0px 6px 3px #FFC533, /* Bottom */
         0px 0px 6px 3px #FFC533; /* Left */ 
 }
 
-.mainCal::before {
-    content: ''; /* Required for pseudo-elements */
-    font-weight: bold;
-    display: block; /* Ensures it is displayed as a block */
-    width: 400px; /* Adjust circle size as needed */
-    height: 400px; /* Adjust circle size as needed */
-    background-color: #FFFF; /* Adjust circle color as needed */
-    border-radius: 50%; /* Makes it a circle */
-    position: absolute; /* Position the circle */
-    margin-top: 450px;
-    margin-left: 120px;
-    left: calc(50% + 50px); /* Adjust horizontal position */
-    transform: translateY(-50%); /* Center vertically */
-    z-index: 1; /* Ensure it's above the background */
-     
-    box-shadow:
-        0px 0px 6px 3px #FFC533, /* Bottom */
-        0px 0px 6px 3px #FFC533; /* Left */ 
-}
-
-
-
- .cbtn{   
-    background-color: rgb(23, 23, 2);
-    color: rgb(255, 251, 251);
-    width: 130px;
-    height: 40px;
-    
-    border-radius: 30px;
-    padding: 0 15px;
-    cursor: pointer;
-    position: relative;
-    transition: background-color 0.3s ease;
-
- }
- .cbtn:hover {
-    background-color: #ffd700;
-    color: #06070b;
-}
 .inputContr{
+    width: 750px;
+    height: 350px;
+    margin-left: -150px;
+    border-radius: 40px;
+    margin-top: 100px;
+   background-color: #ffffff;
+}
+.history{
+    display: flex;
+}
+.history img{
     width: 350px;
     height: 350px;
-    background-color: rgb(255, 251, 251);
-   
+    margin-left: 30px;
     
-    box-shadow:
-        0px 0px 6px 3px #FFC533, /* Bottom */
-        0px 0px 6px 3px #FFC533; /* Left */ 
-        
+}
+.hbtn{
+    background-color: black;
+    color: rgb(255, 251, 251);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    position: absolute; /* Position the element */
+    z-index: 3; /* Ensure it's above the background and other elements */
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 200px;
+    height: 40px;
+    margin-left: 450px;
+    margin-top: 200px;
+}
+.hbtn:hover{
+
+    background-color: #575655;
+    color: rgb(255, 249, 249);
+}
+.abtn{
+    background-color: black;
+    color: rgb(255, 251, 251);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    position: absolute; /* Position the element */
+    z-index: 3; /* Ensure it's above the background and other elements */
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 200px;
+    height: 40px;
+    margin-left: 450px;
+    margin-top: 100px;
+}
+.abtn:hover{
+
+    background-color: #575655;
+    color: rgb(255, 249, 249);
 }
 
-.inputContr h3{
-    color: #08060c;
-    padding-top: 60px;
-    margin-left: 70px;
-    font-size: 20px;
-}
 .inputContr p {
     color: #FFC533;
-    margin-left: -160px;
-    margin-top: -150px; /* Adjust vertical position */
+    margin-left: -30px;
+    margin-top: -270px; /* Adjust vertical position */
     font-weight: 800;
     font-size: 25px;
     position: absolute; /* Position the element */
@@ -359,13 +267,11 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
     height: 60px;
     background-color: rgb(240, 240, 243); /* Adjust circle color as needed */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    
     color: rgb(7, 2, 2);
     font-weight: bold;
     font-size: 20px;
     position: absolute;
-    margin-top: 260px;
-    margin-left: -130px;
+    margin-top: 150px;
     transform: translate(-50%, -500px); /* Adjust vertical position */
     border-radius: 50px;
     font-weight: lighter;
@@ -380,18 +286,22 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
 }
 
 #setGoalbtn {
-    margin-left: -200px;
-    margin-top: -90px;
+    margin-left: -70px;
+    margin-top: -200px;
     background-color: black;
     color: rgb(255, 251, 251);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
     position: absolute; /* Position the element */
     z-index: 3; /* Ensure it's above the background and other elements */
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 130px;
+    height: 40px;
 }
 
 #setGoalbtn:hover{
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     background-color: #575655;
     color: rgb(255, 249, 249);
 }
@@ -399,8 +309,10 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
     padding-top: 80px;   
     padding-top: 8px;
     font-size: 15px;
-    margin-left: 500px;
-    
+    margin-left: 500px; 
+}
+.setgoalContainer p{
+    color:#FFC533;
 }
 .goalpic{
     margin-left: 80px;
@@ -410,7 +322,7 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
 }
 
 .circBar{
-    margin-left: 30px;
+    margin-left: 40px;
     padding-top:130px;
     border-radius: 50px;
     display: flex;
@@ -421,24 +333,91 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
 }
 
 #count{
-    color:rebeccapurple;
+    color:#FFC533;
+    font-weight: 800;
+    font-size: 20px;
+    margin-top: 25px;
 }
-.addDuctBtns{
-    background-color: #a5f3a5;
-    margin-top: 200px;
+.addDuctBtns {
+    background-color: #FFFF;
+    box-shadow:
+    0px 0px 6px 3px #FFC533, /* Bottom */
+    0px 0px 6px 3px #FFC533; /* Left */ 
+    width: 400px;
+    height: 400px;
+    border-radius: 100%;
+    margin-top: 0px;
+    margin-left: 380px;
+    z-index: 3; /* Ensure it's above the background and other elements */
 }
+.addDuctBtns p{
+    padding-left: 20px;
+    font-weight: bold;
+    color: rgb(24, 24, 24);
+    font-size: 20px;
+    padding-top: 80px;
+}
+.cbtn1{   
+    background-color: rgb(23, 23, 2);
+    color: rgb(255, 251, 251);
+    width: 200px;
+    height: 40px;
+    margin-top: 65px;
+    border-radius: 30px;
+    padding: 0 15px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease;
 
+ }
+ .cbtn1:hover {
+    
+    background-color: #575655;
+    color: rgb(255, 249, 249);
+}
+.cbtn2{   
+    background-color: rgb(23, 23, 2);
+    color: rgb(255, 251, 251);
+    width: 200px;
+    height: 40px;
+    margin-top: 20px;
+    border-radius: 30px;
+    padding: 0 15px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease;
+
+ }
+ .cbtn2:hover {
+    
+    background-color: #575655;
+    color: rgb(255, 249, 249);
+}
 @media screen and (max-width: 768px) {
     .resposiveCon{
         width: 100%; 
         
     }
+  
+    .mainCal::after {
+        padding-left: 10px; /* Adjust padding for responsiveness */
+        font-size: 16px; /* Adjust font size for responsiveness */
+        padding-top: 40px; /* Adjust padding for responsiveness */
+        width: auto; /* Adjust width for responsiveness */
+        height: auto; /* Adjust height for responsiveness */
+        max-width: 100%; /* Remove maximum width */
+        max-height: 100%; /* Remove maximum height */
+        margin-left: 40%; /* Adjust horizontal position */
+        margin-top: -200px; /* Adjust vertical position */
+        border-radius: 100%;
+    }
+   
     .CircBar {
         margin-left: 5%;
     }
-    #wPic {
-        display: block; /* Ensure the image is displayed as a block element */
-        width: 300px;
+    .Wpic {
+        display: block;
+        width: 100%;
 
     }
     .intro {
@@ -465,6 +444,12 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
         width: 90%;
         margin: 50px auto;
     }
+    .mainCal {
+        width: 90%;
+        margin: 100px auto;
+    }
+
+   
 
     .setgoalContainer {
         width: 90%;
@@ -473,6 +458,7 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
 
     .welcome {
         margin-left: 5%;
+        display:flex;
     }
 
     .topHed span {
