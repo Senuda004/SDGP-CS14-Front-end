@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 import { nutriScore } from 'nutri-score';
 import NutritionForm from './NutritionForm';
 import NutriCard from './NutriCard';
+import NutriCard2 from './NutriCard2';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const Dashboard = () => {
@@ -488,19 +489,31 @@ const Dashboard = () => {
         
         <img className="w-[238px] h-[260px] relative bottom-20 right-9" src="https://i.ibb.co/G3kYNBc/6357895-removebg-preview.png" />
       </div>
+
+      <div className='flex flex-row mt-10 justify-center '>
+        <img className="w-[203px] h-[255px]" src="https://i.ibb.co/7tSwKBq/removal-ai-8793b6e3-d8cc-4a38-985b-1c07d1850ee3-51aca451-26eb-4659-8b2e-f5e714fde315.png" alt='photo business'/>
+        <div className="w-[685px] h-[221px] bg-white rounded-[30px] custom-shadow-home">
+          <NutriCard 
+                  image = {NutritionalGradeImage(grade)}
+                  score = {score}
+            
+              
+              />
+        </div>
+      </div>
      
 
       {/* Open Modal Button */}
       {/* <button onClick={openModal} className='bg-amber-400 text-white w-1/2 rounded-md p-2 mt-10'>Scan using camera</button> */}
       <div className='flex justify-evenly m-auto relative top-12'>
-        <div onClick={openModal} className="w-[320px] h-[400px] bg-white rounded-[30px] custom-shadow-home cursor-pointer flex justify-center items-center align-middle flex-col gap-10">
+        <div onClick={openModal} className="w-[320px] h-[300px] bg-white rounded-[30px] custom-shadow-home cursor-pointer flex justify-center items-center align-middle flex-col gap-10">
           <img className="w-[200px] h-[200px] relative" src="https://i.ibb.co/Q7Wzg2N/3484567-removebg-preview.png" />
-          <h3 className='font-medium text-[18px]'>Scan using camera</h3>
+          <h3 className='font-medium text-[18px] relative bottom-5'>Scan using camera</h3>
         </div>   
 
-        <div onClick={openNutritionModal} className="w-[320px] h-[400px] bg-white rounded-[30px] custom-shadow-home cursor-pointer flex justify-center items-center align-middle flex-col gap-10">
+        <div onClick={openNutritionModal} className="w-[320px] h-[300px] bg-white rounded-[30px] custom-shadow-home cursor-pointer flex justify-center items-center align-middle flex-col gap-10">
           <img className="w-[215px] h-[215px] relative" src="https://i.ibb.co/74DPzs4/62356-removebg-preview.png" />
-          <h3 className='font-medium text-[18px]'>Enter ingredients manually</h3>
+          <h3 className='font-medium text-[18px] relative bottom-7'>Enter ingredients manually</h3>
         </div>
       </div>
       
@@ -604,13 +617,13 @@ const Dashboard = () => {
       {/* <NutritionForm
             onAdd = {addUserFoodData}
             /> */}
-       <NutriCard 
+       {/* <NutriCard 
                 image = {NutritionalGradeImage(grade)}
                 score = {score}
                 className = "relative mt-10"
            
             
-            />
+            /> */}
 
       </div>
 
@@ -641,7 +654,7 @@ const Dashboard = () => {
       >
         <div>
           <NutritionForm onAdd={addUserFoodData} />
-          <NutriCard image={NutritionalGradeImage(grade)} score={score} />
+          <NutriCard2 image={NutritionalGradeImage(grade)} score={score} />
         </div>
         <button onClick={closeNutritionModal} className='absolute top-2 right-8 bg-amber-400 text-white w-20 rounded-md p-2 mt-10 font-semibold'>Close</button>
       </Modal>
