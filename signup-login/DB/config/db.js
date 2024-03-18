@@ -1,7 +1,12 @@
 // db.js
+
+// require and read env file
+require("dotenv").config();
+
+
 const mongoose = require('mongoose');
 
-const connectionUri = 'mongodb+srv://nutrimatecs14:nutrimatesdgp@nutrimate-db.cy528h9.mongodb.net/?retryWrites=true&w=majority&appName=Nutrimate-DB';
+const connectionUri = process.env.MONGODB_CONNECTION_KEY;
 
 mongoose.connect(connectionUri, { useNewUrlParser: true, useUnifiedTopology: true });
 

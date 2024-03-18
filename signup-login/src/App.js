@@ -10,6 +10,7 @@ import ForgotPassword from './components/ForgotPassword';
 import AiChatbot from './components/AiChatbot';
 import Dashboard from './components/Dashboard';
 import HeroComponent from './components/landing';
+import HealthQuiz from './components/HealthQuiz';
 import NotFound from './components/NotFound';
 import { useEffect } from 'react';
 
@@ -35,6 +36,8 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/hero" element={<HeroComponent />} />
+              {/* <Route path="/health-quiz" element={ <HealthQuiz /> } /> */}
+              <Route path="/health-quiz" element={<ProtectedRoute component={HealthQuiz} />} />
               {/* Full-screen Not Found page without the sidebar */}
               <Route path="/not-found" element={<NotFound />} />
             </Routes>  
