@@ -174,9 +174,7 @@ router.get('/foodInformation/:uid', async (req, res) => {
       return res.status(404).json({ error: 'Food information not found' });
     }
 
-    // Return the food information
-    res.status(200).json(foodInformation);
-
+ 
     // User health quiz answers
     const foodPreference = user.food_avoidance;
     const healthCondition = user.health_conditions;
@@ -207,6 +205,10 @@ router.get('/foodInformation/:uid', async (req, res) => {
     // Update the rating for the latest scanned item
     user.scanned_items[user.scanned_items.length - 1].rating = recommendation;
     await user.save();
+
+    // Return the food information along with its recomnedation 
+    res.status(200).json({foodInformation , recommendation});
+
    
   } catch (error) {
     console.error('Error fetching food information:', error);
