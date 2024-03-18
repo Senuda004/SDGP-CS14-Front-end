@@ -11,6 +11,8 @@ import { useForm } from "react-hook-form"
 
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
+import { Navigate, useNavigate } from "react-router-dom"
+
 
 // Importing the buttons and UI compoenents from shadcn UI
 import { Button } from "../components_shadcn/ui/button"
@@ -63,10 +65,13 @@ const formSchema = z.object({
 
 
 
-
 function HealthQuiz() {
+ 
+
 
   const [userId, setUserId] = useState(null);
+
+  let navigate = useNavigate();
 
 
   useEffect(() => {
@@ -77,7 +82,12 @@ function HealthQuiz() {
     return () => unsubscribe();
   }, []);
 
-  console.log("userId:"+userId.uid);
+  // conditionally render so we log only if useEffect is ran
+  console.log("userId:"+userId?.uid);
+
+
+ 
+
 
 
     const form = useForm({
@@ -108,13 +118,14 @@ function HealthQuiz() {
           // storing userId 
           uid: userId.uid,
         }
+    
 
   
 
         // Post the answers to our Database
-        // Make a POST request to your backend API endpoint
+      
 
-        // Make a POST request to your backend API endpoint
+        // Make a POST request to  backend API endpoint
     axios.post('http://localhost:5000/api/healthquiz', data)
     .then(response => {
         console.log('Health quiz answers saved successfully');
@@ -122,6 +133,9 @@ function HealthQuiz() {
     .catch(error => {
         console.error('Error saving health quiz answers:', error);
     });
+    
+    // nAVIGATE TO LOGIN 
+    navigate("/")
     
     }
 

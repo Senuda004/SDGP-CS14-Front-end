@@ -60,7 +60,7 @@ const Home = () => {
             {/* {return an empty compoenent as above we are return the ai chatbot componenet this is just for protected routes  */}
             <Route path="/ai-chatbot" element={<ProtectedRoute component={EmptyComponent} />} />
             {/* Health quiz route needs update */}
-            <Route path="/health-quiz" element={<HealthQuiz/>}  />
+            {/* <Route path="/health-quiz" element={<HealthQuiz/>}  /> */}
             {/* Full-screen Not Found page without the sidebar */}
             <Route path="/not-found" element={<NotFound />} />
           </Routes>
