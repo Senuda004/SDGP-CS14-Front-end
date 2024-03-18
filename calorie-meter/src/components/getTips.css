@@ -1,5 +1,6 @@
 .main-contr{
-    margin-top: 180px;
+    margin-top: 18px;
+    margin-left: 17px;
     
 }
 
@@ -93,4 +94,12 @@
     text-align:left;
     color: rgb(48, 23, 2);
     
+}
+.getTip{
+    margin-left: 100px;
+    margin-top: 80px;
+}
+.getTip h1{
+    font-weight: 700;
+    font-size: 25px;
 }

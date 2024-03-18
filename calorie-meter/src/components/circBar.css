@@ -224,34 +224,22 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
     width: 200px;
     height: 40px;
     margin-left: 450px;
-    margin-top: 200px;
+    
 }
 .hbtn:hover{
 
     background-color: #575655;
     color: rgb(255, 249, 249);
 }
-.abtn{
-    background-color: black;
-    color: rgb(255, 251, 251);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-    position: absolute; /* Position the element */
-    z-index: 3; /* Ensure it's above the background and other elements */
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 200px;
-    height: 40px;
-    margin-left: 450px;
-    margin-top: 100px;
+#addBtn{
+    margin-top: 70px;
 }
-.abtn:hover{
-
-    background-color: #575655;
-    color: rgb(255, 249, 249);
+#historyBtn{
+    margin-top: 170px;
 }
-
+#tipsBtn{
+    margin-top: 270px;
+}
 .inputContr p {
     color: #FFC533;
     margin-left: -30px;
@@ -492,10 +480,4 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
     .progress-bar p {
         font-size: 12px;
     }
-}
-/*View products*/
-
-.VeiwSpro{
-    background-color: #f2c746;
-    margin-top: 70px;
 }
