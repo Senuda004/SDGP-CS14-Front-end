@@ -29,15 +29,8 @@ const Home = () => {
     )
   }
 
-  useEffect(() => {
-    // Redirect to "/not-found" if the current path doesn't match any specified routes
-    if (!['/dashboard', '/calorie-meter', '/ai-chatbot', '/', '/signup', '/forgot-password',"/health-quiz", "/hero"].includes(location.pathname)) {
-      navigate('/not-found');
-    }
-  }, [location.pathname, navigate]);
-
   // Check if the current path is "/home" before rendering the component
-  if (location.pathname === '/' || location.pathname === '/signup' || location.pathname === '/forgot-password' || location.pathname === "/hero" || location.pathname === "/health-quiz") {
+  if (location.pathname === '/' || location.pathname === '/signup' || location.pathname === '/forgot-password' || location.pathname === "/hero" || location.pathname === "/health-quiz" || location.pathname === "/not-found") {
     return null;
   }
 
@@ -66,10 +59,10 @@ const Home = () => {
           </Routes>
         </div>
 
-        {/* Full-screen Not Found page */}
+        {/* Full-screen Not Found page
         <div className={`p-7 text-2xl font-semibold flex-1 h-screen bg-amber-400 ${location.pathname === '/not-found' ? '' : 'hidden'}`}>
           <NotFound />
-        </div>
+        </div> */}
       </div>
     </>
   );
