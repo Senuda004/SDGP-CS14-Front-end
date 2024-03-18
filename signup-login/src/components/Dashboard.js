@@ -20,6 +20,9 @@ const Dashboard = () => {
   const [recentScannedItem, setRecentScannedItem] = useState(null);
   const[scannedItemData , setRecentScannedItemData] = useState({});
 
+  //State to store Ai recommnedation 
+  const[NutriRecommendation , setNutriRecommendation] = useState();
+
   // State for the new modal
   const [isNutritionModalOpen, setIsNutritionModalOpen] = useState(false);
 
@@ -271,13 +274,18 @@ const Dashboard = () => {
   const fetchRecentScannedItem = async () => {
     try {
       const response = await axios.get(`http://localhost:5000/api/foodInformation/${user.uid}`);
-      console.log('Recent Scanned Item:', response.data);
-      setRecentScannedItem(response.data);
+      //Destructure recommnedation along with scanned Item
+      const { foodInformation, recommendation } = response.data;
 
+      console.log('Recent Scanned Item:', foodInformation);
+      console.log(recommendation);
+      setRecentScannedItem(foodInformation);
+      setNutriRecommendation(recommendation);
 
+    
         //  Destricturing values in recent scanned item
    
-   if (response.data !== null){
+   if (foodInformation!== null){
    
         const {
     energy,
@@ -287,7 +295,7 @@ const Dashboard = () => {
     proteins,
     sodium,
     veg_fruit
-    } = response.data;
+    } = foodInformation;
 
     console.log("proteins " + proteins);
 
@@ -351,6 +359,11 @@ const Dashboard = () => {
       fetchRecentScannedItem();
     }
   }, [user]);
+
+
+  console.log("the current recommendation is " + NutriRecommendation);
+
+
 
   
 
