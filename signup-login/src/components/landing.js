@@ -6,6 +6,45 @@ const HeroComponent = () => {
     const [expanded, setExpanded] = useState(false);
     const [email, setEmail] = useState('');
     const [isVisible, setIsVisible] = useState(false);
+    const [email2, setEmail2] = useState('');
+    const [message, setMessage] = useState('');
+
+    const handleEmailChange = (event) => {
+        setEmail2(event.target.value);
+      };
+    
+    const handleMessageChange = (event) => {
+    setMessage(event.target.value);
+    };
+
+    const sendMessage = () => {
+        const templateParams = {
+          email2: email2,
+          message: message,
+        };
+    
+        emailjs
+          .send(
+            'service_eeaq2ya',
+            'template_hd9mj0n',
+            templateParams,
+            'uuUGZWkEfmgIzSfp8'
+          )
+          .then(
+            (response) => {
+              console.log('Email sent successfully:', response);
+              // Handle success (e.g., show a success message)
+            },
+            (error) => {
+              console.error('Error sending email:', error);
+              // Handle error (e.g., show an error message)
+            }
+          );
+    
+        // Reset input fields after sending the message
+        setEmail2('');
+        setMessage('');
+      };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -119,14 +158,22 @@ const HeroComponent = () => {
                             <a href="#" title="" className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 " onClick={(e) => { e.preventDefault(); scrollToSection('faq'); }}> FAQ </a>
                         </div>
 
-                        <div className="hidden md:flex">
+                        <div className="hidden md:flex gap-5">
                             <a
-                                href="#"
+                                href="/signup"
+                                title=""
+                                className="inline-flex items-center justify-center px-6 py-0 text-base font-bold leading-7 text-white transition-all duration-200 bg-amber-400 border border-transparent rounded hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                                role="button"
+                            >
+                                Sign up
+                            </a>
+                            <a
+                                href="/"
                                 title=""
                                 className="inline-flex items-center justify-center px-6 py-3 text-base font-bold leading-7 text-white transition-all duration-200 bg-amber-400 border border-transparent rounded hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
                                 role="button"
                             >
-                                Try for free
+                                Log in
                             </a>
                         </div>
                     </div>
@@ -141,13 +188,14 @@ const HeroComponent = () => {
                                 <a href="#" title="" className="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded hover:bg-gray-50 focus:outline-none font-pj focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Support </a>
 
                                 <a
-                                    href="#"
+                                    href="/signup"
                                     title=""
                                     className="inline-flex items-center justify-center px-6 py-3 text-base font-bold leading-7 text-white transition-all duration-200 bg-gray-900 border border-transparent rounded hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
                                     role="button"
                                 >
-                                    Try for free
+                                    Sign up
                                 </a>
+                                
                             </div>
                         </div>
                     </nav>
@@ -165,7 +213,7 @@ const HeroComponent = () => {
                             <h1 className="text-4xl font-bold leading-tight text-amber-400 sm:text-5xl sm:leading-tight lg:text-5xl lg:leading-tight font-pj">Transforming dietary decisions - Nutri Mate: Your Health Companion</h1>
                             <p className="mt-2 text-lg text-gray-600 sm:mt-6 font-inter">Unlock Nutri Mate's tools for free! Sign up now to revolutionize your dietary decisions and enhance your well-being journey.</p>
 
-                            <a href="#" title="" className="inline-flex px-8 py-4 mt-8 text-lg font-bold text-white transition-all duration-200 bg-gray-900 border border-transparent rounded sm:mt-10 font-pj hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900" role="button">
+                            <a href="/signup" title="" className="inline-flex px-8 py-4 mt-8 text-lg font-bold text-white transition-all duration-200 bg-gray-900 border border-transparent rounded sm:mt-10 font-pj hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900" role="button">
                                 Try our free tools
                             </a>
 
@@ -835,15 +883,15 @@ const HeroComponent = () => {
 
                 <ul className="mt-6 space-y-4">
                     <li>
-                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-amber-400 focus:text-amber-400"> Features </a>
+                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-amber-400 focus:text-amber-400" onClick={(e) => { e.preventDefault(); scrollToSection('features'); }}> Features </a>
                     </li>
 
                     <li>
-                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-amber-400 focus:text-amber-400"> Team </a>
+                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-amber-400 focus:text-amber-400" onClick={(e) => { e.preventDefault(); scrollToSection('team'); }}> Team </a>
                     </li>
 
                     <li>
-                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-amber-400 focus:text-amber-400"> Pricing </a>
+                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-amber-400 focus:text-amber-400" onClick={(e) => { e.preventDefault(); scrollToSection('pricing'); }}> Pricing </a>
                     </li>
 
                 </ul>
@@ -854,14 +902,14 @@ const HeroComponent = () => {
 
                 <ul className="mt-6 space-y-4">
                     <li>
-                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-amber-400 focus:text-amber-400"> FAQ </a>
+                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-amber-400 focus:text-amber-400" onClick={(e) => { e.preventDefault(); scrollToSection('faq'); }}> FAQ </a>
                     </li>
 
                 </ul>
             </div>
 
             <div className="col-span-2 md:col-span-1 lg:col-span-2 lg:pl-8">
-                <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">Subscribe to newsletter</p>
+                <p className="text-sm font-bold tracking-widest text-gray-400 uppercase">Subscribe to newsletter</p>
 
                 <form action="#" method="POST" className="mt-6" onSubmit={handleSubmit}>
                     <div>
@@ -871,6 +919,24 @@ const HeroComponent = () => {
 
                     <button type="submit" className="inline-flex items-center justify-center px-6 py-4 mt-3 font-semibold text-white transition-all duration-200 bg-amber-400 rounded-md hover:bg-gray-700 focus:bg-gray-900">Subscribe</button>
                 </form>
+
+                <div>
+                    <p className="text-sm font-bold tracking-widest text-gray-400 uppercase mt-5 mb-5">Got any question? Send Message</p>
+                    <input
+                        type="email"
+                        placeholder="Enter your email"
+                        value={email2}
+                        onChange={handleEmailChange}
+                        className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600 mb-5"
+                    />
+                    <textarea
+                        placeholder="Enter your message"
+                        value={message}
+                        onChange={handleMessageChange}
+                        className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
+                    ></textarea>
+                    <button onClick={sendMessage} className="inline-flex items-center justify-center px-6 py-4 mt-3 font-semibold text-white transition-all duration-200 bg-amber-400 rounded-md hover:bg-gray-700 focus:bg-gray-900">Send</button>
+                </div>
             </div>
         </div>
 
