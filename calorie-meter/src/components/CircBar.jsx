@@ -91,27 +91,29 @@ export default function CircBar() {
               <p>Welcome to NutriMate Calorie Meter! Easily manage and optimize your daily Calorie intake for holistic health.</p>
             </div>
             <div className='Wpic'><img src='https://i.ibb.co/PtPwVg5/Free-Vector-Presentation-concept-illustration-removebg-preview.png' alt='pic' id='Wpic'/></div>
+            <hr/>
       </div>  
-      <div id='calMeter' className='calMeter'>
-     
-        <div className='setgoalContainer'>
-          <img src='https://i.ibb.co/jWzGrwp/pic2-removebg-preview.png' alt='pic'className='goalpic'/>
-          <div className='circBar'>
-            
-            <div className='inputContr'>
-            <h3 id=''>Set your daily calorie goal</h3>
-              <input className='userInput' type="number" value={inputGoal} onChange={handleInputChange} placeholder="Enter here" required />
-              <p>Kcal</p>
-              <button id='setGoalbtn' className='cbtn' onClick={handleSetGoal}>Set Goal</button>
-           </div>
-              <CircularProgressBar id='circle' goal={goal} consumed={consumed} onConsumedChange={handleConsumedChange} className='bar' />
-          </div>
-          
-        </div> 
-        <p>Remaining Calories: {consumed}</p>
-            <p>Updated Consumed: {goal - consumed}</p> 
+       <div className='mainCal'>
         
-      </div> 
+          <div className='setgoalContainer'>
+            {/* <img src='https://i.ibb.co/jWzGrwp/pic2-removebg-preview.png' alt='pic'className='goalpic'/>*/} 
+            <div className='circBar'>
+                  <CircularProgressBar id='circle' goal={goal} consumed={consumed} onConsumedChange={handleConsumedChange} className='bar' />
+              </div>
+              <div className='inputContr'>
+                  <h3 id=''>Set your daily calorie goal</h3>
+                  <input className='userInput' type="number" value={inputGoal} onChange={handleInputChange} placeholder="Enter here" required />
+                  <p>Kcal</p>
+                  <button id='setGoalbtn' className='cbtn' onClick={handleSetGoal}>Set Goal</button>
+              </div>
+          </div> 
+          
+            
+            <p>Remaining Calories: {consumed}</p>
+                <p>Updated Consumed: {goal - consumed}</p> 
+            
+          
+      </div>  
  
       
       <div id='VeiwSpro' className='VeiwSpro'>
