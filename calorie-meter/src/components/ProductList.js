@@ -4,22 +4,38 @@ import { Line } from 'rc-progress';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical, faPlus } from '@fortawesome/free-solid-svg-icons';
 
+
 const ProductList = ({ products }) => {
   return (
     <div className="product-list">
       {/* Loop through each product and create a ProductCard component */}
       {products.map(product => (
-        <ProductCard key={product.name} product={product} />
+        <ProductCard 
+        key={product.name}
+        product={product} 
+        onAddToGoal={onAddToGoal}
+        onDeleteFromGoal={onDeleteFromGoal}/>
       ))}
     </div>
   );
 };
 
-const ProductCard = ({ product }) => {
+
+const ProductCard = ({ product, onAddToGoal, onDeleteFromGoal }) => {  
   const [isPopupVisible, setPopupVisible] = useState(false);
 
   const togglePopup = () => {
     setPopupVisible(!isPopupVisible);
+  };
+
+  const handleAddToGoal = () => {
+    onAddToGoal(product.nutrition.caloriesPerServing);
+    togglePopup(); // Close popup after adding to goal
+  };
+
+  const handleDeleteFromGoal = () => {
+    onDeleteFromGoal(product.nutrition.caloriesPerServing);
+    togglePopup(); // Close popup after deleting from goal
   };
 
   return (
@@ -63,11 +79,11 @@ const ProductCard = ({ product }) => {
         
         {isPopupVisible && (
           <div className="popup-box">
-            <button className="button">
+            <button className="button" onClick={handleAddToGoal}>
               <FontAwesomeIcon icon={faPlus} />
               Add
             </button>
-            <button className='button'>Delete</button>
+            <button className='button' onClick={handleDeleteFromGoal}>Delete</button>
           </div>
         )}
       </div>
