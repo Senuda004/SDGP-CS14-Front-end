@@ -104,3 +104,9 @@
     font-weight: 700;
     font-size: 25px;
 }
+.learn-more-link{
+    color: rgb(80, 80, 156);
+}
+.learn-more-link:hover{
+    font-size: 13px;
+}
