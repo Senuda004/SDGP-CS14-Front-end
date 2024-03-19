@@ -26,7 +26,7 @@ const ProductCard = ({ product }) => {
     <div className='main'>
       <div className="product-card">
         <div className='menuIcon' onClick={togglePopup}>
-          <FontAwesomeIcon icon={faEllipsisVertical} style={{ width: '400px' }} />
+          <FontAwesomeIcon icon={faEllipsisVertical} style={{ width: '500px' }} />
         </div>
         <img
           src={product.image}
@@ -37,32 +37,37 @@ const ProductCard = ({ product }) => {
         <div className='details'>
           <h1>{product.brand} {product.name}</h1>
           <h6>{product.category}</h6>
-        </div>
-        <div className="progress-bars">
-          {/* Protein Progress Bar */}
-          <div className="progress-bar">
-            <Line percent={product.nutrition.protein} strokeWidth="30" strokeColor="#5cb85c" trailWidth="30" trailColor='#C4EAC4' />
-            <p>Protein: {product.nutrition.protein}</p>
-          </div>
+          
+          <div className="progress-bars">
+            
+            {/* Protein Progress Bar */}
+            <div className="progress-bar">
+              <Line percent={product.nutrition.protein} strokeWidth="5" strokeColor="#5cb85c" trailWidth="5" trailColor='#C4EAC4' />
+              <p>Protein: {product.nutrition.protein}</p>
+            </div>
 
-          {/* Carbs Progress Bar */}
-          <div className="progress-bar">
-            <Line percent={product.nutrition.carbs} strokeWidth="30" strokeColor="#5bc0de" trailWidth="30" trailColor='#C2E3ED' />
-            <p>Carbs: {product.nutrition.carbs}</p>
-          </div>
+            {/* Carbs Progress Bar */}
+            <div className="progress-bar">
+              <Line percent={product.nutrition.carbs} strokeWidth="5" strokeColor="#5bc0de" trailWidth="5" trailColor='#C2E3ED' />
+              <p>Carbs: {product.nutrition.carbs}</p>
+            </div>
 
-          {/* Fat Progress Bar */}
-          <div className="progress-bar">
-            <Line percent={product.nutrition.fat} strokeWidth="30" strokeColor="#d9534f" trailWidth="30" trailColor='#EDBAB9' className='fatbar' />
-            <p>Fat: {product.nutrition.fat}</p>
+            {/* Fat Progress Bar */}
+            <div className="progress-bar">
+              <Line percent={product.nutrition.fat} strokeWidth="5" strokeColor="#d9534f" trailWidth="5" trailColor='#EDBAB9' className='fatbar' />
+              <p>Fat: {product.nutrition.fat}</p>
+            </div>
+            
           </div>
         </div>
+        
         {isPopupVisible && (
           <div className="popup-box">
-            <button className="add-button">
+            <button className="button">
               <FontAwesomeIcon icon={faPlus} />
               Add
             </button>
+            <button className='button'>Delete</button>
           </div>
         )}
       </div>

@@ -96,9 +96,10 @@
     
 }
 .getTip{
-    margin-left: 100px;
-    margin-top: 80px;
+    margin-left: 80px;
+   margin-top: 60px;
 }
+
 .getTip h1{
     font-weight: 700;
     font-size: 25px;

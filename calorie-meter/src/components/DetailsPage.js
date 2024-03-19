@@ -22,7 +22,7 @@ export default function DetailsPage() {
   }, []); // The empty dependency array ensures that the effect runs only once after the initial render
 
   return (
-    <div>
+    <div className='head'>
       <h1>Product Details Page</h1>
       <ProductList products={products} />
     </div>
