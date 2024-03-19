@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { FaPlus } from 'react-icons/fa'
 import Post from '../post/Post'
 import './posts.css'
 
@@ -150,8 +151,10 @@ export default function Posts() {
         <button onClick={() => setSelectedCategory('Biscuits')}>Biscuits</button>
         <button onClick={() => setSelectedCategory('Drinks')}>Drinks</button>
         <Link to="/write">
-          <button className="addPostButton">Add Post</button>
-        </Link> 
+          <button className="addPostButton">
+            <FaPlus />
+          </button>
+        </Link>
       </div>
       {/* Render posts based on the selected category */}
       {filteredPosts.map(post => (
