@@ -15,7 +15,7 @@ const App = () => {
     <div className="App">
       <CircBar/>
       
-      {/*<DataBackend/>*/}
+      <DataBackend/>
       
           
     </div>

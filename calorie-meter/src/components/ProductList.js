@@ -3,9 +3,10 @@ import './productList.css';
 import { Line } from 'rc-progress';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { onAddToGoal, onDeleteFromGoal } from './ParentComponent';
 
 
-const ProductList = ({ products }) => {
+const ProductList = ({ products}) => {
   return (
     <div className="product-list">
       {/* Loop through each product and create a ProductCard component */}
@@ -13,30 +14,19 @@ const ProductList = ({ products }) => {
         <ProductCard 
         key={product.name}
         product={product} 
-        onAddToGoal={onAddToGoal}
-        onDeleteFromGoal={onDeleteFromGoal}/>
+        />
       ))}
     </div>
   );
 };
 
-
-const ProductCard = ({ product, onAddToGoal, onDeleteFromGoal }) => {  
+const ProductCard = ({ product}) => {  
   const [isPopupVisible, setPopupVisible] = useState(false);
 
   const togglePopup = () => {
     setPopupVisible(!isPopupVisible);
   };
 
-  const handleAddToGoal = () => {
-    onAddToGoal(product.nutrition.caloriesPerServing);
-    togglePopup(); // Close popup after adding to goal
-  };
-
-  const handleDeleteFromGoal = () => {
-    onDeleteFromGoal(product.nutrition.caloriesPerServing);
-    togglePopup(); // Close popup after deleting from goal
-  };
 
   return (
     <div className='main'>
@@ -79,11 +69,11 @@ const ProductCard = ({ product, onAddToGoal, onDeleteFromGoal }) => {
         
         {isPopupVisible && (
           <div className="popup-box">
-            <button className="button" onClick={handleAddToGoal}>
+            <button className="button" >
               <FontAwesomeIcon icon={faPlus} />
               Add
             </button>
-            <button className='button' onClick={handleDeleteFromGoal}>Delete</button>
+            <button className='button' >Delete</button>
           </div>
         )}
       </div>
