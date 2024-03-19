@@ -3,6 +3,7 @@ import './circBar.css';
 import CircularProgressBar from './CircularProgressBar';
 import DetailsPage from './DetailsPage';
 import FetchTips from './FetchTips';
+import DataBackend from './DataBackend';
 import axios from 'axios'; // Import Axios for making HTTP requests
 
 
@@ -20,6 +21,7 @@ export default function CircBar() {
   const [sparkling, setSparkling] = useState(false); // State to manage sparkling effect
   const [showProducts, setShowProducts] = useState(false);
   const [showTipProducts,setshowTipProducts] = useState(false);
+  const [showHistory,setshowHistory] = useState(false);
   
   const handleConsumedChange = (newConsumed) => {
     const updatedConsumed = Math.max(0, Math.min(newConsumed, goal));
@@ -34,24 +36,27 @@ export default function CircBar() {
     setshowTipProducts(!showTipProducts);
   };
   
-  /*useEffect(() => {
-    // Fetch user's goal from the backend when the component mounts
-    fetchGoalFromBackend();
-  }, []);
+   
+  const scrollToHistory = () => {
+    const scrollToHistory = document.getElementById('disHistory');
+    if (scrollToHistory) {
+      scrollToHistory.scrollIntoView({ behavior: 'smooth' });
+    }
+    setshowHistory(!showHistory);
+  };
+    // Function to toggle the display of products
+    const toggleProducts = () => {
+   
+      // Toggle the state to show/hide products
+      setShowProducts(!showProducts);
+      // Scroll to the section when the button is clicked
+      const section = document.getElementById('displayProduct');
+      if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+      }
+        
+    };
 
-  const fetchGoalFromBackend = () => {
-    // Implement your API endpoint to fetch the user's goal based on the user ID (uid)
-    // Example: axios.get(`http://localhost:5000/api/goal?uid=${uid}`)
-    axios.get(`http://localhost:5000/api/goal?uid=${uid}`)
-      .then(response => {
-        if (response.data && response.data.goal !== undefined) {
-          setGoal(response.data.goal);
-        }
-      })
-      .catch(error => {
-        console.error('Error fetching user goal:', error);
-      });
-  };*/
   
   useEffect(() => {
     // Fetch user's goal from the backend when the component mounts
@@ -77,20 +82,6 @@ const fetchGoalFromBackend = () => {
         });
 };
 
-
-
-  // Function to toggle the display of products
-  const toggleProducts = () => {
-   
-    // Toggle the state to show/hide products
-    setShowProducts(!showProducts);
-    // Scroll to the section when the button is clicked
-    const section = document.getElementById('displayProduct');
-    if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-    }
-      
-  };
 
   const handleInputChange = (event) => {
     setInputGoal(event.target.value);
@@ -180,8 +171,8 @@ const fetchGoalFromBackend = () => {
                   <div className='history'>
                     <img src="https://i.ibb.co/8MD2SN7/picx-removebg-preview.png" alt="historyPic" />
                   <button onClick={toggleProducts} id='addBtn' className='hbtn' >Add product</button>
-                  <button id='historyBtn' className='hbtn'>View history</button>  
-                  <button id='tipsBtn' className='hbtn' onClick={() => scrollTogetTip()}>Get Tips</button>
+                  <button onClick={scrollToHistory} id='historyBtn' className='hbtn'>View history</button>  
+                  <button  onClick={scrollTogetTip} id='tipsBtn' className='hbtn'>Get Tips</button>
                   </div>
             </div>
               <p>c</p>
@@ -190,8 +181,6 @@ const fetchGoalFromBackend = () => {
       </div> 
       <hr/>
       <div id='getTip' className='getTip'>
-        {/*<h1>Weight loss Tips</h1>
-        <FetchTips/>*/}
         {showTipProducts && (
             <div >
               <h1>Weight loss Tips</h1>
@@ -203,11 +192,21 @@ const fetchGoalFromBackend = () => {
       <div className='displayProduct' id='displayProduct'>
         {showProducts && (
             <div >
-                {/* Display your products here */}
+                {/* Display products */}
                 <DetailsPage/>
             </div>
         )}
         </div>
+      <div className='disHistory'>
+        {showHistory &&(
+          <div>
+            <DataBackend/>
+            </div>
+        )
+          
+        }
+        
+        </div>  
     </div>    
   );
 }

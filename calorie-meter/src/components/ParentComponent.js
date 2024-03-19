@@ -1,40 +1,34 @@
 // ParentComponent.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ProductList from './ProductList';
 import CircularProgressBar from './CircularProgressBar';
+
 
 const ParentComponent = () => {
  // Define the initial goal and consumed values
  const [goal, setGoal] = useState(5000); // Example initial goal value
  const [consumed, setConsumed] = useState(0); // Example initial consumed value
- const [products, setProducts] = useState([]); // State to store products data
+ const [products, setProducts] = useState([]);
 
- // Function to update goal when adding calories
- const addToGoal = (calories) => {
-    setGoal(prevGoal => prevGoal - calories);
- };
+ const handleConsumedChange = (newConsumed) => {
+  setConsumed(newConsumed);
+};
+useEffect(() => {
+  // Example fetch request
+  fetch('/productList.json')
+    .then(response => response.json())
+    .then(data => setProducts(data))
+    .catch(error => console.error('Error fetching products:', error));
+}, []);
 
- // Function to update goal when deleting calories
- const deleteFromGoal = (calories) => {
-    setGoal(prevGoal => prevGoal + calories);
- };
 
- return (
-    <div>
-      {/* Render the ProductList component and pass necessary props */}
-      <ProductList
-        products={products} 
-        onAddToGoal={addToGoal}
-        onDeleteFromGoal={deleteFromGoal}
-      />
-      {/* Render the CircularProgressBar component and pass necessary props */}
-      <CircularProgressBar
-        goal={goal}
-        consumed={consumed}
-        onConsumedChange={setConsumed}
-      />
-    </div>
- );
+return (
+  <div>
+    <CircularProgressBar goal={goal} consumed={consumed} onConsumedChange={handleConsumedChange} />
+    <ProductList products={products} goal={goal} consumed={consumed} onConsumedChange={handleConsumedChange} />
+    {/* Additional components or logic */}
+  </div>
+);
 };
 
 export default ParentComponent;

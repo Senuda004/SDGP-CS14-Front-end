@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './productList.css';
 import { Line } from 'rc-progress';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { onAddToGoal, onDeleteFromGoal } from './ParentComponent';
 
+const ProductList = ({ products, goal, consumed, onConsumedChange }) =>{
 
-const ProductList = ({ products}) => {
+    // In the child component (e.g., ProductList)
+  useEffect(() => {
+    console.log('Current goal:', goal);
+  }, [goal]); // This effect runs whenever the goal prop changes
+  
   return (
     <div className="product-list">
       {/* Loop through each product and create a ProductCard component */}
@@ -14,18 +19,43 @@ const ProductList = ({ products}) => {
         <ProductCard 
         key={product.name}
         product={product} 
+        goal={goal}
+          consumed={consumed}
+          onConsumedChange={onConsumedChange}
         />
       ))}
     </div>
   );
 };
 
-const ProductCard = ({ product}) => {  
+const ProductCard = ({ product, goal, consumed, onConsumedChange }) => {  
   const [isPopupVisible, setPopupVisible] = useState(false);
-
+  
   const togglePopup = () => {
     setPopupVisible(!isPopupVisible);
   };
+
+  const handleAddToGoal = () => {
+    if (!goal) {
+      alert('Please set a goal first.');
+      return;
+    }
+    const newConsumed = consumed - 10;
+    if (newConsumed < 0) {
+      alert('Adding this product will exceed your daily goal!');
+    } else {
+      onConsumedChange(newConsumed);
+    }
+ };
+
+ const handleDeleteFromGoal = () => {
+    if (!goal) {
+      alert('Please set a goal first.');
+      return;
+    }
+    const newConsumed = consumed + 10;
+    onConsumedChange(newConsumed);
+ };
 
 
   return (
@@ -69,11 +99,11 @@ const ProductCard = ({ product}) => {
         
         {isPopupVisible && (
           <div className="popup-box">
-            <button className="button" >
+            <button className="button" onClick={handleAddToGoal} aria-label="Add to goal">
               <FontAwesomeIcon icon={faPlus} />
               Add
             </button>
-            <button className='button' >Delete</button>
+            <button className='button' nClick={handleDeleteFromGoal} aria-label="Delete from goal">Delete</button>
           </div>
         )}
       </div>
