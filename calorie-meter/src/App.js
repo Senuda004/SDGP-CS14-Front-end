@@ -4,11 +4,6 @@ import CircBar from './components/CircBar';
 import React from 'react';
 import DataBackend from './components/DataBackend';
 
-
-
-
-
-
 const App = () => {
   
   return (

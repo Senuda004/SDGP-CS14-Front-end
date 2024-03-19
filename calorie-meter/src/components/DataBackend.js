@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './backend.css';
 
 export default function DataBackend() {
  const [data, setData] = useState(null); // State to store the fetched data
@@ -43,9 +44,10 @@ export default function DataBackend() {
  };
 
  return (
-    <div>
+    <div className='hisDiv'>
+      <p>Filter History</p>
       {/* Display date input field */}
-      <label htmlFor="dateInput">Select a Date:</label>
+      <label htmlFor="dateInput" className='header'>Select a Date:</label>
       <input type="date" id="dateInput" value={selectedDate} onChange={handleDateChange} />
 
       {/* Display the fetched data */}
@@ -67,7 +69,7 @@ export default function DataBackend() {
 
       {/* Display a message if no data found for selected date */}
       {filteredData.length === 0 && selectedDate && (
-        <p>No data found for the selected date.</p>
+        <h1>No data found for the selected date.</h1>
       )}
     </div>
  );
