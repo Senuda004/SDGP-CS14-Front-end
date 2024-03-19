@@ -148,21 +148,12 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
       margin-right: 0; /* Remove right margin on smaller screens */
     }
   }
-/*Details*/
-  .progress-bar p{
-    font-size: 8px;
-   
-  }
- .menuIcon{
-    margin-left: 350px;
-    margin-top: 10px;
- }
- 
+
 
  /*Cal meter CSS*/
 
 .mainCal{
-    background-image: url('https://i.ibb.co/n6czcSX/s7.png');
+   background-image: url('https://i.ibb.co/n6czcSX/s7.png');
     margin-top: 250px;
     background-size: contain; /* Adjust as needed */
     background-position: center; /* Adjust as needed*/ 
@@ -171,28 +162,7 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
     height: auto;
     margin-left: 20px;
 }
-.mainCal::after {
-    content: 'Set your daily Calorie Goal'; /* Required for pseudo-elements */
-    padding-left: 65px;
-    color: rgb(24, 24, 24);
-    font-weight: bold;
-    font-size: 20px;
-    padding-top: 80px;
-    display: block; /* Ensures it is displayed as a block */
-    width: 400px; /* Adjust circle size as needed */
-    height: 400px; /* Adjust circle size as needed */
-    background-color: #FFFF; /* Adjust circle color as needed */
-    border-radius: 50%; /* Makes it a circle */
-    position: absolute; /* Position the circle */
-    margin-left: -420px;
-    margin-top: -700px; /* Adjust vertical position */
-    left: calc(50% - 150px); /* Adjust horizontal position */
-    transform: translateY(-50%); /* Center vertically */
-    z-index: 1; /* Ensure it's above the background */
-    box-shadow:
-        0px 0px 6px 3px #FFC533, /* Bottom */
-        0px 0px 6px 3px #FFC533; /* Left */ 
-}
+
 
 .inputContr{
     width: 750px;
@@ -240,16 +210,35 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
 #tipsBtn{
     margin-top: 270px;
 }
-.inputContr p {
+.userIndis{
+    background-color: #FFFF;
+    box-shadow:
+    0px 0px 6px 3px #FFC533, /* Bottom */
+    0px 0px 6px 3px #FFC533; /* Left */ 
+    width: 400px;
+    height: 400px;
+    border-radius: 100%;
+    margin-left: -420px;
+    margin-top: -400px;
+    z-index: 3; /* Ensure it's above the background and other elements */
+}
+
+.userIndis p {
     color: #FFC533;
-    margin-left: -30px;
-    margin-top: -270px; /* Adjust vertical position */
+    margin-left: 165px;
+    margin-top: 125px; /* Adjust vertical position */
     font-weight: 800;
     font-size: 25px;
     position: absolute; /* Position the element */
     z-index: 3; /* Ensure it's above the background and other elements */
 }
-
+.userIndis h2{
+    padding-left: 100px;
+    font-weight: bold;
+    color: rgb(24, 24, 24);
+    font-size: 20px;
+    padding-top: 80px;
+}
 .userInput {
     width: 250px;
     height: 60px;
@@ -259,7 +248,8 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
     font-weight: bold;
     font-size: 20px;
     position: absolute;
-    margin-top: 150px;
+    margin-top: 540px;
+    margin-left: 200px;
     transform: translate(-50%, -500px); /* Adjust vertical position */
     border-radius: 50px;
     font-weight: lighter;
@@ -274,8 +264,8 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
 }
 
 #setGoalbtn {
-    margin-left: -70px;
-    margin-top: -200px;
+    margin-left: 130px;
+    margin-top: 180px;
     background-color: black;
     color: rgb(255, 251, 251);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -302,12 +292,6 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
 .setgoalContainer p{
     color:#FFC533;
 }
-.goalpic{
-    margin-left: 80px;
-    margin-top: 150px;
-    width: 300px;
-    height: 300px;
-}
 
 .circBar{
     margin-left: 40px;
@@ -315,9 +299,6 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
     border-radius: 50px;
     display: flex;
     margin-top: -301px;
-}
-.bar{
-    margin-left: 280px;
 }
 
 #count{
@@ -386,22 +367,13 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
         width: 100%; 
         
     }
-  
-    .mainCal::after {
-        padding-left: 10px; /* Adjust padding for responsiveness */
-        font-size: 16px; /* Adjust font size for responsiveness */
-        padding-top: 40px; /* Adjust padding for responsiveness */
-        width: auto; /* Adjust width for responsiveness */
-        height: auto; /* Adjust height for responsiveness */
-        max-width: 100%; /* Remove maximum width */
-        max-height: 100%; /* Remove maximum height */
-        margin-left: 40%; /* Adjust horizontal position */
-        margin-top: -200px; /* Adjust vertical position */
-        border-radius: 100%;
+    .contar{
+        display: flex;
     }
-   
-    .CircBar {
-        margin-left: 5%;
+  
+    
+    .circBar {
+        margin-left: 10%;
     }
     .Wpic {
         display: block;
@@ -420,33 +392,42 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
 
     .addDuctBtns {
         margin-top: 20px;
-        margin-left: 5%;
+        margin-left: 1%;
     }
-
-    .userInput {
-        width: 80%;
-        margin: 0 auto;
+    .userIndis{
+        margin-top: 20px;
+        margin-left: 10%;
     }
+    
 
     .inputContr {
         width: 90%;
-        margin: 50px auto;
+        margin: 30px ;
     }
     .mainCal {
-        width: 90%;
-        margin: 100px auto;
+        width: 100%;
+        margin: 200px auto;
     }
 
-   
+    .hbtn{
+        margin-top: 20px;
+        margin-left: 5%;
+
+    }
+    .history img{
+        display: block;
+        width: 100%;
+
+    }
 
     .setgoalContainer {
-        width: 90%;
+        width: 100%;
         margin: 20px auto;
     }
 
     .welcome {
-        margin-left: 5%;
-        display:flex;
+        margin-bottom: 5%;
+        
     }
 
     .topHed span {
@@ -463,7 +444,6 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adjust shadow on hover (optional) 
 
     .welcome img {
         width: 100%;
-        
         
     }
 

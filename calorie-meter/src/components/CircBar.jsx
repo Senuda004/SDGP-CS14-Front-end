@@ -19,6 +19,7 @@ export default function CircBar() {
   const [showTryAgain, setShowTryAgain] = useState(false);// State to manage try again message
   const [sparkling, setSparkling] = useState(false); // State to manage sparkling effect
   const [showProducts, setShowProducts] = useState(false);
+  const [showTipProducts,setshowTipProducts] = useState(false);
   
   const handleConsumedChange = (newConsumed) => {
     const updatedConsumed = Math.max(0, Math.min(newConsumed, goal));
@@ -30,6 +31,7 @@ export default function CircBar() {
     if (getTipSection) {
       getTipSection.scrollIntoView({ behavior: 'smooth' });
     }
+    setshowTipProducts(!showTipProducts);
   };
   
   /*useEffect(() => {
@@ -79,6 +81,7 @@ const fetchGoalFromBackend = () => {
 
   // Function to toggle the display of products
   const toggleProducts = () => {
+   
     // Toggle the state to show/hide products
     setShowProducts(!showProducts);
     // Scroll to the section when the button is clicked
@@ -162,30 +165,39 @@ const fetchGoalFromBackend = () => {
             <hr/>
       </div>  
        <div className='mainCal'>
+          {/*<img src='https://i.ibb.co/n6czcSX/s7.png' alt='bgPic' id='bgPic'/>*/}
           <div className='setgoalContainer'>
-            {/* <img src='https://i.ibb.co/jWzGrwp/pic2-removebg-preview.png' alt='pic'className='goalpic'/>*/} 
             <div className='circBar'>
-                  <CircularProgressBar id='circle' goal={goal} consumed={consumed} onConsumedChange={handleConsumedChange} className='bar' />
-              </div>
-              <div className='inputContr'>
+                  <CircularProgressBar id='circle' goal={goal} consumed={consumed} onConsumedChange={handleConsumedChange} />
+            </div>
+            <div className='userIndis'>
+                  <h2>Set your Daily goal</h2>
                   <input className='userInput' type="number" value={inputGoal} onChange={handleInputChange} placeholder="Enter here" required />
                   <p>Kcal</p>
                   <button id='setGoalbtn' className='cbtn' onClick={handleSetGoal}>Set Goal</button>
+            </div>  
+            <div className='inputContr'>
                   <div className='history'>
                     <img src="https://i.ibb.co/8MD2SN7/picx-removebg-preview.png" alt="historyPic" />
                   <button onClick={toggleProducts} id='addBtn' className='hbtn' >Add product</button>
                   <button id='historyBtn' className='hbtn'>View history</button>  
                   <button id='tipsBtn' className='hbtn' onClick={() => scrollTogetTip()}>Get Tips</button>
                   </div>
-              </div>
+            </div>
               <p>c</p>
               <p>u</p>
           </div>           
-      </div>  
+      </div> 
       <hr/>
       <div id='getTip' className='getTip'>
-        <h1>Weight loss Tips</h1>
-        <FetchTips/>
+        {/*<h1>Weight loss Tips</h1>
+        <FetchTips/>*/}
+        {showTipProducts && (
+            <div >
+              <h1>Weight loss Tips</h1>
+               <FetchTips/>
+            </div>
+        )}
       </div>
       
       <div className='displayProduct' id='displayProduct'>

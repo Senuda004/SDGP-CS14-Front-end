@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './circBar.css';
+import './productList.css';
 import { Line } from 'rc-progress';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical, faPlus } from '@fortawesome/free-solid-svg-icons';
