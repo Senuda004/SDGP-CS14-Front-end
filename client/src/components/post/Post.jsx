@@ -1,31 +1,26 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './post.css';
+import "./post.css";
+import { Link } from "react-router-dom";
 
-export default function Post({ id, img, title, category, date, description }) {
+export default function Post({ post }) {
+  const PF = "http://localhost:5000/uploads";
   return (
     <div className="post">
-      <Link to={`/post/${id}`} className="postLink"> {/* Use the id prop */}
-        <img className="postImg" src={img} alt="" />
-      </Link>
+      {post.img && <img className="postImg" src={PF + post.img} alt="" />}
       <div className="postInfo">
-        <div className="postCategories">
-          <span className="postCategory">
-            {category} {/* Removed the <Link> element */}
-          </span>
+        <div className="postCats">
+          {post.category.map((c) => (
+            <span className="postCat">{c.name}</span>
+          ))}
         </div>
-        <span className="postTitle">
-          <Link to={`/post/${id}`} className="link">
-            {title}
-          </Link>
-        </span>
+        <Link to={`/post/${post._id}`} className="link">
+          <span className="postTitle">{post.title}</span>
+        </Link>
         <hr />
-        <span className="postDate">{date}</span>
+        <span className="postDate">
+          {new Date(post.createdAt).toDateString()}
+        </span>
       </div>
-      {/* Wrap the description inside a Link */}
-      <Link to={`/post/${id}`} className="postLink">
-        <p className="postDesc">{description}</p>
-      </Link>
+      <p className="postDesc">{post.desc}</p>
     </div>
   );
 }
