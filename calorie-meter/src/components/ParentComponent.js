@@ -1,34 +1,34 @@
-// ParentComponent.js
 import React, { useState, useEffect } from 'react';
+import CircBar from './CircBar'; // Import CircBar component
 import ProductList from './ProductList';
-import CircularProgressBar from './CircularProgressBar';
-
 
 const ParentComponent = () => {
- // Define the initial goal and consumed values
- const [goal, setGoal] = useState(5000); // Example initial goal value
- const [consumed, setConsumed] = useState(0); // Example initial consumed value
- const [products, setProducts] = useState([]);
+  const [goal, setGoal] = useState(5000);
+  const [consumed, setConsumed] = useState(0);
+  const [products, setProducts] = useState([]);
+  const [newGoal, setNewGoal] = useState(0);
+  const [updatedConsumed, setUpdatedConsumed] = useState(0);
 
- const handleConsumedChange = (newConsumed) => {
-  setConsumed(newConsumed);
-};
-useEffect(() => {
-  // Example fetch request
-  fetch('/productList.json')
-    .then(response => response.json())
-    .then(data => setProducts(data))
-    .catch(error => console.error('Error fetching products:', error));
-}, []);
+  useEffect(() => {
+    fetch('/productList.json')
+      .then(response => response.json())
+      .then(data => setProducts(data))
+      .catch(error => console.error('Error fetching products:', error));
+  }, []);
 
+  const updateGoalAndConsumed = (newGoalValue, updatedConsumedValue) => {
+    setNewGoal(newGoalValue);
+    setUpdatedConsumed(updatedConsumedValue);
+  };
 
-return (
-  <div>
-    <CircularProgressBar goal={goal} consumed={consumed} onConsumedChange={handleConsumedChange} />
-    <ProductList products={products} goal={goal} consumed={consumed} onConsumedChange={handleConsumedChange} />
-    {/* Additional components or logic */}
-  </div>
-);
+  return (
+    <div>
+      <CircBar updateGoalAndConsumed={updateGoalAndConsumed} />
+
+      <ProductList products={products} consumed={consumed} newGoal={newGoal} updatedConsumed={updatedConsumed} />
+      {/* Additional components or logic */}
+    </div>
+  );
 };
 
 export default ParentComponent;

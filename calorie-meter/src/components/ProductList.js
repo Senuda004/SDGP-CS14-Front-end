@@ -3,59 +3,54 @@ import './productList.css';
 import { Line } from 'rc-progress';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { onAddToGoal, onDeleteFromGoal } from './ParentComponent';
 
-const ProductList = ({ products, goal, consumed, onConsumedChange }) =>{
 
-    // In the child component (e.g., ProductList)
-  useEffect(() => {
-    console.log('Current goal:', goal);
-  }, [goal]); // This effect runs whenever the goal prop changes
-  
+const ProductList = ({ products}) => {
+  /*
+  const handleAddToGoal = () => {
+    if (!newGoal) {
+      alert('Please set a goal first.');
+      return;
+    }
+    const newConsumed = updateConsumed(consumed - 10); // Update consumed directly
+    if (newConsumed < 0) {
+      alert('Adding this product will exceed your daily goal!');
+    }
+  };
+
+  const handleDeleteFromGoal = () => {
+    if (!newGoal) {
+      alert('Please set a goal first.');
+      return;
+    }
+    updateConsumed(consumed + 10); // Update consumed directly
+  };*/
+
   return (
     <div className="product-list">
       {/* Loop through each product and create a ProductCard component */}
       {products.map(product => (
         <ProductCard 
-        key={product.name}
-        product={product} 
-        goal={goal}
+          key={product.name}
+          product={product} 
+         /* newGoal={newGoal}
           consumed={consumed}
-          onConsumedChange={onConsumedChange}
+          updatedConsumed={updateConsumed}
+          handleAddToGoal={handleAddToGoal} // Pass the handler functions as props
+          handleDeleteFromGoal={handleDeleteFromGoal}*/
         />
       ))}
     </div>
   );
 };
 
-const ProductCard = ({ product, goal, consumed, onConsumedChange }) => {  
+
+const ProductCard = ({ product}) => {  
   const [isPopupVisible, setPopupVisible] = useState(false);
   
   const togglePopup = () => {
     setPopupVisible(!isPopupVisible);
   };
-
-  const handleAddToGoal = () => {
-    if (!goal) {
-      alert('Please set a goal first.');
-      return;
-    }
-    const newConsumed = consumed - 10;
-    if (newConsumed < 0) {
-      alert('Adding this product will exceed your daily goal!');
-    } else {
-      onConsumedChange(newConsumed);
-    }
- };
-
- const handleDeleteFromGoal = () => {
-    if (!goal) {
-      alert('Please set a goal first.');
-      return;
-    }
-    const newConsumed = consumed + 10;
-    onConsumedChange(newConsumed);
- };
 
 
   return (
@@ -99,11 +94,11 @@ const ProductCard = ({ product, goal, consumed, onConsumedChange }) => {
         
         {isPopupVisible && (
           <div className="popup-box">
-            <button className="button" onClick={handleAddToGoal} aria-label="Add to goal">
+            <button className="button" /*onClick={handleAddToGoal} */aria-label="Add to goal">
               <FontAwesomeIcon icon={faPlus} />
               Add
             </button>
-            <button className='button' nClick={handleDeleteFromGoal} aria-label="Delete from goal">Delete</button>
+            <button className='button' /*onClick={handleDeleteFromGoal} */aria-label="Delete from goal">Delete</button>
           </div>
         )}
       </div>

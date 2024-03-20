@@ -8,7 +8,7 @@ import axios from 'axios'; // Import Axios for making HTTP requests
 
 
 
-export default function CircBar() {
+export default function CircBar() { // Destructure props here
   
   
   // circular bar functions
@@ -22,12 +22,11 @@ export default function CircBar() {
   const [showProducts, setShowProducts] = useState(false);
   const [showTipProducts,setshowTipProducts] = useState(false);
   const [showHistory,setshowHistory] = useState(false);
+  /*const [newGoal, setNewGoal] = useState(0); // Define newGoal state
+  const [updatedConsumed, setUpdatedConsumed] = useState(0); // Define updatedConsumed state*/
   
-  const handleConsumedChange = (newConsumed) => {
-    const updatedConsumed = Math.max(0, Math.min(newConsumed, goal));
-    setConsumed(updatedConsumed);
-  };
-  
+
+  // Function to scroll to display of tips
   const scrollTogetTip = () => {
     const getTipSection = document.getElementById('getTip');
     if (getTipSection) {
@@ -35,8 +34,7 @@ export default function CircBar() {
     }
     setshowTipProducts(!showTipProducts);
   };
-  
-   
+  // Function to display the history
   const scrollToHistory = () => {
     const scrollToHistory = document.getElementById('disHistory');
     if (scrollToHistory) {
@@ -44,75 +42,49 @@ export default function CircBar() {
     }
     setshowHistory(!showHistory);
   };
-    // Function to toggle the display of products
-    const toggleProducts = () => {
-   
-      // Toggle the state to show/hide products
-      setShowProducts(!showProducts);
-      // Scroll to the section when the button is clicked
-      const section = document.getElementById('displayProduct');
-      if (section) {
-          section.scrollIntoView({ behavior: 'smooth' });
-      }
-        
-    };
-
-  
-  useEffect(() => {
-    // Fetch user's goal from the backend when the component mounts
-    fetchGoalFromBackend();
-}, []);
-
-const fetchGoalFromBackend = () => {
-    // Get the current date in a format suitable for the backend (e.g., YYYY-MM-DD)
-    const currentDate = new Date().toISOString().split('T')[0]; // Extracting date portion
-    
-    // Make a GET request to the backend API endpoint to fetch the user's goal for the current date
-    axios.get(`http://localhost:5000/api/goal?date=${currentDate}`)
-        .then(response => {
-            // Check if the response contains valid data and if the goal is defined in the response
-            if (response.data && response.data.goal !== undefined) {
-                // Update the component's state with the fetched goal value
-                setGoal(response.data.goal);
-            }
-        })
-        .catch(error => {
-            // Log any errors that occur during the fetch operation
-            console.error('Error fetching user goal:', error);
-        });
+  // Function to toggle the display of products
+  const toggleProducts = () => {
+  // Toggle the state to show/hide products
+  setShowProducts(!showProducts);
+  // Scroll to the section when the button is clicked
+  const section = document.getElementById('displayProduct');
+  if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+  }
 };
-
+  const handleConsumedChange = (newConsumed) => {
+    const updatedConsumed = Math.max(0, Math.min(newConsumed, goal));
+    setConsumed(updatedConsumed);
+  };
 
   const handleInputChange = (event) => {
-    setInputGoal(event.target.value);
-  };
-  useEffect(() => {
-    if (showTryAgain) {
-      setTimeout(() => setShowTryAgain(false), 5000);
-    }
-  }, [showTryAgain]);
+      setInputGoal(event.target.value);
+    };
+    useEffect(() => {
+      if (showTryAgain) {
+        setTimeout(() => setShowTryAgain(false), 5000);
+      }
+    }, [showTryAgain]);
 
 
   const handleSetGoal = () => {
-    const newGoal = parseInt(inputGoal, 10) || 0;
-    if (isNaN(newGoal) || newGoal <= 0) {
-      alert('Please enter a valid positive number for your goal.');
-      return;
+        const newGoalValue = parseInt(inputGoal, 10) || 0;
+    if (isNaN(newGoalValue) || newGoalValue <= 0) {
+        alert('Please enter a valid positive number for your goal.');
+        return;
     }
-    
-    setGoal(newGoal);
-    const updatedConsumed = Math.max(0, Math.min(newGoal, goal));
-    setConsumed(updatedConsumed);
 
-// Define currentDate within this function if it's needed here
-const currentDate = new Date().toISOString().split('T')[0]; // Extracting date portion
-
-    
+  const updatedConsumedValue = Math.max(0, Math.min(newGoalValue, goal));
+    setGoal(newGoalValue);
+    setConsumed(updatedConsumedValue);
+ 
+  // Define currentDate within this function if it's needed here
+  const currentDate = new Date().toISOString().split('T')[0]; // Extracting date portion
     // Create an object with the data to be saved
     const data = {
       uid: uid,
-      goal: newGoal,
-      consumed: updatedConsumed,
+      goal: newGoalValue,
+      consumed: updatedConsumedValue,
       date: currentDate
     };
 

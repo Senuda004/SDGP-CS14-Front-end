@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 
 const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
+  
   const [size, setSize] = useState(380); // Size of the circle
   const [strokeWidth, setStrokeWidth] = useState(30); // Width of the progress bar
   const [radius, setRadius] = useState(size / 2 - strokeWidth / 2); // Radius of the circle
   const normalizedProgress = consumed > goal ? goal : consumed; // Adjust progress based on the goal
-
   const circumference = 2 * Math.PI * radius;
   const progressOffset = ((goal - normalizedProgress) / goal) * circumference;
-
-  // Calculate the percentage of progress
-  const progressPercentage = (consumed / goal) * 100;
+  const progressPercentage = (consumed / goal) * 100;  // Calculate the percentage of progress
+  
   const handleAddCalories = (caloriesToAdd) => {
     const newConsumed = consumed + caloriesToAdd;
     if (newConsumed > goal) {
@@ -20,7 +19,6 @@ const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
     }
   };
   
-
   // Determine stroke color based on progress percentage
   let strokeColor;
   if (progressPercentage < 33) {
@@ -30,9 +28,6 @@ const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
   } else {
     strokeColor = 'green';
   }
-
-  
-  
 
   return (
     <div>
@@ -65,6 +60,7 @@ const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
       </svg>
       <div className='addDuctBtns'style={{ textAlign: 'center' }}>
         <p>Adjust your calories</p>
+        
         <button className='cbtn1' onClick={() => onConsumedChange(consumed - 100)}>Deduct 100 kcal</button>
         <div id='count'>{consumed}/{goal} kcal</div>
         <button className='cbtn2' onClick={() => handleAddCalories(100)}>Add 100 kcal</button>
