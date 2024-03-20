@@ -23,13 +23,21 @@ export default function DataBackend() {
       });
  }, []); // Empty dependency array ensures this effect runs only once after initial render
 
- // Filter data based on the selected date
- const filteredData = data ? data.filter(item => {
-    // Extract the date part from the MongoDB date string
-    const dbDate = new Date(item.date).toISOString().split('T')[0];
-    console.log('Comparing:', selectedDate, 'with', dbDate); // Debugging statement
-    return dbDate === selectedDate;
- }) : [];
+// Filter data based on the selected date
+const filteredData = data ? data.filter(item => {
+  // Check if item.date is a valid date string
+  const date = new Date(item.date);
+  if (isNaN(date.getTime())) {
+      console.error('Invalid date:', item.date);
+      return false; // Skip this item if the date is invalid
+  }
+
+  // Extract the date part from the MongoDB date string
+  const dbDate = date.toISOString().split('T')[0];
+  console.log('Comparing:', selectedDate, 'with', dbDate); // Debugging statement
+  return dbDate === selectedDate;
+}) : [];
+
 
  // Handler for date input change
  const handleDateChange = (event) => {
@@ -46,6 +54,7 @@ export default function DataBackend() {
  return (
     <div className='hisDiv'>
       <p>Filter History</p>
+      
       {/* Display date input field */}
       <label htmlFor="dateInput" className='header'>Select a Date:</label>
       <input type="date" id="dateInput" value={selectedDate} onChange={handleDateChange} />

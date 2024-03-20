@@ -104,8 +104,9 @@ const fetchGoalFromBackend = () => {
     const updatedConsumed = Math.max(0, Math.min(newGoal, goal));
     setConsumed(updatedConsumed);
 
-    // Get current date
-    const currentDate = new Date().toISOString();
+// Define currentDate within this function if it's needed here
+const currentDate = new Date().toISOString().split('T')[0]; // Extracting date portion
+
     
     // Create an object with the data to be saved
     const data = {
