@@ -30,9 +30,31 @@ export function UserAuthContextProvider({ children }) {
     return signOut(auth);
   }
 
-  function googleSignIn() {
+  function googleSignIn(navigate) {
     const googleAuthProvider = new GoogleAuthProvider();
-    return signInWithPopup(auth, googleAuthProvider);
+    return signInWithPopup(auth, googleAuthProvider)
+      .then((result) => {
+        // Obtain the user's UID from the authentication result
+        const uid = result.user.uid;
+  
+        // Check if the UID exists in the MongoDB collection
+        return fetch(`http://localhost:5000/api/checkUser/${uid}`)
+          .then((response) => response.json())
+          .then((data) => {
+            // Navigate based on the existence of the UID in the database
+            if (data.exists) {
+              navigate("/dashboard");
+            } else {
+              navigate("/health-quiz");
+            }
+          })
+          .catch((error) => {
+            console.log("Error checking user existence:", error);
+          });
+      })
+      .catch((error) => {
+        console.log("Error signing in with Google:", error.message);
+      });
   }
 
   async function resetPassword(email) {

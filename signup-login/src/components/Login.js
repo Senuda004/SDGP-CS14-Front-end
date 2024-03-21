@@ -27,12 +27,12 @@ const Login = () => {
   const handleGoogleSignIn = async (e) => {
     e.preventDefault();
     try {
-      await googleSignIn();
-      navigate("/dashboard");
+      await googleSignIn(navigate);
     } catch (error) {
       console.log(error.message);
     }
   };
+
 
   return (
     <div className="main-login">
