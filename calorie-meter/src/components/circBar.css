@@ -193,6 +193,7 @@ hr {
     z-index: 2;
 }
 
+
 .userInput::placeholder {
     font-weight:400; /* Make placeholder font bold */
     color:#302f2c ;
@@ -239,8 +240,8 @@ hr {
 #count{
     color:#FFC533;
     font-weight: 800;
-    font-size: 20px;
-    margin-top: 25px;
+    font-size: 12px;
+    margin-top: 12px;
 }
 .addDuctBtns {
     background-color: #FFFF;
@@ -254,6 +255,25 @@ hr {
     margin-left: 380px;
     z-index: 3; /* Ensure it's above the background and other elements */
 }
+#calInput{
+    width: 250px;
+    height: 60px;
+    background-color: rgb(240, 240, 243); /* Adjust circle color as needed */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    color: rgb(7, 2, 2);
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute;
+    margin-top: 540px;
+    margin-left: 100px;
+    transform: translate(-50%, -500px); /* Adjust vertical position */
+    border-radius: 50px;
+    font-weight: lighter;
+    border: none;
+    padding-left: 40px;
+    z-index: 2;
+
+}
 .addDuctBtns p{
     padding-left: 20px;
     font-weight: bold;
@@ -266,7 +286,7 @@ hr {
     color: rgb(255, 251, 251);
     width: 200px;
     height: 40px;
-    margin-top: 65px;
+    margin-top: 125px;
     border-radius: 30px;
     padding: 0 15px;
     cursor: pointer;
@@ -284,7 +304,7 @@ hr {
     color: rgb(255, 251, 251);
     width: 200px;
     height: 40px;
-    margin-top: 20px;
+    margin-top: 2px;
     border-radius: 30px;
     padding: 0 15px;
     cursor: pointer;

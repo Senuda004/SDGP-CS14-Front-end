@@ -99,8 +99,8 @@ const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
       </svg>
       
       <div className='addDuctBtns' style={{ textAlign: 'center' }}>
-        <p>Adjust your calories</p>
-        <input type="number" value={caloriesToAddOrDeduct} onChange={handleInputChange} />
+        <p>Input your calories</p>
+        <input type="number" value={caloriesToAddOrDeduct} onChange={handleInputChange} placeholder='Enter your calories' id='calInput' />
         <button className='cbtn1' onClick={handleDeductCalories}>Deduct Calories</button>
         <div id='count'>{consumed}/{goal} kcal</div>
         <button className='cbtn2' onClick={handleAddCalories}>Add Calories</button>
