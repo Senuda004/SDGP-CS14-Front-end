@@ -28,7 +28,7 @@ const Signup = () => {
     <div className="main-signup">
       <div className="p-10 flex items-center justify-center gap-7 bg-stone-50 rounded-[30px] custom-shadow body-2">
         {/* form */}
-        <div className="w-1/2">
+        <div className="lg:w-1/2 xl:w-1/2 w-full">
           <div className="p-4">
             <h2 className="mb-3 font-bold text-3xl opacity-55 text-center relative bottom-10">Nutrimate Signup</h2>
             {error && <Alert variant="danger">{error}</Alert>}
@@ -64,7 +64,7 @@ const Signup = () => {
         </div>
 
         {/* image */}
-        <div className="w-20vh">
+        <div className="w-20vh lg:block xl:block hidden">
             <img src="https://i.ibb.co/vmDdxRr/Login-Page-PNG.png" alt="" />
         </div>
 

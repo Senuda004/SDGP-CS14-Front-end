@@ -38,9 +38,9 @@ const Login = () => {
     <div className="main-login">
       <div className="p-10 flex items-center justify-center gap-5 bg-stone-50 rounded-[30px] custom-shadow body-2">
         {/* form */}
-        <div className="w-1/2">
+        <div className="lg:w-1/2 xl:w-1/2 w-full">
           <div className="p-4 ">
-            <h2 className="mb-3 font-bold text-3xl opacity-55 text-center relative bottom-10">Nutrimate Login</h2>
+            <h2 className="mb-3 font-bold lg:text-3xl xl:text-3xl text-2xl opacity-55 text-center relative lg:bottom-10 xl:bottom-10 bottom-5">Nutrimate Login</h2>
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -80,13 +80,13 @@ const Login = () => {
               />
             </div>
           </div>
-          <div className="text-center rounded-lg">
+          <div className="text-center rounded-lg  lg:text-[15px] xl:text-[15px] text-[13px] ">
             Don't have an account? <Link to="/signup" className="text-amber-400">Sign up</Link>
           </div>
         </div>
 
         {/* image */}
-        <div className="w-20vh">
+        <div className=" lg:block xl:block hidden">
           <img src="https://i.ibb.co/vmDdxRr/Login-Page-PNG.png" alt="" />
         </div>
 
