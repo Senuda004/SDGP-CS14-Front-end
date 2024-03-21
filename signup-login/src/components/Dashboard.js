@@ -6,6 +6,11 @@ import { nutriScore } from 'nutri-score';
 import NutritionForm from './NutritionForm';
 import NutriCard from './NutriCard';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import BarcodeScannerComponent from 'react-qr-barcode-scanner';
+// import BarcodeScannerComponent from 'react-webcam-barcode-scanner';
+import Barcode from 'react-barcode';
+
+import { useZxing } from 'react-zxing';
 
 const Dashboard = () => {
   const webcamRef = useRef(null);
@@ -15,6 +20,8 @@ const Dashboard = () => {
   const [firstPhotoTaken, setFirstPhotoTaken] = useState(false);
   const [user, setUser] = useState(null);
   const [photoURL, setPhotoURL] = useState(null);
+
+
 
   // State to store reecenet scanned item TO GET NUTRITIONAL GRADE OF scanned item from camera
   const [recentScannedItem, setRecentScannedItem] = useState(null);
@@ -51,10 +58,147 @@ const Dashboard = () => {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
+  //Implememntation of barcode sCAN
   const [foodData, setFoodData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [productInfo, setProductInfo] = useState(null);
 
- 
+  const [result, setResult] = useState("");
+  const { ref } = useZxing({
+    onDecodeResult(result) {
+      setResult(result.getText());
+    },
+  });
+
+  const fetchBarcodeInfo = async (barcode) => {
+    try {
+      const apiUrl = `https://world.openfoodfacts.net/api/v2/product/${barcode}?fields=product_name,nutriscore_data,nutriments,nutrition_grades`;
+      const response = await axios.get(apiUrl);
+      console.log(response.data);
+     
+      const { product_name } = response.data.product;
+      console.log("qr product " + 
+      product_name
+       );
+
+       const { nutriments } = response.data.product;
+    
+  
+        // get the recent score of the user and grade 
+    const recentGrade = calculateNutriGrade({
+      energy:  nutriments['energy-kj_serving'],
+      fibers: nutriments.fiber_serving,
+      fruit_percentage: nutriments["fruits-vegetables-legumes-estimate-from-ingredients_serving"],
+      proteins: nutriments.proteins_serving ,
+      saturated_fats:nutriments["saturated-fat_serving"],
+      sodium:(nutriments.sodium_serving) * 1000,
+      sugar:  nutriments.sugars_serving
+
+    })
+
+
+
+    const recentScore = calculateNutriScore({
+      energy:  nutriments['energy-kj_serving'],
+      fibers: nutriments.fiber_serving,
+      fruit_percentage: nutriments["fruits-vegetables-legumes-estimate-from-ingredients_serving"],
+      proteins: nutriments.proteins_serving ,
+      saturated_fats:nutriments["saturated-fat_serving"],
+      sodium:(nutriments.sodium_serving) * 1000,
+      sugar:  nutriments.sugars_serving
+    })
+
+    setGrade(recentGrade);
+    // Gives error as type required is number
+    setScore(recentScore);
+
+    const nutritionalContent = " , for your information  The nutritional content of " + product_name + "is " +
+    " per serving energy in kj : " + nutriments['energy-kj_serving'] + " ,fibers in g: " + nutriments.fiber_serving + " ,fruit vegetable estimate " + nutriments["fruits-vegetables-legumes-estimate-from-ingredients_serving"]
+    + " , proteins in g " + nutriments.proteins_serving  + " ,fats in g: " + nutriments["saturated-fat_serving"] + " ,sodium in mg: " + (nutriments.sodium_serving) * 1000 + 
+    " ,sugars in g: " +  nutriments.sugars_serving
+
+    console.log(nutritionalContent);
+    
+    
+
+        // Save it to the database
+      try {
+        const saveScannedItemResponse = await axios.post('http://localhost:5000/api/saveScannedItem', {
+          uid: user.uid, // Assuming user.uid is the UID of the current user
+          scannedItem: product_name + nutritionalContent,
+        });
+        console.log('Scanned item saved:', saveScannedItemResponse.data);
+        
+        // Update Recommnedation from barcode in dataabse
+        
+        const updateRatingResponse = await axios.get(`http://localhost:5000/api/updateRatingAndGenerateRecommendation/${user.uid}`);
+        console.log('Rating updated:', updateRatingResponse.data);
+
+        setRecentScannedItem(product_name);
+    
+
+        const barcodeRating = updateRatingResponse.data.recommendation
+
+      
+        // setNutriRecommendation(recommendation);
+          //Set the currentrecomnedation
+    
+          console.log("as of now rating " + barcodeRating)
+          setNutriRecommendation(barcodeRating);
+  
+          
+
+      } catch (saveScannedItemError) {
+        console.error('Error saving scanned item:', saveScannedItemError);
+      }
+
+     
+
+      
+
+
+     
+
+
+      
+      
+      // const {
+      //   energy,
+      //   saturated_fat,
+      //   sugar,
+      //   fiber,
+      //   proteins,
+      //   sodium,
+      //   'fruits-vegetables-legumes-estimate-from-ingredients_100g': veg_fruit
+      // } = nutriments;
+
+
+      return response.data;
+
+      
+  
+    } catch (error) {
+      console.error('Error fetching product information:', error);
+      return null;
+    }
+
+
+  };
+
+  useEffect(() => {
+    if (result) {
+      fetchBarcodeInfo(result).then((data) => {
+        setProductInfo(data);
+      });
+    }
+
+    
+  }, [result]);
+  
+
+
+
+
   useEffect(() => {
     // Replace 'http://localhost:5000/api/fooddata' with the correct URL
     const apiUrl = 'http://localhost:5000/api/fooddata';
@@ -74,6 +218,23 @@ const Dashboard = () => {
 
     fetchData();
   }, []);
+
+  // // Implementation of QR/Barcode Scaner
+  // const [data, setData] = useState("Capture : ...");
+  // const [show, setShow] = useState(false);
+
+  // const onUpdateScreen = (err, result) => {
+  //   if (result) {
+  //     setData(result.text);
+  //     setShow(false);
+  //   } else {
+  //     setData("Not Found");
+  //   }
+  // };
+
+
+
+
 
   const takePhoto = async () => {
     if (webcamRef.current) {
@@ -502,6 +663,30 @@ const Dashboard = () => {
         <img className="w-[238px] h-[260px] relative bottom-20 right-9" src="https://i.ibb.co/G3kYNBc/6357895-removebg-preview.png" />
       </div>
      
+     
+      <h1>Scan BarCode</h1>
+
+
+        <>
+          {/* {show && (
+            <BarcodeScannerComponent
+              width={400}
+              height={400}
+              onUpdate={(err, result) => onUpdateScreen(err, result)}
+            />
+          )}
+          <p>{data}</p> */}
+    
+
+          </>
+  
+        {/* <div>
+          <button onClick={() => setShow(true)}> Capture </button>
+        </div> */}
+
+
+
+
 
       {/* Open Modal Button */}
       {/* <button onClick={openModal} className='bg-amber-400 text-white w-1/2 rounded-md p-2 mt-10'>Scan using camera</button> */}
@@ -565,6 +750,8 @@ const Dashboard = () => {
             </button>
           </>
         )}
+
+      
 
         {/* Display identified item */}
         {firstPhotoTaken && (
@@ -658,6 +845,13 @@ const Dashboard = () => {
         </div>
         <button onClick={closeNutritionModal} className='absolute top-2 right-8 bg-amber-400 text-white w-20 rounded-md p-2 mt-10 font-semibold'>Close</button>
       </Modal>
+
+      <video ref={ref} />
+      <p>
+        <span>Last result:</span>
+        <span>{result}</span>
+      </p>
+
 
     </div>
   );

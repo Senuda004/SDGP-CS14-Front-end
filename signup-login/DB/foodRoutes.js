@@ -216,4 +216,58 @@ router.get('/foodInformation/:uid', async (req, res) => {
   }
 });
 
+
+// Get the barcode Food teim data
+
+// Endpoint to update the rating of the latest scanned item and generate a recommendation
+router.get('/updateRatingAndGenerateRecommendation/:uid', async (req, res) => {
+  try {
+    const { uid } = req.params;
+
+    // Find the user with the given uid
+    const user = await User.findOne({ uid });
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Get the latest scanned item
+    const scannedItem = user.scanned_items[user.scanned_items.length - 1];
+
+    if (!scannedItem) {
+      return res.status(404).json({ error: 'Scanned item not found' });
+    }
+
+    // Generate health profile
+    
+        // User health quiz answers
+        const foodPreference = user.food_avoidance;
+        const healthCondition = user.health_conditions;
+        const dietaryPreference = user.dietary_preferences;
+        const foodAvoidance = user.food_avoidance;
+        const ageGroup = user.age_group;
+        const healthGoal =user.health_goal
+    
+        // Going to store all the users health answers and feed it to our LLM model
+        const HealthProfile = "I fall between age group of " + ageGroup + ", in terms of my health conditions : " + healthCondition
+        + ". When it comes to food that I should avoid: " + foodAvoidance + " and the food i usually prefer " + foodPreference +
+        ". When it comes to my dietary preference " + dietaryPreference + ".My health goal is to improve " + healthGoal;
+    
+    
+
+    // Generate recommendation
+    const recommendation = await generateRecommendation(HealthProfile, scannedItem.name);
+
+    // Update the rating for the latest scanned item
+    scannedItem.rating = recommendation;
+    await user.save();
+
+    res.status(200).json({ scannedItem, recommendation });
+  } catch (error) {
+    console.error('Error updating rating and generating recommendation:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
 module.exports = router;
