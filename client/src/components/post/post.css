@@ -78,9 +78,23 @@
   
   .post {
     transition: transform 0.3s ease; /* Add transition for smooth animation */
+    margin-top: 50px;
   }
   
   .post:hover {
     transform: scale(1.016); /* Increase size on hover */
   }
   
+  .addPostButton {
+  margin-left: 1260px;
+  background-color: #FFC533; 
+  border:2px solid rgb(84, 84, 84);
+  color: rgb(84, 84, 84);
+  padding: 6px 8px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 50px;
+}

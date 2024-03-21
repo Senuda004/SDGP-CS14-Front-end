@@ -6,16 +6,15 @@ import React, { useState, useContext } from 'react';
 
 export default function Write() {
   const [title, setTitle] = useState(""); // State to hold the post title
-  const [desc, setDesc] = useState(""); // State to hold the post description
+  const [description, setDescription] = useState(""); // State to hold the post description
   const [file, setFile] = useState(null); // State to hold the selected image file
-  const { user } = useContext(Context); // Access user context if needed
 
   // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newPost = {
       title,
-      desc,
+      description
     };
 
     // If a file is selected, prepare form data for file upload
@@ -24,7 +23,7 @@ export default function Write() {
       const filename = Date.now() + file.name;
       data.append("name", filename);
       data.append("file", file);
-      newPost.photo = filename;
+      newPost.img = filename;
       try {
         // Upload the file using axios to the specified endpoint ("/upload" assumed here)
         await axios.post("/upload", data);
@@ -73,7 +72,7 @@ export default function Write() {
             placeholder="Description here..."
             type="text"
             autoFocus={true}
-            onChange={(e) => setDesc(e.target.value)}
+            onChange={(e) => setDescription(e.target.value)}
           />
         </div>
         {/* Button to submit the form */}
