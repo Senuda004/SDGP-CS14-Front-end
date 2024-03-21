@@ -505,7 +505,12 @@ const Dashboard = () => {
 
       <div className='flex flex-row mt-10 justify-center '>
         <img className="w-[203px] h-[255px]" src="https://i.ibb.co/7tSwKBq/removal-ai-8793b6e3-d8cc-4a38-985b-1c07d1850ee3-51aca451-26eb-4659-8b2e-f5e714fde315.png" alt='photo business'/>
-        <div className="w-[685px] h-[221px] bg-white rounded-[30px] custom-shadow-home">
+        <div className="w-[685px] h-[221px] bg-white rounded-[30px] custom-shadow-home flex justify-around">
+          <div className='flex flex-col gap-0 items-center'>
+            <img src="https://i.ibb.co/bXpVFtD/chocolate-bis-BG2.png" alt="chocolate-bis-BG" className=' w-[45vh]'/>
+            <h2 className="text-[15px] font-semibold relative bottom-4 ">Nutri Recommendation: <span className='text-gray-700 rounded-[30px] border-2 border-green-400 p-2 px-4'>{NutriRecommendation}</span></h2>
+          </div>
+          
           <NutriCard 
                   image = {NutritionalGradeImage(grade)}
                   score = {score}
