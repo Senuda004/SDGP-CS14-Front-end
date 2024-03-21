@@ -167,6 +167,7 @@ export default function CircBar() { // Destructure props here
             <div >
                 {/* Display products */}
                 <DetailsPage/>
+                
             </div>
         )}
         </div>

@@ -4,50 +4,46 @@ import { Line } from 'rc-progress';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical, faPlus } from '@fortawesome/free-solid-svg-icons';
 
+/*
+const ProductList = ({ products, onConsumedChange, consumed }) => {
+  console.log(typeof onConsumedChange); // Should log "function"
 
-const ProductList = ({ products}) => {
-  /*
-  const handleAddToGoal = () => {
-    if (!newGoal) {
-      alert('Please set a goal first.');
-      return;
-    }
-    const newConsumed = updateConsumed(consumed - 10); // Update consumed directly
-    if (newConsumed < 0) {
-      alert('Adding this product will exceed your daily goal!');
-    }
-  };
-
-  const handleDeleteFromGoal = () => {
-    if (!newGoal) {
-      alert('Please set a goal first.');
-      return;
-    }
-    updateConsumed(consumed + 10); // Update consumed directly
-  };*/
-
+  
   return (
     <div className="product-list">
-      {/* Loop through each product and create a ProductCard component */}
+      {/* Loop through each product and create a ProductCard component }
       {products.map(product => (
         <ProductCard 
           key={product.name}
           product={product} 
-         /* newGoal={newGoal}
-          consumed={consumed}
-          updatedConsumed={updateConsumed}
-          handleAddToGoal={handleAddToGoal} // Pass the handler functions as props
-          handleDeleteFromGoal={handleDeleteFromGoal}*/
+          onConsumedChange={onConsumedChange} // Pass the function to each ProductCard
+          consumed={consumed} // Pass the current consumed value to each ProductCard
         />
       ))}
     </div>
   );
-};
+};*/
+const ProductList = ({ products, onConsumedChange, consumed }) => {
+  console.log(typeof onConsumedChange); // Should log "function"
+  console.log('Received consumed value in ProductList:', consumed);
+  return (
+     <div className="product-list">
+       {products.map(product => (
+         <ProductCard 
+           key={product.name}
+           product={product} 
+           onConsumedChange={onConsumedChange}
+           consumed={consumed} // Ensure this prop is being passed
+         />
+       ))}
+     </div>
+  );
+ };
 
-
-const ProductCard = ({ product}) => {  
+const ProductCard = ({ product, onConsumedChange = () => {}, consumed}) => {
   const [isPopupVisible, setPopupVisible] = useState(false);
-  
+  console.log(typeof onConsumedChange); // Should log "function"
+  console.log('Received consumed value:', consumed); // Debugging line
   const togglePopup = () => {
     setPopupVisible(!isPopupVisible);
   };
@@ -94,11 +90,18 @@ const ProductCard = ({ product}) => {
         
         {isPopupVisible && (
           <div className="popup-box">
-            <button className="button" /*onClick={handleAddToGoal} */aria-label="Add to goal">
+             <p>Consumed: {consumed}</p>
+            <button onClick={() => {
+            console.log('Adding 100 to consumed');
+            onConsumedChange(consumed - 100);
+            }}>
               <FontAwesomeIcon icon={faPlus} />
               Add
             </button>
-            <button className='button' /*onClick={handleDeleteFromGoal} */aria-label="Delete from goal">Delete</button>
+            <button onClick={() => {
+            console.log('Subtracting 100 from consumed');
+            onConsumedChange(consumed + 100);
+            }}>Delete</button>
           </div>
         )}
       </div>
@@ -107,3 +110,4 @@ const ProductCard = ({ product}) => {
 };
 
 export default ProductList;
+

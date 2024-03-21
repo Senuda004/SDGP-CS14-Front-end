@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 
 const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
-  
+  console.log('Received consumed value:', consumed); // Debugging line
+  console.log('Received onConsumedChange function:', onConsumedChange); // Debugging line
+  const [caloriesToAddOrDeduct, setCaloriesToAddOrDeduct] = useState(0); // State to hold user input
   const [size, setSize] = useState(380); // Size of the circle
   const [strokeWidth, setStrokeWidth] = useState(30); // Width of the progress bar
   const [radius, setRadius] = useState(size / 2 - strokeWidth / 2); // Radius of the circle
@@ -10,10 +12,35 @@ const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
   const progressOffset = ((goal - normalizedProgress) / goal) * circumference;
   const progressPercentage = (consumed / goal) * 100;  // Calculate the percentage of progress
   
+  const handleInputChange = (event) => {
+    setCaloriesToAddOrDeduct(parseInt(event.target.value)); // Convert input to integer
+  };
+  /*
   const handleAddCalories = (caloriesToAdd) => {
     const newConsumed = consumed + caloriesToAdd;
     if (newConsumed > goal) {
       alert('Adding these calories will exceed your daily goal!');
+      
+    } else {
+      onConsumedChange(newConsumed);
+     
+    }
+  };*/
+
+  
+  const handleAddCalories = () => {
+    const newConsumed = consumed + caloriesToAddOrDeduct;
+    if (newConsumed > goal) {
+      alert('Adding these calories will exceed your daily goal!');
+    } else {
+      onConsumedChange(newConsumed);
+    }
+  };
+
+  const handleDeductCalories = () => {
+    const newConsumed = consumed - caloriesToAddOrDeduct;
+    if (newConsumed < 0) {
+      alert('You cannot deduct more calories than you have consumed!');
     } else {
       onConsumedChange(newConsumed);
     }
@@ -58,15 +85,17 @@ const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
           <tspan x="50%" dy="1.5em">Daily goal</tspan>
         </text>
       </svg>
-      <div className='addDuctBtns'style={{ textAlign: 'center' }}>
+      
+      <div className='addDuctBtns' style={{ textAlign: 'center' }}>
         <p>Adjust your calories</p>
-        
-        <button className='cbtn1' onClick={() => onConsumedChange(consumed - 100)}>Deduct 100 kcal</button>
+        <input type="number" value={caloriesToAddOrDeduct} onChange={handleInputChange} />
+        <button className='cbtn1' onClick={handleDeductCalories}>Deduct Calories</button>
         <div id='count'>{consumed}/{goal} kcal</div>
-        <button className='cbtn2' onClick={() => handleAddCalories(100)}>Add 100 kcal</button>
+        <button className='cbtn2' onClick={handleAddCalories}>Add Calories</button>
       </div>
     </div>
   );
 };
+
 
 export default CircularProgressBar;

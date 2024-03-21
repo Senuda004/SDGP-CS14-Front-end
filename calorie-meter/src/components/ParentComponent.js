@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import CircBar from './CircBar'; // Import CircBar component
+import CircularProgressBar from './CircularProgressBar';
 import ProductList from './ProductList';
 
 const ParentComponent = () => {
   const [goal, setGoal] = useState(5000);
   const [consumed, setConsumed] = useState(0);
-  const [products, setProducts] = useState([]);
-  const [newGoal, setNewGoal] = useState(0);
-  const [updatedConsumed, setUpdatedConsumed] = useState(0);
+  //const [products, setProducts] = useState([]);
+  
 
   useEffect(() => {
     fetch('/productList.json')
@@ -16,19 +15,35 @@ const ParentComponent = () => {
       .catch(error => console.error('Error fetching products:', error));
   }, []);
 
-  const updateGoalAndConsumed = (newGoalValue, updatedConsumedValue) => {
-    setNewGoal(newGoalValue);
-    setUpdatedConsumed(updatedConsumedValue);
+
+
+ const handleConsumedChange = (newConsumed) => {
+    setConsumed(newConsumed);
+    console.log('New consumed value:', newConsumed);
   };
+
+  console.log(typeof handleConsumedChange); // Should log "function"
+
 
   return (
     <div>
-      <CircBar updateGoalAndConsumed={updateGoalAndConsumed} />
+      {/*<CircularProgressBar
+        goal={goal}
+        consumed={consumed}
+        onConsumedChange={handleConsumedChange}
+  />*/}
 
-      <ProductList products={products} consumed={consumed} newGoal={newGoal} updatedConsumed={updatedConsumed} />
-      {/* Additional components or logic */}
+      <ProductList
+          products={products}
+          onConsumedChange={handleConsumedChange}
+          consumed={consumed}
+        />
+    
     </div>
   );
 };
 
 export default ParentComponent;
+
+
+
