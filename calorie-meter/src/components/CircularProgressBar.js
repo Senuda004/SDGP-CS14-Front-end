@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 
 const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
+
+  
   console.log('Received consumed value:', consumed); // Debugging line
   console.log('Received onConsumedChange function:', onConsumedChange); // Debugging line
+  const [showCongratulations, setShowCongratulations] = useState(false);
   const [caloriesToAddOrDeduct, setCaloriesToAddOrDeduct] = useState(0); // State to hold user input
   const [size, setSize] = useState(380); // Size of the circle
   const [strokeWidth, setStrokeWidth] = useState(30); // Width of the progress bar
@@ -29,14 +32,21 @@ const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
 
   
   const handleAddCalories = () => {
+    // Check if goal is set
+    if (!consumed) {
+      alert('Please set a goal first.');
+      return;
+    }
+  
+    // Proceed with adding calories if goal is set
     const newConsumed = consumed + caloriesToAddOrDeduct;
     if (newConsumed > goal) {
-      alert('Adding these calories will exceed your daily goal!');
+      alert('Adding these calories will exceed your daily goal!Change the goal if you want');
     } else {
       onConsumedChange(newConsumed);
     }
   };
-
+  
   const handleDeductCalories = () => {
     const newConsumed = consumed - caloriesToAddOrDeduct;
     if (newConsumed < 0) {
@@ -45,6 +55,8 @@ const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
       onConsumedChange(newConsumed);
     }
   };
+
+
   
   // Determine stroke color based on progress percentage
   let strokeColor;
