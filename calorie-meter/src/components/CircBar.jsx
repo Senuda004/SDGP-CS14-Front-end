@@ -79,7 +79,7 @@ export default function CircBar() { // Destructure props here
     setConsumed(updatedConsumedValue);
  
   // Define currentDate within this function if it's needed here
-  const currentDate = new Date().toISOString().split('T')[0]; // Extracting date portion
+  const currentDate = new Date().toISOString(); // Get current date and time
     // Create an object with the data to be saved
     const data = {
       uid: uid,
