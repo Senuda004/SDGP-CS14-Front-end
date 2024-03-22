@@ -5,7 +5,7 @@
   grid-gap: 10px; /* Adjust the gap between grid items */
   padding: 30px; /* Add padding to the grid */
   margin: 0; /* Remove margin */
-  margin-top: 70px; /* Add margin top */
+  margin-top: 30px; /* Add margin top */
   max-width: 100%; /* Prevent posts from overflowing horizontally */
   overflow-x: hidden; /* Hide horizontal overflow */
 }
@@ -22,12 +22,14 @@
 }
 
 .addPostButton {
+  margin-top: 500px;
+  margin-right: 70px;
   background-color: #FFC533; 
   border: 2px solid rgb(84, 84, 84);
   color: rgb(84, 84, 84);
-  padding: 6px 8px;
+  padding: 4px 7px;
   text-align: center;
-  font-size: 20px;
+  font-size: 27px;
   cursor: pointer;
   border-radius: 50px;
   position: fixed; /* Set position to fixed */
@@ -41,7 +43,8 @@
   margin-bottom: 5px; /* Adds space between posts */
   border: 1px solid #ccc; /* Adds a border around each post */
   padding: 0px; /* Adds padding inside each post */
-  width: 100%; /* Adjusts the width of the posts */
+  width: 400px; /* Adjusts the width of the posts */
+  height: 500px;
 }
 
 .postInfo {
