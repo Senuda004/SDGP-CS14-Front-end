@@ -1,7 +1,6 @@
 import "./write.css";
 import '@fortawesome/fontawesome-free/css/all.css';
 import axios from "axios";
-import { Context } from "../../context/Context";
 import React, { useState, useContext } from 'react';
 
 export default function Write() {

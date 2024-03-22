@@ -1,9 +1,10 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./singlepost.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 export default function SinglePost() {
+  const navigate= useNavigate();
   const location = useLocation()
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({})
@@ -18,6 +19,17 @@ const getPost= async ()=>{
   
   }, [path]);
 
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`/posts/${path}`);
+      navigate("/"); // Redirect to homepage after deletion
+    } catch (error) {
+      console.error("Error deleting post:", error);
+    }
+  };
+
+
+
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">
@@ -28,7 +40,10 @@ const getPost= async ()=>{
           {post.title}
           <div className="singlePostEdit">
             <i className="singlePostIcon far fa-edit"></i>
-            <i className="singlePostIcon far fa-trash-alt"></i>
+            <i
+                  className="singlePostIcon far fa-trash-alt"
+                  onClick={handleDelete}
+                ></i>
           </div>
         </h1>
         <div className="singlePostInfo">
@@ -44,6 +59,7 @@ const getPost= async ()=>{
         </div>
         <p className="singlePostDesc">  
           {post.description}
+          
         </p>
       </div>
     </div>
