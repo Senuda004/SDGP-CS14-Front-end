@@ -3,13 +3,12 @@ import { FaPlus } from 'react-icons/fa'; // Import FaPlus icon from react-icons/
 import "./post.css";
 
 export default function Post({ post }) {
+  const PF="http://localhost:5000/uploads/"
+
+
   return (
     <div className="post">
-      <img
-        className="postImg"
-        src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-        alt=""
-      />
+      {post.img && <img className="postImg" src ={PF + post.img} alt=""/>}
       <div className="postInfo">
         <div className="postCats">
           {post.category.map(c => (
@@ -24,12 +23,7 @@ export default function Post({ post }) {
       </div>
       <p className="postDesc"> {post.description} </p>
 
-      {/* Button to add a post */}
-      <Link to="/write">
-        <button className="addPostButton">
-          <FaPlus />
-        </button>
-      </Link>
+      
     </div>
   );
 }

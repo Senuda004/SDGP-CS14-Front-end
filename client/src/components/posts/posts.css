@@ -22,17 +22,18 @@
 }
 
 .addPostButton {
-  margin-left: 1260px;
   background-color: #FFC533; 
-  border:2px solid rgb(84, 84, 84);
+  border: 2px solid rgb(84, 84, 84);
   color: rgb(84, 84, 84);
   padding: 6px 8px;
   text-align: center;
-  display: inline-block;
   font-size: 20px;
-  transition-duration: 0.4s;
   cursor: pointer;
   border-radius: 50px;
+  position: fixed; /* Set position to fixed */
+  top: 20px; /* Adjust top position */
+  right: 20px; /* Adjust right position */
+  z-index: 1000; /* Set z-index to ensure it appears above other content */
 }
 
 .post {

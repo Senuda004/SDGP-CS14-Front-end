@@ -7,6 +7,7 @@ export default function SinglePost() {
   const location = useLocation()
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({})
+  const PF="http://localhost:5000/uploads/"
 
   useEffect(()=>{
 const getPost= async ()=>{
@@ -20,12 +21,8 @@ const getPost= async ()=>{
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">
-        {post.photo && (
-        <img
-          className="singlePostImg"
-          src={post.img}
-          alt=""
-        />
+        {post.img && (
+        <img className="singlePostImg" src={PF +post.img} alt=""/>
 )}
         <h1 className="singlePostTitle">
           {post.title}
