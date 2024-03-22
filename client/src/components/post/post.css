@@ -2,7 +2,6 @@
     border-radius: 8px; /* Add border radius for rounded corners */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
     background-color: #3d3d3d; /* Add background color for better visualization */ 
-   
   }
 
   .postImg {
@@ -31,7 +30,7 @@
   }
   
   .postTitle {
-    font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
+    font-family: 'Poppins';
     font-size: 24px;
     font-weight: 900;
     margin-top: 5px;
@@ -50,10 +49,10 @@
   }
   
   .postDesc {
-    font-family: "Varela Round", Arial, Helvetica, sans-serif;
+    font-family: "Poppins";
     font-weight: 400;
     font-size: 14px;
-    line-height: 24px;
+    line-height: 25px;
     color: #ffffff;
     margin-top: 15px;
     overflow: hidden;
@@ -63,7 +62,7 @@
     -webkit-box-orient: vertical;
     line-height: 20px; /* Adjust the line height as needed */
     text-align: justify; /* Add this line to justify the text */
-    margin: 20px 10px;
+    margin: 20px 30px;
   }
 
   .postLink {

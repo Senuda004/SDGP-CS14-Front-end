@@ -38,6 +38,7 @@
 .singlePostEdit {
   float: right;
   font-size: 16px;
+  margin: 5px;
 }
 
 .singlePostIcon {
@@ -61,6 +62,7 @@
   font-size: 16px;
   color: #be9656;
   font-family: 'Poppins';
+  margin: 20px;
 }
 
 .singlePostAuthor {
@@ -75,6 +77,7 @@
   word-wrap: break-word; /* Break long words */
   margin-top: 10px;
   font-family: 'Poppins';
+  margin: 20px;
 }
 
 h1 {

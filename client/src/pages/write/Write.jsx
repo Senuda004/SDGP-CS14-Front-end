@@ -67,8 +67,8 @@ export default function Write() {
         <div className="writeFormGroup">
           {/* Textarea for post description */}
           <textarea
-            className="writeInput writeText"
-            placeholder="Description here..."
+            className="writeInputdesc"
+            placeholder="Description"
             type="text"
             autoFocus={true}
             onChange={(e) => setDescription(e.target.value)}

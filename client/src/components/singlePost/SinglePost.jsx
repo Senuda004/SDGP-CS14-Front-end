@@ -55,7 +55,9 @@ const getPost= async ()=>{
               </Link>
             </b>
           </span>
+          <div className="date">
           <span>{new Date(post.createdAt).toDateString()}</span>
+          </div>
         </div>
         <p className="singlePostDesc">  
           {post.description}
