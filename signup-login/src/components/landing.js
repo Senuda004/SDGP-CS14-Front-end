@@ -168,7 +168,7 @@ const HeroComponent = () => {
                                 Sign up
                             </a>
                             <a
-                                href="/"
+                                href="/login"
                                 title=""
                                 className="inline-flex items-center justify-center lg:px-6 xl:px-6 px-3 py-3 lg:text-base xl:text-base text-[12px] font-bold leading-7 text-white transition-all duration-200 bg-amber-400 border border-transparent rounded hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
                                 role="button"

@@ -30,7 +30,7 @@ const Home = () => {
   }
 
   // Check if the current path is "/home" before rendering the component
-  if (location.pathname === '/' || location.pathname === '/signup' || location.pathname === '/forgot-password' || location.pathname === "/hero" || location.pathname === "/health-quiz" || location.pathname === "/not-found") {
+  if (location.pathname === '/' || location.pathname === '/signup' || location.pathname === '/forgot-password' || location.pathname === "/login" || location.pathname === "/health-quiz" || location.pathname === "/not-found") {
     return null;
   }
 
