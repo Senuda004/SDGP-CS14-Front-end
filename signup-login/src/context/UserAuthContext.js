@@ -38,7 +38,7 @@ export function UserAuthContextProvider({ children }) {
         const uid = result.user.uid;
   
         // Check if the UID exists in the MongoDB collection
-        return fetch(`http://localhost:5000/api/checkUser/${uid}`)
+        return fetch(`https://sdgp-cs14-back-end.onrender.com/api/checkUser/${user.uid}`)
           .then((response) => response.json())
           .then((data) => {
             // Navigate based on the existence of the UID in the database
