@@ -1,17 +1,13 @@
 .posts {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust the column size */
-  grid-auto-rows: minmax(100px, auto); /* Set minimum row height */
-  grid-gap: 10px; /* Adjust the gap between grid items */
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  grid-gap: 50px; /* Adjust the gap between grid items */
   padding: 30px; /* Add padding to the grid */
   margin: 0; /* Remove margin */
   margin-top: 30px; /* Add margin top */
   max-width: 100%; /* Prevent posts from overflowing horizontally */
   overflow-x: hidden; /* Hide horizontal overflow */
-}
-
-.post:nth-child(3n + 1) {
-  grid-column: span 2; /* Make every first post in a row span two columns */
 }
 
 
@@ -44,7 +40,7 @@
   border: 1px solid #ccc; /* Adds a border around each post */
   padding: 0px; /* Adds padding inside each post */
   width: 400px; /* Adjusts the width of the posts */
-  height: 500px;
+  min-height: 500px;
 }
 
 .postInfo {
@@ -69,5 +65,10 @@
     .post {
       flex: 1 1 200px; /* Make posts display inline with a fixed width of 200px */
       margin: 10px; /* Add margin between posts */
+      min-width: 300px;
+    }
+    .addPostButton {
+      margin-top: 700px;
+      margin-right: 30px;
     }
   }
