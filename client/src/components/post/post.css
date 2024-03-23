@@ -37,6 +37,9 @@
     cursor: pointer;
     color: black;
   }
+  .postTitle:hover{
+    color: #5a5a5a;
+  }
 
   
   .postDate {
