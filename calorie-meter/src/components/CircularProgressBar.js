@@ -61,11 +61,11 @@ const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
   // Determine stroke color based on progress percentage
   let strokeColor;
   if (progressPercentage < 33) {
-    strokeColor = 'red';
+    strokeColor = '#d9534f';
   } else if (progressPercentage < 66) {
-    strokeColor = 'blue';
+    strokeColor = '#5bc0de';
   } else {
-    strokeColor = 'green';
+    strokeColor = '#5cb85c';
   }
 
   return (

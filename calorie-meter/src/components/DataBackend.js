@@ -38,7 +38,6 @@ const filteredData = data ? data.filter(item => {
   return dbDate === selectedDate;
 }) : [];
 
-
  // Handler for date input change
  const handleDateChange = (event) => {
     setSelectedDate(event.target.value);
@@ -49,6 +48,33 @@ const filteredData = data ? data.filter(item => {
     const date = new Date(dateString);
     const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
     return date.toLocaleDateString('en-US', options);
+ };
+
+ // Function to delete data item by ID
+ const handleDelete = (id) => {
+    axios.delete(`http://localhost:5000/api/caldata/${id}`)
+      .then(response => {
+        if (response.status === 200) {
+          console.log('Data deleted successfully');
+          // Refetch data after deletion
+          axios.get('http://localhost:5000/api/caldata')
+            .then(response => {
+              if (response.status === 200) {
+                setData(response.data);
+              } else {
+                console.error('Unexpected status code:', response.status);
+              }
+            })
+            .catch(error => {
+              console.error('Error fetching data after deletion:', error);
+            });
+        } else {
+          console.error('Unexpected status code:', response.status);
+        }
+      })
+      .catch(error => {
+        console.error('Error deleting data:', error);
+      });
  };
 
  return (
@@ -71,6 +97,7 @@ const filteredData = data ? data.filter(item => {
               <p>
                 <strong>Goal:</strong> {item.goal}
               </p>
+              <button onClick={() => handleDelete(item._id)}>Delete</button>
             </div>
           ))}
         </div>
