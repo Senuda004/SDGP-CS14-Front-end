@@ -268,7 +268,7 @@ const Dashboard = () => {
   
       // Send the captured photo to the Python backend for saving
       try {
-        const saveResponse = await axios.post('http://127.0.0.1:8000/save_photo', {
+        const saveResponse = await axios.post('https://pug-inspired-humpback.ngrok-free.app/save_photo', {
           image: photoDataUrl.split(',')[1],  // Extract base64 data excluding "data:image/jpeg;base64,"
         });
   
@@ -277,7 +277,7 @@ const Dashboard = () => {
   
           // Send the saved photo to the Python backend for prediction
           try {
-            const predictResponse = await axios.post('http://127.0.0.1:8000/predict', {
+            const predictResponse = await axios.post('https://pug-inspired-humpback.ngrok-free.app/predict', {
               image_path: saveResponse.data.file_path,
             });
   
