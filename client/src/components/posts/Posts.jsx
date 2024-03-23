@@ -5,6 +5,7 @@ import "./posts.css";
 
 export default function Posts({posts}) {
   return (
+    <div className="posts-container">
     <div className="posts">
       {/* Render blog posts */}
       {posts.map((p)=>(
@@ -14,6 +15,7 @@ export default function Posts({posts}) {
       <Link to="/write" className="addPostButton">
         <FaPlus />
       </Link>
+    </div>
     </div>
   );
 }

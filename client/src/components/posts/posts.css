@@ -1,3 +1,7 @@
+.posts-contrainer{
+  position: relative;
+}
+
 .posts {
   display: flex;
   flex-wrap: wrap; 
@@ -10,30 +14,7 @@
   overflow-x: hidden; /* Hide horizontal overflow */
 }
 
-
-.categoryButtons {
-  margin-top: -40px; /* Adds space between buttons and posts */
-  margin-right: 10px; /* Adds space between buttons */
-  position:absolute;
-}
-
-.addPostButton {
-  margin-top: 500px;
-  margin-right: 70px;
-  background-color: #FFC533; 
-  border: 2px solid rgb(84, 84, 84);
-  color: rgb(84, 84, 84);
-  padding: 4px 7px;
-  text-align: center;
-  font-size: 27px;
-  cursor: pointer;
-  border-radius: 50px;
-  position: fixed; /* Set position to fixed */
-  top: 20px; /* Adjust top position */
-  right: 20px; /* Adjust right position */
-  z-index: 1000; /* Set z-index to ensure it appears above other content */
-}
-
+/* Add fade-in animation */
 .post {
   margin-top: 50px;
   margin-bottom: 5px; /* Adds space between posts */
@@ -41,6 +22,17 @@
   padding: 0px; /* Adds padding inside each post */
   width: 400px; /* Adjusts the width of the posts */
   min-height: 500px;
+  opacity: 0; /* Initially hide posts */
+  animation: fadeIn 0.5s ease forwards; /* Apply fade-in animation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Start with opacity 0 */
+  }
+  to {
+    opacity: 1; /* End with opacity 1 */
+  }
 }
 
 .postInfo {
@@ -54,21 +46,21 @@
   opacity: 0.9; /* Adjust the opacity value as needed */
 }
 
+.addPostButton {
+  margin-top: 120px;
+  margin-bottom:50px ;
+  position: absolute;
+  z-index: 100; /* Ensure it's above other content */
+}
+
+
 /* Media query for smaller screens */
 @media screen and (max-width: 800px) {
-    .posts {
-      display: flex;
-      flex-wrap: wrap; /* Allow posts to wrap to the next line */
-      justify-content: center; /* Center the posts horizontally */
-    }
-  
-    .post {
-      flex: 1 1 200px; /* Make posts display inline with a fixed width of 200px */
-      margin: 10px; /* Add margin between posts */
-      min-width: 300px;
-    }
-    .addPostButton {
-      margin-top: 700px;
-      margin-right: 30px;
-    }
+  .posts {
+    display: flex;
+    flex-wrap: wrap; /* Allow posts to wrap to the next line */
+    justify-content: center; /* Center the posts horizontally */
   }
+
+  
+}

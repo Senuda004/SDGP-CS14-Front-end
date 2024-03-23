@@ -125,3 +125,11 @@ h1 {
   margin-right: 20px;
   
 }
+
+.singlePostIcon {
+  transition: background-color 0.3s ease; /* Add transition for smooth animation */
+}
+
+.singlePostIcon:hover {
+  background-color: #e4e4e4; /* Light grey background color on hover */
+}

@@ -9,6 +9,7 @@
     background-repeat: repeat;
     background-position: center center, top left, top right, top right corner;
     background-size: contain;
+    font-family: 'Poppins';
 }
 
 .blogHead span {

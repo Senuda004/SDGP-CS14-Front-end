@@ -48,7 +48,7 @@ export default function SinglePost() {
       console.error("Error updating post:", error);
     }
   };  
-  
+
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">
@@ -95,9 +95,11 @@ export default function SinglePost() {
         ):(
         <p className="singlePostDesc"> {post.description}</p>
           )}
+          {updateMode &&(
 
           <button className="singlePostButton" onClick={handleUpdate}>Update</button>
-      </div>
+          )}
+          </div>
     </div>
   );
 }
