@@ -81,7 +81,7 @@ hr {
 /* Media query for larger screens */
 @media screen and (min-width: 1200px) {
     .topHed span {
-        font-size: 45px; /* Adjust as needed */
+        font-size: 45px;
     }
 }
 
@@ -90,9 +90,9 @@ hr {
 .mainCal{
    background-image: url('https://i.ibb.co/n6czcSX/s7.png');
     margin-top: 250px;
-    background-size: contain; /* Adjust as needed */
-    background-position: center; /* Adjust as needed*/ 
-    background-repeat:no-repeat; /* Adjust as needed*/
+    background-size: contain; 
+    background-position: center;
+    background-repeat:no-repeat;
     width: auto;
     height: auto;
     margin-left: 20px;
@@ -355,8 +355,13 @@ hr {
         margin: 30px ;
     }
     .mainCal {
-        width: 100%;
-        margin: 200px auto;
+        
+            background-size: cover; /* Cover the entire element */
+            width: 100%; /* Full width on small screens */
+            height: 100vh; /* Full viewport height on small screens */
+            margin-left: 0; /* Adjust as needed */
+            margin-top: 0; /* Adjust as needed */
+            margin: 200px auto;
     }
 
     .hbtn{

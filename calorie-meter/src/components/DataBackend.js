@@ -80,7 +80,7 @@ const handleDelete = (id) => {
 
  return (
     <div className='hisDiv'>
-      <p>Filter History</p>
+      <h1>Filter History</h1>
       
       {/* Display date input field */}
       <label htmlFor="dateInput" className='header'>Select a Date:</label>
@@ -93,6 +93,7 @@ const handleDelete = (id) => {
           <h2>Data Fetched Successfully:</h2>
           {filteredData.map((item, index) => (
             <div key={index}>
+              
               <p>
                 <strong>Date and Time:</strong> {formatDateTime(item.date)}
               </p>
@@ -100,15 +101,18 @@ const handleDelete = (id) => {
                 <strong>Goal:</strong> {item.goal}
               </p>
               <button onClick={() => handleDelete(item._id)}>Delete</button>
+              <hr/>
             </div>
           ))}
+          
+         
         </div>
       )}
 
       {/* Display a message if no data found for selected date */}
       {filteredData.length === 0 && selectedDate && (
         <div className='nodata'>
-        <h1>No data found for the selected date.</h1>
+        <p>No data found for the selected date.</p>
         <img src='https://i.ibb.co/B6c2455/No-data-cuate.png' alt='noDatapic' id='ndata'/>
         </div>
       )}

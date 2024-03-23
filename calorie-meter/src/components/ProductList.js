@@ -64,6 +64,7 @@ const ProductCard = ({ product, onConsumedChange = () => {}, consumed}) => {
         <div className='details'>
           <h1>{product.brand} {product.name}</h1>
           <h6>{product.category}</h6>
+          <h3>Calorie-per-serving: {product.nutrition.calories_per_serving}</h3>
           
           <div className="progress-bars">
             
@@ -90,18 +91,18 @@ const ProductCard = ({ product, onConsumedChange = () => {}, consumed}) => {
         
         {isPopupVisible && (
           <div className="popup-box">
-             <p>Consumed: {consumed}</p>
+             {/*<p>Consumed: {consumed}</p>*/}
             <button onClick={() => {
             console.log('Adding 100 to consumed');
             onConsumedChange(consumed - 100);
-            }}>
+            }}  className='button'>
               <FontAwesomeIcon icon={faPlus} />
               Add
             </button>
             <button onClick={() => {
             console.log('Subtracting 100 from consumed');
             onConsumedChange(consumed + 100);
-            }}>Delete</button>
+            }} className='button'>Delete</button>
           </div>
         )}
       </div>

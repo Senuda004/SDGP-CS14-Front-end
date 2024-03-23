@@ -2,7 +2,7 @@
     margin-left: 80px;
     
 }
-.hisDiv p{
+.hisDiv h1{
     font-weight: 800;
     color: black;
     font-size: 23px;
@@ -21,7 +21,7 @@
     color: #FFC533;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
     border-radius: 30px;
-}/*
+}
 .hisDiv input{
     font-size: 20px;
     font-weight: 400;
@@ -31,8 +31,12 @@
   
     margin-left: 30px;
     margin-bottom: 40px;
-    color: #FFC533;
-    
+    color: #FFC533;  
+}
+.hisDiv img{
+    width: 250px;
+    height: 250px;
+    margin-left: 250px;
 }
 .nodata{
     display: flex;
@@ -40,23 +44,18 @@
 .nodata img{
     width: 250px;
     height: 250px;
-}*/
+}
 .hisDiv input{
     margin-left: 40px;
     color: rgb(43, 41, 41);
 }
-.hisDiv h1{
-    margin-top: 30px;
-    font-size: 18px;
-    font-weight: 500;
-    color: black;
-}
+
 .hisDiv h2{
-    margin-top: 12px;
+    margin-top: 22px;
     margin-bottom: 30px;
-    font-size: 12px;
+    font-size: 22px;
     font-weight: 500;
-    color: rgb(87, 87, 220);
+    color:#3f3929;
 }
 .hisDiv button{   
         background-color: rgb(23, 23, 2);
@@ -64,6 +63,7 @@
         width: 200px;
         height: 40px;
         margin-top: 2px;
+        margin-bottom: 22px;
         border-radius: 30px;
         padding: 0 15px;
         cursor: pointer;
@@ -75,4 +75,59 @@
         
         background-color: #575655;
         color: rgb(255, 249, 249);
+}
+.hisDiv p{
+    color: #3f3929;  
+    font-size: 20px;
+    font-weight: 300;
+}
+.hisDiv strong{
+    color: #FFC533;  
+    font-size: 20px;
+    font-weight: 600;
+}
+.hisDiv hr{
+    background-color: black;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+/* Responsive styles */
+@media (max-width: 768px) {
+    .hisDiv {
+        margin-left: 20px;
+    }
+
+    .header, .hisDiv input {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .hisDiv img {
+        margin-left: 0;
+    }
+
+    .hisDiv button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hisDiv h1 {
+        font-size: 18px;
+    }
+
+    .header, .hisDiv input {
+        height: 40px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .hisDiv img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .hisDiv button {
+        height: 30px;
+        padding: 0 10px;
+    }
 }
