@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     // Redirect to "/not-found" if the current path doesn't match any specified routes
-    if (!['/dashboard', '/calorie-meter', '/ai-chatbot', '/', '/signup', '/forgot-password',"/health-quiz", "/hero"].includes(location.pathname)) {
+    if (!['/dashboard', '/calorie-meter', '/ai-chatbot', '/', '/signup', '/forgot-password',"/health-quiz", "/login"].includes(location.pathname)) {
       navigate('/not-found');
     }
   }, [location.pathname, navigate]);
@@ -32,10 +32,10 @@ function App() {
           <UserAuthContextProvider>
             <Routes>
               <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-              <Route path="/" element={<Login />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
-              <Route path="/hero" element={<HeroComponent />} />
+              <Route path="/" element={<HeroComponent />} />
               {/* <Route path="/health-quiz" element={ <HealthQuiz /> } /> */}
               <Route path="/health-quiz" element={<ProtectedRoute component={HealthQuiz} />} />
               {/* Full-screen Not Found page without the sidebar */}

@@ -113,7 +113,7 @@ function NutritionForm (props) {
         <input name="fruit_percentage" type="number" value={foodData.fruit_percentage} className="form-control form-control-sm" id="fruit_percentage" placeholder="Enter % Vegitable and Fruits (0 - 100)" onChange={handleChange} />
       </div>
 
-      <button onClick={submitFoodData} type="button" className="btn btn-primary" id="calculateNutriScore" >proceed</button>
+      <button onClick={submitFoodData} type="button" className="btn btn-primary bg-amber-400 text-white w-32 rounded-md p-2 mb-3 mt-4 font-semibold" id="calculateNutriScore" >Proceed</button>
       </div>
     </form>
 

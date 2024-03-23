@@ -41,6 +41,15 @@ const Dashboard = () => {
   const closeNutritionModal = () => setIsNutritionModalOpen(false);
 
 
+
+  const [isPopupOpen, setPopupOpen] = useState(false);
+  
+  // Function to toggle the popup
+  const togglePopup = () => {
+    setPopupOpen(!isPopupOpen);
+  };
+
+
   useEffect(() => {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (authUser) => {
@@ -64,7 +73,19 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [productInfo, setProductInfo] = useState(null);
 
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  
+  // Function to open the new modal
+  const openVideoModal = () => {
+    window.location.reload();
+    setIsVideoModalOpen(true);
+  };
+
+  // Function to close the new modal
+  const closeVideoModal = () => setIsVideoModalOpen(false);
+
   const [result, setResult] = useState("");
+
   const { ref } = useZxing({
     onDecodeResult(result) {
       setResult(result.getText());
@@ -125,7 +146,7 @@ const Dashboard = () => {
 
         // Save it to the database
       try {
-        const saveScannedItemResponse = await axios.post('http://localhost:5000/api/saveScannedItem', {
+        const saveScannedItemResponse = await axios.post('https://sdgp-cs14-back-end.onrender.com/api/saveScannedItem', {
           uid: user.uid, // Assuming user.uid is the UID of the current user
           scannedItem: product_name + nutritionalContent,
         });
@@ -133,7 +154,7 @@ const Dashboard = () => {
         
         // Update Recommnedation from barcode in dataabse
         
-        const updateRatingResponse = await axios.get(`http://localhost:5000/api/updateRatingAndGenerateRecommendation/${user.uid}`);
+        const updateRatingResponse = await axios.get(`https://sdgp-cs14-back-end.onrender.com/api/updateRatingAndGenerateRecommendation/${user.uid}`);
         console.log('Rating updated:', updateRatingResponse.data);
 
         setRecentScannedItem(product_name);
@@ -203,7 +224,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     // Replace 'http://localhost:5000/api/fooddata' with the correct URL
-    const apiUrl = 'http://localhost:5000/api/fooddata';
+    const apiUrl = 'https://sdgp-cs14-back-end.onrender.com/api/fooddata';
 
     // Fetch data from your backend API endpoint
     const fetchData = async () => {
@@ -248,7 +269,7 @@ const Dashboard = () => {
   
       // Send the captured photo to the Python backend for saving
       try {
-        const saveResponse = await axios.post('http://127.0.0.1:8000/save_photo', {
+        const saveResponse = await axios.post('https://pug-inspired-humpback.ngrok-free.app/save_photo', {
           image: photoDataUrl.split(',')[1],  // Extract base64 data excluding "data:image/jpeg;base64,"
         });
   
@@ -257,7 +278,7 @@ const Dashboard = () => {
   
           // Send the saved photo to the Python backend for prediction
           try {
-            const predictResponse = await axios.post('http://127.0.0.1:8000/predict', {
+            const predictResponse = await axios.post('https://pug-inspired-humpback.ngrok-free.app/predict', {
               image_path: saveResponse.data.file_path,
             });
   
@@ -273,7 +294,7 @@ const Dashboard = () => {
             //After successfull identified object we store value in database
              // Store the identified item in the database
           try {
-            const saveScannedItemResponse = await axios.post('http://localhost:5000/api/saveScannedItem', {
+            const saveScannedItemResponse = await axios.post('https://sdgp-cs14-back-end.onrender.com/api/saveScannedItem', {
               uid: user.uid, // Assuming user.uid is the UID of the current user
               scannedItem: detectedObject,
             });
@@ -436,7 +457,7 @@ const Dashboard = () => {
 
   const fetchRecentScannedItem = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/foodInformation/${user.uid}`);
+      const response = await axios.get(`https://sdgp-cs14-back-end.onrender.com/api/foodInformation/${user.uid}`);
       //Destructure recommnedation along with scanned Item
       const { foodInformation, recommendation } = response.data;
 
@@ -664,10 +685,16 @@ const Dashboard = () => {
         
         <img className="w-[238px] h-[260px] relative bottom-20 right-9" src="https://i.ibb.co/G3kYNBc/6357895-removebg-preview.png" />
       </div>
+      
 
       <div className='flex flex-row mt-10 justify-center '>
         <img className="w-[203px] h-[255px]" src="https://i.ibb.co/7tSwKBq/removal-ai-8793b6e3-d8cc-4a38-985b-1c07d1850ee3-51aca451-26eb-4659-8b2e-f5e714fde315.png" alt='photo business'/>
-        <div className="w-[685px] h-[221px] bg-white rounded-[30px] custom-shadow-home">
+        <div className="w-[685px] h-[221px] bg-white rounded-[30px] custom-shadow-home flex justify-around">
+          <div className='flex flex-col gap-0 items-center'>
+            <img src="https://i.ibb.co/bXpVFtD/chocolate-bis-BG2.png" alt="chocolate-bis-BG" className=' w-[45vh]'/>
+            <h2 className="text-[15px] font-semibold relative bottom-4 ">Nutri Recommendation: <span className='text-gray-700 rounded-[30px] border-2 border-green-400 p-2 px-4'>{NutriRecommendation}</span></h2>
+          </div>
+          
           <NutriCard 
                   image = {NutritionalGradeImage(grade)}
                   score = {score}
@@ -677,8 +704,6 @@ const Dashboard = () => {
         </div>
       </div>
      
-     
-      <h1>Scan BarCode</h1>
 
 
         <>
@@ -713,6 +738,11 @@ const Dashboard = () => {
         <div onClick={openNutritionModal} className="w-[320px] h-[300px] bg-white rounded-[30px] custom-shadow-home cursor-pointer flex justify-center items-center align-middle flex-col gap-10">
           <img className="w-[215px] h-[215px] relative" src="https://i.ibb.co/74DPzs4/62356-removebg-preview.png" />
           <h3 className='font-medium text-[18px] relative bottom-7'>Enter ingredients manually</h3>
+        </div>
+
+        <div onClick={openVideoModal} className="w-[320px] h-[300px] bg-white rounded-[30px] custom-shadow-home cursor-pointer flex justify-center items-center align-middle flex-col gap-10">
+          <img className="w-[215px] h-[215px] relative" src="https://i.ibb.co/74DPzs4/62356-removebg-preview.png" />
+          <h3 className='font-medium text-[18px] relative bottom-7'>Scan using barcode</h3>
         </div>
       </div>
       
@@ -825,7 +855,6 @@ const Dashboard = () => {
            
             
             /> */}
-
       </div>
 
       {/* Modal for displaying manual enter food score */}
@@ -858,13 +887,85 @@ const Dashboard = () => {
           <NutriCard2 image={NutritionalGradeImage(grade)} score={score} />
         </div>
         <button onClick={closeNutritionModal} className='absolute top-2 right-8 bg-amber-400 text-white w-20 rounded-md p-2 mt-10 font-semibold'>Close</button>
+      </Modal> 
+
+
+      {/* Modal for displaying video and result */}
+      <Modal
+        isOpen={isVideoModalOpen}
+        onRequestClose={closeVideoModal}
+        contentLabel="Video Modal"
+        style={{
+          content: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100vh',
+            height: '75vh',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            marginTop: '50px',
+            background: 'white',
+            borderRadius: '20px',
+            border: '4px solid #FFC533', 
+          },
+          overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          },
+        }}
+      >
+        <div>
+          <h2>Video Stream</h2>
+          {/* <video ref={ref} /> */}
+          <video ref={ref} className='rounded-xl w-2/3 m-auto ' />
+
+          {/* Display the last result */}
+          <p>
+            <span className='font-semibold mb-3 text-center'>Last result:</span>
+            <span>{result}</span>
+          </p>
+        </div>
+        {/* Button to close the modal */}
+        <button onClick={closeVideoModal}>Close</button>
       </Modal>
 
-      <video ref={ref} />
-      <p>
-        <span>Last result:</span>
+      {/* <div>
+        <div className='fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white border-4 border-yellow-500 rounded-lg p-8 z-50'>
+          <video ref={ref} /> 
+        </div>
+      </div> */}
+      
+      
+      <p className=' mt-24'>
+        
+        <span >Last result:</span>
         <span>{result}</span>
       </p>
+
+      <div className="relative">
+        {/* Button to open/close the popup */}
+        {/* <button onClick={togglePopup} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Open Popup
+        </button> */}
+        
+        {/* Popup content */}
+        {isPopupOpen && (
+          <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white border-4 border-yellow-500 rounded-lg p-8 z-50">
+            <div className="text-center">
+              <h2>Video Stream</h2>
+              <video ref={ref} />
+              <p className="font-semibold mb-3">Last result:</p>
+              <p>{result}</p>
+              {/* Button to close the popup */}
+              <button onClick={togglePopup} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4">Close</button>
+            </div>
+          </div>
+        )}
+        
+        {/* Background overlay */}
+        {isPopupOpen && <div className="fixed top-0 left-0 w-full h-full bg-black opacity-50 z-40" onClick={togglePopup}></div>}
+      </div>
 
 
     </div>

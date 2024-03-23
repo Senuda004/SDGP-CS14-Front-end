@@ -162,15 +162,15 @@ const HeroComponent = () => {
                             <a
                                 href="/signup"
                                 title=""
-                                className="inline-flex items-center justify-center px-6 py-0 text-base font-bold leading-7 text-white transition-all duration-200 bg-amber-400 border border-transparent rounded hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                                className="inline-flex items-center justify-center lg:px-6 xl:px-6 px-3 py-0 lg:text-base xl:text-base text-[12px] font-bold leading-7 text-white transition-all duration-200 bg-amber-400 border border-transparent rounded hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
                                 role="button"
                             >
                                 Sign up
                             </a>
                             <a
-                                href="/"
+                                href="/login"
                                 title=""
-                                className="inline-flex items-center justify-center px-6 py-3 text-base font-bold leading-7 text-white transition-all duration-200 bg-amber-400 border border-transparent rounded hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                                className="inline-flex items-center justify-center lg:px-6 xl:px-6 px-3 py-3 lg:text-base xl:text-base text-[12px] font-bold leading-7 text-white transition-all duration-200 bg-amber-400 border border-transparent rounded hover:bg-gray-600 font-pj focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
                                 role="button"
                             >
                                 Log in
@@ -181,11 +181,13 @@ const HeroComponent = () => {
                     <nav style={{ display: expanded ? 'block' : 'none' }}>
                         <div className="px-1 py-8">
                             <div className="grid gap-y-7">
-                                <a href="#" title="" className="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded hover:bg-gray-50 focus:outline-none font-pj focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Features </a>
+                                <a href="#" title="" className="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded hover:bg-gray-50 focus:outline-none font-pj focus:ring-1 focus:ring-gray-900 focus:ring-offset-2" onClick={(e) => { e.preventDefault(); scrollToSection('features'); }}> Features </a>
 
-                                <a href="#" title="" className="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded hover:bg-gray-50 focus:outline-none font-pj focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Pricing </a>
+                                <a href="#" title="" className="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded hover:bg-gray-50 focus:outline-none font-pj focus:ring-1 focus:ring-gray-900 focus:ring-offset-2" onClick={(e) => { e.preventDefault(); scrollToSection('team'); }}> Team </a>
 
-                                <a href="#" title="" className="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded hover:bg-gray-50 focus:outline-none font-pj focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"> Support </a>
+                                <a href="#" title="" className="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded hover:bg-gray-50 focus:outline-none font-pj focus:ring-1 focus:ring-gray-900 focus:ring-offset-2" onClick={(e) => { e.preventDefault(); scrollToSection('pricing'); }}> Pricing </a>
+
+                                <a href="#" title="" className="flex items-center p-3 -m-3 text-base font-medium text-gray-900 transition-all duration-200 rounded hover:bg-gray-50 focus:outline-none font-pj focus:ring-1 focus:ring-gray-900 focus:ring-offset-2" onClick={(e) => { e.preventDefault(); scrollToSection('faq'); }}> FAQ </a>
 
                                 <a
                                     href="/signup"
@@ -220,12 +222,12 @@ const HeroComponent = () => {
                         </div>
 
                         <div className="xl:col-span-1">
-                            <img className="w-full mx-auto relative bottom-24" src="https://i.ibb.co/grDgsxG/i-Phone-15-nutrimate.png" alt="" />
+                            <img className="lg:w-full sm:w-[70vh] sm:top-15 mx-auto relative lg:bottom-24 " src="https://i.ibb.co/grDgsxG/i-Phone-15-nutrimate.png" alt=""/>
                         </div>
                     </div>
                 </div>
 
-                <img src="https://i.ibb.co/1RqyqSg/up-arrow.png" alt="to top" className=' w-9 fixed right-4 bottom-11 cursor-pointer' onClick={(e) => { e.preventDefault(); scrollToSection('header'); }}/>
+                <img src="https://i.ibb.co/1RqyqSg/up-arrow.png" alt="to top" className=' w-9 fixed lg:right-4 bottom-11 sm:right-4 cursor-pointer' onClick={(e) => { e.preventDefault(); scrollToSection('header'); }}/>
             </section>
 
             <motion.section initial={{ opacity: 0, y: 20 }} animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }} transition={{ duration: 0.5, ease: 'easeInOut' }} className="py-12 bg-white sm:py-16 lg:py-20" id='features'>
@@ -290,7 +292,7 @@ const HeroComponent = () => {
         <br /><br />
 
         <div className="flex flex-col justify-around items-center gap-10">
-            <div className='flex flex-row gap-[18vh]'>
+            <div className='flex flex-col gap-[18vh] lg:flex-row'>
                 <div>
                     <img className="object-cover w-32 h-32 mx-auto rounded-full lg:w-44 lg:h-44 grayscale filter" src="https://i.ibb.co/pRp7Sw1/Dulneth.jpg" alt="" />
                     <p className="mt-5 text-lg font-bold text-amber-400 sm:text-xl sm:mt-8 font-pj">Dulneth Bernard</p>
@@ -306,7 +308,7 @@ const HeroComponent = () => {
 
             <br />
             
-            <div className="flex flex-row gap-[18vh]">
+            <div className="flex lg:flex-row flex-col gap-[18vh]">
                 <div>
                     <img className="object-cover w-32 h-32 mx-auto rounded-full lg:w-44 lg:h-44 grayscale filter" src="https://i.ibb.co/9rHQGWX/Anuththara.jpg" alt="" />
                     <p className="mt-5 text-lg font-bold text-amber-400 sm:text-xl sm:mt-8 font-pj">Anuththara Kannangara</p>
