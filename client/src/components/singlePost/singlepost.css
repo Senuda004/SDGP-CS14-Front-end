@@ -19,6 +19,8 @@
 .singlePostWrapper {
   padding: 8px;
   padding-right: 5px; /* Add a value to the right padding */
+  display: flex;
+  flex-direction: column;
 }
 
 .singlePostImg {
@@ -33,6 +35,20 @@
   margin: 10px;
   font-size: 28px;
   font-family: 'Poppins';
+}
+
+.singlePostTitleInput{
+  margin: 10px;
+  font-size: 28px;
+  font-family: 'Poppins';
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid lightgrey;
+
+}
+
+.singlePostTitleInput:focus{
+  outline: none;
 }
 
 .singlePostEdit {
@@ -82,4 +98,30 @@
 
 h1 {
   font-family: "Poppins";
+}
+
+
+.singlePostDescInput{
+  color: #666;
+  font-size: 16px;
+  line-height: 25px;
+  border: none;
+
+}
+
+.singlePostDescInput:focus{
+  outline: none;
+}
+
+
+.singlePostButton{
+  border: none;
+  background-color:#FFBF00 ;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-right: 20px;
+  
 }
