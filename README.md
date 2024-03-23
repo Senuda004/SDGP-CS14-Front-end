@@ -13,5 +13,5 @@ Furthermore, Nutrimate provides users with valuable resources to support their h
 
 ![dependencies](https://github.com/Senuda004/SDGP-CS14-Front-end/assets/129391002/e1d4be61-5493-451c-8240-5b46d4250e07)
 <h2>Calorie meter veiw</h2>
-![caloriemeter](https://github.com/Senuda004/SDGP-CS14-Front-end/assets/129391002/5447aa7d-efe8-458c-b7dc-0ca15c60887e)
 
+![calview](https://github.com/Senuda004/SDGP-CS14-Front-end/assets/129391002/441ea1d5-7bf1-4d1e-8d1d-7a01886b683b)
