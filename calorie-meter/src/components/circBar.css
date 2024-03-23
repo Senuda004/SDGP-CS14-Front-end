@@ -404,17 +404,3 @@ hr {
 
     
 }
-@keyframes sparkle {
-    0% { color: white; }
-    50% { color: yellow; }
-    100% { color: white; }
-  }
-  
-  .congrats.sparkling {
-   animation: sparkle 1s infinite;
-  }
-  .congrats{
-    background-color: #33aaff;
-    color: #302f2c;
-    width: 1000px;
-  }

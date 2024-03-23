@@ -93,33 +93,19 @@ export default function CircBar() { // Destructure props here
       .then(response => {
         console.log('Data saved successfully:', response.data);
         alert('Daily goal added successfully ')
-        setShowCongrats(true);
-        setSparkling(true); // Activate sparkling effect
-        setTimeout(() => {
-          setShowCongrats(false);
-          setSparkling(false); // Deactivate sparkling effect
-        }, 5000);
-       
       })
       .catch(error => {
         console.error('Error saving data:', error);
         // Handle error
       });
-      setTimeout(() => {
-        if (consumed < goal) {
-          setShowTryAgain(true);
-        }
-      }, 24 * 60 * 60 * 1000); // 24 hours in milliseconds
+     
     };
   
    
 
   return (
     <div className='resposiveCon'>
-       {/*{showTryAgain && <div className='tryAgain'>You did not achieve your goal within 24 hours. Try again!</div>}
-       {showCongrats && (
-       <div className='congrats' style={{ color: sparkling ? 'yellow' : 'white' }}>Congratulations! You've completed your daily goal!</div>
-      )}*/}
+      
       <div className='contar'>
         <div className='topHed'><span>Calorie Meter</span></div>
             <div className='welcome'>
