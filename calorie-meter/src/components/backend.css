@@ -7,8 +7,8 @@
     color: black;
     font-size: 23px;
     margin-bottom: 40px;
-
 }
+
 .header{
     font-size: 20px;
     font-weight: 600;
@@ -21,8 +21,26 @@
     color: #FFC533;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
     border-radius: 30px;
-
+}/*
+.hisDiv input{
+    font-size: 20px;
+    font-weight: 400;
+    width: 350px;
+    height: 60px;
+    padding-left: 23px;
+  
+    margin-left: 30px;
+    margin-bottom: 40px;
+    color: #FFC533;
+    
 }
+.nodata{
+    display: flex;
+}
+.nodata img{
+    width: 250px;
+    height: 250px;
+}*/
 .hisDiv input{
     margin-left: 40px;
     color: rgb(43, 41, 41);
@@ -31,4 +49,30 @@
     margin-top: 30px;
     font-size: 18px;
     font-weight: 500;
+    color: black;
+}
+.hisDiv h2{
+    margin-top: 12px;
+    margin-bottom: 30px;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgb(87, 87, 220);
+}
+.hisDiv button{   
+        background-color: rgb(23, 23, 2);
+        color: rgb(255, 251, 251);
+        width: 200px;
+        height: 40px;
+        margin-top: 2px;
+        border-radius: 30px;
+        padding: 0 15px;
+        cursor: pointer;
+        position: relative;
+        transition: background-color 0.3s ease;
+    
+     }
+.hisDiv button:hover {
+        
+        background-color: #575655;
+        color: rgb(255, 249, 249);
 }

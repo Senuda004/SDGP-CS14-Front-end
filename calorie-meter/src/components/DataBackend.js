@@ -50,32 +50,33 @@ const filteredData = data ? data.filter(item => {
     return date.toLocaleDateString('en-US', options);
  };
 
- // Function to delete data item by ID
- const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/api/caldata/${id}`)
-      .then(response => {
-        if (response.status === 200) {
-          console.log('Data deleted successfully');
-          // Refetch data after deletion
-          axios.get('http://localhost:5000/api/caldata')
-            .then(response => {
-              if (response.status === 200) {
-                setData(response.data);
-              } else {
-                console.error('Unexpected status code:', response.status);
-              }
-            })
-            .catch(error => {
-              console.error('Error fetching data after deletion:', error);
-            });
-        } else {
-          console.error('Unexpected status code:', response.status);
-        }
-      })
-      .catch(error => {
-        console.error('Error deleting data:', error);
-      });
+// Function to delete data item by ID
+const handleDelete = (id) => {
+  axios.delete(`http://localhost:5000/api/caldata/${id}`)
+     .then(response => {
+       if (response.status === 200) {
+         console.log('Data deleted successfully');
+         // Refetch data after deletion
+         axios.get('http://localhost:5000/api/caldata')
+           .then(response => {
+             if (response.status === 200) {
+               setData(response.data);
+             } else {
+               console.error('Unexpected status code:', response.status);
+             }
+           })
+           .catch(error => {
+             console.error('Error fetching data after deletion:', error);
+           });
+       } else {
+         console.error('Unexpected status code:', response.status);
+       }
+     })
+     .catch(error => {
+       console.error('Error deleting data:', error);
+     });
  };
+ 
 
  return (
     <div className='hisDiv'>
@@ -84,6 +85,7 @@ const filteredData = data ? data.filter(item => {
       {/* Display date input field */}
       <label htmlFor="dateInput" className='header'>Select a Date:</label>
       <input type="date" id="dateInput" value={selectedDate} onChange={handleDateChange} />
+      <img src='https://i.ibb.co/V2kj5C6/Tabs-rafiki.png' alt='Dpic' id='dbpic'/>
 
       {/* Display the fetched data */}
       {filteredData.length > 0 && (
@@ -105,7 +107,10 @@ const filteredData = data ? data.filter(item => {
 
       {/* Display a message if no data found for selected date */}
       {filteredData.length === 0 && selectedDate && (
+        <div className='nodata'>
         <h1>No data found for the selected date.</h1>
+        <img src='https://i.ibb.co/B6c2455/No-data-cuate.png' alt='noDatapic' id='ndata'/>
+        </div>
       )}
     </div>
  );
