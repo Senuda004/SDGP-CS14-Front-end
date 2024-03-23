@@ -116,10 +116,10 @@ export default function CircBar() { // Destructure props here
 
   return (
     <div className='resposiveCon'>
-       {showTryAgain && <div className='tryAgain'>You did not achieve your goal within 24 hours. Try again!</div>}
+       {/*{showTryAgain && <div className='tryAgain'>You did not achieve your goal within 24 hours. Try again!</div>}
        {showCongrats && (
-        <div className='congrats' style={{ color: sparkling ? 'yellow' : 'white' }}>Congratulations! You've completed your daily goal!</div>
-      )}
+       <div className='congrats' style={{ color: sparkling ? 'yellow' : 'white' }}>Congratulations! You've completed your daily goal!</div>
+      )}*/}
       <div className='contar'>
         <div className='topHed'><span>Calorie Meter</span></div>
             <div className='welcome'>

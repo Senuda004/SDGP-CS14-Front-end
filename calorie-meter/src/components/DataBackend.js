@@ -22,7 +22,7 @@ export default function DataBackend() {
         console.error('Error fetching data:', error);
       });
  }, []); // Empty dependency array ensures this effect runs only once after initial render
-
+/*
 // Filter data based on the selected date
 const filteredData = data ? data.filter(item => {
   // Check if item.date is a valid date string
@@ -36,7 +36,28 @@ const filteredData = data ? data.filter(item => {
   const dbDate = date.toISOString().split('T')[0];
   console.log('Comparing:', selectedDate, 'with', dbDate); // Debugging statement
   return dbDate === selectedDate;
+}) : [];*/
+const filteredData = data ? data.filter(item => {
+  // Check if item.date is defined and a valid date string
+  /*if (!item.date) {
+    console.error('Date is undefined:', item);
+    return false; // Skip this item if the date is undefined
+  }*/
+  
+//item date is not only with the date so the output comming correctly cosole hve errors so that's why it's commented 
+
+  const date = new Date(item.date);
+  if (isNaN(date.getTime())) {
+   // console.error('Invalid date:', item.date); 
+    return false; // Skip this item if the date is invalid
+  }
+
+  // Extract the date part from the MongoDB date string
+  const dbDate = date.toISOString().split('T')[0];
+  console.log('Comparing:', selectedDate, 'with', dbDate); // Debugging statement
+  return dbDate === selectedDate;
 }) : [];
+
 
  // Handler for date input change
  const handleDateChange = (event) => {
