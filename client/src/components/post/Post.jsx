@@ -3,7 +3,7 @@ import { FaPlus } from 'react-icons/fa'; // Import FaPlus icon from react-icons/
 import "./post.css";
 
 export default function Post({ post }) {
-  const PF="http://localhost:5000/uploads/"
+  const PF="https://sdgp-cs14-back-end-blog.onrender.com/uploads/"
 
 
   return (
