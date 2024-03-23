@@ -7,3 +7,8 @@ Additionally, users have the flexibility to set multiple goals per day, allowing
 
 Furthermore, Nutrimate provides users with valuable resources to support their health and wellness journey. Users can access tips for maintaining a balanced diet and can explore product details, including calorie information per serving. Additionally, users can view nutritional information for each product, represented in intuitive line bars, empowering them to make informed choices about their dietary intake. With these comprehensive features, Nutrimate ensures users have the tools they need to achieve their health and fitness goals effectively.
 <h5>Future Enhancement</h5>In future enhancements, our goal is to personalize this feature by making it unique to each user through the utilization of their unique user ID (UID). Currently, the feature allows all users to access and view the history of other users, which compromises privacy and personalization. By implementing user-specific UIDs, we aim to tailor the experience to each individual, ensuring that users can only access and interact with their own data. This enhancement will enhance security and privacy while also providing a more personalized and seamless experience for each user.</p>
+
+<h2>Installations</h2>
+<p>These dependencies need to be installed in order to access all funtionalities</p>
+
+![dependencies](https://github.com/Senuda004/SDGP-CS14-Front-end/assets/129391002/e1d4be61-5493-451c-8240-5b46d4250e07)
