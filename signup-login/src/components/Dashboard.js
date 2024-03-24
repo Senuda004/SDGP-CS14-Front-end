@@ -631,27 +631,27 @@ const Dashboard = () => {
   function NutritionalGradeImage(grade){
     switch (grade){
         case "A":
-            return  "./Grade A.svg"
+            return  "https://svgshare.com/i/14gF.svg"
             break;
 
         case "B":
-            return  "./Grade B.svg"
+            return  "https://svgshare.com/i/14fb.svg"
             break;
 
         case "C":
-            return  "./Grade C.svg"
+            return  "https://svgshare.com/i/14gb.svg"
             break;   
             
         case "D":
-            return  "./Grade D.svg"
+            return  "https://svgshare.com/i/14fc.svg"
             break; 
 
         case "E":
-            return  "./Grade E.svg"
+            return  "https://svgshare.com/i/14ft.svg"
             break; 
 
         default:
-            return "./Main.svg"
+            return "https://svgshare.com/i/14fi.svg"
     }
     
 
@@ -665,7 +665,7 @@ const Dashboard = () => {
   
 
   return (
-    <div>
+    <div className=' h-[125vh]'>
       <div className='flex justify-between'>
         <h1>Dashboard Page</h1>
         {photoURL && (

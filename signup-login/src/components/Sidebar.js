@@ -8,7 +8,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     { title: "Dashboard", src: "https://i.ibb.co/n7FkLbR/home.png" },
     { title: "Calorie Meter", src: "https://i.ibb.co/7z639nV/calories-1.png", gap: true },
     { title: "AI Chatbot", src: "https://i.ibb.co/L8CVzd2/bot-1.png", gap: true },
-    { title: "Blog", src: "https://i.ibb.co/L8CVzd2/bot-1.png", gap: true },
+    { title: "Blog", src: "https://i.ibb.co/QMpgBx2/communication.png", gap: true },
   ];
 
   const handleLogOut = () => {
@@ -21,7 +21,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   };
 
   return (
-    <div className={`${isOpen ? "w-72" : "w-20"} h-[220vh] duration-300  custom-shadow-home p-5 relative`}>
+    <div className={`${isOpen ? "w-72" : "w-20"} h-[100vh] duration-300  custom-shadow-home p-5 fixed bg-white z-10`}>
       <img src="https://www.svgrepo.com/show/494008/back.svg" alt="Icon" className={`absolute cursor-pointer right-[-14px] top-8 w-8 p-1 border-2 border-black rounded-full bg-white ${!isOpen && "rotate-180"}`} onClick={toggleSidebar} />
 
       <div className='flex gap-x-4 items-center'>

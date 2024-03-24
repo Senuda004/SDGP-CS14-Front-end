@@ -4,12 +4,14 @@ import Sidebar from './Sidebar';
 import AiChatbot from './AiChatbot';
 import Dashboard from './Dashboard';
 import CalorieMeter from './CalorieMeter';
+import Blog from './Blog-test';
 import NotFound from './NotFound'; // Import your custom 404 page component
 import ProtectedRoute from './ProtectedRoute';
 import HealthQuiz from './HealthQuiz';
 import BlogHome from '../pages/bloghome/BlogHome';
 import Single from '../pages/single/Single';
 import Write from '../pages/write/Write';
+
 
 const Home = () => {
   const location = useLocation();
@@ -33,21 +35,19 @@ const Home = () => {
   }
 
   // Check if the current path is "/home" before rendering the component
-  if (location.pathname === '/' || location.pathname === '/signup' || location.pathname === '/forgot-password' || location.pathname === "/login" || location.pathname === "/health-quiz" || location.pathname === "/not-found" || location.pathname === "/blog" || location.pathname === "/post/:postId" || location.pathname === "/write") {
+  if (location.pathname === '/' || location.pathname === '/signup' || location.pathname === '/forgot-password' || location.pathname === "/login" || location.pathname === "/health-quiz" || location.pathname === "/not-found" ) {
     return null;
   }
 
   return (
     <>
-      <div className='flex'>
-        <Sidebar isOpen={open} toggleSidebar={toggleSidebar}/>
+      <div className='flex flex-row'>
+        <Sidebar isOpen={open} toggleSidebar={toggleSidebar}  />
 
-        <div className={`p-7 text-2xl font-semibold flex-1 h-screen ${location.pathname === '/not-found' ? 'hidden' : ''}`}>
+        <div className={`p-7 text-2xl font-semibold flex-1 h-screen ${location.pathname === '/not-found' ? 'hidden' : ''} ${open ? 'ml-[50vh]' : 'ml-[10vh]'}`}>
         
-        {/* This is where we actually render ai chatbot and not in routes- purpose is to not to relaod Iframe */}
-        <div hidden={loc.pathname !== "/ai-chatbot"}>
-        <AiChatbot />
-        </div>
+          {/* This is where we actually render ai chatbot and not in routes- purpose is to not to relaod Iframe */}
+          <div hidden={loc.pathname !== "/ai-chatbot"}><AiChatbot /></div>
           
           <Routes>
        
@@ -59,10 +59,11 @@ const Home = () => {
             {/* <Route path="/health-quiz" element={<HealthQuiz/>}  /> */}
             {/* Full-screen Not Found page without the sidebar */}
             <Route path="/not-found" element={<NotFound />} />
+            {/* <Route path="/blog" element={<ProtectedRoute component={Blog} />} /> */}
             {/* <Route path="/calorie-meter" element={<CircBar />} /> */}
-            {/* <Route path="/blog" element={<ProtectedRoute component={BlogHome} />} />
+            <Route path="/blog" element={<ProtectedRoute component={BlogHome} />} />
             <Route path="/post/:postId" element={<ProtectedRoute component={Single} />} /> 
-            <Route path="/write" element={<ProtectedRoute component={Write} />} /> */}
+            <Route path="/write" element={<ProtectedRoute component={Write} />} />
           </Routes>
         </div>
 

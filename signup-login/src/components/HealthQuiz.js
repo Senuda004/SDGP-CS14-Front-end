@@ -126,7 +126,7 @@ function HealthQuiz() {
       
 
         // Make a POST request to  backend API endpoint
-    axios.post('http://localhost:5000/api/healthquiz', data)
+    axios.post('https://sdgp-cs14-back-end.onrender.com/api/healthquiz', data)
     .then(response => {
         console.log('Health quiz answers saved successfully');
     })
@@ -135,7 +135,7 @@ function HealthQuiz() {
     });
     
     // nAVIGATE TO LOGIN 
-    navigate("/")
+    navigate("/login")
     
     }
 

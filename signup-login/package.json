@@ -81,6 +81,7 @@
       "last 1 safari version"
     ]
   },
+  "proxy": "https://sdgp-cs14-back-end-blog.onrender.com/api/",
   "devDependencies": {
     "dotenv": "^16.4.5",
     "tailwindcss": "^3.4.1"
