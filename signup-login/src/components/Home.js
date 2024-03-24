@@ -7,6 +7,9 @@ import CalorieMeter from './CalorieMeter';
 import NotFound from './NotFound'; // Import your custom 404 page component
 import ProtectedRoute from './ProtectedRoute';
 import HealthQuiz from './HealthQuiz';
+import BlogHome from '../pages/bloghome/BlogHome';
+import Single from '../pages/single/Single';
+import Write from '../pages/write/Write';
 
 const Home = () => {
   const location = useLocation();
@@ -30,7 +33,7 @@ const Home = () => {
   }
 
   // Check if the current path is "/home" before rendering the component
-  if (location.pathname === '/' || location.pathname === '/signup' || location.pathname === '/forgot-password' || location.pathname === "/login" || location.pathname === "/health-quiz" || location.pathname === "/not-found") {
+  if (location.pathname === '/' || location.pathname === '/signup' || location.pathname === '/forgot-password' || location.pathname === "/login" || location.pathname === "/health-quiz" || location.pathname === "/not-found" || location.pathname === "/blog" || location.pathname === "/post/:postId" || location.pathname === "/write") {
     return null;
   }
 
@@ -56,6 +59,10 @@ const Home = () => {
             {/* <Route path="/health-quiz" element={<HealthQuiz/>}  /> */}
             {/* Full-screen Not Found page without the sidebar */}
             <Route path="/not-found" element={<NotFound />} />
+            {/* <Route path="/calorie-meter" element={<CircBar />} /> */}
+            {/* <Route path="/blog" element={<ProtectedRoute component={BlogHome} />} />
+            <Route path="/post/:postId" element={<ProtectedRoute component={Single} />} /> 
+            <Route path="/write" element={<ProtectedRoute component={Write} />} /> */}
           </Routes>
         </div>
 

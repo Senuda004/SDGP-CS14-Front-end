@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     // Redirect to "/not-found" if the current path doesn't match any specified routes
-    if (!['/dashboard', '/calorie-meter', '/ai-chatbot', '/', '/signup', '/forgot-password',"/health-quiz", "/login"].includes(location.pathname)) {
+    if (!['/dashboard', '/calorie-meter', '/ai-chatbot', '/', '/signup', '/forgot-password',"/health-quiz", "/login", "/blog", "/post/:postId", "/write" ].includes(location.pathname)) {
       navigate('/not-found');
     }
   }, [location.pathname, navigate]);

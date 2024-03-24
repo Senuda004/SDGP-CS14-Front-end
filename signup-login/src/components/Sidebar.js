@@ -8,6 +8,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     { title: "Dashboard", src: "https://i.ibb.co/n7FkLbR/home.png" },
     { title: "Calorie Meter", src: "https://i.ibb.co/7z639nV/calories-1.png", gap: true },
     { title: "AI Chatbot", src: "https://i.ibb.co/L8CVzd2/bot-1.png", gap: true },
+    { title: "Blog", src: "https://i.ibb.co/L8CVzd2/bot-1.png", gap: true },
   ];
 
   const handleLogOut = () => {
@@ -52,6 +53,15 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 <img src={Menus[2].src} width={23} />
                 <span className={`${!isOpen && "hidden"} origin-left duration-200 pl-5`}>
                     {Menus[2].title}
+                </span>
+            </li>
+        </Link>
+
+        <Link to="/blog">
+            <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-500 text-sm font-semibold items-center gap-x-4 border-2 border-amber-400 ${Menus[3].gap ? "mt-9" : "mt-2"} ${3 === 0 && "bg-light-white"} ${location.pathname === '/blog' ? "bg-amber-100" : ""}`}>
+                <img src={Menus[3].src} width={23} />
+                <span className={`${!isOpen && "hidden"} origin-left duration-200 pl-5`}>
+                    {Menus[3].title}
                 </span>
             </li>
         </Link>

@@ -77,7 +77,6 @@ const Dashboard = () => {
   
   // Function to open the new modal
   const openVideoModal = () => {
-    window.location.reload();
     setIsVideoModalOpen(true);
   };
 
@@ -94,7 +93,7 @@ const Dashboard = () => {
 
   const fetchBarcodeInfo = async (barcode) => {
     try {
-      const apiUrl = `https://world.openfoodfacts.net/api/v2/product/${barcode}?fields=product_name,nutriscore_data,nutriments,nutrition_grades`;
+      const apiUrl = `https://world.openfoodfacts.org/api/v2/product/${barcode}?fields=product_name,nutriscore_data,nutriments,nutrition_grades`;
       const response = await axios.get(apiUrl);
       console.log(response.data);
      
@@ -102,6 +101,7 @@ const Dashboard = () => {
       console.log("qr product " + 
       product_name
        );
+       setIdentifiedItem(product_name);
 
        const { nutriments } = response.data.product;
     
@@ -690,8 +690,29 @@ const Dashboard = () => {
         <img className="w-[203px] h-[255px]" src="https://i.ibb.co/7tSwKBq/removal-ai-8793b6e3-d8cc-4a38-985b-1c07d1850ee3-51aca451-26eb-4659-8b2e-f5e714fde315.png" alt='photo business'/>
         <div className="w-[685px] h-[221px] bg-white rounded-[30px] custom-shadow-home flex justify-around">
           <div className='flex flex-col gap-0 items-center'>
-            <img src="https://i.ibb.co/bXpVFtD/chocolate-bis-BG2.png" alt="chocolate-bis-BG" className=' w-[45vh]'/>
-            <h2 className="text-[15px] font-semibold relative bottom-4 ">Nutri Recommendation: <span className='text-gray-700 rounded-[30px] border-2 border-green-400 p-2 px-4'>{NutriRecommendation}</span></h2>
+            {/* <img src="https://i.ibb.co/bXpVFtD/chocolate-bis-BG2.png" alt="chocolate-bis-BG" className=' w-[45vh]'/> */}
+            {/* Display identified item */}
+            {/* {firstPhotoTaken && ( */}
+              <div className=' text-[13px] mt-9 mb-14 border-2 border-amber-400 rounded-xl p-4'>
+                {identifiedItem !== null ? (
+                  <p>{identifiedItem}</p>
+                ) : (
+                  <p>Scan to see a score and a recommendation!</p>
+                )}
+              </div>
+            {/* )} */}
+            <h2 className="text-[15px] font-semibold relative bottom-4">
+              Nutri Recommendation:{' '}
+              <span className={`text-gray-700 rounded-[30px] border-2 p-2 px-4 
+                  ${NutriRecommendation === 'good' ? 'border-green-400' : 
+                  NutriRecommendation === 'moderate' ? 'border-orange-400' : 'border-red-400'}`}>
+                {NutriRecommendation ? (
+                  NutriRecommendation + ' 😶‍🌫️'
+                ) : (
+                  '☹️'
+                )}
+              </span>
+            </h2>
           </div>
           
           <NutriCard 
@@ -740,7 +761,7 @@ const Dashboard = () => {
         </div>
 
         <div onClick={openVideoModal} className="w-[320px] h-[300px] bg-white rounded-[30px] custom-shadow-home cursor-pointer flex justify-center items-center align-middle flex-col gap-10">
-          <img className="w-[215px] h-[215px] relative" src="https://i.ibb.co/74DPzs4/62356-removebg-preview.png" />
+          <img className="w-[200px] h-[200px] relative" src="https://i.ibb.co/nrhzMvh/5703566-removebg-preview.png" />
           <h3 className='font-medium text-[18px] relative bottom-7'>Scan using barcode</h3>
         </div>
       </div>
@@ -917,7 +938,7 @@ const Dashboard = () => {
         <div>
           <h2>Video Stream</h2>
           {/* <video ref={ref} /> */}
-          <video ref={ref} className='rounded-xl w-2/3 m-auto ' />
+          <Webcam ref={ref} className='rounded-xl w-2/3 m-auto ' autoPlay/>
 
           {/* Display the last result */}
           <p>
@@ -929,41 +950,13 @@ const Dashboard = () => {
         <button onClick={closeVideoModal}>Close</button>
       </Modal>
 
-      {/* <div>
-        <div className='fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white border-4 border-yellow-500 rounded-lg p-8 z-50'>
-          <video ref={ref} /> 
-        </div>
-      </div> */}
-      
-      
-      <p className=' mt-24'>
-        
-        <span >Last result:</span>
-        <span>{result}</span>
-      </p>
+      <div className='mt-[15vh] hidden justify-center flex-co items-center'>
+        <div className=' w-[50vh] h-[20vh]'>
+          <video ref={ref} className=' custom-shadow-home rounded-xl mb-5'/>
 
-      <div className="relative">
-        {/* Button to open/close the popup */}
-        {/* <button onClick={togglePopup} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Open Popup
-        </button> */}
-        
-        {/* Popup content */}
-        {isPopupOpen && (
-          <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white border-4 border-yellow-500 rounded-lg p-8 z-50">
-            <div className="text-center">
-              <h2>Video Stream</h2>
-              <video ref={ref} />
-              <p className="font-semibold mb-3">Last result:</p>
-              <p>{result}</p>
-              {/* Button to close the popup */}
-              <button onClick={togglePopup} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4">Close</button>
-            </div>
-          </div>
-        )}
-        
-        {/* Background overlay */}
-        {isPopupOpen && <div className="fixed top-0 left-0 w-full h-full bg-black opacity-50 z-40" onClick={togglePopup}></div>}
+          <span className=''>Barcode result:</span>
+          <span>{result}</span> 
+        </div>
       </div>
 
 
