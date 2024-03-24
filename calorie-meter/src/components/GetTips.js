@@ -7,11 +7,8 @@ const GetTips = ({ tipsData }) => {
       <div className="tips-container">
         {tipsData.map(tip => (
           <div key={tip.id} className="tip-card">
-        
             <div className="tip-topic">{tip.topic}</div>
-            <div className="tip-description">{tip.description}<a href={tip.Link} className="learn-more-link">Learn more</a></div>
-            
-            
+            <div className="tip-description">{tip.description}<a href={tip.Link} className="learn-more-link">Learn more</a></div>            
           </div>
         ))}
       </div>

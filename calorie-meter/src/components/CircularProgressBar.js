@@ -46,7 +46,6 @@ const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
      
     }
   };*/
-
   
   const handleAddCalories = () => {
     // Check if goal is set
@@ -79,8 +78,6 @@ const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
     }
   };
 
-
-  
   // Determine stroke color based on progress percentage
   let strokeColor;
   if (progressPercentage < 33) {
@@ -93,9 +90,7 @@ const CircularProgressBar = ({ goal, consumed, onConsumedChange }) => {
 
   return (
     <div>
-      
- 
-      {/* SVG container */}
+        {/* SVG container */}
       <svg width={size} height={size}>
         {/* Background circle */}
         <circle

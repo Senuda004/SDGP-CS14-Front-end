@@ -2,16 +2,14 @@
 import './App.css';
 import CircBar from './components/CircBar';
 import React from 'react';
-import DataBackend from './components/DataBackend';
+
 
 const App = () => {
   
   return (
     <div className="App">
-      <CircBar/>    
+      <CircBar/>    {/*Calling the main component circBar here*/}
     </div>
-    
-    
   );
 }
 

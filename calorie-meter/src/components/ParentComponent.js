@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import CircularProgressBar from './CircularProgressBar';
 import ProductList from './ProductList';
 
 const ParentComponent = () => {
-  const [goal, setGoal] = useState(5000);
   const [consumed, setConsumed] = useState(0);
   //const [products, setProducts] = useState([]);
   
@@ -14,7 +12,6 @@ const ParentComponent = () => {
       .then(data => setProducts(data))
       .catch(error => console.error('Error fetching products:', error));
   }, []);
-
 
 
  const handleConsumedChange = (newConsumed) => {

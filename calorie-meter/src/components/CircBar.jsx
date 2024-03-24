@@ -10,7 +10,6 @@ import axios from 'axios'; // Import Axios for making HTTP requests
 
 export default function CircBar() { // Destructure props here
   
-  
   // circular bar functions
   const [goal, setGoal] = useState(5000);
   const [consumed, setConsumed] = useState(0);
@@ -25,7 +24,6 @@ export default function CircBar() { // Destructure props here
   /*const [newGoal, setNewGoal] = useState(0); // Define newGoal state
   const [updatedConsumed, setUpdatedConsumed] = useState(0); // Define updatedConsumed state*/
   
-
   // Function to scroll to display of tips
   const scrollTogetTip = () => {
     const getTipSection = document.getElementById('getTip');
@@ -66,7 +64,6 @@ export default function CircBar() { // Destructure props here
       }
     }, [showTryAgain]);
 
-
   const handleSetGoal = () => {
         const newGoalValue = parseInt(inputGoal, 10) || 0;
     if (isNaN(newGoalValue) || newGoalValue <= 0) {
@@ -101,11 +98,9 @@ export default function CircBar() { // Destructure props here
      
     };
   
-   
 
   return (
     <div className='resposiveCon'>
-      
       <div className='contar'>
         <div className='topHed'><span>Calorie Meter</span></div>
             <div className='welcome'>
@@ -153,7 +148,6 @@ export default function CircBar() { // Destructure props here
             <div >
                 {/* Display products */}
                 <DetailsPage/>
-                
             </div>
         )}
         </div>
@@ -163,9 +157,7 @@ export default function CircBar() { // Destructure props here
             <DataBackend/>
             </div>
         )
-          
         }
-        
         </div>  
     </div>    
   );

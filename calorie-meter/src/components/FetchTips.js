@@ -20,7 +20,6 @@ const FetchTips = () => {
 
   return (
     <div>
-     
       <GetTips tipsData={tipsData} />
     </div>
   );
