@@ -9,7 +9,7 @@
   grid-gap: 50px; /* Adjust the gap between grid items */
   padding: 30px; /* Add padding to the grid */
   margin: 0; /* Remove margin */
-  margin-top: 30px; /* Add margin top */
+  margin-top: 0px; /* Add margin top */
   max-width: 100%; /* Prevent posts from overflowing horizontally */
   overflow-x: hidden; /* Hide horizontal overflow */
 }
@@ -43,14 +43,15 @@
 }
 
 .postImg:hover {
-  opacity: 0.9; /* Adjust the opacity value as needed */
+  opacity: 0.9; 
 }
 
 .addPostButton {
-  margin-top: 120px;
-  margin-bottom:50px ;
+  margin-top: 215px;
+
   position: absolute;
   z-index: 100; /* Ensure it's above other content */
+ 
 }
 
 

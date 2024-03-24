@@ -2,18 +2,21 @@ import "./write.css";
 import '@fortawesome/fontawesome-free/css/all.css';
 import axios from "axios";
 import React, { useState, useContext } from 'react';
+import { Context } from "../../context/Context";
 
 export default function Write() {
   const [title, setTitle] = useState(""); // State to hold the post title
   const [description, setDescription] = useState(""); // State to hold the post description
   const [file, setFile] = useState(null); // State to hold the selected image file
+  const { user } = useContext(Context);
 
   // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newPost = {
       title,
-      description
+      description,
+    
     };
 
     // If a file is selected, prepare form data for file upload
