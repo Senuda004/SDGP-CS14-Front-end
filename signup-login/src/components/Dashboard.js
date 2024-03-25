@@ -905,7 +905,7 @@ const Dashboard = () => {
       >
         <div>
           <NutritionForm onAdd={addUserFoodData} />
-          <NutriCard2 image={NutritionalGradeImage(grade)} score={score} />
+          <NutriCard2 image={NutritionalGradeImage(grade)} score={score}/>
         </div>
         <button onClick={closeNutritionModal} className='absolute top-2 right-8 bg-amber-400 text-white w-20 rounded-md p-2 mt-10 font-semibold'>Close</button>
       </Modal> 
@@ -937,7 +937,7 @@ const Dashboard = () => {
         }}
       >
         <div>
-          <h2>Video Stream</h2>
+          <h2 className='font-semibold mb-3 text-center'>Video Stream</h2>
           {/* <video ref={ref} /> */}
           <Webcam ref={ref} className='rounded-xl w-2/3 m-auto ' autoPlay/>
 
@@ -948,7 +948,7 @@ const Dashboard = () => {
           </p>
         </div>
         {/* Button to close the modal */}
-        <button onClick={closeVideoModal}>Close</button>
+        <button onClick={closeVideoModal} className='bg-amber-400 text-white w-32 rounded-md p-2 mb-3 font-semibold'>Close</button>
       </Modal>
 
       <div className='mt-[15vh] hidden justify-center flex-co items-center'>

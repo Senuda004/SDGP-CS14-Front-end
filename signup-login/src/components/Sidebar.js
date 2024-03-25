@@ -68,7 +68,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         
       </ul>
 
-      <div className=' pt-52'>
+      <div className=' pt-44'>
         <button className="flex bg-amber-400 text-white w-full rounded-md p-2 mt-10" onClick={handleLogOut}>
           <img src="https://i.ibb.co/9yn08Ny/logout-1.png" className={`w-6`} />
           <span className={`${!isOpen && "hidden"} origin-left pl-16`}>Log Out</span>

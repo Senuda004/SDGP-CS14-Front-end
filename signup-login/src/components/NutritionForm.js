@@ -84,36 +84,36 @@ function NutritionForm (props) {
         <div >
         <form className="flex items-center flex-col">
         <div>
-      <div className="form-group">
-        <label htmlFor="energy">Energy (kJ)</label>
+      <div className="form-group mb-2">
+        <label htmlFor="energy">Energy (kJ)  </label>
         <input name="energy" type="number" value={foodData.energy} className="form-control form-control-sm" id="energy" placeholder="Enter Energy in kJ" onChange={handleChange} />
       </div>
-      <div className="form-group">
-        <label htmlFor="saturated_fats">Saturated fats (g)</label>
+      <div className="form-group mb-2">
+        <label htmlFor="saturated_fats">Saturated fats (g)  </label>
         <input name ="saturated_fats" type="number" value={foodData.saturated_fats} className="form-control form-control-sm" id="saturated_fats" placeholder="Enter Saturated fats in g"  onChange={handleChange}/>
       </div>
-      <div className="form-group">
-        <label htmlFor="sugar">Sugar (g) </label>
+      <div className="form-group mb-2">
+        <label htmlFor="sugar">Sugar (g)  </label>
         <input name="sugar" type="number" value={foodData.sugar} className="form-control form-control-sm" id="sugar" placeholder="Enter Sugar in g" onChange={handleChange} />
       </div>
-      <div className="form-group">
-        <label htmlFor="fibers">Fibers (g)</label>
+      <div className="form-group mb-2">
+        <label htmlFor="fibers">Fibers (g)  </label>
         <input name="fibers" type="fibers" value={foodData.fibers} className="form-control form-control-sm" id="fibers" placeholder="Enter Fibers in g"  onChange={handleChange}/>
       </div>
-      <div className="form-group">
-        <label htmlFor="proteins">Proteins (g)</label>
+      <div className="form-group mb-2">
+        <label htmlFor="proteins">Proteins (g)  </label>
         <input name="proteins" type="number" value={foodData.proteins} className="form-control form-control-sm" id="proteins" placeholder="Enter Proteins in g"  onChange={handleChange}/>
       </div>
-      <div className="form-group">
-        <label htmlFor="sodium">Sodium (mg)</label>
+      <div className="form-group mb-2">
+        <label htmlFor="sodium">Sodium (mg)  </label>
         <input name="sodium" type="number" value={foodData.sodium} className="form-control form-control-sm" id="sodium" placeholder="Enter Sodium in mg"  onChange={handleChange}/>
       </div>
-      <div className="form-group">
-        <label htmlFor="energy">% Vegitable and Fruits (%)</label>
+      <div className="form-group mb-2">
+        <label htmlFor="energy">% Vegitable and Fruits (%)  </label>
         <input name="fruit_percentage" type="number" value={foodData.fruit_percentage} className="form-control form-control-sm" id="fruit_percentage" placeholder="Enter % Vegitable and Fruits (0 - 100)" onChange={handleChange} />
       </div>
 
-      <button onClick={submitFoodData} type="button" className="btn btn-primary bg-amber-400 text-white w-32 rounded-md p-2 mb-3 mt-4 font-semibold" id="calculateNutriScore" >Proceed</button>
+      <button onClick={submitFoodData} type="button" className="btn btn-primary bg-amber-400 text-white w-32 rounded-md p-2 mb-6 mt-4 font-semibold" id="calculateNutriScore" >Proceed</button>
       </div>
     </form>
 
